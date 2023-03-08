@@ -1,7 +1,6 @@
 extends Node3D
 class_name StageMaster
 
-
 var camera : GameCamera : get = get_camera
 var player : Character : get = get_player
 

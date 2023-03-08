@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bkuq6w876dvkk"]
 
 [ext_resource type="Script" path="res://Scenes/Stages/StageMaster.gd" id="1_f31se"]
-[ext_resource type="PackedScene" uid="uid://bgxjskvgjph0k" path="res://Objects/Characters/Player/Player.tscn" id="2_6j1x0"]
+[ext_resource type="PackedScene" uid="uid://clupb81q84tw5" path="res://Objects/Characters/Player/Player.tscn" id="2_6j1x0"]
 [ext_resource type="PackedScene" uid="uid://dwbqlnge51q7" path="res://Objects/GameCamera/GameCamera.tscn" id="3_tpes8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c5oh7"]

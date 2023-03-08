@@ -25,7 +25,10 @@ var current_mouse_sensitivity : float = 0.05
 
 const DEAFEN_AMOUNT : float = 1.5 #for pausing purposes
 const GRAVITY : float = 10.0
-
+enum DAMAGES{
+	LIGHT,
+	HEAVY
+}
 
 func root_scene():
 	return get_tree().get_root().get_child(1)

@@ -19,10 +19,10 @@ shape = SubResource("BoxShape3D_8qqt2")
 
 [node name="AnimationTimer" type="Timer" parent="Pivot"]
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("body", "starting_state")]
 script = ExtResource("1_rg1l8")
-body_path = NodePath("..")
-starting_state_path = NodePath("Idle")
+body = NodePath("..")
+starting_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("3_tliv8")

@@ -1,21 +1,16 @@
 extends Node
 class_name StateMachine
 
-@export var body_path : NodePath
-@export var starting_state_path : NodePath
 
-var body
+@export var body : Node
+@export var starting_state : State
 
-var starting_state
 var states : Dictionary = {}
 
 var current_state
 
 
 func _ready():
-	body = get_node(body_path)
-	starting_state = get_node(starting_state_path)
-	
 	await Signal(body, 'ready')
 	
 	for child in get_children():

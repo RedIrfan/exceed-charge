@@ -11,7 +11,7 @@ var dash_direction : Vector2 = Vector2.ZERO
 
 
 func enter_condition(_new_body, _new_fsm) -> bool:
-	return dash_timer.is_stopped()
+	return true
 
 
 func enter(_msg=[]):
@@ -31,7 +31,7 @@ func exit():
 
 
 func physics_process(_delta):
-	look_at_mouse()
+#	look_at_mouse()
 	
 	if body.speed == dash_speed:
 		apply_direction(dash_direction)
