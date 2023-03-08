@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2buh5kxpgp5r"]
+
+[ext_resource type="Script" path="res://Objects/Characters/Character.gd" id="1_a3ld5"]
+[ext_resource type="Script" path="res://Objects/Engine/FSM/StateMachine.gd" id="1_rg1l8"]
+[ext_resource type="Script" path="res://Objects/Characters/States/StateCharacter.gd" id="3_tliv8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8qqt2"]
+
+[node name="Character" type="CharacterBody3D"]
+script = ExtResource("1_a3ld5")
+
+[node name="CharacterCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_8qqt2")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="Pivot"]
+
+[node name="AnimationTimer" type="Timer" parent="Pivot"]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("1_rg1l8")
+body_path = NodePath("..")
+starting_state_path = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_tliv8")
