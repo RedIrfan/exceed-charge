@@ -1,8 +1,13 @@
 extends StateCharacter
+class_name StateActionMaster
 
+## The next state fsm will go to if all action ends except if comboing
 @export var next_state : State
+
 var actions : Array = []
 var action_index : int
+
+var can_combo : bool = false
 
 
 func _ready():
@@ -34,10 +39,12 @@ func play_action():
 	
 	if action.animation_name != "":
 		body.play_animation(action.animation_name)
-	body.start_animation_timer(action.animation_duration)
+	body.start_animation_timer(action.duration)
 	
 	if action.hitbox != null:
 		action.hitbox.set_damage(action.damage, action.damage_type)
+	
+	can_combo = action.can_combo
 	
 	if action.direction != Vector2.ZERO:
 		var body_form = body.global_transform.basis
