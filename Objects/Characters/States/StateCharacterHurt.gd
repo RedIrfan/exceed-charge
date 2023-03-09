@@ -35,6 +35,9 @@ func enter(_msg=[]):
 	var animation_name = ["Light", "Heavy"]
 	
 	_process_damage()
+	Global.pause(true, Global.PAUSES.CUTSCENE)
+	await get_tree().create_timer(0.05).timeout
+	Global.pause(false)
 	
 	if immovable == false:
 		body.direction = Vector2(body_back_scalar.x, body_back_scalar.z)
@@ -43,13 +46,18 @@ func enter(_msg=[]):
 	body.look_at(hurt_data.attack_position, Vector3.UP)
 	body.rotation_degrees.x = 0
 	
-	body.play_animation("Hurt" + animation_name[hurt_data.damage_type], _get_knockback()[1])
+	body.play_animation("Hurt" + animation_name[hurt_data.damage_type], _get_knockback()[1], true)
 
 
 func exit():
 	body.disconnect_from_animation_timer(_on_animation_timeout)
 	reset_direction()
 	reset_speed()
+
+
+func process(_delta):
+	if body.hurt_data != null:
+		fsm.enter_state(self.name)
 
 
 func _process_damage():

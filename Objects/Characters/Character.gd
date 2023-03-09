@@ -34,9 +34,12 @@ func _move(delta):
 	move_and_slide()
 
 
-func play_animation(animation_name:String, animation_duration:float=0):
+func play_animation(animation_name:String, animation_duration:float=0, force_travel:bool=false):
 	if animation_tree.tree_root.has_node(animation_name):
-		animation_tree.get('parameters/playback').travel(animation_name)
+		if force_travel == false:
+			animation_tree.get('parameters/playback').travel(animation_name)
+		else:
+			animation_tree.get('parameters/playback').start(animation_name)
 		if animation_duration != 0:
 			start_animation_timer(animation_duration)
 	else:
