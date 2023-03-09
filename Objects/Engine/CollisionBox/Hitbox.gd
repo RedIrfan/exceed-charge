@@ -1,7 +1,9 @@
 extends CollisionBox
 class_name Hitbox
 
-var _damage : int = 0
+@export var attack_position : Node
+
+var _damage : int = 0 # underscored for abstraction
 var _damage_type : int = 0
 
 var hitlist : Array[Hurtbox] = []
@@ -15,15 +17,21 @@ func _ready():
 	area_exited.connect(_on_area_exited)
 
 
-func set_damage(damage, damage_type:Global.DAMAGES):
+func set_damage(damage, damage_type:Global.DAMAGES=Global.DAMAGES.LIGHT):
 	_damage = damage
 	_damage_type = damage_type
+	
+	if _damage > 0:
+		for hurtbox in hitlist:
+			process_attack(hurtbox)
 
 
 func _on_area_entered(area):
 	if area is Hurtbox:
 		if area.body != body:
 			hitlist.append(area)
+			if _damage > 0:
+				process_attack(area)
 
 
 func _on_area_exited(area):
@@ -32,7 +40,9 @@ func _on_area_exited(area):
 			hitlist.erase(area)
 
 
-func process_attack():
-	for hurtbox in hitlist:
-		hurtbox.set_hurtdata(body, self.global_transform.origin, _damage, _damage_type)
-		hitlist.erase(hurtbox)
+func process_attack(hurtbox):
+	var attack_pos = self.global_transform.origin
+	if attack_position != null:
+		attack_pos = attack_position.global_transform.origin
+	
+	hurtbox.set_hurtdata(body, attack_pos, _damage, _damage_type)

@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2buh5kxpgp5r"]
+[gd_scene load_steps=6 format=3 uid="uid://d2buh5kxpgp5r"]
 
 [ext_resource type="Script" path="res://Objects/Characters/Character.gd" id="1_a3ld5"]
 [ext_resource type="Script" path="res://Objects/Engine/FSM/StateMachine.gd" id="1_rg1l8"]
 [ext_resource type="Script" path="res://Objects/Characters/States/StateCharacter.gd" id="3_tliv8"]
+[ext_resource type="Script" path="res://Objects/Characters/States/StateCharacterHurt.gd" id="4_xcg1a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8qqt2"]
+size = Vector3(0.766279, 1, 0.792268)
 
 [node name="Character" type="CharacterBody3D"]
 script = ExtResource("1_a3ld5")
@@ -26,3 +28,6 @@ starting_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("3_tliv8")
+
+[node name="Hurt" type="Node" parent="StateMachine"]
+script = ExtResource("4_xcg1a")

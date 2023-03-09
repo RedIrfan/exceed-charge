@@ -27,7 +27,7 @@ func enter_state(state_name:String, msg=[]):
 			await current_state.exit()
 		
 		var next_state = states[state_name]
-		if next_state.enter_condition(body, self):
+		if next_state.enter_condition(body, self, msg):
 			current_state = next_state
 			current_state.body = body
 			current_state.fsm = self

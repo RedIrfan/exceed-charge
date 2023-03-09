@@ -5,7 +5,7 @@ var body
 var fsm
 
 
-func enter_condition(_new_body, _new_fsm) -> bool:
+func enter_condition(_new_body, _new_fsm, _msg=[]) -> bool:
 	return true
 
 

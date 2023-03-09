@@ -16,7 +16,7 @@ func _ready():
 	target = Global.root_scene().player
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	mouse_raycast.target_position = camera3d.project_local_ray_normal(get_viewport().get_mouse_position()) * 50
 	
 	ball.global_transform.origin = get_mouse_position3d()

@@ -8,9 +8,4 @@ func _ready():
 
 
 func set_hurtdata(attacker, attack_position, damage, damage_type):
-	body.set_hurtdata({
-		"attacker" : attacker,
-		"attack_position" : attack_position,
-		"damage" : damage,
-		"damage_type" : damage_type
-	})
+	body.set_hurtdata(Hurtdata.new(attacker, attack_position, damage, damage_type))

@@ -10,10 +10,6 @@ extends StatePlayer
 var dash_direction : Vector2 = Vector2.ZERO
 
 
-func enter_condition(_new_body, _new_fsm) -> bool:
-	return true
-
-
 func enter(_msg=[]):
 	body.connect_to_animation_timer(_on_animation_timeout)
 	body.speed = dash_speed

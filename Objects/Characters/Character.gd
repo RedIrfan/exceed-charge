@@ -14,13 +14,12 @@ var health = HEALTH
 var speed = SPEED
 
 var direction = Vector2.ZERO
+var hurt_data : Hurtdata = null
 
 
 func _ready():
 	health = HEALTH
 	speed = SPEED
-	
-	print(animation_tree)
 
 
 func _physics_process(delta):
@@ -55,3 +54,6 @@ func connect_to_animation_timer(target_callable:Callable):
 func disconnect_from_animation_timer(target_callable:Callable):
 	if animation_timer.timeout.is_connected(target_callable):
 		animation_timer.timeout.disconnect(target_callable)
+
+func set_hurtdata(new_hurt_data : Hurtdata):
+	hurt_data = new_hurt_data

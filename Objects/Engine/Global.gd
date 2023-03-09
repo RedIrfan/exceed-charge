@@ -34,7 +34,7 @@ func root_scene():
 	return get_tree().get_root().get_child(1)
 
 
-func pause(mode:bool, mode_pause:int=PAUSES.FULL):
+func pause(mode:bool, mode_pause:PAUSES=PAUSES.FULL):
 	if mode == true: 
 		current_pause = mode_pause
 		if mode_pause == PAUSES.FULL: #if the pause mode is full, then the volume will be deafened
