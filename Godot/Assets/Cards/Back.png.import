@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buq43g7253kx3"
-path.s3tc="res://.godot/imported/Jack.png-36727ebb187e258ab5123cc0d2185d50.s3tc.ctex"
+uid="uid://dg4irey4wfglx"
+path="res://.godot/imported/Back.png-565b9fc04bc687a6f3aed1538bfc2c57.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cards/Triangle/Jack.png"
-dest_files=["res://.godot/imported/Jack.png-36727ebb187e258ab5123cc0d2185d50.s3tc.ctex"]
+source_file="res://Assets/Cards/Back.png"
+dest_files=["res://.godot/imported/Back.png-565b9fc04bc687a6f3aed1538bfc2c57.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

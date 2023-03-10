@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv4v2aftmfgir"
-path="res://.godot/imported/Ace.png-5d5d792f8b5d37505e2c08bb4a142584.ctex"
+uid="uid://dg3sn26024chr"
+path="res://.godot/imported/Deuce.png-c92c0a24a0d13033c6932d8b6c0b8e1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cards/Triangle/Ace.png"
-dest_files=["res://.godot/imported/Ace.png-5d5d792f8b5d37505e2c08bb4a142584.ctex"]
+source_file="res://Assets/Cards/Arrows/Deuce.png"
+dest_files=["res://.godot/imported/Deuce.png-c92c0a24a0d13033c6932d8b6c0b8e1f.ctex"]
 
 [params]
 

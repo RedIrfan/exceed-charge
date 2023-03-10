@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8vpfsav68prr"]
+[gd_scene load_steps=3 format=3 uid="uid://djtxdje7w3j5i"]
 
 [ext_resource type="Texture2D" uid="uid://dg4irey4wfglx" path="res://Assets/Cards/Back.png" id="1_vlatb"]
-[ext_resource type="Texture2D" uid="uid://bv4v2aftmfgir" path="res://Assets/Cards/Triangle/Ace.png" id="2_113ya"]
+[ext_resource type="Texture2D" uid="uid://bv4v2aftmfgir" path="res://Assets/Cards/Arrows/Ace.png" id="2_8lkcy"]
 
 [node name="CardMesh" type="Sprite3D"]
 double_sided = false
@@ -10,4 +10,4 @@ texture = ExtResource("1_vlatb")
 [node name="Inside" type="Sprite3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 double_sided = false
-texture = ExtResource("2_113ya")
+texture = ExtResource("2_8lkcy")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkuq6w876dvkk"]
+[gd_scene load_steps=12 format=3 uid="uid://bkuq6w876dvkk"]
 
 [ext_resource type="Script" path="res://Scenes/Stages/StageMaster.gd" id="1_f31se"]
 [ext_resource type="PackedScene" uid="uid://clupb81q84tw5" path="res://Objects/Characters/Player/Player.tscn" id="2_6j1x0"]
+[ext_resource type="PackedScene" uid="uid://ci0vjyorewo07" path="res://Scenes/Guis/GuiMaster.tscn" id="2_dg3y4"]
 [ext_resource type="PackedScene" uid="uid://dwbqlnge51q7" path="res://Objects/GameCamera/GameCamera.tscn" id="3_tpes8"]
 [ext_resource type="PackedScene" uid="uid://bx7iihigk42vl" path="res://Objects/Characters/Dummy/Dummy.tscn" id="4_k5p6w"]
 
@@ -37,6 +38,10 @@ data = PackedVector3Array(-25, 0.5, 25, 25, 0.5, 25, -25, -0.5, 25, 25, 0.5, 25,
 [node name="StageMaster" type="Node3D"]
 script = ExtResource("1_f31se")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GuiMaster" parent="CanvasLayer" instance=ExtResource("2_dg3y4")]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_wa1dc")
 
@@ -53,8 +58,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 mesh = SubResource("BoxMesh_f14f2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_soo54")
 
 [node name="Dummy" parent="." instance=ExtResource("4_k5p6w")]

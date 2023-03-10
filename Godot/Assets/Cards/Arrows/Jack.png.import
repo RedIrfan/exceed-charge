@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg3sn26024chr"
-path.s3tc="res://.godot/imported/Deuce.png-88931c6936b8d11b3cbfdecfc5053968.s3tc.ctex"
+uid="uid://buq43g7253kx3"
+path="res://.godot/imported/Jack.png-0fa911264b8f623d43b5823fac52755e.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cards/Triangle/Deuce.png"
-dest_files=["res://.godot/imported/Deuce.png-88931c6936b8d11b3cbfdecfc5053968.s3tc.ctex"]
+source_file="res://Assets/Cards/Arrows/Jack.png"
+dest_files=["res://.godot/imported/Jack.png-0fa911264b8f623d43b5823fac52755e.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

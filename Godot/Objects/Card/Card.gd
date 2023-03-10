@@ -13,6 +13,7 @@ enum SUITS {
 @export var suit : SUITS = SUITS.PENTAGON
 
 var card_name : String = "" : get = get_card_name
+var card_image : Texture = null : get = get_card_image
 
 
 func _init(new_value : int=1, new_suit : SUITS=SUITS.PENTAGON):
@@ -22,12 +23,29 @@ func _init(new_value : int=1, new_suit : SUITS=SUITS.PENTAGON):
 
 func get_card_name() -> String:
 	if card_name == "":
-		var value_to_string = ["none", "Ace", "Deuce", "Jack"]
 		var suit_to_string = ["Pentagons", "Triangles", "Diamonds", "Arrows"]
 		
-		card_name += value_to_string[value] + " Of " + suit_to_string[suit]
-	
+		card_name += value_to_string() + " Of " + suit_to_string[suit]
 	return card_name
+
+
+func get_card_image() -> Texture:
+	if card_image == null:
+		# res://Assets/Cards/Suits/Value.png
+		card_image = load("res://Assets/Cards/" + suit_to_string() + "/" + value_to_string() + ".png")
+	return card_image
+
+
+func value_to_string() -> String:
+	var string_conversions = ["none", "Ace", "Deuce", "Jack"]
+	
+	return string_conversions[value]
+
+
+func suit_to_string()->String:
+	var string_conversions = ["Pentagons", "Triangles", "Diamonds", "Arrows"]
+	
+	return string_conversions[suit]
 
 
 func process_card(body:Character) -> void:
