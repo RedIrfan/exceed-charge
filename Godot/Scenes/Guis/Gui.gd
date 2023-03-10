@@ -4,6 +4,7 @@ class_name Gui
 signal entered
 signal exited
 
+var player
 var gm
 
 

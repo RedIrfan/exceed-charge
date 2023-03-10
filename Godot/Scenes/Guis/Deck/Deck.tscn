@@ -5707,6 +5707,7 @@ target_position = Vector3(0, 0, -10)
 collision_mask = 524288
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Camera3D"]
+visible = false
 mesh = SubResource("SphereMesh_cxq6t")
 
 [node name="Alpha" type="Node3D" parent="SubViewportContainer/SubViewport"]
@@ -5953,8 +5954,9 @@ transform = Transform3D(-0.914453, 0.177886, -0.363439, 0.311525, -0.263868, -0.
 bone_name = "Thumb.R"
 bone_idx = 15
 
-[node name="Sprite3D" type="Sprite3D" parent="SubViewportContainer/SubViewport/Alpha/Armature/Skeleton3D/BoneAttachment3D"]
+[node name="CardMesh" type="Sprite3D" parent="SubViewportContainer/SubViewport/Alpha/Armature/Skeleton3D/BoneAttachment3D"]
 transform = Transform3D(0.00237233, -0.0146389, 0.00225269, 0.012039, 0.0032348, 0.00834261, -0.00862757, 0.000488585, 0.0122608, -0.0253455, 0.0378647, -0.0516274)
+visible = false
 layers = 524288
 texture = ExtResource("2_bnr0v")
 
@@ -5976,16 +5978,18 @@ skin = SubResource("Skin_myyvu")
 process_priority = 1
 root_bone = &"UpperArm.R"
 tip_bone = &"Hand.R"
-override_tip_basis = false
 use_magnet = true
-target_node = NodePath("../../../HandIK")
+target_node = NodePath("../../../HandIK/Position")
 
 [node name="HandIK" type="Marker3D" parent="SubViewportContainer/SubViewport/Alpha"]
-transform = Transform3D(1, -1.77636e-15, -7.10543e-15, -1.77636e-15, 1, 0, -7.10543e-15, 0, 1, 0.40054, 1.35143, -0.102301)
+transform = Transform3D(-0.0079976, 0.00555723, -0.999953, 0.570628, 0.821209, 2.32831e-10, 0.82117, -0.570601, -0.00973881, 0.40054, 1.35143, -0.102301)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Alpha/HandIK"]
 visible = false
 mesh = SubResource("SphereMesh_dr3br")
+
+[node name="Position" type="Marker3D" parent="SubViewportContainer/SubViewport/Alpha/HandIK"]
+transform = Transform3D(1, 0, -4.65661e-10, 1.49012e-07, 1, -2.79397e-09, -4.65661e-10, 0, 1, 0, -0.081, 0)
 
 [node name="Area3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Alpha"]
 transform = Transform3D(1, -1.77636e-14, 7.10543e-14, 0, 1, 0, 0, 0, 1, 2.98023e-08, 0.144305, 0.431598)
@@ -6007,8 +6011,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 192.0
-offset_right = 2304.0
-offset_bottom = 1510.0
+offset_right = 10368.0
+offset_bottom = 6046.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_jpb4a")
@@ -6027,6 +6031,23 @@ layout_mode = 2
 
 [node name="CardButton3" parent="Cards/BoxContainer" instance=ExtResource("2_txka0")]
 layout_mode = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 329.0
+offset_right = 717.0
+offset_bottom = 415.0
+
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -89.0
+grow_horizontal = 0
+grow_vertical = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

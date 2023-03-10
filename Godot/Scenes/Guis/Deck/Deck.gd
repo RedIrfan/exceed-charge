@@ -7,6 +7,7 @@ extends Gui
 @onready var skeleton_ik : SkeletonIK3D = $SubViewportContainer/SubViewport/Alpha/Armature/Skeleton3D/SkeletonIK3D
 @onready var camera3d : Camera3D = $SubViewportContainer/SubViewport/Camera3D
 @onready var mouse_raycast : RayCast3D = $SubViewportContainer/SubViewport/Camera3D/MouseRaycast
+@onready var card_mesh : Sprite3D = $SubViewportContainer/SubViewport/Alpha/Armature/Skeleton3D/BoneAttachment3D/CardMesh
 
 const CARD_BUTTON = preload("res://Scenes/Guis/Deck/CardButton/CardButton.tscn")
 

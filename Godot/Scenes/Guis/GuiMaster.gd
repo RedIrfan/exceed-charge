@@ -3,6 +3,8 @@ class_name GuiMaster
 
 @export var starting_gui : Gui
 
+var player : Character
+
 var gui_list : Dictionary = {}
 var current_gui : Gui
 
@@ -13,7 +15,9 @@ func _ready():
 			gui_list[child.name.to_lower()] = child
 	
 	await Signal(Global.root_scene(), "ready")
+	
 	enter_gui(starting_gui.name)
+	player = Global.root_scene().player
 
 
 func enter_gui(gui_name:String):
@@ -24,6 +28,7 @@ func enter_gui(gui_name:String):
 			await Signal(current_gui, "exited")
 		current_gui = gui_list[gui_name]
 		current_gui.gm = self
+		current_gui.player = player
 		current_gui.enter()
 
 
