@@ -13,14 +13,12 @@ func _ready():
 
 
 func enter():
-	print("entered" + self.name)
 	self.visible = true
 	
 	emit_signal("entered")
 
 
 func exit():
-	print("exited" + self.name)
 	self.visible = false
 	
 	emit_signal("exited")

@@ -5,6 +5,7 @@ extends Gui
 
 @onready var activating_area : Panel = $ActivatingArea
 @onready var end_activating : Panel = $ActivatingArea/EndDirection
+@onready var activating_timer : Timer = $ActivatingTimer
 
 @onready var hand_ik : Marker3D = $SubViewportContainer/SubViewport/Alpha/HandIK
 @onready var skeleton_ik : SkeletonIK3D = $SubViewportContainer/SubViewport/Alpha/Armature/Skeleton3D/SkeletonIK3D
@@ -15,20 +16,31 @@ extends Gui
 const CARD_BUTTON = preload("res://Scenes/Guis/Deck/CardButton/CardButton.tscn")
 
 var activating : bool = false
+var mouse_on_start_activate : bool = false
+var mouse_on_start_before_end : bool = false
+var mouse_on_end_activate : bool = false
 
 
 func _ready():
 	$SubViewportContainer/SubViewport/Alpha/AnimationPlayer.play("ActivatingCard")
 	$Cards.size = Vector2(1152, 468)
+	
+	activating_timer.connect("timeout", _on_activating_timeout)
 
 
 func enter():
 	super.enter()
 	
-	activating_area.connect("mouse_entered", _on_activate_area)
-	activating_area.connect("mouse_exited", _leave_activate_area)
+	activating = false
+	mouse_on_start_activate = false
+	mouse_on_start_before_end = false
+	mouse_on_end_activate = false
 	
-	end_activating.connect("mouse_exited", _on_activate)
+	activating_area.connect("mouse_entered", _entered_activate_area)
+	activating_area.connect("mouse_exited", _exited_activate_area)
+	
+	end_activating.connect("mouse_entered", _entered_end_activate)
+	end_activating.connect("mouse_exited", _exited_end_activate)
 	
 	animation_player.play("Show")
 	skeleton_ik.start()
@@ -38,10 +50,11 @@ func enter():
 
 
 func exit():
-	activating_area.disconnect("mouse_entered", _on_activate_area)
-	activating_area.disconnect("mouse_exited", _leave_activate_area)
+	activating_area.disconnect("mouse_entered", _entered_activate_area)
+	activating_area.disconnect("mouse_exited", _exited_activate_area)
 	
-	end_activating.disconnect("mouse_exited", _on_activate)
+	end_activating.disconnect("mouse_entered", _entered_end_activate)
+	end_activating.disconnect("mouse_exited", _exited_end_activate)
 	
 	animation_player.play_backwards("Show")
 	skeleton_ik.stop()
@@ -66,14 +79,33 @@ func _use_card():
 	gm.enter_gui("Hud")
 
 
-func _on_activate_area():
-	activating = true
-
-
-func _leave_activate_area():
+func _entered_activate_area():
 	activating = false
+	if mouse_on_end_activate == false:
+		mouse_on_start_activate = true
 
 
-func _on_activate():
-	if activating == false:
+func _exited_activate_area():
+	await get_tree().create_timer(0.1).timeout
+	
+	mouse_on_start_activate = false
+
+
+func _entered_end_activate():
+	mouse_on_end_activate = true
+	if mouse_on_start_activate:
+		mouse_on_start_before_end = true
+
+
+func _exited_end_activate():
+	if mouse_on_start_before_end:
+		activating = true
+		activating_timer.start(0.1)
+	
+	await get_tree().create_timer(0.1).timeout
+	mouse_on_end_activate = false
+
+
+func _on_activating_timeout():
+	if activating:
 		_use_card()

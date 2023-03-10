@@ -6011,8 +6011,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 192.0
-offset_right = 12672.0
-offset_bottom = 7342.0
+offset_right = 33408.0
+offset_bottom = 19006.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_jpb4a")
@@ -6046,6 +6046,9 @@ anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -89.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
 grow_horizontal = 0
 grow_vertical = 2
 
@@ -6053,3 +6056,6 @@ grow_vertical = 2
 libraries = {
 "": SubResource("AnimationLibrary_dsc84")
 }
+
+[node name="ActivatingTimer" type="Timer" parent="."]
+one_shot = true
