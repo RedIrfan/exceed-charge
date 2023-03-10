@@ -3,6 +3,9 @@ extends Gui
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var cards : Control = $Cards/BoxContainer
 
+@onready var activating_area : Panel = $ActivatingArea
+@onready var end_activating : Panel = $ActivatingArea/EndDirection
+
 @onready var hand_ik : Marker3D = $SubViewportContainer/SubViewport/Alpha/HandIK
 @onready var skeleton_ik : SkeletonIK3D = $SubViewportContainer/SubViewport/Alpha/Armature/Skeleton3D/SkeletonIK3D
 @onready var camera3d : Camera3D = $SubViewportContainer/SubViewport/Camera3D
@@ -10,6 +13,8 @@ extends Gui
 @onready var card_mesh : Sprite3D = $SubViewportContainer/SubViewport/Alpha/Armature/Skeleton3D/BoneAttachment3D/CardMesh
 
 const CARD_BUTTON = preload("res://Scenes/Guis/Deck/CardButton/CardButton.tscn")
+
+var activating : bool = false
 
 
 func _ready():
@@ -20,6 +25,11 @@ func _ready():
 func enter():
 	super.enter()
 	
+	activating_area.connect("mouse_entered", _on_activate_area)
+	activating_area.connect("mouse_exited", _leave_activate_area)
+	
+	end_activating.connect("mouse_exited", _on_activate)
+	
 	animation_player.play("Show")
 	skeleton_ik.start()
 	
@@ -28,6 +38,11 @@ func enter():
 
 
 func exit():
+	activating_area.disconnect("mouse_entered", _on_activate_area)
+	activating_area.disconnect("mouse_exited", _leave_activate_area)
+	
+	end_activating.disconnect("mouse_exited", _on_activate)
+	
 	animation_player.play_backwards("Show")
 	skeleton_ik.stop()
 	for child in cards.get_children():
@@ -45,3 +60,20 @@ func physics_process(_delta):
 	
 	if mouse_raycast.get_collider():
 		hand_ik.global_transform.origin = mouse_raycast.get_collision_point()
+
+
+func _use_card():
+	gm.enter_gui("Hud")
+
+
+func _on_activate_area():
+	activating = true
+
+
+func _leave_activate_area():
+	activating = false
+
+
+func _on_activate():
+	if activating == false:
+		_use_card()

@@ -6011,8 +6011,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 192.0
-offset_right = 10368.0
-offset_bottom = 6046.0
+offset_right = 12672.0
+offset_bottom = 7342.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_jpb4a")
@@ -6032,14 +6032,14 @@ layout_mode = 2
 [node name="CardButton3" parent="Cards/BoxContainer" instance=ExtResource("2_txka0")]
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="."]
+[node name="ActivatingArea" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 424.0
 offset_top = 329.0
 offset_right = 717.0
 offset_bottom = 415.0
 
-[node name="Panel" type="Panel" parent="Panel"]
+[node name="EndDirection" type="Panel" parent="ActivatingArea"]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
