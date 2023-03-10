@@ -1,6 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://dqshqmvxt2efe"]
+[gd_scene load_steps=34 format=3 uid="uid://brly1j0wxjkvn"]
 
-[ext_resource type="Script" path="res://Scenes/Guis/DeckOn/DeckOn.gd" id="1_0unlb"]
+[ext_resource type="Script" path="res://Scenes/Guis/Deck/Deck.gd" id="1_kofso"]
+[ext_resource type="Texture2D" uid="uid://dg4irey4wfglx" path="res://Assets/Cards/Back.png" id="2_bnr0v"]
+[ext_resource type="PackedScene" uid="uid://euoe8lfgjhmx" path="res://Scenes/Guis/Deck/CardButton/CardButton.tscn" id="2_txka0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_075ha"]
 shading_mode = 0
@@ -5607,6 +5609,11 @@ _data = {
 "WalkRight": SubResource("Animation_onyn0")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66w1m"]
+
+[sub_resource type="Theme" id="Theme_jpb4a"]
+Button/styles/normal = SubResource("StyleBoxFlat_66w1m")
+
 [sub_resource type="Animation" id="Animation_ghwuk"]
 length = 0.001
 tracks/0/type = "value"
@@ -5620,6 +5627,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 661)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cards:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 192)]
 }
 
 [sub_resource type="Animation" id="Animation_bf4kb"]
@@ -5635,7 +5654,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 661), Vector2(0, 0), Vector2(0, 20)]
+"values": [Vector2(0, 661), Vector2(0, -20), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cards:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 192), Vector2(0, 192), Vector2(0, -10), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dsc84"]
@@ -5644,22 +5675,26 @@ _data = {
 "Show": SubResource("Animation_bf4kb")
 }
 
-[node name="DeckOn" type="Control"]
+[node name="Deck" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-script = ExtResource("1_0unlb")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kofso")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 y_sort_enabled = true
 layout_mode = 1
 offset_top = 661.0
 offset_right = 1152.0
-offset_bottom = 1312.0
+offset_bottom = 1329.0
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(1152, 648)
+size = Vector2i(1152, 668)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
@@ -5669,9 +5704,9 @@ current = true
 
 [node name="MouseRaycast" type="RayCast3D" parent="SubViewportContainer/SubViewport/Camera3D"]
 target_position = Vector3(0, 0, -10)
+collision_mask = 524288
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Camera3D"]
-visible = false
 mesh = SubResource("SphereMesh_cxq6t")
 
 [node name="Alpha" type="Node3D" parent="SubViewportContainer/SubViewport"]
@@ -5913,6 +5948,16 @@ bones/32/position = Vector3(0.330634, 0.312153, -0.1048)
 bones/32/rotation = Quaternion(0.36008, 0.595518, -0.198931, -0.690019)
 bones/32/scale = Vector3(1, 1, 1)
 
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="SubViewportContainer/SubViewport/Alpha/Armature/Skeleton3D"]
+transform = Transform3D(-0.914453, 0.177886, -0.363439, 0.311525, -0.263868, -0.91287, -0.258293, -0.948003, 0.185906, 0.293014, 0.349192, -0.157983)
+bone_name = "Thumb.R"
+bone_idx = 15
+
+[node name="Sprite3D" type="Sprite3D" parent="SubViewportContainer/SubViewport/Alpha/Armature/Skeleton3D/BoneAttachment3D"]
+transform = Transform3D(0.00237233, -0.0146389, 0.00225269, 0.012039, 0.0032348, 0.00834261, -0.00862757, 0.000488585, 0.0122608, -0.0253455, 0.0378647, -0.0516274)
+layers = 524288
+texture = ExtResource("2_bnr0v")
+
 [node name="Cube" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Alpha/Armature/Skeleton3D"]
 layers = 524288
 sorting_offset = 10.0
@@ -5936,7 +5981,7 @@ use_magnet = true
 target_node = NodePath("../../../HandIK")
 
 [node name="HandIK" type="Marker3D" parent="SubViewportContainer/SubViewport/Alpha"]
-transform = Transform3D(1, -1.59872e-14, 6.39488e-14, 0, 1, 0, 0, 0, 1, 0.40054, 1.43833, -0.216806)
+transform = Transform3D(1, -1.77636e-15, -7.10543e-15, -1.77636e-15, 1, 0, -7.10543e-15, 0, 1, 0.40054, 1.35143, -0.102301)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/Alpha/HandIK"]
 visible = false
@@ -5944,6 +5989,8 @@ mesh = SubResource("SphereMesh_dr3br")
 
 [node name="Area3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport/Alpha"]
 transform = Transform3D(1, -1.77636e-14, 7.10543e-14, 0, 1, 0, 0, 0, 1, 2.98023e-08, 0.144305, 0.431598)
+collision_layer = 524288
+collision_mask = 524288
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/Alpha/Area3D"]
 transform = Transform3D(1, -3.21779e-08, -2.03195e-08, 3.77623e-08, 0.90525, 0.424879, 4.72261e-09, -0.424879, 0.90525, -3.72529e-08, 1.24547, -1.14744)
@@ -5953,6 +6000,33 @@ shape = SubResource("BoxShape3D_c8f3q")
 libraries = {
 "": SubResource("AnimationLibrary_6fsy7")
 }
+
+[node name="Cards" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 192.0
+offset_right = 2304.0
+offset_bottom = 1510.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jpb4a")
+theme_override_constants/margin_top = 458
+
+[node name="BoxContainer" type="BoxContainer" parent="Cards"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="CardButton" parent="Cards/BoxContainer" instance=ExtResource("2_txka0")]
+layout_mode = 2
+
+[node name="CardButton2" parent="Cards/BoxContainer" instance=ExtResource("2_txka0")]
+layout_mode = 2
+
+[node name="CardButton3" parent="Cards/BoxContainer" instance=ExtResource("2_txka0")]
+layout_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

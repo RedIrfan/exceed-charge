@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 Global="*res://Objects/Engine/Global.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"

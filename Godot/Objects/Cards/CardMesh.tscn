@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu4fspx6bpksv"]
+
+[ext_resource type="Texture2D" uid="uid://dg4irey4wfglx" path="res://Assets/Cards/Back.png" id="1_f43u7"]
+[ext_resource type="Texture2D" uid="uid://bv4v2aftmfgir" path="res://Assets/Cards/Arrows/Ace.png" id="2_2eed7"]
+
+[node name="Back" type="Sprite3D"]
+double_sided = false
+texture = ExtResource("1_f43u7")
+
+[node name="Inside" type="Sprite3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+double_sided = false
+texture = ExtResource("2_2eed7")

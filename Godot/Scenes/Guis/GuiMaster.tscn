@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ci0vjyorewo07"]
+[gd_scene load_steps=4 format=3 uid="uid://ddavubmc2k7kp"]
 
 [ext_resource type="Script" path="res://Scenes/Guis/GuiMaster.gd" id="1_wwxu0"]
-[ext_resource type="PackedScene" uid="uid://cvjk7erd2yl1i" path="res://Scenes/Guis/Hud/Hud.tscn" id="2_i3dxm"]
-[ext_resource type="PackedScene" uid="uid://dqshqmvxt2efe" path="res://Scenes/Guis/DeckOn/DeckOn.tscn" id="2_i8s50"]
+[ext_resource type="PackedScene" uid="uid://yl0ax47os7of" path="res://Scenes/Guis/Hud/Hud.tscn" id="2_i3dxm"]
+[ext_resource type="PackedScene" uid="uid://brly1j0wxjkvn" path="res://Scenes/Guis/Deck/Deck.tscn" id="2_i8s50"]
 
 [node name="GuiMaster" type="Control" node_paths=PackedStringArray("starting_gui")]
 layout_mode = 3
@@ -15,5 +15,7 @@ script = ExtResource("1_wwxu0")
 starting_gui = NodePath("Hud")
 
 [node name="Hud" parent="." instance=ExtResource("2_i3dxm")]
+layout_mode = 1
 
-[node name="DeckOn" parent="." instance=ExtResource("2_i8s50")]
+[node name="Deck" parent="." instance=ExtResource("2_i8s50")]
+layout_mode = 1

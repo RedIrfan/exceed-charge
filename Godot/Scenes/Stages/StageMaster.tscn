@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Stages/StageMaster.gd" id="1_f31se"]
 [ext_resource type="PackedScene" uid="uid://clupb81q84tw5" path="res://Objects/Characters/Player/Player.tscn" id="2_6j1x0"]
-[ext_resource type="PackedScene" uid="uid://ci0vjyorewo07" path="res://Scenes/Guis/GuiMaster.tscn" id="2_dg3y4"]
+[ext_resource type="PackedScene" uid="uid://ddavubmc2k7kp" path="res://Scenes/Guis/GuiMaster.tscn" id="2_dg3y4"]
 [ext_resource type="PackedScene" uid="uid://dwbqlnge51q7" path="res://Objects/GameCamera/GameCamera.tscn" id="3_tpes8"]
 [ext_resource type="PackedScene" uid="uid://bx7iihigk42vl" path="res://Objects/Characters/Dummy/Dummy.tscn" id="4_k5p6w"]
 
@@ -50,6 +50,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_6j1x0")]
+deck = null
 
 [node name="GameCamera" parent="." instance=ExtResource("3_tpes8")]
 

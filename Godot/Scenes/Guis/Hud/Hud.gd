@@ -4,11 +4,11 @@ extends Gui
 
 
 func exit():
-	await get_tree().create_timer(0.1)
+	await get_tree().create_timer(0.1).timeout
 	
 	super.exit()
 
 
 func process(_delta):
 	if Input.is_action_just_pressed("action_deck"):
-		gm.enter_gui("DeckOn")
+		gm.enter_gui("Deck")
