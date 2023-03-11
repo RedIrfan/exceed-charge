@@ -23,6 +23,9 @@ func _ready():
 func enter_gui(gui_name:String):
 	gui_name = gui_name.to_lower()
 	if gui_list.has(gui_name):
+		
+		
+		
 		if current_gui:
 			current_gui.exit()
 			await Signal(current_gui, "exited")

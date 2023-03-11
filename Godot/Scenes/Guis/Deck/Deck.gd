@@ -19,9 +19,9 @@ var holding_a_card : bool = false
 
 func _ready():
 	$SubViewportContainer/SubViewport/Alpha/AnimationPlayer.play("ActivatingCard")
-	$Cards.size = Vector2(1152, 468)
+	$Cards.size = Vector2(1152, 578)
 	
-	await Signal(Global.root_scene().player, "ready")
+	await Signal(Global.root_scene(), "ready")
 	var deck : DeckData = Global.root_scene().player.deck
 	
 	for index in range(0, deck.DECK_MAX_AMOUNT):
@@ -36,6 +36,9 @@ func _ready():
 
 func enter():
 	super.enter()
+	
+	player.deck_on = true
+	release_card()
 	
 	for cbutton in card_buttons:
 		if cbutton.card_index_in_deck < player.deck.deck_list.size():
@@ -53,6 +56,8 @@ func enter():
 
 
 func exit():
+	player.deck_on = false
+	
 	animation_player.play_backwards("Show")
 	skeleton_ik.stop()
 	for child in cards.get_children():
@@ -67,8 +72,8 @@ func physics_process(_delta):
 		gm.enter_gui("Hud")
 	
 	if Input.is_action_just_released("action_primary_attack"):
-		activating_area.release()
-		card_mesh.visible = false
+		if holding_a_card == true:
+			release_card()
 	
 	mouse_raycast.target_position = camera3d.project_local_ray_normal(get_viewport().get_mouse_position()) * 10
 	
@@ -81,5 +86,14 @@ func _use_card():
 
 
 func _on_card_held(cbutton):
+	holding_a_card = true
+	animation_player.play("HoldingCard")
 	card_mesh.visible = true
 	activating_area.hold()
+
+
+func release_card():
+	holding_a_card = false
+	animation_player.play_backwards("HoldingCard")
+	activating_area.release()
+	card_mesh.visible = false

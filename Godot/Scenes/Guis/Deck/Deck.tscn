@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://brly1j0wxjkvn"]
+[gd_scene load_steps=37 format=3 uid="uid://brly1j0wxjkvn"]
 
 [ext_resource type="Script" path="res://Scenes/Guis/Deck/Deck.gd" id="1_kofso"]
 [ext_resource type="Texture2D" uid="uid://dg4irey4wfglx" path="res://Assets/Cards/Back.png" id="2_bnr0v"]
@@ -5614,6 +5614,26 @@ _data = {
 [sub_resource type="Theme" id="Theme_jpb4a"]
 Button/styles/normal = SubResource("StyleBoxFlat_66w1m")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7nc0h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3ga64"]
+
+[sub_resource type="Animation" id="Animation_tpwvv"]
+resource_name = "HoldingCard"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cards:theme_override_constants/margin_top")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [458, 568]
+}
+
 [sub_resource type="Animation" id="Animation_ghwuk"]
 length = 0.001
 tracks/0/type = "value"
@@ -5639,6 +5659,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 192)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cards:theme_override_constants/margin_top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [458]
 }
 
 [sub_resource type="Animation" id="Animation_bf4kb"]
@@ -5668,9 +5700,22 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 192), Vector2(0, 192), Vector2(0, -10), Vector2(0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cards:theme_override_constants/margin_top")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [458]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dsc84"]
 _data = {
+"HoldingCard": SubResource("Animation_tpwvv"),
 "RESET": SubResource("Animation_ghwuk"),
 "Show": SubResource("Animation_bf4kb")
 }
@@ -6029,6 +6074,7 @@ offset_left = 424.0
 offset_top = 329.0
 offset_right = 717.0
 offset_bottom = 415.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_7nc0h")
 script = ExtResource("3_0806l")
 
 [node name="EndDirection" type="Panel" parent="ActivatingArea"]
@@ -6043,6 +6089,7 @@ offset_right = 4.0
 offset_bottom = 4.0
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3ga64")
 
 [node name="ActivateTimer" type="Timer" parent="ActivatingArea"]
 one_shot = true

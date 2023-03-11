@@ -42,10 +42,13 @@ func look_at_mouse(rotation_speed:float=0) -> void:
 	look_at(mouse3d_pos, rotation_speed)
 
 
-
 func check_dash():
 	return Input.is_action_just_pressed("action_dash")
 
 
 func check_primary_attack():
 	return Input.is_action_just_pressed("action_primary_attack")
+
+
+func is_deck_on() -> bool:
+	return body.deck_on

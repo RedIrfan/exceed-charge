@@ -10,5 +10,6 @@ func process(_delta):
 	
 	if get_direction() != Vector2.ZERO:
 		fsm.enter_state("Walk")
-	if check_primary_attack():
-		fsm.enter_state("AttackMaster")
+	if is_deck_on() == false:
+		if check_primary_attack():
+			fsm.enter_state("AttackMaster")

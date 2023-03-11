@@ -34,6 +34,10 @@ func root_scene():
 	return get_tree().get_root().get_child(1)
 
 
+func stage_master():
+	return get_tree().get_first_node_in_group("StageMaster")
+
+
 func pause(mode:bool, mode_pause:PAUSES=PAUSES.FULL):
 	if mode == true: 
 		current_pause = mode_pause
