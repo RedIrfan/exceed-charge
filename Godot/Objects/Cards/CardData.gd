@@ -32,7 +32,9 @@ func get_card_name() -> String:
 func get_card_image() -> Texture:
 	if card_image == null:
 		# res://Assets/Cards/Suits/Value.png
-		card_image = load("res://Assets/Cards/" + suit_to_string() + "/" + value_to_string() + ".png")
+		var img_path = "res://Assets/Cards/" + suit_to_string() + "/" + value_to_string() + ".png"
+		
+		card_image = load(img_path)
 	return card_image
 
 

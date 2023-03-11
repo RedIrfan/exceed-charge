@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Guis/Deck/Deck.gd" id="1_kofso"]
 [ext_resource type="Texture2D" uid="uid://dg4irey4wfglx" path="res://Assets/Cards/Back.png" id="2_bnr0v"]
-[ext_resource type="PackedScene" uid="uid://euoe8lfgjhmx" path="res://Scenes/Guis/Deck/CardButton/CardButton.tscn" id="2_txka0"]
+[ext_resource type="Script" path="res://Scenes/Guis/Deck/ActivatingArea.gd" id="3_0806l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_075ha"]
 shading_mode = 0
@@ -6011,8 +6011,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 192.0
-offset_right = 33408.0
-offset_bottom = 19006.0
+offset_right = 3456.0
+offset_bottom = 2136.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_jpb4a")
@@ -6023,21 +6023,13 @@ layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="CardButton" parent="Cards/BoxContainer" instance=ExtResource("2_txka0")]
-layout_mode = 2
-
-[node name="CardButton2" parent="Cards/BoxContainer" instance=ExtResource("2_txka0")]
-layout_mode = 2
-
-[node name="CardButton3" parent="Cards/BoxContainer" instance=ExtResource("2_txka0")]
-layout_mode = 2
-
 [node name="ActivatingArea" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 424.0
 offset_top = 329.0
 offset_right = 717.0
 offset_bottom = 415.0
+script = ExtResource("3_0806l")
 
 [node name="EndDirection" type="Panel" parent="ActivatingArea"]
 layout_mode = 1
@@ -6051,6 +6043,9 @@ offset_right = 4.0
 offset_bottom = 4.0
 grow_horizontal = 0
 grow_vertical = 2
+
+[node name="ActivateTimer" type="Timer" parent="ActivatingArea"]
+one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

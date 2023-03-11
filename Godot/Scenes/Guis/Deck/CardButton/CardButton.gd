@@ -13,7 +13,7 @@ func _ready():
 	self.connect("mouse_entered", _selected)
 	self.connect("mouse_exited", _not_selected)
 	
-	self.connect("pressed", _on_pressed)
+	self.connect("button_down", _on_pressed)
 
 
 func _selected():
