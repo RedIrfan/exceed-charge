@@ -6000,8 +6000,7 @@ bone_name = "Thumb.R"
 bone_idx = 15
 
 [node name="CardMesh" type="Sprite3D" parent="SubViewportContainer/SubViewport/Alpha/Armature/Skeleton3D/BoneAttachment3D"]
-transform = Transform3D(0.00237233, -0.0146389, 0.00225269, 0.012039, 0.0032348, 0.00834261, -0.00862757, 0.000488585, 0.0122608, -0.0253455, 0.0378647, -0.0516274)
-visible = false
+transform = Transform3D(0.00474465, -0.0292778, 0.0045054, 0.024078, 0.00646958, 0.0166852, -0.0172551, 0.000977183, 0.0245215, -0.0253455, 0.0378647, -0.0516274)
 layers = 524288
 texture = ExtResource("2_bnr0v")
 
@@ -6056,8 +6055,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 192.0
-offset_right = 3456.0
-offset_bottom = 2136.0
+offset_right = 18432.0
+offset_bottom = 10560.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_jpb4a")

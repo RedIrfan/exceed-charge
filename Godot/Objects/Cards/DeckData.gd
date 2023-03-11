@@ -43,6 +43,7 @@ func use_card(card_index:int) -> bool:
 			charge += card.value
 			if charge >= limit_max_charge:
 				exceed_charge()
+			remove_card(card_index)
 	return false
 
 

@@ -9,7 +9,7 @@
    id="svg5"
    sodipodi:docname="Ace.svg"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
-   inkscape:export-filename="..\..\..\Godot\Assets\Cards\Triangles\Ace.png"
+   inkscape:export-filename="..\..\..\Godot\Assets\Cards\Arrows\Ace.png"
    inkscape:export-xdpi="50"
    inkscape:export-ydpi="50"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -27,9 +27,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.2973261"
-     inkscape:cx="427.14044"
-     inkscape:cy="650.80059"
+     inkscape:zoom="0.2102413"
+     inkscape:cx="171.23182"
+     inkscape:cy="796.7036"
      inkscape:window-width="1024"
      inkscape:window-height="705"
      inkscape:window-x="-8"
@@ -72,30 +72,30 @@
        x="35"
        y="35" />
     <path
-       style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:4;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
-       d="M 81.550237,172.84379 H 128.11498 L 104.83262,126.95214 81.550237,172.84379"
+       style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:4;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       d="M 81.550237,125.22011 H 128.11498 L 104.83262,171.11176 81.550237,125.22011"
        id="path5730" />
     <text
        xml:space="preserve"
-       style="font-size:50.8px;font-family:Impact;-inkscape-font-specification:Impact;fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:2;stroke-opacity:1;stroke-dasharray:none"
+       style="font-size:50.8px;font-family:Impact;-inkscape-font-specification:Impact;fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2;stroke-opacity:1;stroke-dasharray:none"
        x="9.7895832"
        y="49.675514"
        id="text6566"><tspan
          sodipodi:role="line"
          id="tspan6564"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.8px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic';stroke-width:2;stroke:#116590;stroke-opacity:1;stroke-dasharray:none;fill:#19c7bf;fill-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.8px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic';stroke-width:2;stroke:#7c0c4c;stroke-opacity:1;stroke-dasharray:none"
          x="9.7895832"
          y="49.675514">A</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:50.8px;font-family:Impact;-inkscape-font-specification:Impact;fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
+       style="font-size:50.8px;font-family:Impact;-inkscape-font-specification:Impact;fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
        x="-200.60732"
        y="-247.32451"
        id="text6620"
        transform="scale(-1)"><tspan
          sodipodi:role="line"
          id="tspan6618"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.8px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic';stroke-width:2;stroke-dasharray:none;stroke:#116590;stroke-opacity:1;fill:#19c7bf;fill-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.8px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic';stroke-width:2;stroke-dasharray:none;stroke:#7c0c4c;stroke-opacity:1"
          x="-200.60732"
          y="-247.32451">A</tspan></text>
   </g>

@@ -7,9 +7,9 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg5"
-   sodipodi:docname="Ace.svg"
+   sodipodi:docname="Jack.svg"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
-   inkscape:export-filename="..\..\..\Godot\Assets\Cards\Triangles\Ace.png"
+   inkscape:export-filename="..\..\..\Godot\Assets\Cards\Arrows\Jack.png"
    inkscape:export-xdpi="50"
    inkscape:export-ydpi="50"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -28,8 +28,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.2973261"
-     inkscape:cx="427.14044"
-     inkscape:cy="650.80059"
+     inkscape:cx="-104.26263"
+     inkscape:cy="539.81134"
      inkscape:window-width="1024"
      inkscape:window-height="705"
      inkscape:window-x="-8"
@@ -49,13 +49,6 @@
        height="297"
        x="8.8817842e-15"
        y="1.0658141e-14" />
-    <rect
-       style="fill:#151659;fill-opacity:1;stroke:#375080;stroke-width:0"
-       id="rect6654"
-       width="160"
-       height="247"
-       x="25"
-       y="25" />
     <path
        style="fill:none;fill-opacity:1;stroke:#151659;stroke-width:4.99999;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
        d="M 0,0 34.999998,34.999998 V 262 H 175 l 35,35"
@@ -65,6 +58,13 @@
        d="M 210,0 175,34.999998 V 262 H 34.999998 L 0,297"
        id="path8161" />
     <rect
+       style="fill:#7c0c4c;fill-opacity:1;stroke:none;stroke-width:0;stroke-opacity:1"
+       id="rect6654"
+       width="160"
+       height="247"
+       x="25"
+       y="25" />
+    <rect
        style="fill:#151659;fill-opacity:1;stroke:#2f397f;stroke-width:5;stroke-opacity:1;stroke-dasharray:none;stroke-linecap:square"
        id="rect6667"
        width="140"
@@ -72,31 +72,38 @@
        x="35"
        y="35" />
     <path
-       style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:4;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
-       d="M 81.550237,172.84379 H 128.11498 L 104.83262,126.95214 81.550237,172.84379"
+       style="fill:#7c0c4c;fill-opacity:1;stroke:#c61a55;stroke-width:6;stroke-opacity:1;stroke-dasharray:none;stroke-linecap:square"
+       d="m 55,98.5 h 100 l -50,100 -50,-100"
        id="path5730" />
     <text
        xml:space="preserve"
-       style="font-size:50.8px;font-family:Impact;-inkscape-font-specification:Impact;fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:2;stroke-opacity:1;stroke-dasharray:none"
+       style="font-size:50.8px;font-family:Impact;-inkscape-font-specification:Impact;fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
        x="9.7895832"
        y="49.675514"
        id="text6566"><tspan
          sodipodi:role="line"
          id="tspan6564"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.8px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic';stroke-width:2;stroke:#116590;stroke-opacity:1;stroke-dasharray:none;fill:#19c7bf;fill-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.8px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic';stroke-width:2;stroke-dasharray:none;stroke:#7c0c4c;stroke-opacity:1"
          x="9.7895832"
-         y="49.675514">A</tspan></text>
+         y="49.675514">J</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:50.8px;font-family:Impact;-inkscape-font-specification:Impact;fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
+       style="font-size:50.8px;font-family:Impact;-inkscape-font-specification:Impact;fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
        x="-200.60732"
        y="-247.32451"
        id="text6620"
        transform="scale(-1)"><tspan
          sodipodi:role="line"
          id="tspan6618"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.8px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic';stroke-width:2;stroke-dasharray:none;stroke:#116590;stroke-opacity:1;fill:#19c7bf;fill-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.8px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic';stroke-width:2;stroke-dasharray:none;stroke:#7c0c4c;stroke-opacity:1"
          x="-200.60732"
-         y="-247.32451">A</tspan></text>
+         y="-247.32451">J</tspan></text>
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#151659;stroke-width:5;stroke-opacity:1;stroke-dasharray:none"
+       id="rect17393"
+       width="210"
+       height="297"
+       x="8.8817842e-15"
+       y="1.0658141e-14" />
   </g>
 </svg>

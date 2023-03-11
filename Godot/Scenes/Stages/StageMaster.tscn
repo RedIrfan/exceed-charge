@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bkuq6w876dvkk"]
+[gd_scene load_steps=18 format=3 uid="uid://bkuq6w876dvkk"]
 
 [ext_resource type="Script" path="res://Scenes/Stages/StageMaster.gd" id="1_f31se"]
 [ext_resource type="PackedScene" uid="uid://clupb81q84tw5" path="res://Objects/Characters/Player/Player.tscn" id="2_6j1x0"]
@@ -25,16 +25,26 @@ tonemap_mode = 2
 tonemap_white = 0.88
 glow_enabled = true
 
-[sub_resource type="Resource" id="Resource_c874x"]
+[sub_resource type="Resource" id="Resource_d6bno"]
 script = ExtResource("4_ungx7")
-value = 1
-suit = 3
+value = 3
+suit = 0
+
+[sub_resource type="Resource" id="Resource_imy8k"]
+script = ExtResource("4_ungx7")
+value = 2
+suit = 1
+
+[sub_resource type="Resource" id="Resource_jbi3o"]
+script = ExtResource("4_ungx7")
+value = 3
+suit = 1
 
 [sub_resource type="Resource" id="Resource_vc5mo"]
 script = ExtResource("5_406gc")
 CHARGE = 5
 DECK_MAX_AMOUNT = 5
-deck_list = Array[ExtResource("4_ungx7")]([SubResource("Resource_c874x")])
+deck_list = Array[ExtResource("4_ungx7")]([SubResource("Resource_d6bno"), SubResource("Resource_imy8k"), SubResource("Resource_jbi3o")])
 metadata/_editor_prop_ptr_body = NodePath(".")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uafxm"]

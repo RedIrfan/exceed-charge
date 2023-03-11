@@ -9,7 +9,7 @@
    id="svg5"
    sodipodi:docname="Ace.svg"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
-   inkscape:export-filename="..\..\..\Godot\Assets\Cards\Triangles\Ace.png"
+   inkscape:export-filename="..\..\..\Godot\Assets\Cards\Pentagons\Ace.png"
    inkscape:export-xdpi="50"
    inkscape:export-ydpi="50"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -28,8 +28,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.2973261"
-     inkscape:cx="427.14044"
-     inkscape:cy="650.80059"
+     inkscape:cx="171.52884"
+     inkscape:cy="691.16031"
      inkscape:window-width="1024"
      inkscape:window-height="705"
      inkscape:window-x="-8"
@@ -71,10 +71,6 @@
        height="227"
        x="35"
        y="35" />
-    <path
-       style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:4;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
-       d="M 81.550237,172.84379 H 128.11498 L 104.83262,126.95214 81.550237,172.84379"
-       id="path5730" />
     <text
        xml:space="preserve"
        style="font-size:50.8px;font-family:Impact;-inkscape-font-specification:Impact;fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:2;stroke-opacity:1;stroke-dasharray:none"
@@ -98,5 +94,23 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.8px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic';stroke-width:2;stroke-dasharray:none;stroke:#116590;stroke-opacity:1;fill:#19c7bf;fill-opacity:1"
          x="-200.60732"
          y="-247.32451">A</tspan></text>
+    <path
+       sodipodi:type="star"
+       style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:5.99799;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       id="path6500"
+       inkscape:flatsided="true"
+       sodipodi:sides="5"
+       sodipodi:cx="103.50953"
+       sodipodi:cy="188.45657"
+       sodipodi:r1="37.58099"
+       sodipodi:r2="35.214733"
+       sodipodi:arg1="-2.8283488"
+       sodipodi:arg2="-2.2000302"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 67.757268,176.87613 35.717862,-26.00053 35.7654,25.9351 -13.61363,42.0293 -44.179081,0.0404 z"
+       inkscape:transform-center-x="0.46019259"
+       inkscape:transform-center-y="-2.3684568"
+       transform="matrix(0.65371627,0,0,0.68032944,37.341772,22.962187)" />
   </g>
 </svg>

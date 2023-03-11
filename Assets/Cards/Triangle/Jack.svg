@@ -9,9 +9,9 @@
    id="svg5"
    sodipodi:docname="Jack.svg"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
-   inkscape:export-filename="..\..\..\Godot\Assets\Cards\Triangle\Jack.png"
-   inkscape:export-xdpi="100"
-   inkscape:export-ydpi="100"
+   inkscape:export-filename="..\..\..\Godot\Assets\Cards\Triangles\Jack.png"
+   inkscape:export-xdpi="50"
+   inkscape:export-ydpi="50"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -27,9 +27,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.2973261"
-     inkscape:cx="50.449658"
-     inkscape:cy="603.71424"
+     inkscape:zoom="0.4204826"
+     inkscape:cx="290.1428"
+     inkscape:cy="638.55198"
      inkscape:window-width="1024"
      inkscape:window-height="705"
      inkscape:window-x="-8"
@@ -58,7 +58,7 @@
        d="M 210,0 175,34.999998 V 262 H 34.999998 L 0,297"
        id="path8161" />
     <rect
-       style="fill:#7c0c4c;fill-opacity:1;stroke:none;stroke-width:0;stroke-opacity:1"
+       style="fill:#116590;fill-opacity:1;stroke:#375080;stroke-width:0"
        id="rect6654"
        width="160"
        height="247"
@@ -71,39 +71,32 @@
        height="227"
        x="35"
        y="35" />
-    <path
-       style="fill:#7c0c4c;fill-opacity:1;stroke:#c61a55;stroke-width:5;stroke-opacity:1;stroke-dasharray:none;stroke-linecap:square"
-       d="m 55,98.5 h 100 l -50,100 -50,-100"
-       id="path5730" />
     <text
        xml:space="preserve"
-       style="font-size:50.8px;font-family:Impact;-inkscape-font-specification:Impact;fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
+       style="font-size:50.8px;font-family:Impact;-inkscape-font-specification:Impact;fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
        x="9.7895832"
        y="49.675514"
        id="text6566"><tspan
          sodipodi:role="line"
          id="tspan6564"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.8px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic';stroke-width:2;stroke-dasharray:none;stroke:#7c0c4c;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.8px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic';fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
          x="9.7895832"
          y="49.675514">J</tspan></text>
     <text
        xml:space="preserve"
-       style="font-size:50.8px;font-family:Impact;-inkscape-font-specification:Impact;fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
+       style="font-size:50.8px;font-family:Impact;-inkscape-font-specification:Impact;fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
        x="-200.60732"
        y="-247.32451"
        id="text6620"
        transform="scale(-1)"><tspan
          sodipodi:role="line"
-         id="tspan6618"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.8px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic';stroke-width:2;stroke-dasharray:none;stroke:#7c0c4c;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50.8px;font-family:'MS Gothic';-inkscape-font-specification:'MS Gothic';fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
          x="-200.60732"
-         y="-247.32451">J</tspan></text>
-    <rect
-       style="fill:none;fill-opacity:1;stroke:#151659;stroke-width:5;stroke-opacity:1;stroke-dasharray:none"
-       id="rect17393"
-       width="210"
-       height="297"
-       x="8.8817842e-15"
-       y="1.0658141e-14" />
+         y="-247.32451"
+         id="tspan5265">J</tspan></text>
+    <path
+       style="fill:#116590;fill-opacity:1;stroke:#19c7bf;stroke-width:6;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       d="M 60.706381,194.95337 H 148.27673 L 104.49158,105.621 60.706381,194.95337"
+       id="path5113" />
   </g>
 </svg>

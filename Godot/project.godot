@@ -102,4 +102,4 @@ action_deck={
 
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"

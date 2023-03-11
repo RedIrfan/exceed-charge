@@ -14,7 +14,8 @@ extends Gui
 const CARD_BUTTON = preload("res://Scenes/Guis/Deck/CardButton/CardButton.tscn")
 
 var card_buttons : Array = []
-var holding_a_card : bool = false
+var held_card : int = -1
+var holding : bool = false
 
 
 func _ready():
@@ -59,11 +60,11 @@ func exit():
 	player.deck_on = false
 	
 	animation_player.play_backwards("Show")
-	skeleton_ik.stop()
 	for child in cards.get_children():
 		child.selected_outline.visible = false
 	
 	await Signal(animation_player, "animation_finished")
+	skeleton_ik.stop()
 	super.exit()
 
 
@@ -72,7 +73,7 @@ func physics_process(_delta):
 		gm.enter_gui("Hud")
 	
 	if Input.is_action_just_released("action_primary_attack"):
-		if holding_a_card == true:
+		if holding:
 			release_card()
 	
 	mouse_raycast.target_position = camera3d.project_local_ray_normal(get_viewport().get_mouse_position()) * 10
@@ -82,18 +83,20 @@ func physics_process(_delta):
 
 
 func _use_card():
+	player.deck.use_card(held_card)
 	gm.enter_gui("Hud")
 
 
 func _on_card_held(cbutton):
-	holding_a_card = true
+	holding = true
+	held_card = cbutton.card_index_in_deck
 	animation_player.play("HoldingCard")
 	card_mesh.visible = true
 	activating_area.hold()
 
 
 func release_card():
-	holding_a_card = false
+	holding = false
 	animation_player.play_backwards("HoldingCard")
 	activating_area.release()
 	card_mesh.visible = false
