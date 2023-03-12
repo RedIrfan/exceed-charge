@@ -17,7 +17,9 @@ func physics_process(_delta):
 		fsm.enter_state("Dash")
 	if is_deck_on() == false:
 		if check_primary_attack():
-			fsm.enter_state("AttackMaster")
+			fsm.enter_state("PrimaryAttackMaster")
+		if check_secondary_attack():
+			fsm.enter_state("SecondaryAttackMaster")
 
 
 func _play_walk_animation() -> void:

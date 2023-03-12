@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg12853"
+   sodipodi:docname="Hud.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview12855"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.4204826"
+     inkscape:cx="297.27746"
+     inkscape:cy="272.30615"
+     inkscape:window-width="1024"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs12850">
+    <rect
+       x="119.39752"
+       y="563.35451"
+       width="734.04252"
+       height="600.35093"
+       id="rect31974" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient28719">
+      <stop
+         style="stop-color:#7c0c4c;stop-opacity:1;"
+         offset="0"
+         id="stop28715" />
+      <stop
+         style="stop-color:#c61a55;stop-opacity:1;"
+         offset="1"
+         id="stop28717" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient24889">
+      <stop
+         style="stop-color:#116590;stop-opacity:1;"
+         offset="0"
+         id="stop24887" />
+      <stop
+         style="stop-color:#19c7bf;stop-opacity:1;"
+         offset="1"
+         id="stop24885" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient24889"
+       id="linearGradient24891"
+       x1="9.9510002"
+       y1="60.230999"
+       x2="205.03801"
+       y2="60.230999"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient28719"
+       id="linearGradient28721"
+       x1="60.342861"
+       y1="24.681"
+       x2="204.97754"
+       y2="24.681"
+       gradientUnits="userSpaceOnUse" />
+    <rect
+       x="119.39752"
+       y="563.35451"
+       width="734.04252"
+       height="600.35093"
+       id="rect32490" />
+    <rect
+       x="119.39752"
+       y="563.35451"
+       width="734.04252"
+       height="600.35093"
+       id="rect32637" />
+    <rect
+       x="119.39752"
+       y="563.35451"
+       width="734.04252"
+       height="600.35093"
+       id="rect32848" />
+    <rect
+       x="119.39752"
+       y="563.35451"
+       width="734.04252"
+       height="600.35093"
+       id="rect32852" />
+    <rect
+       x="119.39752"
+       y="563.35451"
+       width="734.04252"
+       height="600.35093"
+       id="rect33642" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#2f397f;fill-opacity:1;stroke:#151659;stroke-width:4.95952;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;stroke-linejoin:bevel"
+       id="rect16714"
+       width="149.69762"
+       height="35.040482"
+       x="57.82262"
+       y="7.1377254"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Hud.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <rect
+       style="fill:#2f397f;fill-opacity:1;stroke:#151659;stroke-width:5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;stroke-linejoin:bevel"
+       id="rect16718"
+       width="200.09061"
+       height="35.070606"
+       x="7.4646974"
+       y="42.536812" />
+    <rect
+       style="fill:#151659;fill-opacity:1;stroke:none;stroke-width:3.67565;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       id="rect21229"
+       width="195.08701"
+       height="20"
+       x="9.9510002"
+       y="50.230999" />
+    <rect
+       style="fill:#151659;fill-opacity:1;stroke:none;stroke-width:3.1649;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       id="rect21147"
+       width="144.63467"
+       height="20"
+       x="60.342861"
+       y="14.681" />
+    <rect
+       style="fill:url(#linearGradient24891);fill-opacity:1;stroke:none;stroke-width:2.59908;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       id="rect23431"
+       width="195.08701"
+       height="10"
+       x="9.9510002"
+       y="55.230999"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\ChargeBar.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <rect
+       style="fill:url(#linearGradient28721);fill-opacity:1;stroke:none;stroke-width:2.23792;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       id="rect21977"
+       width="144.63467"
+       height="10"
+       x="60.342861"
+       y="19.681"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\HealthBar.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <rect
+       style="fill:#2f397f;fill-opacity:1;stroke:#151659;stroke-width:5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       id="rect15984"
+       width="54.936802"
+       height="54.936802"
+       x="2.9060609"
+       y="2.9060609" />
+    <rect
+       style="fill:#151659;fill-opacity:1;stroke:none;stroke-width:5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       id="rect19633"
+       width="41.246048"
+       height="41.24604"
+       x="9.7514381"
+       y="9.751442"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\HudLevel.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:3.78776;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       id="rect30215"
+       width="31.246"
+       height="31.246"
+       x="14.751"
+       y="14.751"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\HudLevel.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <path
+       style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="M 10.366056,89.964576 H 45.02801 v 17.373404 l -8.105108,17.93555 H 18.471109 l -8.105053,-17.93555 z"
+       id="path30392"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\DefenseLogo.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <rect
+       style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:4.77121;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       id="rect30929"
+       width="40.228783"
+       height="40.228786"
+       x="134.25583"
+       y="154.85684" />
+    <g
+       id="g40592"
+       transform="matrix(1.0063218,0,0,0.86011337,-0.48963799,12.642603)"
+       style="stroke-width:3.22459352;stroke-dasharray:none"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\SpeedLogo.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60">
+      <path
+         style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:3.22459352;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="M 60.926162,92.937884 72.968254,111.82299 60.926162,130.70811 Z"
+         id="path32472" />
+      <path
+         style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:3.22459352;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="M 72.968254,92.937874 85.010346,111.82298 72.968254,130.7081 Z"
+         id="path32474" />
+      <path
+         style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:3.22459352;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="M 85.010346,92.937874 97.052438,111.82298 85.010346,130.7081 Z"
+         id="path32478" />
+    </g>
+    <g
+       id="g40726"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\AttackDamageLogo.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60">
+      <path
+         sodipodi:type="star"
+         style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         id="path34562"
+         inkscape:flatsided="false"
+         sodipodi:sides="5"
+         sodipodi:cx="142.36494"
+         sodipodi:cy="91.708588"
+         sodipodi:r1="12.920861"
+         sodipodi:r2="6.4604301"
+         sodipodi:arg1="1.5581584"
+         sodipodi:arg2="2.1864769"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 142.52823,104.62842 -3.89428,-7.645663 -8.50603,-1.126426 6.06805,-6.066318 -1.55721,-8.437808 7.64454,3.896468 7.54363,-4.088426 -1.34347,8.474469 6.21943,5.911022 -8.47485,1.341041 z"
+         inkscape:transform-center-x="-0.060209956"
+         inkscape:transform-center-y="1.4147869"
+         transform="matrix(1.1931612,0,0,1.1931612,-24.729412,-2.3097469)" />
+      <g
+         id="g34508"
+         transform="rotate(45,135.17465,111.88689)"
+         style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-opacity:1">
+        <rect
+           style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+           id="rect34485"
+           width="8.050849"
+           height="31.380505"
+           x="131.21648"
+           y="101.55461" />
+        <path
+           style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+           d="m 129.02696,117.57501 3e-5,-18.266802 6.14765,-7.59962 6.27828,7.59962 -0.13059,18.266802 z"
+           id="path34501"
+           sodipodi:nodetypes="cccccc" />
+        <rect
+           style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+           id="rect34491"
+           width="21.420918"
+           height="5.9790411"
+           x="124.46419"
+           y="117.57501" />
+      </g>
+    </g>
+    <g
+       id="g40655"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\AttackSpeedLogo.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60">
+      <path
+         style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m 72.891,168.21483 13.04038,8.43701 -13.04038,8.437 z"
+         id="path40565" />
+      <path
+         style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m 80.89,168.21483 13.04038,8.43701 -13.04038,8.437 z"
+         id="path40569" />
+      <path
+         style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m 88.890325,168.21483 13.040375,8.43701 -13.040375,8.437 z"
+         id="path40571" />
+      <g
+         id="g34586"
+         transform="rotate(45,18.077146,95.742375)"
+         style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-opacity:1">
+        <rect
+           style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+           id="rect34580"
+           width="8.050849"
+           height="31.380505"
+           x="131.21648"
+           y="101.55461" />
+        <path
+           style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+           d="m 129.02696,117.57501 3e-5,-18.266802 6.14765,-7.59962 6.27828,7.59962 -0.13059,18.266802 z"
+           id="path34582"
+           sodipodi:nodetypes="cccccc" />
+        <rect
+           style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+           id="rect34584"
+           width="21.420918"
+           height="5.9790411"
+           x="124.46419"
+           y="117.57501" />
+      </g>
+    </g>
+  </g>
+</svg>

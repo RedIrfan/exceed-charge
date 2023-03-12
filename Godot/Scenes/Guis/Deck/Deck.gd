@@ -83,7 +83,7 @@ func physics_process(_delta):
 
 
 func _use_card():
-	player.deck.use_card(held_card)
+	player.use_card(held_card)
 	gm.enter_gui("Hud")
 
 

@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://yl0ax47os7of"]
+[gd_scene load_steps=10 format=3 uid="uid://yl0ax47os7of"]
 
 [ext_resource type="Script" path="res://Scenes/Guis/Hud/Hud.gd" id="1_1krw8"]
+[ext_resource type="Texture2D" uid="uid://dkcuxnecprxav" path="res://Assets/Hud/Hud.png" id="2_iaoah"]
+[ext_resource type="Texture2D" uid="uid://d3kgs25cesn72" path="res://Assets/Hud/HealthBar.png" id="3_7a0nq"]
+[ext_resource type="Texture2D" uid="uid://cu8bhwxbyq1r8" path="res://Assets/Hud/ChargeBar.png" id="4_g8jse"]
+[ext_resource type="Texture2D" uid="uid://csxw0kirvkbyc" path="res://Assets/Hud/DefenseLogo.png" id="5_ejyfi"]
+[ext_resource type="Texture2D" uid="uid://cangu2c66qlw6" path="res://Assets/Hud/SpeedLogo.png" id="6_7lb07"]
+[ext_resource type="Texture2D" uid="uid://caol04j7qpf81" path="res://Assets/Hud/AttackDamageLogo.png" id="7_lqdx0"]
+[ext_resource type="Texture2D" uid="uid://3aqlslbi6gtd" path="res://Assets/Hud/AttackSpeedLogo.png" id="8_r8n1q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgcv3"]
+bg_color = Color(0.0823529, 0.0862745, 0.34902, 1)
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -10,5 +20,115 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1krw8")
+
+[node name="Margin" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="HudBar" type="TextureRect" parent="Margin"]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 188.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_iaoah")
+stretch_mode = 4
+
+[node name="HealthBar" type="TextureProgressBar" parent="Margin/HudBar"]
+layout_mode = 0
+offset_left = 142.429
+offset_top = 45.5
+offset_right = 484.429
+offset_bottom = 69.5
+value = 100.0
+texture_progress = ExtResource("3_7a0nq")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Margin/HudBar"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 130.0
+offset_right = 484.0
+offset_bottom = 154.0
+value = 100.0
+texture_progress = ExtResource("4_g8jse")
+
+[node name="Label" type="Label" parent="Margin/HudBar"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 33.0
+offset_right = 109.0
+offset_bottom = 109.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_xgcv3")
+text = "1"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin/HudBar"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.6666
+offset_right = 496.0
+offset_bottom = 142.667
+grow_vertical = 0
+theme_override_constants/separation = 10
+metadata/_edit_lock_ = true
+
+[node name="Defense" type="VBoxContainer" parent="Margin/HudBar/HBoxContainer"]
+custom_minimum_size = Vector2(114, 96)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Margin/HudBar/HBoxContainer/Defense"]
+layout_mode = 2
+texture = ExtResource("5_ejyfi")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Margin/HudBar/HBoxContainer/Defense"]
+layout_mode = 2
+text = "1.0%"
+
+[node name="Speed" type="VBoxContainer" parent="Margin/HudBar/HBoxContainer"]
+custom_minimum_size = Vector2(114, 96)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Margin/HudBar/HBoxContainer/Speed"]
+layout_mode = 2
+texture = ExtResource("6_7lb07")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Margin/HudBar/HBoxContainer/Speed"]
+layout_mode = 2
+
+[node name="AttackDamage" type="VBoxContainer" parent="Margin/HudBar/HBoxContainer"]
+custom_minimum_size = Vector2(114, 96)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Margin/HudBar/HBoxContainer/AttackDamage"]
+custom_minimum_size = Vector2(114, 96)
+layout_mode = 2
+texture = ExtResource("7_lqdx0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Margin/HudBar/HBoxContainer/AttackDamage"]
+layout_mode = 2
+
+[node name="AttackSpeed" type="VBoxContainer" parent="Margin/HudBar/HBoxContainer"]
+custom_minimum_size = Vector2(114, 96)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Margin/HudBar/HBoxContainer/AttackSpeed"]
+layout_mode = 2
+texture = ExtResource("8_r8n1q")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Margin/HudBar/HBoxContainer/AttackSpeed"]
+layout_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

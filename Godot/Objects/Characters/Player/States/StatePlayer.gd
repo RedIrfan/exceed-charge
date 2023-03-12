@@ -50,5 +50,9 @@ func check_primary_attack():
 	return Input.is_action_just_pressed("action_primary_attack")
 
 
+func check_secondary_attack():
+	return Input.is_action_just_pressed("action_secondary_attack")
+
+
 func is_deck_on() -> bool:
 	return body.deck_on

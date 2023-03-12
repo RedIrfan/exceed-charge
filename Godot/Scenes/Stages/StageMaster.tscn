@@ -1,12 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://bkuq6w876dvkk"]
+[gd_scene load_steps=20 format=3 uid="uid://of4cnxdapriu"]
 
 [ext_resource type="Script" path="res://Scenes/Stages/StageMaster.gd" id="1_f31se"]
-[ext_resource type="PackedScene" uid="uid://clupb81q84tw5" path="res://Objects/Characters/Player/Player.tscn" id="2_6j1x0"]
+[ext_resource type="PackedScene" uid="uid://dtj3l35v7fjgb" path="res://Objects/Characters/Player/Player.tscn" id="2_6j1x0"]
 [ext_resource type="PackedScene" uid="uid://ddavubmc2k7kp" path="res://Scenes/Guis/GuiMaster.tscn" id="2_dg3y4"]
 [ext_resource type="PackedScene" uid="uid://dwbqlnge51q7" path="res://Objects/GameCamera/GameCamera.tscn" id="3_tpes8"]
 [ext_resource type="PackedScene" uid="uid://bx7iihigk42vl" path="res://Objects/Characters/Dummy/Dummy.tscn" id="4_k5p6w"]
-[ext_resource type="Script" path="res://Objects/Cards/CardData.gd" id="4_ungx7"]
-[ext_resource type="Script" path="res://Objects/Cards/DeckData.gd" id="5_406gc"]
+[ext_resource type="Script" path="res://Objects/Decks/Cards/CardData.gd" id="4_shfx1"]
+[ext_resource type="Script" path="res://Objects/Decks/DeckData.gd" id="5_gqsec"]
+[ext_resource type="Script" path="res://Objects/Decks/StatusData.gd" id="6_bilgt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c5oh7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -25,22 +26,39 @@ tonemap_mode = 2
 tonemap_white = 0.88
 glow_enabled = true
 
-[sub_resource type="Resource" id="Resource_i8qck"]
-script = ExtResource("4_ungx7")
-value = 3
-suit = 0
-
-[sub_resource type="Resource" id="Resource_8ifsl"]
-script = ExtResource("4_ungx7")
+[sub_resource type="Resource" id="Resource_l15w8"]
+script = ExtResource("4_shfx1")
 value = 1
 suit = 0
+card_name = ""
+
+[sub_resource type="Resource" id="Resource_rmjl0"]
+script = ExtResource("4_shfx1")
+value = 2
+suit = 0
+card_name = ""
+
+[sub_resource type="Resource" id="Resource_3xo6p"]
+script = ExtResource("4_shfx1")
+value = 3
+suit = 0
+card_name = ""
 
 [sub_resource type="Resource" id="Resource_vc5mo"]
-script = ExtResource("5_406gc")
+script = ExtResource("5_gqsec")
 CHARGE = 6
 DECK_MAX_AMOUNT = 5
-deck_list = Array[ExtResource("4_ungx7")]([SubResource("Resource_i8qck"), SubResource("Resource_8ifsl")])
+deck_list = Array[ExtResource("4_shfx1")]([SubResource("Resource_l15w8"), SubResource("Resource_rmjl0"), SubResource("Resource_3xo6p")])
 metadata/_editor_prop_ptr_body = NodePath(".")
+
+[sub_resource type="Resource" id="Resource_8b2k4"]
+script = ExtResource("6_bilgt")
+defense_mutiplier = 1.0
+speed_multiplier = 1.0
+attack_damage_multiplier = 1.0
+attack_speed_multiplier = 1.0
+luck_multiplier = 1.0
+element = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uafxm"]
 diffuse_mode = 3
@@ -70,6 +88,7 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_6j1x0")]
 deck = SubResource("Resource_vc5mo")
+status = SubResource("Resource_8b2k4")
 
 [node name="GameCamera" parent="." instance=ExtResource("3_tpes8")]
 

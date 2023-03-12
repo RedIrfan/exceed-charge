@@ -57,3 +57,5 @@ func play_action():
 		
 	if action.speed > 0:
 		body.speed = action.speed
+	else:
+		body.speed = body.SPEED
