@@ -6,7 +6,7 @@ class_name StateCharacterHurt
 @export var immovable : bool = false
 
 @export_group("Light")
-@export var knockback_speed_light : int = 5
+@export var knockback_speed_light : int = 2
 @export var knockback_duration_light : float = 0.4167
 
 @export_group("Heavy")
@@ -31,6 +31,9 @@ func enter_condition(_body, _fsm, msg=[]) -> bool:
 func enter(_msg=[]):
 	body.connect_to_animation_timer(_on_animation_timeout)
 	
+	body.look_at(hurt_data.attack_position, Vector3.UP)
+	body.rotation_degrees.x = 0
+	
 	var body_back_scalar = body.global_transform.basis.z
 	var animation_name = ["Light", "Heavy"]
 	
@@ -42,9 +45,6 @@ func enter(_msg=[]):
 	if immovable == false:
 		body.direction = Vector2(body_back_scalar.x, body_back_scalar.z)
 		body.speed = _get_knockback()[0]
-	
-	body.look_at(hurt_data.attack_position, Vector3.UP)
-	body.rotation_degrees.x = 0
 	
 	body.play_animation("Hurt" + animation_name[hurt_data.damage_type], _get_knockback()[1], true)
 

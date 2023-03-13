@@ -10,6 +10,10 @@ func reset_direction():
 	body.direction = Vector2.ZERO
 
 
+func direction_to_relative(direction:Vector2) -> Vector2:
+	return direction.rotated(body.rotation.y)
+
+
 func look_at(target, rotation_speed):
 	if rotation_speed == 0:
 		rotation_speed = body.rotation_speed

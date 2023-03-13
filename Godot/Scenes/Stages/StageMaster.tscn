@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://of4cnxdapriu"]
+[gd_scene load_steps=21 format=3 uid="uid://of4cnxdapriu"]
 
 [ext_resource type="Script" path="res://Scenes/Stages/StageMaster.gd" id="1_f31se"]
 [ext_resource type="PackedScene" uid="uid://dtj3l35v7fjgb" path="res://Objects/Characters/Player/Player.tscn" id="2_6j1x0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Objects/Decks/Cards/CardData.gd" id="4_shfx1"]
 [ext_resource type="Script" path="res://Objects/Decks/DeckData.gd" id="5_gqsec"]
 [ext_resource type="Script" path="res://Objects/Decks/StatusData.gd" id="6_bilgt"]
+[ext_resource type="PackedScene" uid="uid://bxyr7m5w11we6" path="res://Objects/Characters/Enemies/Fool/Fool.tscn" id="9_nsng0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c5oh7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -105,3 +106,6 @@ shape = SubResource("ConcavePolygonShape3D_soo54")
 
 [node name="Dummy" parent="." instance=ExtResource("4_k5p6w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.37535)
+
+[node name="Fool" parent="." instance=ExtResource("9_nsng0")]
+transform = Transform3D(0.254585, 0, 0.96705, 0, 1, 0, -0.96705, 0, 0.254585, 3.07746, 0, 0)
