@@ -6,7 +6,7 @@ class_name StateCharacterHurt
 @export var immovable : bool = false
 
 @export_group("Light")
-@export var knockback_speed_light : int = 3
+@export var knockback_speed_light : int = 4
 @export var knockback_duration_light : float = 0.125
 
 @export_subgroup("Animation")

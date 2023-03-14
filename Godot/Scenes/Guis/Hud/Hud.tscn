@@ -49,7 +49,7 @@ offset_bottom = 69.5
 value = 100.0
 texture_progress = ExtResource("3_7a0nq")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="Margin/HudBar"]
+[node name="ChargeBar" type="TextureProgressBar" parent="Margin/HudBar"]
 layout_mode = 0
 offset_left = 23.0
 offset_top = 130.0
@@ -58,7 +58,7 @@ offset_bottom = 154.0
 value = 100.0
 texture_progress = ExtResource("4_g8jse")
 
-[node name="Label" type="Label" parent="Margin/HudBar"]
+[node name="LevelLabel" type="Label" parent="Margin/HudBar"]
 layout_mode = 0
 offset_left = 33.0
 offset_top = 33.0

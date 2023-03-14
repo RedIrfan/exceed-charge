@@ -11,7 +11,7 @@ enum ELEMENTS{
 }
 
 @export_group("Multiplier")
-@export var defense_mutiplier : float = 1.0
+@export var defense_multiplier : float = 1.0
 @export var speed_multiplier : float = 1.0
 @export var attack_damage_multiplier : float = 1.0
 @export var attack_speed_multiplier : float = 1.0
@@ -23,7 +23,7 @@ enum ELEMENTS{
 
 
 func _init(new_defense:float=1.0,new_speed:float=1.0,new_damage:float=1.0,new_atk_speed:float=1.0,new_luck:float=1.0,new_element:ELEMENTS=ELEMENTS.NONE,new_active:CardData=null):
-	defense_mutiplier = new_defense
+	defense_multiplier = new_defense
 	speed_multiplier = new_speed
 	attack_damage_multiplier = new_damage
 	attack_speed_multiplier = new_speed

@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name Character
 
 signal dead
+signal health_changed(new_health)
 
 @onready var animation_tree : AnimationTree = $Pivot/AnimationTree
 @onready var animation_timer : Timer = $Pivot/AnimationTimer
@@ -10,7 +11,7 @@ signal dead
 @export var SPEED : int = 4
 @export var rotation_speed : float = 0.5
 
-var health = HEALTH
+var health = HEALTH : set = set_health
 var speed = SPEED
 
 var direction = Vector2.ZERO
@@ -60,3 +61,8 @@ func disconnect_from_animation_timer(target_callable:Callable):
 
 func set_hurtdata(new_hurt_data : Hurtdata):
 	hurt_data = new_hurt_data
+
+
+func set_health(new_health:int):
+	health = new_health
+	emit_signal("health_changed", health)

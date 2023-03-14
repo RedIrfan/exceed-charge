@@ -35,6 +35,7 @@ func use_card(card_index:int, body:Character) -> bool:
 		if charge.size() < get_maximum_charge():
 			var card = deck_list[card_index]
 			card.process_card(body)
+			body.on_card_activated()
 			
 			for index in range(0, card.value):
 				charge.append(card.suit)

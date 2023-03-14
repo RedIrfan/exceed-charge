@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://of4cnxdapriu"]
+[gd_scene load_steps=22 format=3 uid="uid://of4cnxdapriu"]
 
 [ext_resource type="Script" path="res://Scenes/Stages/StageMaster.gd" id="1_f31se"]
 [ext_resource type="PackedScene" uid="uid://dtj3l35v7fjgb" path="res://Objects/Characters/Player/Player.tscn" id="2_6j1x0"]
@@ -29,32 +29,38 @@ glow_enabled = true
 
 [sub_resource type="Resource" id="Resource_l15w8"]
 script = ExtResource("4_shfx1")
-value = 1
+value = 2
 suit = 0
 card_name = ""
 
 [sub_resource type="Resource" id="Resource_rmjl0"]
 script = ExtResource("4_shfx1")
 value = 2
-suit = 0
+suit = 2
 card_name = ""
 
 [sub_resource type="Resource" id="Resource_3xo6p"]
 script = ExtResource("4_shfx1")
-value = 3
-suit = 0
+value = 2
+suit = 1
+card_name = ""
+
+[sub_resource type="Resource" id="Resource_r68yu"]
+script = ExtResource("4_shfx1")
+value = 2
+suit = 3
 card_name = ""
 
 [sub_resource type="Resource" id="Resource_vc5mo"]
 script = ExtResource("5_gqsec")
 CHARGE = 6
 DECK_MAX_AMOUNT = 5
-deck_list = Array[ExtResource("4_shfx1")]([SubResource("Resource_l15w8"), SubResource("Resource_rmjl0"), SubResource("Resource_3xo6p")])
+deck_list = Array[ExtResource("4_shfx1")]([SubResource("Resource_l15w8"), SubResource("Resource_rmjl0"), SubResource("Resource_3xo6p"), SubResource("Resource_r68yu")])
 metadata/_editor_prop_ptr_body = NodePath(".")
 
 [sub_resource type="Resource" id="Resource_8b2k4"]
 script = ExtResource("6_bilgt")
-defense_mutiplier = 1.0
+defense_multiplier = 1.0
 speed_multiplier = 1.0
 attack_damage_multiplier = 1.0
 attack_speed_multiplier = 1.0

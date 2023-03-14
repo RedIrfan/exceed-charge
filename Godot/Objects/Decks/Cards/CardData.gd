@@ -55,8 +55,8 @@ func suit_to_string()->String:
 
 
 func process_card(body:Character) -> void:
-	var adjacent_suit_power = 0
-	var opposite_suit_power = 0
+	var adjacent_suit_power :float = 0.0
+	var opposite_suit_power :float = 0.0
 	match value:
 		1:
 			adjacent_suit_power += 0.01
@@ -67,11 +67,11 @@ func process_card(body:Character) -> void:
 	var status_data : StatusData = body.status
 	match suit:
 		SUITS.PENTAGON:
-			status_data.defense_mutiplier += adjacent_suit_power
+			status_data.defense_multiplier += adjacent_suit_power
 			status_data.speed_multiplier -= opposite_suit_power
 		SUITS.TRIANGLE:
 			status_data.speed_multiplier += adjacent_suit_power
-			status_data.defense_mutiplier -= opposite_suit_power
+			status_data.defense_multiplier -= opposite_suit_power
 		SUITS.DIAMOND:
 			status_data.attack_speed_multiplier += adjacent_suit_power
 			status_data.attack_damage_multiplier -= opposite_suit_power

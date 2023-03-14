@@ -16,8 +16,8 @@ func _ready():
 	
 	await Signal(Global.root_scene(), "ready")
 	
-	enter_gui(starting_gui.name)
 	player = Global.root_scene().player
+	enter_gui(starting_gui.name)
 
 
 func enter_gui(gui_name:String):

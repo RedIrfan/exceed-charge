@@ -15,3 +15,5 @@ func process(_delta):
 			fsm.enter_state("PrimaryAttackMaster")
 		if check_secondary_attack():
 			fsm.enter_state("SecondaryAttackMaster")
+	if check_hurt():
+		fsm.enter_state("Hurt")
