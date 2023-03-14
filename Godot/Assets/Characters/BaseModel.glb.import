@@ -1,15 +1,15 @@
 [remap]
 
-importer="animation_library"
+importer="scene"
 importer_version=1
-type="AnimationLibrary"
-uid="uid://c3se8fvpftk71"
-path="res://.godot/imported/BaseModel.glb-136603d333daf8caff4bfe09249d909f.res"
+type="PackedScene"
+uid="uid://cpcvkcir6cyfj"
+path="res://.godot/imported/BaseModel.glb-136603d333daf8caff4bfe09249d909f.scn"
 
 [deps]
 
 source_file="res://Assets/Characters/BaseModel.glb"
-dest_files=["res://.godot/imported/BaseModel.glb-136603d333daf8caff4bfe09249d909f.res"]
+dest_files=["res://.godot/imported/BaseModel.glb-136603d333daf8caff4bfe09249d909f.scn"]
 
 [params]
 
@@ -24,7 +24,7 @@ meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 skins/use_named_skins=true
 animation/import=true
-animation/fps=24.0
+animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
