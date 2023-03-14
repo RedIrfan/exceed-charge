@@ -90,9 +90,15 @@ func _on_animation_timeout():
 		body.start_animation_timer(_get_knockback()[2])
 	elif hurt_data.damage_type == Global.DAMAGES.HEAVY and hurt_state_index == 1:
 		hurt_state_index = 2
-		body.play_animation("HurtWakeup", wakeup_duration)
+		if wakeup_duration > 0:
+			body.play_animation("HurtWakeup", wakeup_duration)
+		else:
+			_on_animation_timeout()
 	elif hurt_data.damage_type == Global.DAMAGES.HEAVY and hurt_state_index == 2:
 		hurt_state_index = 3
-		body.play_animation("Idle", animation_transition_to_idle_duration)
+		if animation_transition_to_idle_duration > 0:
+			body.play_animation("Idle", animation_transition_to_idle_duration)
+		else:
+			_on_animation_timeout()
 	else:
 		fsm.enter_state("Idle")

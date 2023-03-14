@@ -9025,6 +9025,13 @@ _subresources={
 "slice_99/start_frame": 0,
 "slices/amount": null
 }
+},
+"nodes": {
+"PATH:Armature/Skeleton3D": {
+"retarget/bone_map": Object(BoneMap,"resource_local_to_scene":false,"resource_name":"","profile":Object(SkeletonProfileHumanoid,"resource_local_to_scene":false,"resource_name":"","root_bone":&"Root","scale_base_bone":&"Hips","group_size":4,"bone_size":56,"script":null)
+,"bonemap":null,"bone_map/Root":&"","bone_map/Hips":&"Hips","bone_map/Spine":&"Chest","bone_map/Chest":&"","bone_map/UpperChest":&"","bone_map/Neck":&"Neck","bone_map/Head":&"Head","bone_map/LeftEye":&"","bone_map/RightEye":&"","bone_map/Jaw":&"","bone_map/LeftShoulder":&"","bone_map/LeftUpperArm":&"UpperArm.L","bone_map/LeftLowerArm":&"LowerArm.L","bone_map/LeftHand":&"Hand.L","bone_map/LeftThumbMetacarpal":&"Thumb.L","bone_map/LeftThumbProximal":&"","bone_map/LeftThumbDistal":&"","bone_map/LeftIndexProximal":&"IndexFinger.L","bone_map/LeftIndexIntermediate":&"","bone_map/LeftIndexDistal":&"","bone_map/LeftMiddleProximal":&"","bone_map/LeftMiddleIntermediate":&"","bone_map/LeftMiddleDistal":&"","bone_map/LeftRingProximal":&"","bone_map/LeftRingIntermediate":&"","bone_map/LeftRingDistal":&"","bone_map/LeftLittleProximal":&"","bone_map/LeftLittleIntermediate":&"","bone_map/LeftLittleDistal":&"","bone_map/RightShoulder":&"","bone_map/RightUpperArm":&"UpperArm.R","bone_map/RightLowerArm":&"LowerArm.R","bone_map/RightHand":&"Hand.R","bone_map/RightThumbMetacarpal":&"Thumb.R","bone_map/RightThumbProximal":&"","bone_map/RightThumbDistal":&"","bone_map/RightIndexProximal":&"IndexFinger.R","bone_map/RightIndexIntermediate":&"","bone_map/RightIndexDistal":&"","bone_map/RightMiddleProximal":&"","bone_map/RightMiddleIntermediate":&"","bone_map/RightMiddleDistal":&"","bone_map/RightRingProximal":&"","bone_map/RightRingIntermediate":&"","bone_map/RightRingDistal":&"","bone_map/RightLittleProximal":&"","bone_map/RightLittleIntermediate":&"","bone_map/RightLittleDistal":&"","bone_map/LeftUpperLeg":&"UpperLeg.L","bone_map/LeftLowerLeg":&"LowerLeg.L","bone_map/LeftFoot":&"Foot.L","bone_map/LeftToes":&"Toes.L","bone_map/RightUpperLeg":&"UpperLeg.R","bone_map/RightLowerLeg":&"LowerLeg.R","bone_map/RightFoot":&"Foot.R","bone_map/RightToes":&"Toes.R","script":null)
+
+}
 }
 }
 gltf/embedded_image_handling=1
