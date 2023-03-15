@@ -3,7 +3,12 @@ class_name CardPickupable
 
 @onready var sprite : Sprite3D = $Pivot/Sprite3D
 
-var card_data : CardData
+@export var card_data : CardData
+
+
+func _ready():
+	if card_data:
+		_on_spawn([card_data])
 
 
 func _on_spawn(parameters=[]):
