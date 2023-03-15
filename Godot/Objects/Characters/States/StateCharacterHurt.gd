@@ -30,9 +30,10 @@ func enter_condition(_body, _fsm, msg=[]) -> bool:
 	hurt_data = body.hurt_data
 	body.hurt_data = null
 	
-	_process_damage()
 	
 	if msg.has("unstaggerable"):
+		_process_damage()
+		_check_dead()
 		return false
 	return true
 
@@ -55,7 +56,8 @@ func enter(_msg=[]):
 		body.direction = Vector2(body_back_scalar.x, body_back_scalar.z)
 		body.speed = _get_knockback()[0]
 	
-	body.play_animation("Hurt" + animation_name[hurt_data.damage_type], _get_knockback()[1], true)
+	if _check_dead() == false:
+		body.play_animation("Hurt" + animation_name[hurt_data.damage_type], _get_knockback()[1], true)
 
 
 func exit():
@@ -72,6 +74,13 @@ func process(_delta):
 
 func _process_damage():
 	body.health -= hurt_data.damage
+
+
+func _check_dead() -> bool:
+	if body.health <= 0:
+		fsm.enter_state("Dead", [hurt_data])
+		return true
+	return false
 
 
 func _get_knockback() -> Array:

@@ -23,6 +23,7 @@ func physics_process(_delta):
 	var distance = get_distance_to_target()
 	look_at_target()
 	if distance > body.attack_range:
+		body.play_animation("WalkForward")
 		set_interest(-body.global_transform.basis.z)
 		apply_direction()
 	else:

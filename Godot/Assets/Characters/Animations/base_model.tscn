@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://baf373h34a5k2"]
+[gd_scene load_steps=6 format=3 uid="uid://baf373h34a5k2"]
 
-[ext_resource type="PackedScene" uid="uid://cpcvkcir6cyfj" path="res://Assets/Characters/BaseModel.glb" id="1_60wpm"]
+[ext_resource type="PackedScene" uid="uid://cpcvkcir6cyfj" path="res://Assets/Characters/BaseModel.glb" id="1_7441q"]
+[ext_resource type="Animation" uid="uid://dk5hf2u228u6b" path="res://Assets/Characters/Animations/HurtLightDead.res" id="2_ubxpj"]
 
-[sub_resource type="Animation" id="Animation_qbiyi"]
+[sub_resource type="Animation" id="Animation_op857"]
 resource_name = "HurtHeavy"
 tracks/0/type = "position_3d"
 tracks/0/imported = true
@@ -334,7 +335,7 @@ tracks/46/interp = 1
 tracks/46/loop_wrap = true
 tracks/46/keys = PackedFloat32Array(0, 1, 3.83323e-20, 1, 0, 3.83323e-20)
 
-[sub_resource type="Animation" id="Animation_my13l"]
+[sub_resource type="Animation" id="Animation_8hy35"]
 resource_name = "HurtWakeup"
 length = 0.666667
 tracks/0/type = "position_3d"
@@ -667,64 +668,65 @@ tracks/46/interp = 1
 tracks/46/loop_wrap = true
 tracks/46/keys = PackedFloat32Array(0, 1, 3.83323e-20, 1, 0, 3.83323e-20)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_roe5a"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ivtm4"]
 _data = {
-"HurtHeavy": SubResource("Animation_qbiyi"),
-"HurtWakeup": SubResource("Animation_my13l")
+"HurtHeavy": SubResource("Animation_op857"),
+"HurtLightDead": ExtResource("2_ubxpj"),
+"HurtWakeup": SubResource("Animation_8hy35")
 }
 
-[node name="BaseModel" instance=ExtResource("1_60wpm")]
+[node name="BaseModel" instance=ExtResource("1_7441q")]
 
 [node name="GeneralSkeleton" parent="Armature" index="0"]
-bones/0/position = Vector3(-6.94774e-17, -0.0155932, -0.000939313)
-bones/0/rotation = Quaternion(-0.209876, -3.05311e-16, -5.10703e-15, 0.977728)
-bones/1/rotation = Quaternion(-0.310592, -7.27196e-15, 4.77396e-15, 0.950543)
-bones/2/rotation = Quaternion(-0.243703, 2.27318e-14, -2.10942e-14, 0.96985)
-bones/3/rotation = Quaternion(-0.0809676, -1.43774e-14, -5.32907e-15, 0.996717)
-bones/4/rotation = Quaternion(0.566086, 0.821902, 0.00312734, -0.0633546)
-bones/4/scale = Vector3(1.00002, 1.00001, 0.999996)
-bones/5/rotation = Quaternion(-0.0856144, -0.590177, 0.0998091, 0.796492)
-bones/5/scale = Vector3(0.999999, 0.999995, 1)
-bones/6/rotation = Quaternion(0.445343, 0.614616, 0.429917, 0.488966)
-bones/6/scale = Vector3(1, 0.999994, 1)
-bones/7/rotation = Quaternion(-0.292633, 0.6923, 0.18337, 0.633611)
-bones/8/rotation = Quaternion(0.270819, -0.00553909, -0.020881, 0.962388)
-bones/9/rotation = Quaternion(-0.0543568, -0.000599414, -0.00225718, 0.998519)
-bones/10/rotation = Quaternion(-0.566086, 0.821902, 0.00312719, 0.0633547)
-bones/10/scale = Vector3(1.00002, 1.00001, 0.999996)
-bones/11/rotation = Quaternion(-0.0856143, 0.590177, -0.0998089, 0.796492)
-bones/11/scale = Vector3(0.999999, 0.999994, 1)
-bones/12/rotation = Quaternion(0.445343, -0.614616, -0.429917, 0.488966)
-bones/12/scale = Vector3(1, 0.999994, 1)
-bones/13/rotation = Quaternion(0.270819, 0.00553915, 0.020881, 0.962388)
-bones/14/rotation = Quaternion(-0.0543569, 0.000599414, 0.00225714, 0.998519)
-bones/15/rotation = Quaternion(-0.292632, -0.6923, -0.18337, 0.633611)
-bones/16/rotation = Quaternion(-0.130957, 0.757708, -0.638393, -0.0343865)
-bones/17/rotation = Quaternion(5.61214e-08, 0.957517, 0.288377, -3.74736e-09)
-bones/18/rotation = Quaternion(-0.038707, 0.522813, -0.847539, -0.0827335)
+bones/0/position = Vector3(-1.02616e-09, -0.907752, 0.19282)
+bones/0/rotation = Quaternion(0.702674, -9.4369e-15, 2.65343e-14, 0.711512)
+bones/1/rotation = Quaternion(-0.138004, 6.12954e-10, 5.81991e-09, 0.990432)
+bones/2/rotation = Quaternion(2.48353e-09, 1.42224e-14, 2.59052e-16, 1)
+bones/3/rotation = Quaternion(-0.0200995, 1.35225e-09, -3.97189e-09, 0.999798)
+bones/4/rotation = Quaternion(-0.532848, -0.492869, 0.668814, -0.160751)
+bones/4/scale = Vector3(1.00001, 1.00001, 0.999997)
+bones/5/rotation = Quaternion(-0.120733, -0.533973, 0.140749, 0.824916)
+bones/5/scale = Vector3(0.99999, 1, 1.00001)
+bones/6/rotation = Quaternion(-0.0730177, 0.712223, 0.182968, 0.673743)
+bones/6/scale = Vector3(1.00002, 0.999989, 0.999995)
+bones/7/rotation = Quaternion(-0.214187, 0.673887, 0.214187, 0.673887)
+bones/8/rotation = Quaternion(5.96046e-08, -5.96046e-08, -5.96046e-08, 1)
+bones/9/rotation = Quaternion(2.98023e-08, 2.98023e-08, -8.9407e-08, 1)
+bones/10/rotation = Quaternion(0.532849, -0.492869, 0.668814, 0.160751)
+bones/10/scale = Vector3(1.00001, 1.00001, 0.999997)
+bones/11/rotation = Quaternion(-0.120733, 0.533973, -0.140749, 0.824916)
+bones/11/scale = Vector3(0.99999, 1, 1.00001)
+bones/12/rotation = Quaternion(-0.0730179, -0.712223, -0.182968, 0.673743)
+bones/12/scale = Vector3(1.00002, 0.999989, 0.999995)
+bones/13/rotation = Quaternion(4.47035e-08, 4.47035e-08, 2.98023e-08, 1)
+bones/14/rotation = Quaternion(5.96046e-08, -5.96046e-08, -5.96046e-08, 1)
+bones/15/rotation = Quaternion(-0.214187, -0.673887, -0.214187, 0.673887)
+bones/16/rotation = Quaternion(0.0956828, 0.197981, -0.971375, -0.0898862)
+bones/17/rotation = Quaternion(4.10853e-08, 0.97248, 0.232988, -1.12755e-10)
+bones/18/rotation = Quaternion(0.188019, 0.52327, -0.829973, 0.0445114)
 bones/19/rotation = Quaternion(0, 1, 0, 0)
-bones/20/rotation = Quaternion(-0.162797, -0.61811, 0.768804, -0.0194028)
-bones/21/rotation = Quaternion(3.02288e-08, 0.992117, 0.125316, -1.49388e-09)
-bones/22/rotation = Quaternion(-0.0109139, 0.569594, -0.820908, 0.0394293)
+bones/20/rotation = Quaternion(0.0919131, -0.198851, 0.971894, -0.0862144)
+bones/21/rotation = Quaternion(6.59287e-08, 0.956733, 0.290966, -1.10552e-08)
+bones/22/rotation = Quaternion(-0.18124, 0.573304, -0.798248, -0.035698)
 bones/23/rotation = Quaternion(3.83323e-20, 1, 0, 3.83323e-20)
-bones/24/position = Vector3(-0.292543, -0.0756285, -0.66131)
-bones/24/rotation = Quaternion(-0.0939918, 0, -2.08704e-17, 0.995573)
-bones/25/position = Vector3(-0.282993, -0.589026, -0.725642)
-bones/25/rotation = Quaternion(0.133935, 0.0441284, 0.00597008, 0.989989)
-bones/26/position = Vector3(-0.0582703, 0.228541, 0.192437)
-bones/26/rotation = Quaternion(-0.0939919, 0, -2.08704e-17, 0.995573)
-bones/27/position = Vector3(-0.276005, -0.0112712, -0.729417)
-bones/27/rotation = Quaternion(0.489076, -0.423909, -0.224631, 0.728455)
-bones/28/position = Vector3(0.335458, -0.0756285, -0.66131)
-bones/28/rotation = Quaternion(-0.0939918, 0, -2.08704e-17, 0.995573)
-bones/29/position = Vector3(0.294852, -0.738669, -0.631916)
-bones/29/rotation = Quaternion(0.163308, -0.133294, -0.0222742, 0.977275)
-bones/30/position = Vector3(0.0582703, 0.228541, 0.192437)
-bones/30/rotation = Quaternion(-0.0939919, 0, -2.08704e-17, 0.995573)
-bones/31/position = Vector3(0.276005, -0.0112712, -0.729417)
-bones/31/rotation = Quaternion(0.489076, 0.423909, 0.224631, 0.728455)
+bones/24/position = Vector3(-0.116247, -0.377787, -0.19449)
+bones/24/rotation = Quaternion(0.707107, -1.32349e-23, 1.57009e-16, 0.707107)
+bones/25/position = Vector3(-0.303211, -0.81303, -0.735533)
+bones/25/rotation = Quaternion(0.508921, 0.104194, 0.0668774, 0.851863)
+bones/26/position = Vector3(-0.261729, -1.12439, 0.454562)
+bones/26/rotation = Quaternion(0.707107, -1.32349e-23, 1.57009e-16, 0.707107)
+bones/27/position = Vector3(-0.508592, -0.884344, 0.249693)
+bones/27/rotation = Quaternion(0.775964, -6.97927e-09, 3.70512e-09, 0.630777)
+bones/28/position = Vector3(0.116247, -0.377787, -0.19449)
+bones/28/rotation = Quaternion(0.707107, -1.32349e-23, 1.57009e-16, 0.707107)
+bones/29/position = Vector3(0.303211, -0.882375, -0.722851)
+bones/29/rotation = Quaternion(0.509108, -0.103581, -0.0622707, 0.852175)
+bones/30/position = Vector3(0.261729, -1.12439, 0.454562)
+bones/30/rotation = Quaternion(0.707107, -1.32349e-23, 1.57009e-16, 0.707107)
+bones/31/position = Vector3(0.508592, -0.884344, 0.249693)
+bones/31/rotation = Quaternion(0.775964, 6.97927e-09, -3.70512e-09, 0.630777)
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_roe5a")
+"": SubResource("AnimationLibrary_ivtm4")
 }

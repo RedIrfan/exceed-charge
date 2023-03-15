@@ -35,6 +35,15 @@ func _move(delta):
 	move_and_slide()
 
 
+func _on_dead():
+	emit_signal("dead")
+	process_dead()
+
+
+func process_dead():
+	pass
+
+
 func play_animation(animation_name:String, animation_duration:float=0, force_travel:bool=false):
 	if animation_tree.tree_root.has_node(animation_name):
 		if force_travel == false:

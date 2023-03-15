@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d2buh5kxpgp5r"]
+[gd_scene load_steps=7 format=3 uid="uid://d2buh5kxpgp5r"]
 
 [ext_resource type="Script" path="res://Objects/Characters/Character.gd" id="1_a3ld5"]
 [ext_resource type="Script" path="res://Objects/Engine/FSM/StateMachine.gd" id="1_rg1l8"]
 [ext_resource type="Script" path="res://Objects/Characters/States/StateCharacter.gd" id="3_tliv8"]
 [ext_resource type="Script" path="res://Objects/Characters/States/StateCharacterHurt.gd" id="4_xcg1a"]
+[ext_resource type="Script" path="res://Objects/Characters/States/StateCharacterDead.gd" id="5_576xg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8qqt2"]
 size = Vector3(0.766279, 1, 0.792268)
@@ -31,3 +32,6 @@ script = ExtResource("3_tliv8")
 
 [node name="Hurt" type="Node" parent="StateMachine"]
 script = ExtResource("4_xcg1a")
+
+[node name="Dead" type="Node" parent="StateMachine"]
+script = ExtResource("5_576xg")
