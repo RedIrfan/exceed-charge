@@ -54,5 +54,11 @@ func check_secondary_attack():
 	return Input.is_action_just_pressed("action_secondary_attack")
 
 
+func check_interact():
+	if body.pickup_area.pickup_list.size() > 0:
+		if Input.is_action_just_pressed("action_pickup"):
+			body.pickup_area.pickup()
+
+
 func is_deck_on() -> bool:
 	return body.deck_on

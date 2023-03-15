@@ -4,6 +4,7 @@ extends Gui
 @onready var cards : Control = $Cards/BoxContainer
 
 @onready var activating_area : Panel = $ActivatingArea
+@onready var drop_area : Panel = $DropArea
 
 @onready var hand_ik : Marker3D = $SubViewportContainer/SubViewport/Alpha/HandIK
 @onready var skeleton_ik : SkeletonIK3D = $SubViewportContainer/SubViewport/Alpha/Armature/Skeleton3D/SkeletonIK3D
@@ -19,6 +20,7 @@ var holding : bool = false
 
 
 func _ready():
+	self.visible = false
 	$SubViewportContainer/SubViewport/Alpha/AnimationPlayer.play("ActivatingCard")
 	$Cards.size = Vector2(1152, 578)
 	
@@ -82,8 +84,13 @@ func physics_process(_delta):
 		hand_ik.global_transform.origin = mouse_raycast.get_collision_point()
 
 
-func _use_card():
+func use_card():
 	player.use_card(held_card)
+	gm.enter_gui("Hud")
+
+
+func drop_card():
+	player.remove_card(held_card)
 	gm.enter_gui("Hud")
 
 
@@ -93,10 +100,12 @@ func _on_card_held(cbutton):
 	animation_player.play("HoldingCard")
 	card_mesh.visible = true
 	activating_area.hold()
+	drop_area.hold()
 
 
 func release_card():
 	holding = false
 	animation_player.play_backwards("HoldingCard")
 	activating_area.release()
+	drop_area.release()
 	card_mesh.visible = false

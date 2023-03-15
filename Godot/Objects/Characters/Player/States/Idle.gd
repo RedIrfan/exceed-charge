@@ -17,3 +17,4 @@ func process(_delta):
 			fsm.enter_state("SecondaryAttackMaster")
 	if check_hurt():
 		fsm.enter_state("Hurt")
+	check_interact()

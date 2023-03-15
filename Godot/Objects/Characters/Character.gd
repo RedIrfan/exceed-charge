@@ -9,10 +9,10 @@ signal health_changed(new_health)
 
 @export var HEALTH : int = 100
 @export var SPEED : int = 4
-@export var rotation_speed : float = 0.5
+@export_range(0, 1, 0.05) var rotation_speed : float = 0.5
 
-var health = HEALTH : set = set_health
-var speed = SPEED
+var health : float = HEALTH : set = set_health
+var speed  : float = SPEED
 
 var direction = Vector2.ZERO
 var hurt_data : Hurtdata = null

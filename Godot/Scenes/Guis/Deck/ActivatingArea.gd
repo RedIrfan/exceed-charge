@@ -73,4 +73,4 @@ func _exited_end_activate():
 
 func _on_activating_timeout():
 	if activating:
-		deck._use_card()
+		deck.use_card()

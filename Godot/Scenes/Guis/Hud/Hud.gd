@@ -11,11 +11,19 @@ extends Gui
 @onready var attack_damage_percentage : Label = $Margin/HudBar/HBoxContainer/AttackDamage/Label
 @onready var attack_speed_percentage: Label = $Margin/HudBar/HBoxContainer/AttackSpeed/Label
 
+@onready var pickup_label : Label = $PickupLabel
+
 var set_up : bool = false
+
+
+func _ready():
+	pickup_label.set_process(false)
+
 
 
 func enter():
 	super.enter()
+	
 	if set_up == false:
 		set_up = true
 		health_bar.max_value = player.HEALTH
@@ -25,6 +33,7 @@ func enter():
 		
 		player.connect('health_changed', _on_health_changed)
 		player.connect("card_activated", _on_card_activated)
+		player.pickup_area.connect("pickup_list_changed", _on_pickup_list_changed)
 
 
 func exit():
@@ -62,6 +71,20 @@ func _on_card_activated():
 	speed_percentage.set_text(_format_percentage(str(player.status.speed_multiplier)))
 	attack_damage_percentage.set_text(_format_percentage(str(player.status.attack_damage_multiplier)))
 	attack_speed_percentage.set_text(_format_percentage(str(player.status.attack_speed_multiplier)))
+
+
+func _on_pickup_list_changed():
+	var camera : Camera3D = Global.root_scene().camera.camera3d
+	var pickup_area = player.pickup_area
+	
+	pickup_label.visible = false
+	pickup_label.set_process(false)
+	if pickup_area.pickup_list.size() > 0:
+		pickup_label.pickupable = pickup_area.get_pickupable()
+		
+		pickup_label.move_to_target_position()
+		pickup_label.set_process(true)
+		pickup_label.visible = true
 
 
 func _format_percentage(text) -> String:

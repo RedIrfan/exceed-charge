@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://yl0ax47os7of"]
+[gd_scene load_steps=12 format=3 uid="uid://yl0ax47os7of"]
 
 [ext_resource type="Script" path="res://Scenes/Guis/Hud/Hud.gd" id="1_1krw8"]
 [ext_resource type="Texture2D" uid="uid://dkcuxnecprxav" path="res://Assets/Hud/Hud.png" id="2_iaoah"]
@@ -8,9 +8,18 @@
 [ext_resource type="Texture2D" uid="uid://cangu2c66qlw6" path="res://Assets/Hud/SpeedLogo.png" id="6_7lb07"]
 [ext_resource type="Texture2D" uid="uid://caol04j7qpf81" path="res://Assets/Hud/AttackDamageLogo.png" id="7_lqdx0"]
 [ext_resource type="Texture2D" uid="uid://3aqlslbi6gtd" path="res://Assets/Hud/AttackSpeedLogo.png" id="8_r8n1q"]
+[ext_resource type="Script" path="res://Scenes/Guis/Hud/PickupLabel.gd" id="9_bj2is"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgcv3"]
 bg_color = Color(0.0823529, 0.0862745, 0.34902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r03b"]
+bg_color = Color(0.290196, 0.290196, 0.290196, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -130,5 +139,17 @@ stretch_mode = 5
 
 [node name="Label" type="Label" parent="Margin/HudBar/HBoxContainer/AttackSpeed"]
 layout_mode = 2
+
+[node name="PickupLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_2r03b")
+text = "E"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_bj2is")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -68,16 +68,16 @@ func process_card(body:Character) -> void:
 	match suit:
 		SUITS.PENTAGON:
 			status_data.defense_multiplier += adjacent_suit_power
-			status_data.speed_multiplier -= opposite_suit_power
+			status_data.speed_multiplier += opposite_suit_power
 		SUITS.TRIANGLE:
 			status_data.speed_multiplier += adjacent_suit_power
-			status_data.defense_multiplier -= opposite_suit_power
+			status_data.defense_multiplier += opposite_suit_power
 		SUITS.DIAMOND:
 			status_data.attack_speed_multiplier += adjacent_suit_power
-			status_data.attack_damage_multiplier -= opposite_suit_power
+			status_data.attack_damage_multiplier += opposite_suit_power
 		SUITS.ARROW:
 			status_data.attack_damage_multiplier += adjacent_suit_power
-			status_data.attack_speed_multiplier -= opposite_suit_power
+			status_data.attack_speed_multiplier += opposite_suit_power
 	
 	unique_process_card(body)
 

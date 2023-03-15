@@ -5,20 +5,20 @@ class_name StateCharacterHurt
 
 @export var immovable : bool = false
 
-@export_group("Light")
-@export var knockback_speed_light : int = 4
-@export var knockback_duration_light : float = 0.125
+@export_group("Light", "light_")
+@export var light_knockback_speed : int = 4
+@export var light_knockback_duration : float = 0.125
 
-@export_subgroup("Animation")
-@export var	animation_duration_light : float = 0.4167
+@export_subgroup("Animation", "light_")
+@export var	light_animation_duration : float = 0.4167
 
-@export_group("Heavy")
-@export var knockback_speed_heavy : int = 5
-@export var knockback_duration_heavy : float = 0.5
+@export_group("Heavy", "heavy_")
+@export var heavy_knockback_speed : int = 5
+@export var heavy_knockback_duration : float = 0.5
 @export var wakeup_duration  : float = 0.5
 
-@export_subgroup("Animation")
-@export var animation_duration_heavy : float = 1.0
+@export_subgroup("Animation", "heavy_")
+@export var heavy_animation_duration : float = 1.0
 @export var animation_transition_to_idle_duration : float = 0.25
 
 var hurt_data : Hurtdata 
@@ -77,9 +77,9 @@ func _process_damage():
 func _get_knockback() -> Array:
 	match hurt_data.damage_type:
 		Global.DAMAGES.LIGHT:
-			return [knockback_speed_light, knockback_duration_light, animation_duration_light-knockback_duration_light]
+			return [light_knockback_speed, light_knockback_duration, light_animation_duration-light_knockback_duration]
 		Global.DAMAGES.HEAVY:
-			return [knockback_speed_heavy, knockback_duration_heavy, animation_duration_heavy-knockback_duration_heavy]
+			return [heavy_knockback_speed, heavy_knockback_duration, heavy_animation_duration-heavy_knockback_duration]
 	return [0,0]
 
 
