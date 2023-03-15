@@ -36,15 +36,7 @@ func physics_process(_delta):
 func _play_dash_animation():
 	var animation_name = "Dash"
 	
-	match get_direction_relative_to_body(dash_direction):
-		Vector2(1, 0):
-			animation_name += "Left"
-		Vector2(-1, 0):
-			animation_name += "Right"
-		Vector2(0, 1):
-			animation_name += "Forward"
-		Vector2(0,-1):
-			animation_name += "Backward"
+	animation_name += get_relative_direction_name(dash_direction)
 	
 	if animation_name != "Dash":
 		body.play_animation(animation_name, dash_duration)

@@ -25,8 +25,9 @@ func _on_area_exited(area):
 
 
 func pickup():
-	if pickup_list.size() == 1:
-		pickup_list[0].pickup(body)
+	var pickupable = get_pickupable()
+	if pickupable != null:
+		get_pickupable().pickup(body)
 
 
 func get_pickupable() -> Pickupable:

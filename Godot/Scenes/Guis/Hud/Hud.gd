@@ -24,6 +24,8 @@ func _ready():
 func enter():
 	super.enter()
 	
+	player.pickup_area.connect("pickup_list_changed", _on_pickup_list_changed)
+	
 	if set_up == false:
 		set_up = true
 		health_bar.max_value = player.HEALTH
@@ -33,10 +35,11 @@ func enter():
 		
 		player.connect('health_changed', _on_health_changed)
 		player.connect("card_activated", _on_card_activated)
-		player.pickup_area.connect("pickup_list_changed", _on_pickup_list_changed)
 
 
 func exit():
+	player.pickup_area.disconnect("pickup_list_changed", _on_pickup_list_changed)
+	
 	await get_tree().create_timer(0.1).timeout
 	
 	super.exit()
@@ -74,17 +77,19 @@ func _on_card_activated():
 
 
 func _on_pickup_list_changed():
-	var camera : Camera3D = Global.root_scene().camera.camera3d
-	var pickup_area = player.pickup_area
-	
-	pickup_label.visible = false
-	pickup_label.set_process(false)
-	if pickup_area.pickup_list.size() > 0:
-		pickup_label.pickupable = pickup_area.get_pickupable()
-		
-		pickup_label.move_to_target_position()
-		pickup_label.set_process(true)
-		pickup_label.visible = true
+	if Global.root_scene() is StageMaster:
+		if Global.stage_master().camera:
+			var camera : Camera3D = Global.stage_master().camera.camera3d
+			var pickup_area = player.pickup_area
+			
+			pickup_label.visible = false
+			pickup_label.set_process(false)
+			if pickup_area.pickup_list.size() > 0:
+				pickup_label.pickupable = pickup_area.get_pickupable()
+				
+				pickup_label.move_to_target_position()
+				pickup_label.set_process(true)
+				pickup_label.visible = true
 
 
 func _format_percentage(text) -> String:

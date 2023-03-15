@@ -15,11 +15,11 @@ class_name StateCharacterHurt
 @export_group("Heavy", "heavy_")
 @export var heavy_knockback_speed : int = 5
 @export var heavy_knockback_duration : float = 0.5
-@export var wakeup_duration  : float = 0.5
+@export var heavy_wakeup_duration  : float = 0.5
 
 @export_subgroup("Animation", "heavy_")
 @export var heavy_animation_duration : float = 1.0
-@export var animation_transition_to_idle_duration : float = 0.25
+@export var heavy_animation_transition_to_idle_duration : float = 0.25
 
 var hurt_data : Hurtdata 
 var hurt_state_index : int = 0
@@ -90,14 +90,14 @@ func _on_animation_timeout():
 		body.start_animation_timer(_get_knockback()[2])
 	elif hurt_data.damage_type == Global.DAMAGES.HEAVY and hurt_state_index == 1:
 		hurt_state_index = 2
-		if wakeup_duration > 0:
-			body.play_animation("HurtWakeup", wakeup_duration)
+		if heavy_wakeup_duration > 0:
+			body.play_animation("HurtWakeup", heavy_wakeup_duration)
 		else:
 			_on_animation_timeout()
 	elif hurt_data.damage_type == Global.DAMAGES.HEAVY and hurt_state_index == 2:
 		hurt_state_index = 3
-		if animation_transition_to_idle_duration > 0:
-			body.play_animation("Idle", animation_transition_to_idle_duration)
+		if heavy_animation_transition_to_idle_duration > 0:
+			body.play_animation("Idle", heavy_animation_transition_to_idle_duration)
 		else:
 			_on_animation_timeout()
 	else:

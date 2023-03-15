@@ -4,7 +4,9 @@ class_name Enemy
 @onready var raycast_pivot : Node3D = $Pivot/ContextRaycasts
 
 @export var context_raycast_size : int = 4
+@export var pursue_range : float = 3.0
 @export var attack_range : float = 2.0
+@export var flee_range : float = 2.0
 
 var target : Character
 
@@ -14,6 +16,11 @@ var raycasts : Array[RayCast3D] = []
 
 
 func _ready():
+	super._ready()
+	pursue_range += randf_range(0, 1)
+	attack_range += randf_range(0, 1)
+	flee_range += randf_range(0, 1)
+	
 	interest_array.resize(context_raycast_size)
 	danger_array.resize(context_raycast_size)
 	var raycast_angle_rotation = 360 / context_raycast_size
@@ -54,5 +61,5 @@ func get_context_direction():
 	
 	direction = Vector2.ZERO
 	for i in context_raycast_size:
-		direction += raycasts[i].target_position * interest_array[i]
+		direction += Vector2(raycasts[i].target_position.x, raycasts[i].target_position.z) * interest_array[i]
 	direction = direction.normalized()

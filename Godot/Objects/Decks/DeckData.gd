@@ -46,6 +46,12 @@ func use_card(card_index:int, body:Character) -> bool:
 	return false
 
 
+func get_card(card_index:int) -> CardData:
+	if card_index < deck_list.size():
+		return deck_list[card_index]
+	return null
+
+
 func exceed_charge():
 	var exceed_types : Array = [0,0,0,0]
 	for charge_type in charge:

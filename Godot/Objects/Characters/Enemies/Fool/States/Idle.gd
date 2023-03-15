@@ -6,7 +6,9 @@ func enter(_msg=[]):
 
 
 func process(_delta):
-	if get_distance_to_target() < body.attack_range:
-		fsm.enter_state("Slash")
+	var distance_to_target = get_distance_to_target()
+	if distance_to_target > body.pursue_range:
+		fsm.enter_state("Pursue")
+	
 	if check_hurt():
 		fsm.enter_state("Hurt")

@@ -14,6 +14,25 @@ func direction_to_relative(direction:Vector2) -> Vector2:
 	return direction.rotated(body.rotation.y)
 
 
+func get_relative_direction_name(direction:Vector2=Vector2.ZERO) -> String:
+	if direction == Vector2.ZERO:
+		direction = body.direction
+	var animation_name = ""
+	var rotated_dir = direction.rotated(body.rotation.y)
+	
+	if rotated_dir.x > 0.6 or rotated_dir.x < -0.6:
+		if rotated_dir.x > 0:
+			animation_name = "Right"
+		elif rotated_dir.x < 0:
+			animation_name = "Left"
+	elif rotated_dir.y < 0:
+		animation_name = "Forward"
+	elif rotated_dir.y > 0:
+		animation_name = "Backward"
+	
+	return animation_name
+
+
 func look_at(target, rotation_speed):
 	if rotation_speed == 0:
 		rotation_speed = body.rotation_speed

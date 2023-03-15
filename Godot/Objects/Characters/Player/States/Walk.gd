@@ -28,15 +28,7 @@ func physics_process(_delta):
 func _play_walk_animation() -> void:
 	var animation_name = "Walk"
 	
-	match get_direction_relative_to_body():
-		Vector2(1, 0):
-			animation_name += "Right"
-		Vector2(-1, 0):
-			animation_name += "Left"
-		Vector2(0, 1):
-			animation_name += "Forward"
-		Vector2(0,-1):
-			animation_name += "Backward"
+	animation_name += get_relative_direction_name()
 	
 	if animation_name != "Walk":
 		body.play_animation(animation_name)
