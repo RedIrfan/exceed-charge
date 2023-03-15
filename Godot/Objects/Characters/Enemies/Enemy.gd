@@ -1,11 +1,15 @@
 extends Character
 class_name Enemy
 
-@onready var raycast_pivot : Node3D = $Pivot/ContextRaycasts
+signal context_raycast_colliding(raycast_index)
 
-@export var context_raycast_size : int = 4
+@onready var raycast_pivot : Node3D = $Pivot/ContextRaycasts
+@onready var attack_timer : Timer = $AttackTimer
+
+@export var context_raycast_size : int = 8
+@export var attack_interval : float = 6.0
 @export var pursue_range : float = 3.0
-@export var attack_range : float = 2.0
+@export var attack_range : float = 1.0
 @export var flee_range : float = 2.0
 
 var target : Character
@@ -37,6 +41,12 @@ func _ready():
 	await Global.root_scene().ready
 	
 	target = Global.root_scene().player
+	
+	start_attack_timer()
+
+
+func start_attack_timer():
+	attack_timer.start(attack_interval)
 
 
 func set_interest(target_direction:Vector3=Vector3.FORWARD) -> void:
@@ -49,6 +59,7 @@ func set_danger():
 	for i in context_raycast_size:
 		if raycasts[i].is_colliding():
 			danger_array[i] = 1.0
+			emit_signal("context_raycast_colliding", i)
 		else:
 			danger_array[i] = 0.0
 
@@ -57,9 +68,10 @@ func get_context_direction():
 	set_danger()
 	for i in context_raycast_size:
 		if danger_array[i] > 0.0:
-			interest_array[i] = 0.0
+			interest_array[i] = clamp(interest_array[i] - danger_array[i], 0, 1)
 	
 	direction = Vector2.ZERO
 	for i in context_raycast_size:
 		direction += Vector2(raycasts[i].target_position.x, raycasts[i].target_position.z) * interest_array[i]
+		
 	direction = direction.normalized()

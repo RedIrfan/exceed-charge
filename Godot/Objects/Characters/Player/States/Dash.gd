@@ -2,7 +2,7 @@ extends StatePlayer
 
 @onready var dash_timer :Timer = $DashTimer
 
-@export var dash_speed : int = 15
+@export var dash_speed : int = 10
 @export var dash_duration : float = 0.1667
 @export var stop_duration : float = 0.25
 @export var dash_cooldown : float = 0.05
@@ -28,7 +28,8 @@ func exit():
 
 func physics_process(_delta):
 #	look_at_mouse()
-	
+	if check_hurt():
+		fsm.enter_state("Hurt")
 	if body.speed == dash_speed:
 		apply_direction(dash_direction)
 
@@ -36,7 +37,7 @@ func physics_process(_delta):
 func _play_dash_animation():
 	var animation_name = "Dash"
 	
-	animation_name += get_relative_direction_name(dash_direction)
+	animation_name += get_relative_direction_name(Vector2(-dash_direction.x, dash_direction.y))
 	
 	if animation_name != "Dash":
 		body.play_animation(animation_name, dash_duration)

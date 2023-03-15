@@ -1,6 +1,7 @@
 extends StateCharacter
 class_name StateActionMaster
 
+@export var unstaggerable : bool = false
 ## The next state fsm will go to if all action ends except if comboing
 @export var next_state : State
 
@@ -24,6 +25,12 @@ func enter(_msg=[]):
 
 func exit():
 	body.disconnect_from_animation_timer(_on_animation_timeout)
+
+
+func process(_delta):
+	if check_hurt():
+		var parameter = "unstaggerable" if unstaggerable else ""
+		fsm.enter_state("Hurt", [parameter])
 
 
 func _on_animation_timeout():

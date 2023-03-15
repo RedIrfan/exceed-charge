@@ -22,3 +22,7 @@ func look_at_target(rotation_speed:float=0):
 
 func get_distance_to_target() -> float:
 	return body.global_transform.origin.distance_to(body.target.global_transform.origin)
+
+
+func check_attack() -> bool:
+	return body.attack_timer.is_stopped()

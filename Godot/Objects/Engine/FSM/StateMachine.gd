@@ -7,6 +7,7 @@ class_name StateMachine
 
 var states : Dictionary = {}
 
+var previous_state
 var current_state
 
 
@@ -23,11 +24,14 @@ func _ready():
 func enter_state(state_name:String, msg=[]):
 	state_name = state_name.to_lower()
 	if states.has(state_name):
-		if current_state:
-			await current_state.exit()
-		
 		var next_state = states[state_name]
-		if next_state.enter_condition(body, self, msg):
+		var next_state_condition = next_state.enter_condition(body, self, msg)
+		
+		if next_state_condition:
+			if current_state:
+				await current_state.exit()
+				previous_state = current_state
+		
 			current_state = next_state
 			current_state.body = body
 			current_state.fsm = self

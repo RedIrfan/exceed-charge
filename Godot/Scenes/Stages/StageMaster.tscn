@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://Scenes/Stages/StageMaster.gd" id="1_f31se"]
 [ext_resource type="PackedScene" uid="uid://dtj3l35v7fjgb" path="res://Objects/Characters/Player/Player.tscn" id="2_6j1x0"]
 [ext_resource type="PackedScene" uid="uid://ddavubmc2k7kp" path="res://Scenes/Guis/GuiMaster.tscn" id="2_dg3y4"]
-[ext_resource type="PackedScene" uid="uid://dwbqlnge51q7" path="res://Objects/GameCamera/GameCamera.tscn" id="3_tpes8"]
 [ext_resource type="PackedScene" uid="uid://bx7iihigk42vl" path="res://Objects/Characters/Dummy/Dummy.tscn" id="4_k5p6w"]
 [ext_resource type="Script" path="res://Objects/Decks/Cards/CardData.gd" id="4_shfx1"]
 [ext_resource type="Script" path="res://Objects/Decks/DeckData.gd" id="5_gqsec"]
 [ext_resource type="Script" path="res://Objects/Decks/StatusData.gd" id="6_bilgt"]
-[ext_resource type="PackedScene" uid="uid://bxyr7m5w11we6" path="res://Objects/Characters/Enemies/Fool/Fool.tscn" id="9_nsng0"]
+[ext_resource type="PackedScene" uid="uid://dwbqlnge51q7" path="res://Objects/GameCamera/GameCamera.tscn" id="7_mcxds"]
+[ext_resource type="PackedScene" uid="uid://cuyel7n667f2q" path="res://Objects/Characters/Enemies/Fool/Fool.tscn" id="9_nsng0"]
 [ext_resource type="PackedScene" uid="uid://bjvitxn1rjex1" path="res://Objects/Pickupable/CardPickupable/CardPickupable.tscn" id="10_pqhgw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c5oh7"]
@@ -104,7 +104,7 @@ shadow_enabled = true
 deck = SubResource("Resource_vc5mo")
 status = SubResource("Resource_8b2k4")
 
-[node name="GameCamera" parent="." instance=ExtResource("3_tpes8")]
+[node name="GameCamera" parent="." instance=ExtResource("7_mcxds")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)

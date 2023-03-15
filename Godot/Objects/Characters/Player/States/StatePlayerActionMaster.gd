@@ -7,7 +7,8 @@ class_name StatePlayerActionMaster
 @export var dash : State
 
 
-func process(_delta):
+func process(delta):
+	super.process(delta)
 	if can_combo:
 		var to_state : State = null
 		if Input.is_action_just_pressed("action_primary_attack"):
