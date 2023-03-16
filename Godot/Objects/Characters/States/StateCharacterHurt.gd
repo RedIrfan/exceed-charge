@@ -33,8 +33,10 @@ func enter_condition(_body, _fsm, msg=[]) -> bool:
 	
 	if msg.has("unstaggerable"):
 		_process_damage()
-		_check_dead()
-		return false
+		if _check_dead():
+			return true
+		else:
+			return false
 	return true
 
 
@@ -58,6 +60,8 @@ func enter(_msg=[]):
 	
 	if _check_dead() == false:
 		body.play_animation("Hurt" + animation_name[hurt_data.damage_type], _get_knockback()[1], true)
+	else:
+		fsm.enter_state("Dead", [hurt_data])
 
 
 func exit():
@@ -78,7 +82,6 @@ func _process_damage():
 
 func _check_dead() -> bool:
 	if body.health <= 0:
-		fsm.enter_state("Dead", [hurt_data])
 		return true
 	return false
 
