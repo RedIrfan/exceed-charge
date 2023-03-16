@@ -1,6 +1,8 @@
 extends CollisionBox
 class_name Hitbox
 
+signal hit
+
 @export var attack_position : Node
 
 var _damage : int = 0 # underscored for abstraction
@@ -46,3 +48,5 @@ func process_attack(hurtbox):
 		attack_pos = attack_position.global_transform.origin
 	
 	hurtbox.set_hurtdata(body, attack_pos, _damage, _damage_type)
+	
+	emit_signal('hit')

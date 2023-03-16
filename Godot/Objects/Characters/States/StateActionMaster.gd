@@ -52,8 +52,7 @@ func play_action():
 		action.hitbox.set_damage(action.damage, action.damage_type)
 	if action.projectile != null:
 		var projectile = action.projectile.instantiate()
-		
-		Global.add_child(projectile)
+		projectile.spawn(body, action.projectile_spawn_position.global_transform)
 	
 	can_combo = action.can_combo
 	

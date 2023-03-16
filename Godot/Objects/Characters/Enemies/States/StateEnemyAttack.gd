@@ -1,8 +1,10 @@
 extends StateEnemy
 class_name StateEnemyAttack
 
-@export var speed : int = 4
 @export var attack_state : State
+
+@export_group("Movement")
+@export var speed : int = 4
 
 
 func enter(_msg=[]):

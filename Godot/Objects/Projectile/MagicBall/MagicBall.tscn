@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlx8cwdcil73b"]
+
+[ext_resource type="PackedScene" uid="uid://bqvnjcfcrfv1x" path="res://Objects/Projectile/Projectile.tscn" id="1_601su"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_hyhl5"]
+radius = 0.125
+height = 0.25
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_osryb"]
+radius = 0.125
+
+[node name="MagicBall" instance=ExtResource("1_601su")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" index="0"]
+mesh = SubResource("SphereMesh_hyhl5")
+
+[node name="CollisionShape3D" parent="Hitbox" index="0"]
+shape = SubResource("SphereShape3D_osryb")

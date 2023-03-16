@@ -37,7 +37,7 @@ func physics_process(_delta):
 func _play_dash_animation():
 	var animation_name = "Dash"
 	
-	animation_name += get_relative_direction_name(Vector2(-dash_direction.x, dash_direction.y))
+	animation_name += get_relative_direction_name(dash_direction)
 	
 	if animation_name != "Dash":
 		body.play_animation(animation_name, dash_duration)

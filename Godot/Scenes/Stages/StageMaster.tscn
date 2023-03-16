@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://of4cnxdapriu"]
+[gd_scene load_steps=25 format=3 uid="uid://of4cnxdapriu"]
 
 [ext_resource type="Script" path="res://Scenes/Stages/StageMaster.gd" id="1_f31se"]
 [ext_resource type="PackedScene" uid="uid://dtj3l35v7fjgb" path="res://Objects/Characters/Player/Player.tscn" id="2_6j1x0"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dwbqlnge51q7" path="res://Objects/GameCamera/GameCamera.tscn" id="7_mcxds"]
 [ext_resource type="PackedScene" uid="uid://cuyel7n667f2q" path="res://Objects/Characters/Enemies/Fool/Fool.tscn" id="9_nsng0"]
 [ext_resource type="PackedScene" uid="uid://bjvitxn1rjex1" path="res://Objects/Pickupable/CardPickupable/CardPickupable.tscn" id="10_pqhgw"]
+[ext_resource type="PackedScene" uid="uid://c3qjrj6h5rj1h" path="res://Objects/Characters/Enemies/Magician/Magician.tscn" id="11_1d8tk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c5oh7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -126,3 +127,6 @@ transform = Transform3D(0.254585, 0, 0.96705, 0, 1, 0, -0.96705, 0, 0.254585, 3.
 [node name="CardPickupable" parent="." instance=ExtResource("10_pqhgw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.25683, 0.180044, 0)
 card_data = SubResource("Resource_do2e1")
+
+[node name="Magician" parent="." instance=ExtResource("11_1d8tk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16934, 0, 0)
