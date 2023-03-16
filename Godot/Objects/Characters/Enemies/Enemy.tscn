@@ -8,6 +8,7 @@
 
 [node name="Enemy" groups=["Enemy"] instance=ExtResource("1_07yf4")]
 script = ExtResource("2_0n1fk")
+drop_item = null
 context_raycast_size = 8
 attack_interval = 6.0
 pursue_range = 3.0
@@ -33,6 +34,9 @@ script = ExtResource("4_br72c")
 
 [node name="Attack" type="Node" parent="StateMachine" index="3"]
 script = ExtResource("5_g2lbk")
+
+[node name="Dead" parent="StateMachine" index="4"]
+delay_before_process = 2.0
 
 [node name="AttackTimer" type="Timer" parent="." index="3"]
 one_shot = true

@@ -3,6 +3,7 @@ class_name Hitbox
 
 signal hit
 
+@export var exception_group: String 
 @export var attack_position : Node
 
 var _damage : int = 0 # underscored for abstraction
@@ -31,9 +32,10 @@ func set_damage(damage, damage_type:Global.DAMAGES=Global.DAMAGES.LIGHT):
 func _on_area_entered(area):
 	if area is Hurtbox:
 		if area.body != body:
-			hitlist.append(area)
-			if _damage > 0:
-				process_attack(area)
+			if ! area.body.is_in_group(exception_group):
+				hitlist.append(area)
+				if _damage > 0:
+					process_attack(area)
 
 
 func _on_area_exited(area):

@@ -4,6 +4,7 @@ class_name Character
 signal dead
 signal health_changed(new_health)
 
+@onready var pivot : Node3D = $Pivot
 @onready var animation_tree : AnimationTree = $Pivot/AnimationTree
 @onready var animation_timer : Timer = $Pivot/AnimationTimer
 

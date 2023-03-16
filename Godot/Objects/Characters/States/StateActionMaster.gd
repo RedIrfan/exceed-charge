@@ -1,6 +1,7 @@
 extends StateCharacter
 class_name StateActionMaster
 
+@export var exception_group : String = ""
 @export var unstaggerable : bool = false
 ## The next state fsm will go to if all action ends except if comboing
 @export var next_state : State
@@ -52,7 +53,7 @@ func play_action():
 		action.hitbox.set_damage(action.damage, action.damage_type)
 	if action.projectile != null:
 		var projectile = action.projectile.instantiate()
-		projectile.spawn(body, action.projectile_spawn_position.global_transform)
+		projectile.spawn(body, action.projectile_spawn_position.global_transform, exception_group)
 	
 	can_combo = action.can_combo
 	

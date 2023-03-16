@@ -10,3 +10,7 @@ func _ready():
 	Global.root_scene().add_child(object)
 	
 	object.global_transform.origin = self.global_transform.origin
+
+
+func set_health(health:int):
+	pass	

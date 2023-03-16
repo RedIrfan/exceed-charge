@@ -4,8 +4,8 @@ class_name Projectile
 @onready var kill_timer : Timer= $KillTimer
 @onready var hitbox : Hitbox = $Hitbox
 
-@export var max_distance: float = 5.0
-@export var speed : float = 5
+@export var max_distance: float = 15
+@export var speed : float = 10
 @export var damage : int = 5
 
 var kill_duration : float = 0
@@ -22,11 +22,12 @@ func _physics_process(delta):
 	self.global_position += (-self.global_transform.basis.z * speed) * delta
 
 
-func spawn(spawner, spawn_transform, parameters=[]):
+func spawn(spawner, spawn_transform, exception_group="", parameters=[]):
 	Global.add_child(self)
 	
 	hitbox.body = spawner
 	hitbox.set_damage(damage)
+	hitbox.exception_group = exception_group
 	
 	self.global_transform = spawn_transform
 	kill_timer.start(kill_duration)

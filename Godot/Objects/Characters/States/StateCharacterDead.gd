@@ -1,6 +1,8 @@
 extends StateCharacter
+class_name StateCharacterDead
 
 @export var animation_name : String
+@export var delay_before_process: float = 0
 
 
 func enter(msg=[]):
@@ -12,4 +14,9 @@ func enter(msg=[]):
 	
 	if animation_name != "":
 		body.play_animation(animation_name)
-	body._on_dead()
+	
+	if delay_before_process > 0:
+		await get_tree().create_timer(delay_before_process).timeout
+		body._on_dead()
+	else:
+		body._on_dead()

@@ -6,6 +6,9 @@ signal context_raycast_colliding(raycast_index)
 @onready var raycast_pivot : Node3D = $Pivot/ContextRaycasts
 @onready var attack_timer : Timer = $AttackTimer
 
+@export var drop_item : PackedScene 
+
+@export_group("Behaviour")
 @export var context_raycast_size : int = 8
 @export var attack_interval : float = 6.0
 @export var pursue_range : float = 3.0
@@ -17,6 +20,9 @@ var target : Character
 var interest_array : Array[float] = []
 var danger_array : Array[float] = []
 var raycasts : Array[RayCast3D] = []
+
+var dead_position : Vector3 = Vector3(0, -0.5, 0)
+var dead_duration : float = 2.0
 
 
 func _ready():
@@ -75,3 +81,17 @@ func get_context_direction():
 		direction += Vector2(raycasts[i].target_position.x, raycasts[i].target_position.z) * interest_array[i]
 		
 	direction = direction.normalized()
+
+
+func process_dead():
+	if drop_item != null:
+		var item = drop_item.instantiate()
+		Global.add_child(item)
+		
+	self.set_collision_layer_value(2, false)
+	self.set_collision_mask_value(2, false)
+	
+	var tween : Tween = create_tween()
+	
+	tween.tween_property(pivot, "position", dead_position, dead_duration)
+	tween.tween_callback(queue_free)

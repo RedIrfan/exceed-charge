@@ -300,5 +300,3 @@ script = ExtResource("4_2ohr7")
 
 [node name="Hurt" parent="StateMachine" index="1"]
 immovable = true
-wakeup_duration = 0.0
-animation_transition_to_idle_duration = 0.0
