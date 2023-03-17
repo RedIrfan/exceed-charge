@@ -9,6 +9,7 @@
 [node name="Enemy" groups=["Enemy"] instance=ExtResource("1_07yf4")]
 script = ExtResource("2_0n1fk")
 drop_item = null
+drop_items = Array[Array]([[]])
 context_raycast_size = 8
 attack_interval = 6.0
 pursue_range = 3.0

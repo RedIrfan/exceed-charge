@@ -2,12 +2,14 @@ extends StateCharacter
 class_name StateActionMaster
 
 @export var exception_group : String = ""
+@export var repeat_time : int = 0
 @export var unstaggerable : bool = false
 ## The next state fsm will go to if all action ends except if comboing
 @export var next_state : State
 
 var actions : Array = []
 var action_index : int
+var repeat_index : int = 0
 
 var can_combo : bool = false
 
@@ -20,6 +22,7 @@ func _ready():
 
 func enter(_msg=[]):
 	body.connect_to_animation_timer(_on_animation_timeout)
+	repeat_index = 0
 	action_index = 0
 	play_action()
 
@@ -39,14 +42,19 @@ func _on_animation_timeout():
 	if action_index < actions.size():
 		play_action()
 	else:
-		fsm.enter_state(next_state.name)
+		if repeat_index < repeat_time:
+			repeat_index += 1
+			action_index = 0
+			play_action()
+		else:
+			fsm.enter_state(next_state.name)
 
 
 func play_action():
 	var action : ActionData = actions[action_index]
 	
 	if action.animation_name != "":
-		body.play_animation(action.animation_name)
+		body.play_animation(action.animation_name, 0, true)
 	body.start_animation_timer(action.duration)
 	
 	if action.hitbox != null:

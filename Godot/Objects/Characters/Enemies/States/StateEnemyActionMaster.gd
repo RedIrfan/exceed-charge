@@ -4,6 +4,11 @@ class_name StateEnemyActionMaster
 var look_at_target : bool = false
 
 
+func exit():
+	super.exit()
+	body.start_attack_timer()
+
+
 func process(delta):
 	super.process(delta)
 	

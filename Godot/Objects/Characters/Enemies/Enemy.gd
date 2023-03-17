@@ -7,6 +7,7 @@ signal context_raycast_colliding(raycast_index)
 @onready var attack_timer : Timer = $AttackTimer
 
 @export var drop_item : PackedScene 
+@export var drop_items : Array[Array] = [[]]
 
 @export_group("Behaviour")
 @export var context_raycast_size : int = 8
