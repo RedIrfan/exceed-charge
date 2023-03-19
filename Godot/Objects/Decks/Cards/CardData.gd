@@ -16,20 +16,21 @@ enum SUITS {
 @export_group("Unique")
 @export var card_name : String = "" : get = get_card_name
 @export var card_image : Texture = null : get = get_card_image
+@export var card_drop_chance : int = 0
 
 
-func _init(new_value : int=1, new_suit : SUITS=SUITS.PENTAGON, new_card_name : String="", new_card_image:Texture=null):
+func _init(new_value : int=1, new_suit : SUITS=SUITS.PENTAGON, new_card_name : String="", new_card_image:Texture=null, new_card_drop_chance:int=0):
 	value = new_value
 	suit = new_suit
+	
 	card_name = new_card_name
 	card_image = new_card_image
+	card_drop_chance = new_card_drop_chance
 
 
 func get_card_name() -> String:
 	if card_name == "":
-		var suit_to_string = ["Pentagons", "Triangles", "Diamonds", "Arrows"]
-		
-		card_name += value_to_string() + " Of " + suit_to_string[suit]
+		card_name += value_to_string() + " Of " + suit_to_string()
 	return card_name
 
 
@@ -40,6 +41,18 @@ func get_card_image() -> Texture:
 		
 		card_image = load(img_path)
 	return card_image
+
+
+func get_card_drop_chance(_receiver:Character) -> int:
+	if card_drop_chance == 0:
+		match value:
+			1:
+				card_drop_chance = 50
+			2:
+				card_drop_chance = 40
+			3:
+				card_drop_chance = 20
+	return card_drop_chance
 
 
 func value_to_string() -> String:
@@ -82,5 +95,5 @@ func process_card(body:Character) -> void:
 	unique_process_card(body)
 
 
-func unique_process_card(body:Character) -> void:
+func unique_process_card(_body:Character) -> void:
 	pass

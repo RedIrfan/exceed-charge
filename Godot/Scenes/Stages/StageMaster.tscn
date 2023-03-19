@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://of4cnxdapriu"]
+[gd_scene load_steps=21 format=3 uid="uid://of4cnxdapriu"]
 
 [ext_resource type="Script" path="res://Scenes/Stages/StageMaster.gd" id="1_f31se"]
 [ext_resource type="PackedScene" uid="uid://dtj3l35v7fjgb" path="res://Objects/Characters/Player/Player.tscn" id="2_6j1x0"]
@@ -8,9 +8,6 @@
 [ext_resource type="Script" path="res://Objects/Decks/DeckData.gd" id="5_gqsec"]
 [ext_resource type="Script" path="res://Objects/Decks/StatusData.gd" id="6_bilgt"]
 [ext_resource type="PackedScene" uid="uid://dwbqlnge51q7" path="res://Objects/GameCamera/GameCamera.tscn" id="7_mcxds"]
-[ext_resource type="PackedScene" uid="uid://cuyel7n667f2q" path="res://Objects/Characters/Enemies/Fool/Fool.tscn" id="9_nsng0"]
-[ext_resource type="PackedScene" uid="uid://bjvitxn1rjex1" path="res://Objects/Pickupable/CardPickupable/CardPickupable.tscn" id="10_pqhgw"]
-[ext_resource type="PackedScene" uid="uid://c3qjrj6h5rj1h" path="res://Objects/Characters/Enemies/Magician/Magician.tscn" id="11_1d8tk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c5oh7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -34,24 +31,28 @@ script = ExtResource("4_shfx1")
 value = 2
 suit = 0
 card_name = ""
+card_drop_chance = 0
 
 [sub_resource type="Resource" id="Resource_rmjl0"]
 script = ExtResource("4_shfx1")
 value = 2
 suit = 0
 card_name = ""
+card_drop_chance = 0
 
 [sub_resource type="Resource" id="Resource_3xo6p"]
 script = ExtResource("4_shfx1")
 value = 3
 suit = 1
 card_name = ""
+card_drop_chance = 0
 
 [sub_resource type="Resource" id="Resource_r68yu"]
 script = ExtResource("4_shfx1")
 value = 3
 suit = 3
 card_name = ""
+card_drop_chance = 0
 
 [sub_resource type="Resource" id="Resource_vc5mo"]
 script = ExtResource("5_gqsec")
@@ -76,16 +77,10 @@ albedo_color = Color(0.117647, 0.0431373, 0.211765, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_f14f2"]
 material = SubResource("StandardMaterial3D_uafxm")
-size = Vector3(10, 1, 10)
+size = Vector3(12, 1, 12)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_soo54"]
 data = PackedVector3Array(-25, 0.5, 25, 25, 0.5, 25, -25, -0.5, 25, 25, 0.5, 25, 25, -0.5, 25, -25, -0.5, 25, 25, 0.5, -25, -25, 0.5, -25, 25, -0.5, -25, -25, 0.5, -25, -25, -0.5, -25, 25, -0.5, -25, 25, 0.5, 25, 25, 0.5, -25, 25, -0.5, 25, 25, 0.5, -25, 25, -0.5, -25, 25, -0.5, 25, -25, 0.5, -25, -25, 0.5, 25, -25, -0.5, -25, -25, 0.5, 25, -25, -0.5, 25, -25, -0.5, -25, 25, 0.5, 25, -25, 0.5, 25, 25, 0.5, -25, -25, 0.5, 25, -25, 0.5, -25, 25, 0.5, -25, -25, -0.5, 25, 25, -0.5, 25, -25, -0.5, -25, 25, -0.5, 25, 25, -0.5, -25, -25, -0.5, -25)
-
-[sub_resource type="Resource" id="Resource_do2e1"]
-script = ExtResource("4_shfx1")
-value = 3
-suit = 1
-card_name = ""
 
 [node name="StageMaster" type="Node3D" groups=["StageMaster"]]
 script = ExtResource("1_f31se")
@@ -116,18 +111,7 @@ collision_mask = 3
 input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_soo54")
 
 [node name="Dummy" parent="." instance=ExtResource("4_k5p6w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.37535)
-
-[node name="Fool" parent="." instance=ExtResource("9_nsng0")]
-transform = Transform3D(0.254585, 0, 0.96705, 0, 1, 0, -0.96705, 0, 0.254585, 3.07746, 0, 0)
-
-[node name="CardPickupable" parent="." instance=ExtResource("10_pqhgw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.25683, 0.180044, 0)
-card_data = SubResource("Resource_do2e1")
-
-[node name="Magician" parent="." instance=ExtResource("11_1d8tk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16934, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)

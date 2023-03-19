@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1ar0bqv40fq3"]
+
+[ext_resource type="PackedScene" uid="uid://d0kf3afyurs0e" path="res://Objects/Destroyable/Destroyable.tscn" id="1_0ci5v"]
+[ext_resource type="PackedScene" uid="uid://uhc4lcmrqydm" path="res://Assets/TalonCrystal/TalonCrystal.glb" id="2_hn6ew"]
+[ext_resource type="Script" path="res://Objects/Destroyable/TalonCrystal/TalonCrystal.gd" id="2_xqv0n"]
+[ext_resource type="Script" path="res://Objects/Decks/DropData.gd" id="3_k5pa5"]
+
+[sub_resource type="Resource" id="Resource_du26h"]
+script = ExtResource("3_k5pa5")
+drop_items = Array[Resource("res://Objects/Decks/Cards/CardData.gd")]([])
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eeds4"]
+size = Vector3(0.5, 1, 0.5)
+
+[node name="TalonCrystal" groups=["Enemy"] instance=ExtResource("1_0ci5v")]
+script = ExtResource("2_xqv0n")
+drop_data = SubResource("Resource_du26h")
+
+[node name="TalonCrystal" parent="Pivot" index="0" instance=ExtResource("2_hn6ew")]
+
+[node name="CollisionShape3D" parent="Hurtbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_eeds4")

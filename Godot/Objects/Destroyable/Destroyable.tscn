@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0kf3afyurs0e"]
+
+[ext_resource type="Script" path="res://Objects/Engine/CollisionBox/Hurtbox.gd" id="1_3huos"]
+[ext_resource type="Script" path="res://Objects/Destroyable/Destroyable.gd" id="1_ljiki"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dhcdc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2jhga"]
+
+[node name="Destroyable" type="Node3D"]
+script = ExtResource("1_ljiki")
+
+[node name="Pivot" type="Node3D" parent="."]
+
+[node name="Hurtbox" type="Area3D" parent="." node_paths=PackedStringArray("body")]
+script = ExtResource("1_3huos")
+body = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+shape = SubResource("BoxShape3D_dhcdc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_2jhga")
