@@ -1,13 +1,19 @@
-[gd_scene load_steps=21 format=3 uid="uid://of4cnxdapriu"]
+[gd_scene load_steps=23 format=3 uid="uid://of4cnxdapriu"]
 
 [ext_resource type="Script" path="res://Scenes/Stages/StageMaster.gd" id="1_f31se"]
 [ext_resource type="PackedScene" uid="uid://dtj3l35v7fjgb" path="res://Objects/Characters/Player/Player.tscn" id="2_6j1x0"]
 [ext_resource type="PackedScene" uid="uid://ddavubmc2k7kp" path="res://Scenes/Guis/GuiMaster.tscn" id="2_dg3y4"]
+[ext_resource type="Shader" path="res://Objects/Shaders/Pixelate.gdshader" id="3_j74t8"]
 [ext_resource type="PackedScene" uid="uid://bx7iihigk42vl" path="res://Objects/Characters/Dummy/Dummy.tscn" id="4_k5p6w"]
 [ext_resource type="Script" path="res://Objects/Decks/Cards/CardData.gd" id="4_shfx1"]
 [ext_resource type="Script" path="res://Objects/Decks/DeckData.gd" id="5_gqsec"]
 [ext_resource type="Script" path="res://Objects/Decks/StatusData.gd" id="6_bilgt"]
 [ext_resource type="PackedScene" uid="uid://dwbqlnge51q7" path="res://Objects/GameCamera/GameCamera.tscn" id="7_mcxds"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bhwux"]
+shader = ExtResource("3_j74t8")
+shader_parameter/size_x = 0.002
+shader_parameter/size_y = 0.002
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c5oh7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -25,6 +31,7 @@ ambient_light_energy = 1.12
 tonemap_mode = 2
 tonemap_white = 0.88
 glow_enabled = true
+fog_light_color = Color(0.211765, 0.231373, 0.266667, 1)
 
 [sub_resource type="Resource" id="Resource_l15w8"]
 script = ExtResource("4_shfx1")
@@ -86,6 +93,14 @@ data = PackedVector3Array(-25, 0.5, 25, 25, 0.5, 25, -25, -0.5, 25, 25, 0.5, 25,
 script = ExtResource("1_f31se")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_bhwux")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="GuiMaster" parent="CanvasLayer" instance=ExtResource("2_dg3y4")]
 

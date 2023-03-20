@@ -77,19 +77,18 @@ func _on_card_activated():
 
 
 func _on_pickup_list_changed():
-	if Global.root_scene() is StageMaster:
-		if Global.stage_master().camera:
-			var camera : Camera3D = Global.stage_master().camera.camera3d
-			var pickup_area = player.pickup_area
+	if Global.stage_master().camera:
+		var camera : Camera3D = Global.stage_master().camera.camera3d
+		var pickup_area = player.pickup_area
+		
+		pickup_label.visible = false
+		pickup_label.set_process(false)
+		if pickup_area.pickup_list.size() > 0:
+			pickup_label.pickupable = pickup_area.get_pickupable()
 			
-			pickup_label.visible = false
-			pickup_label.set_process(false)
-			if pickup_area.pickup_list.size() > 0:
-				pickup_label.pickupable = pickup_area.get_pickupable()
-				
-				pickup_label.move_to_target_position()
-				pickup_label.set_process(true)
-				pickup_label.visible = true
+			pickup_label.move_to_target_position()
+			pickup_label.set_process(true)
+			pickup_label.visible = true
 
 
 func _format_percentage(text) -> String:

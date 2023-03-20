@@ -9,7 +9,7 @@ signal destroyed
 
 @export_group("Shake Animation")
 @export var max_shake : Vector2 = Vector2(0.3,0.3)
-@export var shake_decay : float = 1
+@export var shake_decay : float = 2
 
 var health : float = HEALTH
 var shake_amount : float = 0.0
