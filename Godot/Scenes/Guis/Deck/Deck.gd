@@ -6,11 +6,11 @@ extends Gui
 @onready var activating_area : Panel = $ActivatingArea
 @onready var drop_area : Panel = $DropArea
 
-@onready var hand_ik : Marker3D = $SubViewportContainer/SubViewport/Alpha/HandIK
-@onready var skeleton_ik : SkeletonIK3D = $SubViewportContainer/SubViewport/Alpha/Armature/Skeleton3D/SkeletonIK3D
+@onready var hand_ik : Marker3D = $SubViewportContainer/SubViewport/DeckModel/HandIK
+@onready var skeleton_ik : SkeletonIK3D = $SubViewportContainer/SubViewport/DeckModel/Armature/Skeleton3D/SkeletonIK3D
 @onready var camera3d : Camera3D = $SubViewportContainer/SubViewport/Camera3D
 @onready var mouse_raycast : RayCast3D = $SubViewportContainer/SubViewport/Camera3D/MouseRaycast
-@onready var card_mesh : Sprite3D = $SubViewportContainer/SubViewport/Alpha/Armature/Skeleton3D/BoneAttachment3D/CardMesh
+@onready var card_mesh : Sprite3D = $SubViewportContainer/SubViewport/DeckModel/Armature/Skeleton3D/BoneAttachment3D/CardMesh
 
 const CARD_BUTTON = preload("res://Scenes/Guis/Deck/CardButton/CardButton.tscn")
 
@@ -21,7 +21,7 @@ var holding : bool = false
 
 func _ready():
 	self.visible = false
-	$SubViewportContainer/SubViewport/Alpha/AnimationPlayer.play("ActivatingCard")
+	$SubViewportContainer/SubViewport/DeckModel/AnimationPlayer.play("ActivatingCard")
 	$Cards.size = Vector2(1152, 578)
 	
 	await Signal(Global.root_scene(), "ready")
