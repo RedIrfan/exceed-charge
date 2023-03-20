@@ -16,6 +16,7 @@ var current_floor : int = 0
 
 
 func _ready():
+	max_room_amount -= 2
 	generate_stage()
 
 
@@ -34,6 +35,7 @@ func generate_stage():
 		var rand_room_scene = rooms[randi_range(1, rooms.size() - 1)]
 		var rand_location = select_possible_room_position(possible_room_positions)
 		generated_rooms.append(spawn_room(rand_room_scene, rand_location[1], rand_location[0] ))
+		print(generated_rooms)
 		possible_room_positions = get_possible_room_positions(generated_rooms)
 	
 	var rand_location = select_possible_room_position(possible_room_positions)
@@ -52,23 +54,41 @@ func get_possible_room_positions(generated_rooms:Array) -> Array:
 	var empty_room_positions = []
 	for room in generated_rooms:
 		if room.neighbour_left == null:
-			empty_room_positions.append( [Vector3.LEFT, room.global_position + (Vector3.LEFT * room.room_size) ])
+			empty_room_positions.append( [room, Vector3.LEFT])
 		if room.neighbour_right == null:
-			empty_room_positions.append( [Vector3.RIGHT, room.global_position + (Vector3.RIGHT * room.room_size) ])
+			empty_room_positions.append( [room, Vector3.RIGHT])
 		if room.neighbour_up == null:
-			empty_room_positions.append( [Vector3.FORWARD, room.global_position + (Vector3.FORWARD * room.room_size) ])
+			empty_room_positions.append( [room ,Vector3.FORWARD])
 		if room.neighbour_down == null:
-			empty_room_positions.append( [Vector3.BACK, room.global_position + (Vector3.BACK * room.room_size) ])
+			empty_room_positions.append( [room, Vector3.BACK])
 	
 	return empty_room_positions
 
 
-func spawn_room(room:PackedScene, room_position:Vector3, local_pos:Vector3=Vector3.ZERO) -> Room:
+func spawn_room(room:PackedScene, room_position:Vector3, adjacent_room:Room=null) -> Room:
 	var object = room.instantiate()
 	add_child(object)
 
-	if local_pos != Vector3.ZERO:
-		room_position += local_pos * object.room_size
+	if adjacent_room:
+		match room_position:
+			Vector3.LEFT:
+				object.neighbour_right = adjacent_room
+				adjacent_room.neighbour_left = object
+			Vector3.RIGHT:
+				object.neighbour_left = adjacent_room
+				adjacent_room.neighbour_right = object
+			Vector3.FORWARD:
+				object.neighbour_down = adjacent_room
+				adjacent_room.neighbour_up = object
+			Vector3.BACK:
+				object.neighbour_up = adjacent_room
+				adjacent_room.neighbour_down = object
+		
+		var object_local_pos = room_position * object.room_size
+		
+		room_position *= adjacent_room.room_size
+		room_position += adjacent_room.global_position
+		room_position += object_local_pos
 	object.global_position = room_position
 	
 	return object
