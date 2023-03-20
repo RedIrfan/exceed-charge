@@ -47,7 +47,7 @@ func _ready():
 			enemies_amount += 1
 			enemies[child.name] = [child.scene_file_path, child.global_position]
 			child.queue_free()
-		if child is TalonCrystal:
+		if child is TalonCrystal and room_cleared == false:
 			talon_crystals[child.name] = [child.scene_file_path, child.global_position]
 			child.queue_free()
 

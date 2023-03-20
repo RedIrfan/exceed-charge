@@ -1,12 +1,69 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1ar0bqv40fq3"]
+[gd_scene load_steps=20 format=3 uid="uid://b1ar0bqv40fq3"]
 
 [ext_resource type="PackedScene" uid="uid://d0kf3afyurs0e" path="res://Objects/Destroyable/Destroyable.tscn" id="1_0ci5v"]
 [ext_resource type="Script" path="res://Objects/Destroyable/TalonCrystal/TalonCrystal.gd" id="2_xqv0n"]
+[ext_resource type="Script" path="res://Objects/Decks/Cards/CardData.gd" id="3_cunnd"]
 [ext_resource type="Script" path="res://Objects/Decks/DropData.gd" id="3_k5pa5"]
+
+[sub_resource type="Resource" id="Resource_sj717"]
+script = ExtResource("3_cunnd")
+value = 1
+suit = 0
+card_name = ""
+card_drop_chance = 0
+
+[sub_resource type="Resource" id="Resource_lp8x4"]
+script = ExtResource("3_cunnd")
+value = 1
+suit = 1
+card_name = ""
+card_drop_chance = 0
+
+[sub_resource type="Resource" id="Resource_didrf"]
+script = ExtResource("3_cunnd")
+value = 1
+suit = 2
+card_name = ""
+card_drop_chance = 0
+
+[sub_resource type="Resource" id="Resource_4rbs8"]
+script = ExtResource("3_cunnd")
+value = 1
+suit = 3
+card_name = ""
+card_drop_chance = 0
+
+[sub_resource type="Resource" id="Resource_jsibn"]
+script = ExtResource("3_cunnd")
+value = 2
+suit = 0
+card_name = ""
+card_drop_chance = 0
+
+[sub_resource type="Resource" id="Resource_7cb3l"]
+script = ExtResource("3_cunnd")
+value = 2
+suit = 1
+card_name = ""
+card_drop_chance = 0
+
+[sub_resource type="Resource" id="Resource_76pr3"]
+script = ExtResource("3_cunnd")
+value = 2
+suit = 2
+card_name = ""
+card_drop_chance = 0
+
+[sub_resource type="Resource" id="Resource_fstej"]
+script = ExtResource("3_cunnd")
+value = 2
+suit = 3
+card_name = ""
+card_drop_chance = 0
 
 [sub_resource type="Resource" id="Resource_du26h"]
 script = ExtResource("3_k5pa5")
-drop_items = Array[Resource("res://Objects/Decks/Cards/CardData.gd")]([])
+drop_items = Array[ExtResource("3_cunnd")]([SubResource("Resource_sj717"), SubResource("Resource_lp8x4"), SubResource("Resource_didrf"), SubResource("Resource_4rbs8"), SubResource("Resource_jsibn"), SubResource("Resource_7cb3l"), SubResource("Resource_76pr3"), SubResource("Resource_fstej")])
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o4sxv"]
 resource_name = "Material.001"
@@ -77,6 +134,7 @@ size = Vector3(0.5, 1, 0.5)
 [node name="TalonCrystal" groups=["Enemy"] instance=ExtResource("1_0ci5v")]
 script = ExtResource("2_xqv0n")
 drop_data = SubResource("Resource_du26h")
+HEALTH = 17
 
 [node name="TalonCrystal" type="Node3D" parent="Pivot" index="0"]
 

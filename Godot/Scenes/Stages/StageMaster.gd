@@ -32,7 +32,7 @@ func generate_stage():
 	var generated_rooms = [spawn_room(rooms[0], Vector3(0,0,0))]
 	var possible_room_positions = get_possible_room_positions(generated_rooms)
 	for i in max_room_amount:
-		var rand_room_scene = rooms[randi_range(1, rooms.size() - 1)]
+		var rand_room_scene = rooms[randi_range(2, rooms.size() - 1)]
 		var rand_location = select_possible_room_position(possible_room_positions)
 		generated_rooms.append(spawn_room(rand_room_scene, rand_location[1], rand_location[0] ))
 		possible_room_positions = get_possible_room_positions(generated_rooms)
