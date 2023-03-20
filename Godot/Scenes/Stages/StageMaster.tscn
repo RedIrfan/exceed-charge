@@ -1,9 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://of4cnxdapriu"]
+[gd_scene load_steps=21 format=3 uid="uid://of4cnxdapriu"]
 
 [ext_resource type="Script" path="res://Scenes/Stages/StageMaster.gd" id="1_f31se"]
 [ext_resource type="PackedScene" uid="uid://dtj3l35v7fjgb" path="res://Objects/Characters/Player/Player.tscn" id="2_6j1x0"]
-[ext_resource type="PackedScene" uid="uid://3p6qkudwr11b" path="res://Objects/Rooms/Room.tscn" id="2_210ll"]
+[ext_resource type="PackedScene" uid="uid://c2uino4ucp46v" path="res://Objects/Rooms/Room.tscn" id="2_210ll"]
 [ext_resource type="PackedScene" uid="uid://ddavubmc2k7kp" path="res://Scenes/Guis/GuiMaster.tscn" id="2_dg3y4"]
+[ext_resource type="PackedScene" uid="uid://bdq3wan5tnrsl" path="res://Objects/Rooms/StartingRoom/StartingRoom.tscn" id="2_vn7pv"]
+[ext_resource type="PackedScene" uid="uid://083718var5ur" path="res://Objects/Rooms/NormalRooms/NormalRoom1.tscn" id="4_ojhbr"]
 [ext_resource type="Script" path="res://Objects/Decks/Cards/CardData.gd" id="4_shfx1"]
 [ext_resource type="Script" path="res://Objects/Decks/DeckData.gd" id="5_gqsec"]
 [ext_resource type="Script" path="res://Objects/Decks/StatusData.gd" id="6_bilgt"]
@@ -77,7 +79,8 @@ size = Vector3(90, 1, 90)
 
 [node name="StageMaster" type="Node3D" groups=["StageMaster"]]
 script = ExtResource("1_f31se")
-rooms = Array[PackedScene]([ExtResource("2_210ll"), ExtResource("2_210ll"), ExtResource("2_210ll")])
+rooms = Array[PackedScene]([ExtResource("2_vn7pv"), ExtResource("2_210ll"), ExtResource("4_ojhbr")])
+max_room_amount = 3.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

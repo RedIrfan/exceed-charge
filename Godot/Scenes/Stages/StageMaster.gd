@@ -35,11 +35,10 @@ func generate_stage():
 		var rand_room_scene = rooms[randi_range(1, rooms.size() - 1)]
 		var rand_location = select_possible_room_position(possible_room_positions)
 		generated_rooms.append(spawn_room(rand_room_scene, rand_location[1], rand_location[0] ))
-		print(generated_rooms)
 		possible_room_positions = get_possible_room_positions(generated_rooms)
 	
 	var rand_location = select_possible_room_position(possible_room_positions)
-	spawn_room(rooms[1], rand_location[1], rand_location[0] )
+	spawn_room(rooms[1], rand_location[1], rand_location[0])
 
 
 func select_possible_room_position(possible_room_positions:Array):
@@ -90,5 +89,5 @@ func spawn_room(room:PackedScene, room_position:Vector3, adjacent_room:Room=null
 		room_position += adjacent_room.global_position
 		room_position += object_local_pos
 	object.global_position = room_position
-	
+	print(object.name)
 	return object

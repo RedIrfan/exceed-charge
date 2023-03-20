@@ -16,7 +16,7 @@ signal context_raycast_colliding(raycast_index)
 @export var attack_range : float = 1.0
 @export var flee_range : float = 2.0
 
-var target : Character
+var target : Character : get = get_target
 
 var interest_array : Array[float] = []
 var danger_array : Array[float] = []
@@ -47,9 +47,15 @@ func _ready():
 	
 	await Global.root_scene().ready
 	
-	target = Global.root_scene().player
-	
-	start_attack_timer()
+	get_target()
+
+
+func get_target():
+	if target == null:
+		target = Global.root_scene().player
+		
+		start_attack_timer()
+	return target
 
 
 func start_attack_timer():
