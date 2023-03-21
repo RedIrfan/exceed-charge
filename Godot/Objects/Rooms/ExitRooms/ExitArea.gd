@@ -1,12 +1,6 @@
-extends Area3D
+extends Interactable
 class_name ExitArea
 
 
-func _ready():
-	connect("body_entered", _on_body_entered)
-
-
-func _on_body_entered(body):
-	pass
-#	if body.is_in_group("Player"):
-#		Global.root_scene().exit_stage()
+func _on_interact(body):
+	Global.root_scene().exit_stage()

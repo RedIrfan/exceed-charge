@@ -39,7 +39,8 @@ var neighbour_down : Room = null : set = set_neighbour_down
 func _ready():
 	if room_type == TYPES.STARTING or room_type == TYPES.EXIT:
 		room_cleared = true
-	else:
+	
+	if room_type != TYPES.STARTING:
 		visible = false
 	
 	for child in get_children():

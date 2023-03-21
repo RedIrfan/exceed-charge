@@ -2,12 +2,12 @@ extends Character
 
 signal card_activated
 
-const CARD_PICKUPABLE = preload('res://Objects/Pickupable/CardPickupable/CardPickupable.tscn')
+const CARD_PICKUPABLE = preload('res://Objects/Interactable/CardPickupable/CardPickupable.tscn')
 
 @export var deck :DeckData
 @export var status : StatusData
 
-@onready var pickup_area : Area3D = $Pivot/PickupArea
+@onready var interact_area : Area3D = $Pivot/InteractArea
 
 var deck_on : bool = false
 

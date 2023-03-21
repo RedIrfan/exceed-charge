@@ -5,7 +5,7 @@ class_name CardDropData
 @export var drop_cards : Array[CardData]
 
 
-const CARD_PICKUPABLE = preload("res://Objects/Pickupable/CardPickupable/CardPickupable.tscn")
+const CARD_PICKUPABLE = preload("res://Objects/Interactable/CardPickupable/CardPickupable.tscn")
 
 
 func get_drop_items():

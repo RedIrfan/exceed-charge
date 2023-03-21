@@ -1,4 +1,4 @@
-extends Pickupable
+extends Interactable
 class_name CardPickupable
 
 @onready var sprite : Sprite3D = $Pivot/Sprite3D
@@ -17,6 +17,6 @@ func _on_spawn(parameters=[]):
 	sprite.texture = card_data.get_card_image()
 
 
-func _on_pickup(body):
+func _on_interact(body):
 	if body.deck.add_card(card_data):
 		_destroy()

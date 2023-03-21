@@ -19,7 +19,7 @@ data = PackedVector3Array(-6, 0.5, 6, 6, 0.5, 6, -6, -0.5, 6, 6, 0.5, 6, 6, -0.5
 [sub_resource type="BoxShape3D" id="BoxShape3D_y5tu0"]
 size = Vector3(8, 1, 8)
 
-[node name="Room" type="Node3D" node_paths=PackedStringArray("door_left", "door_right", "door_up", "door_down")]
+[node name="Room" type="Node3D" node_paths=PackedStringArray("door_left", "door_right", "door_up", "door_down") groups=["Room"]]
 script = ExtResource("1_jp8qj")
 door_left = NodePath("Right")
 door_right = NodePath("Left")

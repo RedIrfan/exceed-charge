@@ -11,20 +11,20 @@ extends Gui
 @onready var attack_damage_percentage : Label = $Margin/HudBar/HBoxContainer/AttackDamage/Label
 @onready var attack_speed_percentage: Label = $Margin/HudBar/HBoxContainer/AttackSpeed/Label
 
-@onready var pickup_label : Label = $PickupLabel
+@onready var interact_label : Label = $InteractLabel
 
 var set_up : bool = false
 
 
 func _ready():
-	pickup_label.set_process(false)
+	interact_label.set_process(false)
 
 
 
 func enter():
 	super.enter()
 	
-	player.pickup_area.connect("pickup_list_changed", _on_pickup_list_changed)
+	player.interact_area.connect("interact_list_changed", _on_interact_list_changed)
 	
 	if set_up == false:
 		set_up = true
@@ -38,7 +38,7 @@ func enter():
 
 
 func exit():
-	player.pickup_area.disconnect("pickup_list_changed", _on_pickup_list_changed)
+	player.interact_area.disconnect("interact_list_changed", _on_interact_list_changed)
 	
 	await get_tree().create_timer(0.1).timeout
 	
@@ -76,19 +76,16 @@ func _on_card_activated():
 	attack_speed_percentage.set_text(_format_percentage(str(player.status.attack_speed_multiplier)))
 
 
-func _on_pickup_list_changed():
+func _on_interact_list_changed():
 	if Global.stage_master().camera:
 		var camera : Camera3D = Global.stage_master().camera.camera3d
-		var pickup_area = player.pickup_area
+		var interact_area = player.interact_area
 		
-		pickup_label.visible = false
-		pickup_label.set_process(false)
-		if pickup_area.pickup_list.size() > 0:
-			pickup_label.pickupable = pickup_area.get_pickupable()
-			
-			pickup_label.move_to_target_position()
-			pickup_label.set_process(true)
-			pickup_label.visible = true
+		interact_label.visible = false
+		interact_label.set_process(false)
+		if interact_area.interact_list.size() > 0:
+			interact_label.start()
+			interact_label.set_process(true)
 
 
 func _format_percentage(text) -> String:

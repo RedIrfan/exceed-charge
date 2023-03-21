@@ -1,7 +1,7 @@
 extends Area3D
-class_name Pickupable
+class_name Interactable
 
-@onready var pivot : Node3D = $Pivot
+@export var pivot : Node3D
 
 
 func spawn(spawn_global_position, parameters=[]):
@@ -14,11 +14,11 @@ func _on_spawn(_parameters=[]):
 	pass
 
 
-func pickup(body):
-	_on_pickup(body)
+func interact(body):
+	_on_interact(body)
 
 
-func _on_pickup(_body):
+func _on_interact(_body):
 	_destroy()
 
 

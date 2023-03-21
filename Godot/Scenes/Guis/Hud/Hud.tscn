@@ -140,7 +140,7 @@ stretch_mode = 5
 [node name="Label" type="Label" parent="Margin/HudBar/HBoxContainer/AttackSpeed"]
 layout_mode = 2
 
-[node name="PickupLabel" type="Label" parent="."]
+[node name="InteractLabel" type="Label" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = -1

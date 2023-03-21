@@ -42,7 +42,7 @@ func _on_animation_timeout():
 	if action_index < actions.size():
 		play_action()
 	else:
-		if repeat_index < repeat_time:
+		if repeat_index < repeat_time-1:
 			repeat_index += 1
 			action_index = 0
 			play_action()

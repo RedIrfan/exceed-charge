@@ -1,13 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdq3wan5tnrsl"]
+[gd_scene load_steps=2 format=3 uid="uid://bdq3wan5tnrsl"]
 
 [ext_resource type="PackedScene" uid="uid://c2uino4ucp46v" path="res://Objects/Rooms/Room.tscn" id="1_n5y40"]
-[ext_resource type="PackedScene" uid="uid://bx7iihigk42vl" path="res://Objects/Characters/Dummy/Dummy.tscn" id="2_10e8k"]
 
 [node name="StartingRoom" instance=ExtResource("1_n5y40")]
 room_type = 0
 
 [node name="TalonCrystal" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
-
-[node name="Dummy" parent="." index="7" instance=ExtResource("2_10e8k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)

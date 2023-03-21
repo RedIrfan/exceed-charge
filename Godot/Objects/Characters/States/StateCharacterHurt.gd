@@ -58,7 +58,7 @@ func enter(_msg=[]):
 		body.direction = Vector2(body_back_scalar.x, body_back_scalar.z)
 		body.speed = _get_knockback()[0]
 	
-	if _check_dead() == false:
+	if _check_dead() == false or hurt_data.damage_type == Global.DAMAGES.HEAVY:
 		body.play_animation("Hurt" + animation_name[hurt_data.damage_type], _get_knockback()[1], true)
 	else:
 		fsm.enter_state("Dead", [hurt_data])
@@ -99,7 +99,10 @@ func _on_animation_timeout():
 	if hurt_state_index == 0:
 		hurt_state_index = 1
 		reset_direction()
-		body.start_animation_timer(_get_knockback()[2])
+		if _check_dead() == false:
+			body.start_animation_timer(_get_knockback()[2])
+		else:
+			fsm.enter_state("Dead", [hurt_data])
 	elif hurt_data.damage_type == Global.DAMAGES.HEAVY and hurt_state_index == 1:
 		hurt_state_index = 2
 		if heavy_wakeup_duration > 0:

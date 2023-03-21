@@ -4,7 +4,7 @@ extends Label
 
 @onready var hud = get_parent()
 
-var pickupable : Pickupable
+var interactable : Interactable
 var camera : Camera3D
 
 
@@ -15,10 +15,17 @@ func _ready():
 
 
 func _process(delta):
-	if pickupable:
+	interactable = Global.root_scene().player.interact_area.get_interactable()
+	if interactable:
 		move_to_target_position(0.5)
 
 
+func start():
+	visible = true
+	interactable = Global.root_scene().player.interact_area.get_interactable()
+	move_to_target_position()
+
+
 func move_to_target_position(weight:float=1):
-	var target_position = camera.unproject_position(pickupable.global_transform.origin)
+	var target_position = camera.unproject_position(interactable.global_transform.origin)
 	position = lerp(position, target_position + bonus_position, weight)

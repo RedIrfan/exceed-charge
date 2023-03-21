@@ -28,6 +28,20 @@ func get_player() -> Character:
 	return get_tree().get_first_node_in_group("Player")
 
 
+func restart():
+	player.global_position = Vector3(0,0,0)
+	
+	get_tree().call_group("Enemy", "queue_free")
+	get_tree().call_group("Room", "queue_free")
+	
+	generate_stage()
+
+
+func exit_stage():
+	current_floor += 1
+	restart()
+
+
 func generate_stage():
 	var generated_rooms = [spawn_room(rooms[0], Vector3(0,0,0))]
 	var possible_room_positions = get_possible_room_positions(generated_rooms)
@@ -89,5 +103,4 @@ func spawn_room(room:PackedScene, room_position:Vector3, adjacent_room:Room=null
 		room_position += adjacent_room.global_position
 		room_position += object_local_pos
 	object.global_position = room_position
-	print(object.name)
 	return object
