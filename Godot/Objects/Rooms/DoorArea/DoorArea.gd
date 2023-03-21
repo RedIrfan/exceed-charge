@@ -20,10 +20,10 @@ func _on_body_entered(body):
 
 func set_active(new_active:bool):
 	active = new_active
-	get_node("CollisionShape3D").disabled = ! active 
+	monitoring =  active 
 	
 	mesh.visible = ! active
-	mesh.get_node("StaticBody3D/CollisionShape3D").disabled = active
+	mesh.get_node("StaticBody3D").set_collision_layer_value(1, ! active)
 	
 	if active == false and is_connected("body_entered", _on_body_entered):
 		disconnect("body_entered", _on_body_entered)

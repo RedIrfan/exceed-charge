@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2uino4ucp46v"]
+[gd_scene load_steps=9 format=3 uid="uid://c2uino4ucp46v"]
 
 [ext_resource type="Script" path="res://Objects/Rooms/Room.gd" id="1_jp8qj"]
-[ext_resource type="PackedScene" uid="uid://b1ar0bqv40fq3" path="res://Objects/Destroyable/TalonCrystal/TalonCrystal.tscn" id="2_rlr3h"]
+[ext_resource type="PackedScene" uid="uid://bq3ucuk0qlnpq" path="res://Objects/Destroyable/TalonCrystal/TalonCrystal.tscn" id="2_rlr3h"]
 [ext_resource type="MeshLibrary" uid="uid://dc2kyp6d48mv4" path="res://Objects/GridMaps/gridmap.tres" id="4_8a2ap"]
 [ext_resource type="PackedScene" uid="uid://he8bmx762fo1" path="res://Objects/Rooms/DoorArea/DoorArea.tscn" id="4_f7jef"]
 
@@ -15,6 +15,9 @@ albedo_color = Color(0.258824, 0.215686, 0.2, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qjos0"]
 data = PackedVector3Array(-6, 0.5, 6, 6, 0.5, 6, -6, -0.5, 6, 6, 0.5, 6, 6, -0.5, 6, -6, -0.5, 6, 6, 0.5, -6, -6, 0.5, -6, 6, -0.5, -6, -6, 0.5, -6, -6, -0.5, -6, 6, -0.5, -6, 6, 0.5, 6, 6, 0.5, -6, 6, -0.5, 6, 6, 0.5, -6, 6, -0.5, -6, 6, -0.5, 6, -6, 0.5, -6, -6, 0.5, 6, -6, -0.5, -6, -6, 0.5, 6, -6, -0.5, 6, -6, -0.5, -6, 6, 0.5, 6, -6, 0.5, 6, 6, 0.5, -6, -6, 0.5, 6, -6, 0.5, -6, 6, 0.5, -6, -6, -0.5, 6, 6, -0.5, 6, -6, -0.5, -6, 6, -0.5, 6, 6, -0.5, -6, -6, -0.5, -6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y5tu0"]
+size = Vector3(8, 1, 8)
 
 [node name="Room" type="Node3D" node_paths=PackedStringArray("door_left", "door_right", "door_up", "door_down")]
 script = ExtResource("1_jp8qj")
@@ -42,6 +45,12 @@ data = {
 "cells": PackedInt32Array(65530, 65530, 0, 65531, 65530, 0, 65532, 65530, 0, 65533, 65530, 0, 65534, 65530, 0, 1, 65530, 0, 2, 65530, 0, 3, 65530, 0, 4, 65530, 0, 5, 65530, 0, 65530, 65531, 0, 65530, 65532, 0, 65530, 65533, 0, 65530, 65534, 0, 65530, 1, 0, 65530, 2, 0, 65530, 3, 0, 65530, 4, 0, 65530, 5, 0, 65531, 5, 0, 65532, 5, 0, 65533, 5, 0, 65534, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 5, 4, 0, 5, 3, 0, 5, 2, 0, 5, 1, 0, 5, 65534, 0, 5, 65533, 0, 5, 65532, 0, 5, 65531, 0)
 }
 
+[node name="SpawnArea" type="Area3D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpawnArea"]
+shape = SubResource("BoxShape3D_y5tu0")
+
 [node name="Right" parent="." instance=ExtResource("4_f7jef")]
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -5, 0, 0)
 
@@ -53,3 +62,5 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 
 [node name="Up" parent="." instance=ExtResource("4_f7jef")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+
+[connection signal="body_entered" from="SpawnArea" to="." method="_on_spawn_area_body_entered"]

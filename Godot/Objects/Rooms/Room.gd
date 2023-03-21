@@ -23,7 +23,7 @@ enum TYPES{
 @export var door_up : DoorArea
 @export var door_down : DoorArea
 
-var enemies : Dictionary = {}
+var enemies : Array[EnemySpawner] = []
 var talon_crystals : Dictionary = {}
 
 var enemies_amount : int = 0
@@ -37,33 +37,22 @@ var neighbour_down : Room = null : set = set_neighbour_down
 
 
 func _ready():
-	if room_type == TYPES.STARTING:
+	if room_type == TYPES.STARTING or room_type == TYPES.EXIT:
 		room_cleared = true
 	else:
 		visible = false
 	
 	for child in get_children():
-		if child is Enemy:
+		if child is EnemySpawner:
 			enemies_amount += 1
-			enemies[child.name] = [child.scene_file_path, child.global_position]
-			child.queue_free()
+			enemies.append(child)
 		if child is TalonCrystal and room_cleared == false:
 			talon_crystals[child.name] = [child.scene_file_path, child.global_position]
 			child.queue_free()
 
 
 func enter():
-	visible = true
-	if room_entered == false:
-		room_entered = true
-		for enemy in enemies:
-			var data = enemies[enemy]
-			
-			var object = load(data[0]).instantiate()
-			Global.add_child(object)
-			
-			object.global_position = data[1] + self.global_position
-			object.connect('dead', _on_enemy_dead) 
+	visible = true 
 
 
 func exit():
@@ -73,6 +62,12 @@ func exit():
 func _on_enemy_dead():
 	enemies_amount -= 1
 	if enemies_amount <= 0:
+		var neighbours = [neighbour_left, neighbour_right, neighbour_up, neighbour_down]
+		var doors = [door_left, door_right, door_up, door_down]
+		
+		for i in doors.size():
+			doors[i].active = true if neighbours[i] != null else false
+		
 		room_cleared = true
 		
 		for talon_crystal in talon_crystals:
@@ -82,6 +77,22 @@ func _on_enemy_dead():
 			Global.add_child(object)
 			
 			object.global_position = data[1] + self.global_position
+
+
+func _on_spawn_area_body_entered(body):
+	if body.is_in_group("Player"):
+		spawn_enemy(body)
+
+
+func spawn_enemy(player):
+	if room_entered == false and room_cleared == false:
+		var doors = [door_left, door_right, door_up, door_down]
+		room_entered = true
+		for door in doors:
+			door.active = false
+		
+		for enemy in enemies:
+			enemy.spawn(player)
 
 
 func enter_neighbour(neighbour_name):

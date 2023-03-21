@@ -1,7 +1,7 @@
 extends Destroyable
 class_name TalonCrystal
 
-@export var drop_data : DropData
+@export var drop_data : CardDropData
 
 
 func process_dead():

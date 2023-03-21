@@ -1,9 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://083718var5ur"]
+[gd_scene load_steps=8 format=3 uid="uid://083718var5ur"]
 
 [ext_resource type="PackedScene" uid="uid://c2uino4ucp46v" path="res://Objects/Rooms/Room.tscn" id="1_gn1kb"]
-[ext_resource type="PackedScene" uid="uid://c3qjrj6h5rj1h" path="res://Objects/Characters/Enemies/Magician/Magician.tscn" id="2_ph584"]
+[ext_resource type="Script" path="res://Objects/Rooms/EnemySpawner/EnemySpawner.gd" id="2_osytr"]
+[ext_resource type="Script" path="res://Objects/Drop/EnemyDropData.gd" id="3_nypdn"]
+[ext_resource type="Script" path="res://Objects/Drop/ChanceData.gd" id="3_q3kat"]
+
+[sub_resource type="Resource" id="Resource_pm5ii"]
+script = ExtResource("3_q3kat")
+item = "Fool"
+chance = 50
+
+[sub_resource type="Resource" id="Resource_nells"]
+script = ExtResource("3_q3kat")
+item = "Magician"
+chance = 50
+
+[sub_resource type="Resource" id="Resource_2y3wh"]
+script = ExtResource("3_nypdn")
+drops_scene = {}
+drop_items = Array[ExtResource("3_q3kat")]([SubResource("Resource_pm5ii"), SubResource("Resource_nells")])
 
 [node name="NormalRoom1" instance=ExtResource("1_gn1kb")]
 
-[node name="Magician" parent="." index="7" instance=ExtResource("2_ph584")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.35958, 0, 1.48497)
+[node name="EnemySpawner" type="Node3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+script = ExtResource("2_osytr")
+drop_data = SubResource("Resource_2y3wh")
+
+[node name="EnemySpawner2" type="Node3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+script = ExtResource("2_osytr")
+drop_data = SubResource("Resource_2y3wh")
+
+[node name="EnemySpawner3" type="Node3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+script = ExtResource("2_osytr")
+drop_data = SubResource("Resource_2y3wh")
+
+[node name="EnemySpawner4" type="Node3D" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+script = ExtResource("2_osytr")
+drop_data = SubResource("Resource_2y3wh")

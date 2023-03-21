@@ -12,7 +12,6 @@ rings = 4
 radius = 0.125
 
 [node name="MagicBall" instance=ExtResource("1_601su")]
-speed = 15.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" index="0"]
 mesh = SubResource("SphereMesh_hyhl5")
