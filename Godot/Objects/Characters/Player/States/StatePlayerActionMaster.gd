@@ -8,7 +8,7 @@ class_name StatePlayerActionMaster
 
 
 func set_damage(action):
-	var damage = 0
+	var damage : float = 0.0
 	if action.damage > 0:
 		damage = body.get_attack_damage(action.damage)
 	action.hitbox.set_damage(damage, action.damage_type)

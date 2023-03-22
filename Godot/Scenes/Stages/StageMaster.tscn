@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://of4cnxdapriu"]
+[gd_scene load_steps=14 format=3 uid="uid://of4cnxdapriu"]
 
 [ext_resource type="Script" path="res://Scenes/Stages/StageMaster.gd" id="1_f31se"]
 [ext_resource type="PackedScene" uid="uid://dtj3l35v7fjgb" path="res://Objects/Characters/Player/Player.tscn" id="2_6j1x0"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bdg36hqttmi6u" path="res://Objects/Rooms/ExitRooms/ExitRoom.tscn" id="3_lt765"]
 [ext_resource type="PackedScene" uid="uid://083718var5ur" path="res://Objects/Rooms/NormalRooms/NormalRoom1.tscn" id="4_ojhbr"]
 [ext_resource type="Script" path="res://Objects/Decks/DeckData.gd" id="5_gqsec"]
-[ext_resource type="Script" path="res://Objects/Decks/StatusData.gd" id="6_bilgt"]
 [ext_resource type="PackedScene" uid="uid://dwbqlnge51q7" path="res://Objects/GameCamera/GameCamera.tscn" id="7_mcxds"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c5oh7"]
@@ -31,19 +30,10 @@ fog_light_color = Color(0.211765, 0.231373, 0.266667, 1)
 
 [sub_resource type="Resource" id="Resource_vc5mo"]
 script = ExtResource("5_gqsec")
-CHARGE = 6
+CHARGE = 3
 DECK_MAX_AMOUNT = 5
 deck_list = Array[Resource("res://Objects/Decks/Cards/CardData.gd")]([])
 metadata/_editor_prop_ptr_body = NodePath(".")
-
-[sub_resource type="Resource" id="Resource_8b2k4"]
-script = ExtResource("6_bilgt")
-defense_multiplier = 1.0
-speed_multiplier = 1.0
-attack_damage_multiplier = 1.0
-attack_speed_multiplier = 1.0
-luck_multiplier = 1.0
-element = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t8d3r"]
 size = Vector3(90, 1, 90)
@@ -65,7 +55,6 @@ shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_6j1x0")]
 deck = SubResource("Resource_vc5mo")
-status = SubResource("Resource_8b2k4")
 
 [node name="GameCamera" parent="." instance=ExtResource("7_mcxds")]
 

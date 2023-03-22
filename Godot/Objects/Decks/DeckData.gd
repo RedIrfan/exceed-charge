@@ -1,7 +1,7 @@
 extends Resource
 class_name DeckData
 
-@export var CHARGE : int = 6
+@export var CHARGE : int = 3
 @export var DECK_MAX_AMOUNT : int = 5
 @export var deck_list : Array[CardData] = []
 

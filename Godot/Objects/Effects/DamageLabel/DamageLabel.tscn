@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bffm8yqxay35n"]
+
+[ext_resource type="PackedScene" uid="uid://b2obq0cwg452y" path="res://Objects/Effects/Effect.tscn" id="1_4s7h8"]
+[ext_resource type="Script" path="res://Objects/Effects/DamageLabel/DamageLabel.gd" id="2_6o0dj"]
+
+[node name="DamageLabel" instance=ExtResource("1_4s7h8")]
+script = ExtResource("2_6o0dj")
+duration = 0.5
+
+[node name="Label3D" type="Label3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+billboard = 1
+no_depth_test = true
+modulate = Color(0.741176, 0.309804, 0.141176, 1)
+outline_modulate = Color(0.231373, 0, 0, 1)
+text = "1
+"
+font_size = 64

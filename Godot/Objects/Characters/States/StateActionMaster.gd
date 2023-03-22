@@ -37,6 +37,9 @@ func enter(_msg=[]):
 
 
 func exit():
+	for action in actions:
+		if action.hitbox:
+			action.hitbox.set_damage(0)
 	reset_speed()
 	body.disconnect_from_animation_timer(_on_animation_timeout)
 

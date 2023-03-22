@@ -24,7 +24,8 @@ func _ready():
 func enter():
 	super.enter()
 	
-	player.interact_area.connect("interact_list_changed", _on_interact_list_changed)
+	if player.interact_area.is_connected("interact_list_changed", _on_interact_list_changed) == false:
+		player.interact_area.connect("interact_list_changed", _on_interact_list_changed)
 	
 	if set_up == false:
 		set_up = true

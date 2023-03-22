@@ -4,6 +4,8 @@ class_name Character
 signal dead
 signal health_changed(new_health)
 
+const DAMAGE_LABEL : PackedScene = preload("res://Objects/Effects/DamageLabel/DamageLabel.tscn")
+
 @onready var pivot : Node3D = $Pivot
 @onready var animation_tree : AnimationTree = $Pivot/AnimationTree
 @onready var animation_timer : Timer = $Pivot/AnimationTimer
@@ -42,6 +44,8 @@ func _on_dead():
 
 
 func process_damage(damage:float):
+	var label = DAMAGE_LABEL.instantiate()
+	label.spawn(self.global_position, [str(damage)])
 	set_health(health-damage)
 
 

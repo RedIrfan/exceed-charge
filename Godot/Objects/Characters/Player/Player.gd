@@ -14,10 +14,10 @@ var deck_on : bool = false
 
 func process_damage(damage:float):
 	damage = damage / status.defense_multiplier
-	set_health(health-damage)
+	super.process_damage(damage)
 
 
-func get_attack_damage(damage) -> float:
+func get_attack_damage(damage:float) -> float:
 	damage = damage + (log(status.attack_damage_multiplier) / log(1.5))
 	return damage
 

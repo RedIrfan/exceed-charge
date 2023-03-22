@@ -9,7 +9,7 @@ class_name ActionData
 
 @export_group("Attack")
 @export var hitbox : Hitbox
-@export var damage : int = 0
+@export var damage : float = 0
 @export var damage_type : Global.DAMAGES
 @export var can_combo : bool = false
 

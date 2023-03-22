@@ -17,10 +17,10 @@ func spawn(spawn_position, parameters={}):
 	if duration > 0:
 		kill_timer.start(duration)
 	
-	_spawn_behaviour(parameters)
+	on_spawn(parameters)
 
 
-func _spawn_behaviour(_parameters={}):
+func on_spawn(_parameters={}):
 	pass
 
 

@@ -3,6 +3,8 @@ class_name Destroyable
 
 signal destroyed
 
+const DAMAGE_LABEL = preload('res://Objects/Effects/DamageLabel/DamageLabel.tscn')
+
 @onready var pivot : Node3D = $Pivot
 
 @export var HEALTH : int = 50
@@ -42,9 +44,14 @@ func set_hurtdata(hurtdata:Hurtdata):
 func process_damage():
 	health -= hurt_data.damage
 	shake_amount = 1
+	
 	Global.pause(true, Global.PAUSES.CUTSCENE)
 	await get_tree().create_timer(0.05).timeout
 	Global.pause(false)
+	
+	var label = DAMAGE_LABEL.instantiate()
+	label.spawn(self.global_position, [str(hurt_data.damage)])
+	
 	if health <= 0:
 		process_dead()
 
