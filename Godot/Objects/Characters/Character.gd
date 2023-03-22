@@ -45,7 +45,7 @@ func _on_dead():
 
 func process_damage(damage:float):
 	var label = DAMAGE_LABEL.instantiate()
-	label.spawn(self.global_position, [str(damage)])
+	label.spawn(self.global_position, [damage])
 	set_health(health-damage)
 
 

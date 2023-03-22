@@ -50,7 +50,7 @@ func process_damage():
 	Global.pause(false)
 	
 	var label = DAMAGE_LABEL.instantiate()
-	label.spawn(self.global_position, [str(hurt_data.damage)])
+	label.spawn(self.global_position, [hurt_data.damage])
 	
 	if health <= 0:
 		process_dead()
