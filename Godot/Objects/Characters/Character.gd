@@ -5,6 +5,7 @@ signal dead
 signal health_changed(new_health)
 
 const DAMAGE_LABEL : PackedScene = preload("res://Objects/Effects/DamageLabel/DamageLabel.tscn")
+const HIT_PARTICLES : PackedScene = preload('res://Objects/Effects/HitParticles/HitParticles.tscn')
 
 @onready var pivot : Node3D = $Pivot
 @onready var animation_tree : AnimationTree = $Pivot/AnimationTree
@@ -13,6 +14,9 @@ const DAMAGE_LABEL : PackedScene = preload("res://Objects/Effects/DamageLabel/Da
 @export var HEALTH : int = 100
 @export var SPEED : int = 4
 @export_range(0, 1, 0.05) var rotation_speed : float = 0.5
+
+@export_group("Effects")
+@export var hit_colour : Color = Color(1,0,0)
 
 var health : float = HEALTH : set = set_health
 var speed  : float = SPEED
@@ -44,8 +48,12 @@ func _on_dead():
 
 
 func process_damage(damage:float):
+	var hit_particles = HIT_PARTICLES.instantiate()
+	hit_particles.spawn(self.global_position, [self.global_rotation, hit_colour])
+	
 	var label = DAMAGE_LABEL.instantiate()
 	label.spawn(self.global_position, [damage])
+	
 	set_health(health-damage)
 
 

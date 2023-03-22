@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://of4cnxdapriu"]
+[gd_scene load_steps=13 format=3 uid="uid://0y8aein16eo5"]
 
 [ext_resource type="Script" path="res://Scenes/Stages/StageMaster.gd" id="1_f31se"]
 [ext_resource type="PackedScene" uid="uid://dtj3l35v7fjgb" path="res://Objects/Characters/Player/Player.tscn" id="2_6j1x0"]
 [ext_resource type="PackedScene" uid="uid://ddavubmc2k7kp" path="res://Scenes/Guis/GuiMaster.tscn" id="2_dg3y4"]
 [ext_resource type="PackedScene" uid="uid://bdq3wan5tnrsl" path="res://Objects/Rooms/StartingRoom/StartingRoom.tscn" id="2_vn7pv"]
 [ext_resource type="PackedScene" uid="uid://bdg36hqttmi6u" path="res://Objects/Rooms/ExitRooms/ExitRoom.tscn" id="3_lt765"]
-[ext_resource type="PackedScene" uid="uid://083718var5ur" path="res://Objects/Rooms/NormalRooms/NormalRoom1.tscn" id="4_ojhbr"]
+[ext_resource type="PackedScene" uid="uid://083718var5ur" path="res://Objects/Rooms/NormalRooms/SmallRooms/SR1.tscn" id="4_jsc5u"]
+[ext_resource type="PackedScene" uid="uid://c2astk8rgcw6d" path="res://Objects/Rooms/NormalRooms/MediumRooms/MR1.tscn" id="5_egpl7"]
 [ext_resource type="PackedScene" uid="uid://dwbqlnge51q7" path="res://Objects/GameCamera/GameCamera.tscn" id="7_mcxds"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c5oh7"]
@@ -32,7 +33,8 @@ size = Vector3(90, 1, 90)
 
 [node name="StageMaster" type="Node3D" groups=["StageMaster"]]
 script = ExtResource("1_f31se")
-rooms = Array[PackedScene]([ExtResource("2_vn7pv"), ExtResource("3_lt765"), ExtResource("4_ojhbr")])
+rooms = Array[PackedScene]([ExtResource("2_vn7pv"), ExtResource("3_lt765"), ExtResource("4_jsc5u"), ExtResource("5_egpl7")])
+max_room_amount = 6.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

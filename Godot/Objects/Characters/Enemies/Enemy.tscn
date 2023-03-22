@@ -37,7 +37,7 @@ script = ExtResource("4_br72c")
 script = ExtResource("5_g2lbk")
 
 [node name="Dead" parent="StateMachine" index="4"]
-delay_before_process = 2.0
+delay_before_process = 1.0
 
 [node name="AttackTimer" type="Timer" parent="." index="3"]
 one_shot = true

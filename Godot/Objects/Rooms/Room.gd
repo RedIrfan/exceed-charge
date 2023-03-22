@@ -14,6 +14,9 @@ enum TYPES{
 	EXIT,
 }
 
+
+@onready var gridmap_hole : GridMap = $GridMapHole
+
 @export var room_type : TYPES = TYPES.NORMAL
 @export var room_size : int = 6
 
@@ -37,6 +40,8 @@ var neighbour_down : Room = null : set = set_neighbour_down
 
 
 func _ready():
+	gridmap_hole.visible = false
+	
 	if room_type == TYPES.STARTING or room_type == TYPES.EXIT:
 		room_cleared = true
 	
@@ -60,14 +65,23 @@ func exit():
 	pass
 
 
+func restart():
+	room_entered = false
+	_open_doors()
+
+
+func _open_doors():
+	var neighbours = [neighbour_left, neighbour_right, neighbour_up, neighbour_down]
+	var doors = [door_left, door_right, door_up, door_down]
+	
+	for i in doors.size():
+		doors[i].active = true if neighbours[i] != null else false
+
+
 func _on_enemy_dead():
 	enemies_amount -= 1
 	if enemies_amount <= 0:
-		var neighbours = [neighbour_left, neighbour_right, neighbour_up, neighbour_down]
-		var doors = [door_left, door_right, door_up, door_down]
-		
-		for i in doors.size():
-			doors[i].active = true if neighbours[i] != null else false
+		_open_doors()
 		
 		room_cleared = true
 		
@@ -75,7 +89,7 @@ func _on_enemy_dead():
 			var data = talon_crystals[talon_crystal]
 			
 			var object = load(data[0]).instantiate()
-			Global.add_child(object)
+			add_child(object)
 			
 			object.global_position = data[1] + self.global_position
 

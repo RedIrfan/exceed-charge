@@ -4,7 +4,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k2g53"]
 
-[node name="Interactable" type="Area3D" node_paths=PackedStringArray("pivot") groups=["Pickupable"]]
+[node name="Interactable" type="Area3D" node_paths=PackedStringArray("pivot") groups=["Interactable"]]
 script = ExtResource("1_yyv0k")
 pivot = NodePath("Pivot")
 

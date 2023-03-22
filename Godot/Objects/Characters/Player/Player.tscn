@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://dtj3l35v7fjgb"]
+[gd_scene load_steps=69 format=3 uid="uid://dtj3l35v7fjgb"]
 
 [ext_resource type="PackedScene" uid="uid://d2buh5kxpgp5r" path="res://Objects/Characters/Character.tscn" id="1_yygar"]
 [ext_resource type="Script" path="res://Objects/Characters/Player/Player.gd" id="2_flsv3"]
@@ -13,9 +13,11 @@
 [ext_resource type="Script" path="res://Objects/Engine/CollisionBox/Hitbox.gd" id="5_oyi48"]
 [ext_resource type="Script" path="res://Objects/Characters/Player/States/StatePlayerActionMaster.gd" id="6_d80v1"]
 [ext_resource type="Script" path="res://Objects/Characters/States/ActionData.gd" id="6_iar8x"]
+[ext_resource type="ArrayMesh" uid="uid://bhgwxsh6y8kox" path="res://Assets/Effects/SwordSlash.obj" id="8_27wh2"]
 [ext_resource type="Script" path="res://Objects/Characters/Player/States/PrimaryAttackMaster.gd" id="8_fxlp7"]
 [ext_resource type="Script" path="res://Objects/Engine/CollisionBox/Hurtbox.gd" id="9_bbxs3"]
 [ext_resource type="Script" path="res://Objects/Characters/Player/States/SecondaryAttackMaster.gd" id="9_eaq4b"]
+[ext_resource type="Shader" path="res://Objects/Shaders/Slash.gdshader" id="9_uh4iv"]
 [ext_resource type="Script" path="res://Objects/Characters/Player/PickupArea.gd" id="11_evna3"]
 
 [sub_resource type="Resource" id="Resource_vq0i6"]
@@ -65,10 +67,35 @@ shading_mode = 0
 diffuse_mode = 3
 specular_mode = 1
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.906332, 0.764217, 0.18835, 1)
+albedo_color = Color(0.905882, 0.764706, 0.188235, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_73353"]
 size = Vector3(0.048, 0.733, 0.063)
+
+[sub_resource type="Gradient" id="Gradient_080qf"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jlowe"]
+gradient = SubResource("Gradient_080qf")
+fill_from = Vector2(0.017094, 0.623932)
+fill_to = Vector2(0.17094, 0.162393)
+
+[sub_resource type="Gradient" id="Gradient_d6cix"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7id6j"]
+gradient = SubResource("Gradient_d6cix")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0.165242, 0.464387)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wl8qe"]
+render_priority = 0
+shader = ExtResource("9_uh4iv")
+shader_parameter/albedo = Color(0.905882, 0.764706, 0.188235, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/emission_amount = 0.0
+shader_parameter/burn_size = 0.0
+shader_parameter/dissolve_amount = 1.0
+shader_parameter/texture_albedo = SubResource("GradientTexture2D_7id6j")
+shader_parameter/dissolve_texture = SubResource("GradientTexture2D_jlowe")
 
 [sub_resource type="Shader" id="Shader_fx1uu"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.0.stable's StandardMaterial3D.
@@ -3751,6 +3778,7 @@ tracks/47/keys = PackedFloat32Array(0, 1, 5.96046e-08, 7.45058e-08, -5.96046e-08
 [sub_resource type="Animation" id="Animation_xb24i"]
 resource_name = "Slash1"
 length = 0.625
+step = 0.01
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -4087,10 +4115,23 @@ tracks/47/path = NodePath("Armature/GeneralSkeleton:Fingers.L")
 tracks/47/interp = 1
 tracks/47/loop_wrap = true
 tracks/47/keys = PackedFloat32Array(0, 1, 5.96046e-08, 7.45058e-08, -5.96046e-08, 1)
+tracks/48/type = "value"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("%GeneralSkeleton/RightHand/AlphaSword/SlashEffect:surface_material_override/0:shader_parameter/burn_size")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = {
+"times": PackedFloat32Array(0.17, 0.26, 0.29),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.3, 0.0]
+}
 
 [sub_resource type="Animation" id="Animation_aum5d"]
 resource_name = "Slash2"
 length = 0.666667
+step = 0.01
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -4427,10 +4468,23 @@ tracks/47/path = NodePath("Armature/GeneralSkeleton:LeftToes")
 tracks/47/interp = 1
 tracks/47/loop_wrap = true
 tracks/47/keys = PackedFloat32Array(0, 1, 7.66647e-20, 1, 0, 7.66647e-20)
+tracks/48/type = "value"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("%GeneralSkeleton/RightHand/AlphaSword/SlashEffect:surface_material_override/0:shader_parameter/burn_size")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = {
+"times": PackedFloat32Array(0.17, 0.3, 0.33),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.3, 0.0]
+}
 
 [sub_resource type="Animation" id="Animation_o1keu"]
 resource_name = "SlashHeavy"
 length = 0.916667
+step = 0.01
 tracks/0/type = "position_3d"
 tracks/0/imported = true
 tracks/0/enabled = true
@@ -4767,6 +4821,30 @@ tracks/47/path = NodePath("Armature/GeneralSkeleton:LeftToes")
 tracks/47/interp = 1
 tracks/47/loop_wrap = true
 tracks/47/keys = PackedFloat32Array(0, 1, 7.66647e-20, 1, 0, 7.66647e-20)
+tracks/48/type = "value"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("%GeneralSkeleton/RightHand/AlphaSword/SlashEffect:surface_material_override/0:shader_parameter/burn_size")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = {
+"times": PackedFloat32Array(0.34, 0.43, 0.47),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.3, 0.0]
+}
+tracks/49/type = "value"
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/path = NodePath("%GeneralSkeleton/RightHand/AlphaSword/SlashEffect:surface_material_override/0:shader_parameter/albedo")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/keys = {
+"times": PackedFloat32Array(0.33),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.905882, 0.764706, 0.188235, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ykf6g"]
 resource_name = "Stab"
@@ -6472,6 +6550,33 @@ tracks/47/interp = 1
 tracks/47/loop_wrap = true
 tracks/47/keys = PackedFloat32Array(0, 1, 5.96046e-08, 7.45058e-08, -5.96046e-08, 1)
 
+[sub_resource type="Animation" id="Animation_wgjmo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%GeneralSkeleton/RightHand/AlphaSword/SlashEffect:surface_material_override/0:shader_parameter/albedo")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.905882, 0.764706, 0.188235, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("%GeneralSkeleton/RightHand/AlphaSword/SlashEffect:surface_material_override/0:shader_parameter/burn_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e2ots"]
 _data = {
 "ActivatingCard": SubResource("Animation_yb6i0"),
@@ -6481,6 +6586,7 @@ _data = {
 "DashRight": SubResource("Animation_ic64w"),
 "HurtLight": SubResource("Animation_h0nc3"),
 "Idle": SubResource("Animation_13scd"),
+"RESET": SubResource("Animation_wgjmo"),
 "Reset": SubResource("Animation_hp1d0"),
 "Reset001": SubResource("Animation_die6a"),
 "Run": SubResource("Animation_34npq"),
@@ -7507,11 +7613,14 @@ size = Vector3(0.5, 1.498, 0.5)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7eaym"]
 radius = 1.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_tvtlm"]
+
 [node name="Player" node_paths=PackedStringArray("player_model") groups=["Player"] instance=ExtResource("1_yygar")]
 script = ExtResource("2_flsv3")
 deck = SubResource("Resource_wwlf2")
 status = SubResource("Resource_x4o1w")
 player_model = NodePath("Pivot/Player/Armature/GeneralSkeleton/Cube")
+hit_colour = Color(1, 0.65098, 0, 1)
 
 [node name="Player" type="Node3D" parent="Pivot" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -7524,7 +7633,7 @@ bones/0/name = "Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 bones/0/enabled = true
-bones/0/position = Vector3(2.585e-08, -0.089729, 0.0644493)
+bones/0/position = Vector3(2.57257e-08, -0.0856636, 0.0644493)
 bones/0/rotation = Quaternion(0.117063, -0.230233, 0.029908, 0.965606)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Spine"
@@ -7532,7 +7641,7 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19227e-15, 0.221079, -0.0131341)
 bones/1/enabled = true
 bones/1/position = Vector3(-1.19227e-15, 0.221079, -0.0131341)
-bones/1/rotation = Quaternion(-0.32904, -1.61431e-09, 2.08362e-07, 0.944316)
+bones/1/rotation = Quaternion(-0.317145, -3.16389e-09, 1.957e-07, 0.948377)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Neck"
 bones/2/parent = 1
@@ -7553,21 +7662,21 @@ bones/4/parent = 1
 bones/4/rest = Transform3D(0, 1, 0, 0, 0, -1, -1, 0, 0, -0.238524, 0.297182, 0.0275559)
 bones/4/enabled = true
 bones/4/position = Vector3(-0.238524, 0.297182, 0.0275559)
-bones/4/rotation = Quaternion(0.297305, 0.550942, -0.741222, 0.242205)
+bones/4/rotation = Quaternion(0.297389, 0.568441, -0.729226, 0.238042)
 bones/4/scale = Vector3(1.00001, 1.00001, 0.999998)
 bones/5/name = "LeftLowerArm"
 bones/5/parent = 4
 bones/5/rest = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -0.00618083, -0.023204, 0.256518)
 bones/5/enabled = true
 bones/5/position = Vector3(-0.00618083, -0.023204, 0.256518)
-bones/5/rotation = Quaternion(-0.203031, -0.381094, 0.236692, 0.870358)
+bones/5/rotation = Quaternion(-0.187028, -0.413366, 0.218035, 0.864066)
 bones/5/scale = Vector3(0.999993, 0.999999, 1)
 bones/6/name = "LeftHand"
 bones/6/parent = 5
 bones/6/rest = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0.311482, 3.48677e-07, -0.0238456)
 bones/6/enabled = true
 bones/6/position = Vector3(0.311482, 3.48677e-07, -0.0238456)
-bones/6/rotation = Quaternion(0.330906, 0.637799, 0.0957184, 0.688878)
+bones/6/rotation = Quaternion(0.334654, 0.642383, 0.107217, 0.681069)
 bones/6/scale = Vector3(1.00001, 0.999988, 0.999998)
 bones/7/name = "LeftThumbMetacarpal"
 bones/7/parent = 6
@@ -7581,35 +7690,35 @@ bones/8/parent = 6
 bones/8/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0402332, -0.0239572, 0.101504)
 bones/8/enabled = true
 bones/8/position = Vector3(0.0402332, -0.0239572, 0.101504)
-bones/8/rotation = Quaternion(0.409012, -0.00836724, -0.0315342, 0.911945)
+bones/8/rotation = Quaternion(0.326117, -0.00667152, -0.0251431, 0.944972)
 bones/8/scale = Vector3(1, 1, 1)
 bones/9/name = "Fingers.L"
 bones/9/parent = 6
 bones/9/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0104163, -0.0239574, 0.101504)
 bones/9/enabled = true
 bones/9/position = Vector3(-0.0104163, -0.0239574, 0.101504)
-bones/9/rotation = Quaternion(0.0833083, 0.000919121, 0.00346278, 0.996517)
+bones/9/rotation = Quaternion(0.0207915, 0.000229325, 0.000864136, 0.999784)
 bones/9/scale = Vector3(1, 1, 1)
 bones/10/name = "RightUpperArm"
 bones/10/parent = 1
 bones/10/rest = Transform3D(0, -1, 0, 0, 0, -1, 1, 0, 0, 0.238524, 0.297181, 0.0275559)
 bones/10/enabled = true
 bones/10/position = Vector3(0.238524, 0.297181, 0.0275559)
-bones/10/rotation = Quaternion(0.462296, -0.433175, 0.712259, 0.302208)
+bones/10/rotation = Quaternion(0.472677, -0.452144, 0.691381, 0.306815)
 bones/10/scale = Vector3(0.999983, 0.999985, 1)
 bones/11/name = "RightLowerArm"
 bones/11/parent = 10
 bones/11/rest = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0.00618066, -0.0232044, 0.256518)
 bones/11/enabled = true
 bones/11/position = Vector3(0.00618066, -0.0232044, 0.256518)
-bones/11/rotation = Quaternion(-0.0513842, 0.640263, -0.0599043, 0.764091)
+bones/11/rotation = Quaternion(-0.0268256, 0.673444, -0.0312736, 0.738089)
 bones/11/scale = Vector3(1, 1, 1)
 bones/12/name = "RightHand"
 bones/12/parent = 11
 bones/12/rest = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, -0.311482, -5.90605e-07, -0.0238455)
 bones/12/enabled = true
 bones/12/position = Vector3(-0.311482, -5.90605e-07, -0.0238455)
-bones/12/rotation = Quaternion(-0.0390186, -0.580488, 0.101553, 0.806969)
+bones/12/rotation = Quaternion(-0.0451235, -0.588645, 0.0904501, 0.802047)
 bones/12/scale = Vector3(1.00002, 0.999989, 0.999994)
 bones/13/name = "RightIndexProximal"
 bones/13/parent = 12
@@ -7644,21 +7753,21 @@ bones/17/parent = 0
 bones/17/rest = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, 1, -0.116247, -0.0117426, -0.0131341)
 bones/17/enabled = true
 bones/17/position = Vector3(-0.116247, -0.0117426, -0.0131341)
-bones/17/rotation = Quaternion(0.0496167, -0.157454, 0.970429, 0.176109)
+bones/17/rotation = Quaternion(0.0506105, -0.148729, 0.971969, 0.174911)
 bones/17/scale = Vector3(1, 1, 1)
 bones/18/name = "LeftLowerLeg"
 bones/18/parent = 17
 bones/18/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 7.70552e-09, 0.375567, -0.00180279)
 bones/18/enabled = true
 bones/18/position = Vector3(7.70552e-09, 0.375567, -0.00180279)
-bones/18/rotation = Quaternion(1.1779e-07, 0.957739, 0.28764, -1.16608e-08)
+bones/18/rotation = Quaternion(1.13065e-07, 0.96157, 0.27456, -3.74798e-09)
 bones/18/scale = Vector3(1, 1, 1)
 bones/19/name = "LeftFoot"
 bones/19/parent = 18
 bones/19/rest = Transform3D(-1, 0, 0, 0, 0, -1, 0, -1, 0, 3.24196e-09, 0.594052, -0.0293585)
 bones/19/enabled = true
 bones/19/position = Vector3(3.24196e-09, 0.594052, -0.0293585)
-bones/19/rotation = Quaternion(0.118058, 0.692508, -0.707266, -0.0791777)
+bones/19/rotation = Quaternion(0.118702, 0.689311, -0.710437, -0.0777146)
 bones/19/scale = Vector3(1, 1, 1)
 bones/20/name = "LeftToes"
 bones/20/parent = 19
@@ -7672,21 +7781,21 @@ bones/21/parent = 0
 bones/21/rest = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, 1, 0.116247, -0.0117426, -0.0131341)
 bones/21/enabled = true
 bones/21/position = Vector3(0.116247, -0.0117426, -0.0131341)
-bones/21/rotation = Quaternion(-0.107373, 0.0686507, 0.972841, -0.193231)
+bones/21/rotation = Quaternion(-0.108626, 0.0781588, 0.972397, -0.191146)
 bones/21/scale = Vector3(1, 1, 1)
 bones/22/name = "RightLowerLeg"
 bones/22/parent = 21
 bones/22/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -7.19564e-09, 0.375567, -0.00180278)
 bones/22/enabled = true
 bones/22/position = Vector3(-7.19564e-09, 0.375567, -0.00180278)
-bones/22/rotation = Quaternion(-2.08227e-09, 0.971461, 0.237201, 1.42173e-08)
+bones/22/rotation = Quaternion(4.37307e-09, 0.975191, 0.221364, 2.41072e-09)
 bones/22/scale = Vector3(1, 1, 1)
 bones/23/name = "RightFoot"
 bones/23/parent = 22
 bones/23/rest = Transform3D(-1, 0, 0, 0, 0, -1, 0, -1, 0, -3.2424e-09, 0.594052, -0.0293585)
 bones/23/enabled = true
 bones/23/position = Vector3(-3.2424e-09, 0.594052, -0.0293585)
-bones/23/rotation = Quaternion(-0.0924411, 0.801244, -0.572978, 0.145464)
+bones/23/rotation = Quaternion(-0.0935434, 0.797704, -0.578172, 0.143651)
 bones/23/scale = Vector3(1, 1, 1)
 bones/24/name = "RightToes"
 bones/24/parent = 23
@@ -7720,7 +7829,7 @@ bones/28/name = "ArmIK.L"
 bones/28/parent = -1
 bones/28/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.261729, -0.0501649, -0.00330476)
 bones/28/enabled = true
-bones/28/position = Vector3(-0.307462, -0.0625124, -0.100215)
+bones/28/position = Vector3(-0.307462, -0.0687218, -0.100215)
 bones/28/rotation = Quaternion(0.124084, -0.205241, -0.187165, 0.952601)
 bones/28/scale = Vector3(1, 1, 1)
 bones/29/name = "LegPL.R"
@@ -7748,12 +7857,12 @@ bones/32/name = "ArmIK.R"
 bones/32/parent = -1
 bones/32/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.261729, -0.0501649, -0.00330476)
 bones/32/enabled = true
-bones/32/position = Vector3(0.330634, -0.0388044, 0.440734)
+bones/32/position = Vector3(0.330634, -0.042262, 0.440734)
 bones/32/rotation = Quaternion(-0.350262, -0.447652, 0.150547, 0.808863)
 bones/32/scale = Vector3(1, 1, 1)
 
 [node name="RightHand" type="BoneAttachment3D" parent="Pivot/Player/Armature/GeneralSkeleton" index="0"]
-transform = Transform3D(-0.829642, -0.553874, -0.0700569, 0.431855, -0.557114, -0.709299, 0.353841, -0.618705, 0.701408, 0.330632, -0.0387613, 0.440738)
+transform = Transform3D(-0.829642, -0.553873, -0.0700536, 0.431852, -0.557112, -0.709304, 0.353844, -0.618707, 0.701403, 0.330633, -0.042274, 0.440743)
 bone_name = "RightHand"
 bone_idx = 12
 
@@ -7773,6 +7882,12 @@ body = NodePath("../../../../../../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/Player/Armature/GeneralSkeleton/RightHand/AlphaSword/Hitbox" index="0"]
 transform = Transform3D(1, -1.78814e-07, 1.19209e-07, -5.96046e-08, 1, 5.96046e-08, -8.9407e-08, 2.68221e-07, 1, 0, 0.409058, -5.96046e-08)
 shape = SubResource("BoxShape3D_73353")
+
+[node name="SlashEffect" type="MeshInstance3D" parent="Pivot/Player/Armature/GeneralSkeleton/RightHand/AlphaSword" index="1"]
+transform = Transform3D(0.021914, -0.899732, -0.000907826, -0.899734, -0.0219142, 0.000295937, -0.000318021, 0.00089976, -0.899999, 0.0256972, -0.131192, -0.003236)
+cast_shadow = 0
+mesh = ExtResource("8_27wh2")
+surface_material_override/0 = SubResource("ShaderMaterial_wl8qe")
 
 [node name="Cube" type="MeshInstance3D" parent="Pivot/Player/Armature/GeneralSkeleton" index="1"]
 mesh = SubResource("ArrayMesh_beyv6")
@@ -7811,6 +7926,11 @@ body = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CylinderShape3D_7eaym")
 
+[node name="LockingTargetArea" type="Area3D" parent="Pivot" index="5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/LockingTargetArea" index="0"]
+shape = SubResource("BoxShape3D_tvtlm")
+
 [node name="Idle" parent="StateMachine" index="0"]
 script = ExtResource("2_tk4ok")
 
@@ -7819,10 +7939,6 @@ script = ExtResource("3_gljmp")
 
 [node name="Dash" type="Node" parent="StateMachine" index="2"]
 script = ExtResource("4_68a0o")
-dash_speed = null
-dash_duration = null
-stop_duration = null
-dash_cooldown = null
 
 [node name="DashTimer" type="Timer" parent="StateMachine/Dash" index="0"]
 one_shot = true

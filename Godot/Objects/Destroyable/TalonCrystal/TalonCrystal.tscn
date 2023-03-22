@@ -1,10 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://bq3ucuk0qlnpq"]
+[gd_scene load_steps=21 format=3 uid="uid://bq3ucuk0qlnpq"]
 
 [ext_resource type="PackedScene" uid="uid://d0kf3afyurs0e" path="res://Objects/Destroyable/Destroyable.tscn" id="1_0ci5v"]
 [ext_resource type="Script" path="res://Objects/Destroyable/TalonCrystal/TalonCrystal.gd" id="2_xqv0n"]
 [ext_resource type="Script" path="res://Objects/Decks/Cards/CardData.gd" id="3_cunnd"]
 [ext_resource type="Script" path="res://Objects/Drop/CardDropData.gd" id="3_q3j6o"]
-[ext_resource type="Script" path="res://Objects/Decks/Cards/Elements/ElementCardData.gd" id="4_7rw4s"]
 
 [sub_resource type="Resource" id="Resource_pahh5"]
 script = ExtResource("3_cunnd")
@@ -62,17 +61,9 @@ suit = 3
 card_name = ""
 card_drop_chance = 0
 
-[sub_resource type="Resource" id="Resource_sngds"]
-script = ExtResource("4_7rw4s")
-element = 1
-value = 1
-suit = 4
-card_name = ""
-card_drop_chance = 100
-
 [sub_resource type="Resource" id="Resource_gp7si"]
 script = ExtResource("3_q3j6o")
-drop_cards = Array[ExtResource("3_cunnd")]([SubResource("Resource_pahh5"), SubResource("Resource_otm36"), SubResource("Resource_85ni6"), SubResource("Resource_7mhsy"), SubResource("Resource_xncye"), SubResource("Resource_do4xl"), SubResource("Resource_b6eje"), SubResource("Resource_8u8p7"), SubResource("Resource_sngds")])
+drop_cards = Array[ExtResource("3_cunnd")]([SubResource("Resource_pahh5"), SubResource("Resource_otm36"), SubResource("Resource_85ni6"), SubResource("Resource_7mhsy"), SubResource("Resource_xncye"), SubResource("Resource_do4xl"), SubResource("Resource_b6eje"), SubResource("Resource_8u8p7")])
 drops_scene = {}
 drop_items = Array[Resource("res://Objects/Drop/ChanceData.gd")]([])
 
@@ -84,6 +75,10 @@ specular_mode = 1
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.545098, 0.894118, 0.905882, 1)
 roughness = 0.159259
+
+[sub_resource type="PrismMesh" id="PrismMesh_1xwn0"]
+material = SubResource("StandardMaterial3D_o4sxv")
+size = Vector3(0.5, 0.5, 0.5)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_1jgls"]
 _surfaces = [{
@@ -148,6 +143,7 @@ drop_data = SubResource("Resource_gp7si")
 HEALTH = 17
 max_shake = null
 shake_decay = null
+hit_particle = SubResource("PrismMesh_1xwn0")
 
 [node name="TalonCrystal" type="Node3D" parent="Pivot" index="0"]
 

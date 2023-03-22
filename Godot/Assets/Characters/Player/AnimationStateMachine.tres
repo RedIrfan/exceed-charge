@@ -123,19 +123,19 @@ reset = false
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3lc1j"]
-xfade_time = 0.25
+xfade_time = 0.2
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_702nh"]
-xfade_time = 0.25
+xfade_time = 0.2
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eectf"]
-xfade_time = 0.25
+xfade_time = 0.2
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cihvs"]
-xfade_time = 0.25
+xfade_time = 0.2
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hgd55"]
@@ -197,4 +197,4 @@ states/WalkLeft/position = Vector2(408.63, 107.06)
 states/WalkRight/node = SubResource("AnimationNodeAnimation_43xry")
 states/WalkRight/position = Vector2(700.333, 100.531)
 transitions = ["Idle", "WalkForward", SubResource("AnimationNodeStateMachineTransition_3n6x6"), "WalkForward", "Idle", SubResource("AnimationNodeStateMachineTransition_c4yx5"), "Idle", "WalkBackward", SubResource("AnimationNodeStateMachineTransition_su65y"), "WalkBackward", "Idle", SubResource("AnimationNodeStateMachineTransition_6o326"), "WalkLeft", "Idle", SubResource("AnimationNodeStateMachineTransition_laxcl"), "Idle", "WalkRight", SubResource("AnimationNodeStateMachineTransition_5y3wy"), "WalkRight", "Idle", SubResource("AnimationNodeStateMachineTransition_da433"), "Idle", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_7bubp"), "WalkLeft", "WalkRight", SubResource("AnimationNodeStateMachineTransition_mxbvc"), "WalkRight", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_8w5tn"), "WalkForward", "WalkBackward", SubResource("AnimationNodeStateMachineTransition_fflc3"), "WalkBackward", "WalkForward", SubResource("AnimationNodeStateMachineTransition_yph0a"), "WalkForward", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_cvhe5"), "WalkLeft", "WalkForward", SubResource("AnimationNodeStateMachineTransition_mb30l"), "WalkForward", "WalkRight", SubResource("AnimationNodeStateMachineTransition_ybmjd"), "WalkRight", "WalkForward", SubResource("AnimationNodeStateMachineTransition_vir0y"), "WalkRight", "WalkBackward", SubResource("AnimationNodeStateMachineTransition_1mr7a"), "WalkBackward", "WalkRight", SubResource("AnimationNodeStateMachineTransition_bsg6f"), "WalkBackward", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_xgmvl"), "WalkLeft", "WalkBackward", SubResource("AnimationNodeStateMachineTransition_xjmsk"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_0awhl"), "DashLeft", "Idle", SubResource("AnimationNodeStateMachineTransition_3lc1j"), "DashRight", "Idle", SubResource("AnimationNodeStateMachineTransition_702nh"), "DashBackward", "Idle", SubResource("AnimationNodeStateMachineTransition_eectf"), "DashForward", "Idle", SubResource("AnimationNodeStateMachineTransition_cihvs"), "Slash1", "Idle", SubResource("AnimationNodeStateMachineTransition_hgd55"), "Slash2", "Idle", SubResource("AnimationNodeStateMachineTransition_ug8id"), "SlashHeavy", "Idle", SubResource("AnimationNodeStateMachineTransition_chpti"), "HurtLight", "Idle", SubResource("AnimationNodeStateMachineTransition_t52bh"), "HurtHeavy", "HurtWakeup", SubResource("AnimationNodeStateMachineTransition_i6ruc"), "HurtWakeup", "Idle", SubResource("AnimationNodeStateMachineTransition_psqho")]
-graph_offset = Vector2(226, -36)
+graph_offset = Vector2(262, 43)

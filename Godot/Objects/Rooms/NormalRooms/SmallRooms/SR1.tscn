@@ -20,7 +20,7 @@ script = ExtResource("3_nypdn")
 drops_scene = {}
 drop_items = Array[ExtResource("3_q3kat")]([SubResource("Resource_pm5ii"), SubResource("Resource_nells")])
 
-[node name="NormalRoom1" instance=ExtResource("1_gn1kb")]
+[node name="SmallRoom2Enemy" instance=ExtResource("1_gn1kb")]
 
 [node name="EnemySpawner" type="Node3D" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)

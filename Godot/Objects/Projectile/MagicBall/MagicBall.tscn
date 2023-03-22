@@ -1,8 +1,39 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlx8cwdcil73b"]
+[gd_scene load_steps=10 format=3 uid="uid://dlx8cwdcil73b"]
 
 [ext_resource type="PackedScene" uid="uid://bqvnjcfcrfv1x" path="res://Objects/Projectile/Projectile.tscn" id="1_601su"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_37cit"]
+shading_mode = 0
+albedo_color = Color(0.74902, 1, 0.568627, 1)
+
 [sub_resource type="SphereMesh" id="SphereMesh_hyhl5"]
+material = SubResource("StandardMaterial3D_37cit")
+radius = 0.125
+height = 0.25
+radial_segments = 8
+rings = 4
+
+[sub_resource type="Curve" id="Curve_dn1gg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.497059, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4rogb"]
+curve = SubResource("Curve_dn1gg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kekgd"]
+direction = Vector3(0, 0, 1)
+spread = 22.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+scale_curve = SubResource("CurveTexture_4rogb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ng2vp"]
+shading_mode = 0
+albedo_color = Color(0.180392, 0.490196, 0.227451, 0.698039)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ygg0q"]
+material = SubResource("StandardMaterial3D_ng2vp")
 radius = 0.125
 height = 0.25
 radial_segments = 8
@@ -15,6 +46,11 @@ radius = 0.125
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" index="0"]
 mesh = SubResource("SphereMesh_hyhl5")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Pivot" index="1"]
+lifetime = 0.7
+process_material = SubResource("ParticleProcessMaterial_kekgd")
+draw_pass_1 = SubResource("SphereMesh_ygg0q")
 
 [node name="CollisionShape3D" parent="Hitbox" index="0"]
 shape = SubResource("SphereShape3D_osryb")

@@ -25,12 +25,15 @@ var raycasts : Array[RayCast3D] = []
 var dead_position : Vector3 = Vector3(0, -0.5, 0)
 var dead_duration : float = 2.0
 
+var first_start : bool = false
+
 
 func _ready():
 	super._ready()
 	pursue_range += randf_range(0, 1)
 	attack_range += randf_range(0, 1)
 	flee_range += randf_range(0, 1)
+	attack_interval += randf_range(0, 0.5)
 	
 	interest_array.resize(context_raycast_size)
 	danger_array.resize(context_raycast_size)
@@ -59,7 +62,11 @@ func get_target():
 
 
 func start_attack_timer():
-	attack_timer.start(attack_interval)
+	var duration = attack_interval
+	if first_start == false:
+		first_start = true
+		duration += randf_range(0, 1)
+	attack_timer.start(duration)
 
 
 func set_interest(target_direction:Vector3=Vector3.FORWARD) -> void:

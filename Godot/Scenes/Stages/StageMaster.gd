@@ -31,10 +31,14 @@ func get_player() -> Character:
 func restart():
 	player.global_position = Vector3(0,0,0)
 	
+	get_tree().call_group("Interactable", "queue_free")
 	get_tree().call_group("Enemy", "queue_free")
 	get_tree().call_group("Room", "queue_free")
 	
 	generate_stage()
+	
+	get_tree().call_group("Enemy", "queue_free")
+	get_tree().call_group("Room", "restart")
 
 
 func exit_stage():

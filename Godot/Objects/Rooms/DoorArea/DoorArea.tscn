@@ -1,29 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://he8bmx762fo1"]
+[gd_scene load_steps=6 format=3 uid="uid://he8bmx762fo1"]
 
 [ext_resource type="Script" path="res://Objects/Rooms/DoorArea/DoorArea.gd" id="1_1ch6q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v6k8t"]
 size = Vector3(2, 1, 2)
 
-[sub_resource type="BoxMesh" id="BoxMesh_pevgh"]
-size = Vector3(2, 2, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1wmps"]
+resource_name = "Material.001"
+cull_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.545098, 0.894118, 0.905882, 1)
+roughness = 0.159259
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2w0jn"]
-data = PackedVector3Array(-1, 1, 0.5, 1, 1, 0.5, -1, -1, 0.5, 1, 1, 0.5, 1, -1, 0.5, -1, -1, 0.5, 1, 1, -0.5, -1, 1, -0.5, 1, -1, -0.5, -1, 1, -0.5, -1, -1, -0.5, 1, -1, -0.5, 1, 1, 0.5, 1, 1, -0.5, 1, -1, 0.5, 1, 1, -0.5, 1, -1, -0.5, 1, -1, 0.5, -1, 1, -0.5, -1, 1, 0.5, -1, -1, -0.5, -1, 1, 0.5, -1, -1, 0.5, -1, -1, -0.5, 1, 1, 0.5, -1, 1, 0.5, 1, 1, -0.5, -1, 1, 0.5, -1, 1, -0.5, 1, 1, -0.5, -1, -1, 0.5, 1, -1, 0.5, -1, -1, -0.5, 1, -1, 0.5, 1, -1, -0.5, -1, -1, -0.5)
+[sub_resource type="BoxMesh" id="BoxMesh_pevgh"]
+material = SubResource("StandardMaterial3D_1wmps")
+size = Vector3(2, 1.5, 0.8)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dmaj6"]
+data = PackedVector3Array(-1, 0.75, 0.4, 1, 0.75, 0.4, -1, -0.75, 0.4, 1, 0.75, 0.4, 1, -0.75, 0.4, -1, -0.75, 0.4, 1, 0.75, -0.4, -1, 0.75, -0.4, 1, -0.75, -0.4, -1, 0.75, -0.4, -1, -0.75, -0.4, 1, -0.75, -0.4, 1, 0.75, 0.4, 1, 0.75, -0.4, 1, -0.75, 0.4, 1, 0.75, -0.4, 1, -0.75, -0.4, 1, -0.75, 0.4, -1, 0.75, -0.4, -1, 0.75, 0.4, -1, -0.75, -0.4, -1, 0.75, 0.4, -1, -0.75, 0.4, -1, -0.75, -0.4, 1, 0.75, 0.4, -1, 0.75, 0.4, 1, 0.75, -0.4, -1, 0.75, 0.4, -1, 0.75, -0.4, 1, 0.75, -0.4, -1, -0.75, 0.4, 1, -0.75, 0.4, -1, -0.75, -0.4, 1, -0.75, 0.4, 1, -0.75, -0.4, -1, -0.75, -0.4)
 
 [node name="DoorArea" type="Area3D"]
 collision_mask = 3
 script = ExtResource("1_1ch6q")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1)
 shape = SubResource("BoxShape3D_v6k8t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0.6)
 mesh = SubResource("BoxMesh_pevgh")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_2w0jn")
+shape = SubResource("ConcavePolygonShape3D_dmaj6")

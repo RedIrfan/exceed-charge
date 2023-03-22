@@ -73,7 +73,10 @@ func exit():
 
 func process(_delta):
 	if body.hurt_data != null:
-		fsm.enter_state(self.name)
+		if hurt_data.damage_type != Global.DAMAGES.HEAVY:
+			fsm.enter_state(self.name)
+		elif hurt_state_index == 0 or hurt_state_index == 3:
+			fsm.enter_state(self.name)
 
 
 func _process_damage():

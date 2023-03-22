@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2wsgkhsnsbuc"]
+
+[ext_resource type="PackedScene" uid="uid://b2obq0cwg452y" path="res://Objects/Effects/Effect.tscn" id="1_om2og"]
+[ext_resource type="Script" path="res://Objects/Effects/HitParticles/HitParticles.gd" id="2_p1bfd"]
+
+[sub_resource type="Curve" id="Curve_qf3ae"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.369281, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_rag3v"]
+curve = SubResource("Curve_qf3ae")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_r72ia"]
+direction = Vector3(0, 0, 1)
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+scale_curve = SubResource("CurveTexture_rag3v")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_icpqi"]
+shading_mode = 0
+albedo_color = Color(0.631373, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_xw018"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_icpqi")
+radius = 0.25
+height = 0.5
+
+[node name="HitParticles" instance=ExtResource("1_om2og")]
+script = ExtResource("2_p1bfd")
+duration = 0.7
+
+[node name="HitParticles" type="GPUParticles3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+emitting = false
+amount = 4
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_r72ia")
+draw_pass_1 = SubResource("SphereMesh_xw018")

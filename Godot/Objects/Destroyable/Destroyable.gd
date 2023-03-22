@@ -4,6 +4,7 @@ class_name Destroyable
 signal destroyed
 
 const DAMAGE_LABEL = preload('res://Objects/Effects/DamageLabel/DamageLabel.tscn')
+const HIT_PARTICLES = preload('res://Objects/Effects/HitParticles/HitParticles.tscn')
 
 @onready var pivot : Node3D = $Pivot
 
@@ -12,6 +13,10 @@ const DAMAGE_LABEL = preload('res://Objects/Effects/DamageLabel/DamageLabel.tscn
 @export_group("Shake Animation")
 @export var max_shake : Vector2 = Vector2(0.3,0.3)
 @export var shake_decay : float = 2
+
+@export_group("Effects")
+@export var hit_colour : Color = Color(1,1,1)
+@export var hit_particle : Mesh = null
 
 var health : float = HEALTH
 var shake_amount : float = 0.0
@@ -48,6 +53,13 @@ func process_damage():
 	Global.pause(true, Global.PAUSES.CUTSCENE)
 	await get_tree().create_timer(0.05).timeout
 	Global.pause(false)
+	
+	var particles = HIT_PARTICLES.instantiate()
+	var new_rot = hurt_data.attacker.global_rotation
+	var second_parameter = hit_colour
+	if hit_particle != null:
+		second_parameter = hit_particle
+	particles.spawn(self.global_position, [Vector3(new_rot.x, new_rot.y + deg_to_rad(180), new_rot.z), second_parameter])
 	
 	var label = DAMAGE_LABEL.instantiate()
 	label.spawn(self.global_position, [hurt_data.damage])

@@ -2,9 +2,9 @@ extends StatePlayer
 
 @onready var dash_timer :Timer = $DashTimer
 
-@export var dash_speed : int = 10
+@export var dash_speed : int = 12
 @export var dash_duration : float = 0.1667
-@export var stop_duration : float = 0.25
+@export var stop_duration : float = 0.2
 @export var dash_cooldown : float = 0.05
 
 var dash_direction : Vector2 = Vector2.ZERO
