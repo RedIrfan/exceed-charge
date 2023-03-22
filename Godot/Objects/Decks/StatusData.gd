@@ -10,6 +10,8 @@ enum ELEMENTS{
 	VOID
 }
 
+signal element_changed(to_element)
+
 @export_group("Multiplier")
 @export var defense_multiplier : float = 1.0
 @export var speed_multiplier : float = 1.0
@@ -18,7 +20,7 @@ enum ELEMENTS{
 @export var luck_multiplier : float = 1.0
 
 @export_group("Wild")
-@export var element : ELEMENTS = ELEMENTS.NONE
+@export var element : ELEMENTS = ELEMENTS.NONE : set = set_element
 @export var active_card : CardData = null
 
 
@@ -30,3 +32,8 @@ func _init(new_defense:float=1.0,new_speed:float=1.0,new_damage:float=1.0,new_at
 	luck_multiplier = new_luck
 	element = new_element
 	active_card = new_active
+
+
+func set_element(new_element:ELEMENTS):
+	element = new_element
+	emit_signal("element_changed", new_element)
