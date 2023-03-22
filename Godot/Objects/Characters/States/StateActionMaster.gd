@@ -12,15 +12,24 @@ var action_index : int
 var repeat_index : int = 0
 
 var can_combo : bool = false
+var distance : float = 0
+var whole_duration : float = 0
 
 
 func _ready():
 	for child in get_children():
 		if child is ActionData:
 			actions.append(child)
+			whole_duration += child.duration
+	
+	for action in actions:
+		action.divided_to_whole_duration = whole_duration/action.duration
 
 
 func enter(_msg=[]):
+	if distance == 0:
+		distance = whole_duration/body.SPEED
+	
 	body.connect_to_animation_timer(_on_animation_timeout)
 	repeat_index = 0
 	action_index = 0
@@ -28,6 +37,7 @@ func enter(_msg=[]):
 
 
 func exit():
+	reset_speed()
 	body.disconnect_from_animation_timer(_on_animation_timeout)
 
 
@@ -58,7 +68,7 @@ func play_action():
 	body.start_animation_timer(action.duration)
 	
 	if action.hitbox != null:
-		action.hitbox.set_damage(action.damage, action.damage_type)
+		set_damage(action)
 	if action.projectile != null:
 		var projectile = action.projectile.instantiate()
 		projectile.spawn(body, action.projectile_spawn_position.global_transform, exception_group)
@@ -75,6 +85,10 @@ func play_action():
 		reset_direction()
 		
 	if action.speed > 0:
-		body.speed = action.speed
+		set_move_attack_speed(action.speed)
 	else:
-		body.speed = body.SPEED
+		set_move_attack_speed(body.SPEED)
+
+
+func set_damage(action):
+	action.hitbox.set_damage(action.damage, action.damage_type)

@@ -7,6 +7,13 @@ class_name StatePlayerActionMaster
 @export var dash : State
 
 
+func set_damage(action):
+	var damage = 0
+	if action.damage > 0:
+		damage = body.get_attack_damage(action.damage)
+	action.hitbox.set_damage(damage, action.damage_type)
+
+
 func process(delta):
 	super.process(delta)
 	if can_combo:
@@ -21,6 +28,14 @@ func process(delta):
 		if to_state != null:
 			look_at_mouse(1)
 			fsm.enter_state(to_state.name)
+
+
+func enter(msg=[]):
+	super.enter(msg)
+	var new_distance = distance / (body.SPEED + body.get_attack_speed_calculation())
+	var new_whole_duration = whole_duration + new_distance
+	for action in actions:
+		action.duration = new_whole_duration / action.divided_to_whole_duration
 
 
 func look_at_mouse(rotation_speed:float=0) -> void:

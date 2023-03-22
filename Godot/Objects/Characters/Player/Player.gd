@@ -12,8 +12,31 @@ const CARD_PICKUPABLE = preload('res://Objects/Interactable/CardPickupable/CardP
 var deck_on : bool = false
 
 
+func process_damage(damage:float):
+	damage = damage / status.defense_multiplier
+	set_health(health-damage)
+
+
+func get_attack_damage(damage) -> float:
+	damage = damage + (log(status.attack_damage_multiplier) / log(1.5))
+	return damage
+
+
+func get_attack_speed_calculation() -> float:
+	return log(status.attack_speed_multiplier) / log(2)
+
+
+func set_move_speed(new_speed:float):
+	speed = new_speed + (log(status.speed_multiplier) / log(2))
+
+
+func set_move_attack_speed(new_speed:float):
+	speed = new_speed + get_attack_speed_calculation()
+
+
 func use_card(card_index:int):
 	deck.use_card(card_index, self)
+	set_move_speed(SPEED)
 
 
 func remove_card(card_index:int):

@@ -20,3 +20,5 @@ class_name ActionData
 @export_group("Transform")
 @export var direction : Vector2
 @export var speed : float = 0
+
+var divided_to_whole_duration : float = 0

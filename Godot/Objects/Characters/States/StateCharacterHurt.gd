@@ -77,7 +77,7 @@ func process(_delta):
 
 
 func _process_damage():
-	body.health -= hurt_data.damage
+	body.process_damage(hurt_data.damage)
 
 
 func _check_dead() -> bool:

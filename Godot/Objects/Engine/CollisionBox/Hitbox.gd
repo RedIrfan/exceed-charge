@@ -6,7 +6,7 @@ signal hit
 @export var exception_group: String 
 @export var attack_position : Node
 
-var _damage : int = 0 # underscored for abstraction
+var _damage : float = 0 # underscored for abstraction
 var _damage_type : int = 0
 
 var hitlist : Array[Hurtbox] = []

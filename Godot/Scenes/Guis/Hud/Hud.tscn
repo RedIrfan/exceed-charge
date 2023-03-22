@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://yl0ax47os7of"]
+[gd_scene load_steps=13 format=3 uid="uid://yl0ax47os7of"]
 
 [ext_resource type="Script" path="res://Scenes/Guis/Hud/Hud.gd" id="1_1krw8"]
 [ext_resource type="Texture2D" uid="uid://dkcuxnecprxav" path="res://Assets/Hud/Hud.png" id="2_iaoah"]
@@ -12,6 +12,9 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgcv3"]
 bg_color = Color(0.0823529, 0.0862745, 0.34902, 1)
+
+[sub_resource type="Theme" id="Theme_4jci3"]
+Label/font_sizes/font_size = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r03b"]
 bg_color = Color(0.290196, 0.290196, 0.290196, 1)
@@ -76,69 +79,69 @@ offset_bottom = 109.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_xgcv3")
 text = "1"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Margin/HudBar"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/HudBar"]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = -1
 anchor_top = 1.0
+anchor_right = 0.999
 anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 10.6666
-offset_right = 496.0
-offset_bottom = 142.667
-grow_vertical = 0
-theme_override_constants/separation = 10
+offset_left = 8.33334
+offset_top = 10.333
+offset_right = -0.171692
+offset_bottom = 161.333
+theme = SubResource("Theme_4jci3")
 metadata/_edit_lock_ = true
 
-[node name="Defense" type="VBoxContainer" parent="Margin/HudBar/HBoxContainer"]
-custom_minimum_size = Vector2(114, 96)
+[node name="GridContainer" type="GridContainer" parent="Margin/HudBar/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/h_separation = 33
+columns = 4
 
-[node name="TextureRect" type="TextureRect" parent="Margin/HudBar/HBoxContainer/Defense"]
+[node name="DefenseIcon" type="TextureRect" parent="Margin/HudBar/VBoxContainer/GridContainer"]
 layout_mode = 2
 texture = ExtResource("5_ejyfi")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Margin/HudBar/HBoxContainer/Defense"]
-layout_mode = 2
-text = "1.0%"
-
-[node name="Speed" type="VBoxContainer" parent="Margin/HudBar/HBoxContainer"]
-custom_minimum_size = Vector2(114, 96)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Margin/HudBar/HBoxContainer/Speed"]
+[node name="SpeedIcon" type="TextureRect" parent="Margin/HudBar/VBoxContainer/GridContainer"]
 layout_mode = 2
 texture = ExtResource("6_7lb07")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Margin/HudBar/HBoxContainer/Speed"]
-layout_mode = 2
-
-[node name="AttackDamage" type="VBoxContainer" parent="Margin/HudBar/HBoxContainer"]
-custom_minimum_size = Vector2(114, 96)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Margin/HudBar/HBoxContainer/AttackDamage"]
+[node name="AttackDamageIcon" type="TextureRect" parent="Margin/HudBar/VBoxContainer/GridContainer"]
 custom_minimum_size = Vector2(114, 96)
 layout_mode = 2
 texture = ExtResource("7_lqdx0")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Margin/HudBar/HBoxContainer/AttackDamage"]
-layout_mode = 2
-
-[node name="AttackSpeed" type="VBoxContainer" parent="Margin/HudBar/HBoxContainer"]
-custom_minimum_size = Vector2(114, 96)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="Margin/HudBar/HBoxContainer/AttackSpeed"]
+[node name="AttackSpeedIcon" type="TextureRect" parent="Margin/HudBar/VBoxContainer/GridContainer"]
 layout_mode = 2
 texture = ExtResource("8_r8n1q")
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Margin/HudBar/HBoxContainer/AttackSpeed"]
+[node name="Defense" type="Label" parent="Margin/HudBar/VBoxContainer/GridContainer"]
 layout_mode = 2
+text = "1.0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Speed" type="Label" parent="Margin/HudBar/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "1.0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AttackDamage" type="Label" parent="Margin/HudBar/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "1.0%"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AttackSpeed" type="Label" parent="Margin/HudBar/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "1.0%"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="InteractLabel" type="Label" parent="."]
 visible = false

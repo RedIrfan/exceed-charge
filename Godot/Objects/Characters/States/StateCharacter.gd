@@ -2,8 +2,16 @@ extends State
 class_name StateCharacter
 
 
+func set_move_speed(speed:float):
+	body.set_move_speed(speed)
+
+
+func set_move_attack_speed(speed:float):
+	body.set_move_attack_speed(speed)
+
+
 func reset_speed():
-	body.speed = body.SPEED
+	set_move_speed(body.SPEED)
 
 
 func reset_direction():

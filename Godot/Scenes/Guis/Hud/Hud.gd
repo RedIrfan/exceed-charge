@@ -6,10 +6,10 @@ extends Gui
 @onready var health_bar : TextureProgressBar = $Margin/HudBar/HealthBar
 @onready var charge_bar : TextureProgressBar = $Margin/HudBar/ChargeBar
 
-@onready var defense_percentage : Label = $Margin/HudBar/HBoxContainer/Defense/Label
-@onready var speed_percentage : Label = $Margin/HudBar/HBoxContainer/Speed/Label
-@onready var attack_damage_percentage : Label = $Margin/HudBar/HBoxContainer/AttackDamage/Label
-@onready var attack_speed_percentage: Label = $Margin/HudBar/HBoxContainer/AttackSpeed/Label
+@onready var defense_percentage : Label = $Margin/HudBar/VBoxContainer/GridContainer/Defense
+@onready var speed_percentage : Label = $Margin/HudBar/VBoxContainer/GridContainer/Speed
+@onready var attack_damage_percentage : Label = $Margin/HudBar/VBoxContainer/GridContainer/AttackDamage
+@onready var attack_speed_percentage: Label = $Margin/HudBar/VBoxContainer/GridContainer/AttackSpeed
 
 @onready var interact_label : Label = $InteractLabel
 

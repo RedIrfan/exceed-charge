@@ -27,17 +27,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
 script = ExtResource("2_osytr")
 drop_data = SubResource("Resource_2y3wh")
 
-[node name="EnemySpawner2" type="Node3D" parent="." index="9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
-script = ExtResource("2_osytr")
-drop_data = SubResource("Resource_2y3wh")
-
-[node name="EnemySpawner3" type="Node3D" parent="." index="10"]
+[node name="EnemySpawner3" type="Node3D" parent="." index="9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
-script = ExtResource("2_osytr")
-drop_data = SubResource("Resource_2y3wh")
-
-[node name="EnemySpawner4" type="Node3D" parent="." index="11"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
 script = ExtResource("2_osytr")
 drop_data = SubResource("Resource_2y3wh")

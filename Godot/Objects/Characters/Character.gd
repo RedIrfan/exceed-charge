@@ -41,6 +41,10 @@ func _on_dead():
 	process_dead()
 
 
+func process_damage(damage:float):
+	set_health(health-damage)
+
+
 func process_dead():
 	pass
 
@@ -69,10 +73,19 @@ func disconnect_from_animation_timer(target_callable:Callable):
 	if animation_timer.timeout.is_connected(target_callable):
 		animation_timer.timeout.disconnect(target_callable)
 
+
 func set_hurtdata(new_hurt_data : Hurtdata):
 	hurt_data = new_hurt_data
 
 
-func set_health(new_health:int):
+func set_health(new_health:float):
 	health = new_health
 	emit_signal("health_changed", health)
+
+
+func set_move_speed(new_speed:float):
+	speed = new_speed
+
+
+func set_move_attack_speed(new_speed:float):
+	speed = new_speed
