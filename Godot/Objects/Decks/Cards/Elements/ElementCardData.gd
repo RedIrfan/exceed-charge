@@ -5,7 +5,7 @@ class_name ElementCardData
 
 
 func element_to_string() -> String:
-	var elements_name = ["None", "Fire"]
+	var elements_name = ["None", "Fire", "Wind", "Water", "Ground"]
 	
 	return elements_name[element]
 

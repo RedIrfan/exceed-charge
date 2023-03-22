@@ -53,7 +53,7 @@ func get_card(card_index:int) -> CardData:
 
 
 func exceed_charge():
-	var exceed_types : Array = [0,0,0,0]
+	var exceed_types : Array = [0,0,0,0,0]
 	for charge_type in charge:
 		exceed_types[charge_type] += 1
 	

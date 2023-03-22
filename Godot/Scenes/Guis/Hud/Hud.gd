@@ -20,7 +20,6 @@ func _ready():
 	interact_label.set_process(false)
 
 
-
 func enter():
 	super.enter()
 	
@@ -36,6 +35,7 @@ func enter():
 		
 		player.connect('health_changed', _on_health_changed)
 		player.connect("card_activated", _on_card_activated)
+		player.status.connect("element_changed", _on_element_changed)
 
 
 func exit():
@@ -91,3 +91,9 @@ func _on_interact_list_changed():
 
 func _format_percentage(text) -> String:
 	return text +"%"
+
+
+func _on_element_changed(to_element):
+	var elements_material : Array[ShaderMaterial] = [player.BLACK_SUIT_MATERIAL, player.FIRE_SUIT_MATERIAL, null, player.WATER_SUIT_MATERIAL]
+	
+	level_label.get('theme_override_styles/normal').bg_color = elements_material[to_element].get_shader_parameter('albedo')

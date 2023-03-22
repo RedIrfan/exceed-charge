@@ -1,5 +1,7 @@
 extends Gui
 
+@export var model : MeshInstance3D
+
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var cards : Control = $Cards/BoxContainer
 
@@ -25,7 +27,9 @@ func _ready():
 	$Cards.size = Vector2(1152, 578)
 	
 	await Signal(Global.root_scene(), "ready")
-	var deck : DeckData = Global.root_scene().player.deck
+	player = Global.root_scene().player
+	
+	var deck : DeckData = player.deck
 	
 	for index in range(0, deck.DECK_MAX_AMOUNT):
 		var object = CARD_BUTTON.instantiate()
@@ -35,6 +39,8 @@ func _ready():
 		cards.add_child(object)
 		
 		card_buttons.append(object)
+	
+	player.status.connect("element_changed", _on_element_changed)
 
 
 func enter():
@@ -109,3 +115,9 @@ func release_card():
 	activating_area.release()
 	drop_area.release()
 	card_mesh.visible = false
+
+
+func _on_element_changed(to_element):
+	var elements_material = [player.BLACK_SUIT_MATERIAL, player.FIRE_SUIT_MATERIAL, null, player.WATER_SUIT_MATERIAL]
+	
+	model.set_surface_override_material(0, elements_material[to_element])

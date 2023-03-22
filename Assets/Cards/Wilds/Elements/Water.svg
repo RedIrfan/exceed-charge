@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="Water.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   inkscape:export-filename="..\..\..\..\Godot\Assets\Cards\Wilds\Water.png"
+   inkscape:export-xdpi="50"
+   inkscape:export-ydpi="50"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.4204826"
+     inkscape:cx="204.52689"
+     inkscape:cy="612.39157"
+     inkscape:window-width="1024"
+     inkscape:window-height="705"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#2f397f;fill-opacity:1;stroke:#151659;stroke-width:5;stroke-opacity:1;stroke-dasharray:none"
+       id="rect6642"
+       width="210"
+       height="297"
+       x="8.8817842e-15"
+       y="1.0658141e-14" />
+    <rect
+       style="fill:#151659;fill-opacity:1;stroke:#375080;stroke-width:0"
+       id="rect6654"
+       width="160"
+       height="247"
+       x="25"
+       y="25" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#151659;stroke-width:4.99999;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       d="M 0,0 34.999998,34.999998 V 262 H 175 l 35,35"
+       id="path8105" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#151659;stroke-width:4.99999;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       d="M 210,0 175,34.999998 V 262 H 34.999998 L 0,297"
+       id="path8161" />
+    <rect
+       style="fill:#151659;fill-opacity:1;stroke:#2f397f;stroke-width:5;stroke-opacity:1;stroke-dasharray:none;stroke-linecap:square"
+       id="rect6667"
+       width="140"
+       height="227"
+       x="35"
+       y="35" />
+    <path
+       sodipodi:type="star"
+       style="fill:#d1f2f3;fill-opacity:1;stroke:#4a5e83;stroke-width:2.93477;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       id="path510"
+       inkscape:flatsided="false"
+       sodipodi:sides="5"
+       sodipodi:cx="-25.583931"
+       sodipodi:cy="-8.4538212"
+       sodipodi:r1="26.48222"
+       sodipodi:r2="13.241109"
+       sodipodi:arg1="1.5707963"
+       sodipodi:arg2="2.1991149"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m -25.58393,18.028399 -7.78293,-15.7699384 -17.403158,-2.52882517 12.593044,-12.27518443 -2.972816,-17.332838 15.56586,8.183457 15.565857,-8.183457 -2.972815,17.332839 L -0.39784314,-0.27036592 -17.801003,2.2584613 Z"
+       transform="matrix(-0.72363342,0,0,-0.74993162,11.57698,25.589564)"
+       inkscape:transform-center-y="-1.8964461" />
+    <path
+       sodipodi:type="star"
+       style="fill:#d1f2f3;fill-opacity:1;stroke:#4a5e83;stroke-width:2.93477;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       id="path1805"
+       inkscape:flatsided="false"
+       sodipodi:sides="5"
+       sodipodi:cx="-25.583931"
+       sodipodi:cy="-8.4538212"
+       sodipodi:r1="26.48222"
+       sodipodi:r2="13.241109"
+       sodipodi:arg1="1.5707963"
+       sodipodi:arg2="2.1991149"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m -25.58393,18.028399 -7.78293,-15.7699384 -17.403158,-2.52882517 12.593044,-12.27518443 -2.972816,-17.332838 15.56586,8.183457 15.565857,-8.183457 -2.972815,17.332839 L -0.39784314,-0.27036592 -17.801003,2.2584613 Z"
+       transform="matrix(-0.72363342,0,0,0.74993162,161.59098,271.13937)"
+       inkscape:transform-center-y="1.8964426" />
+    <path
+       style="display:inline;fill:#19c7c0;fill-opacity:1;stroke:#113782;stroke-width:2;stroke-linecap:square;stroke-opacity:1"
+       d="m 104.98472,181.98929 -16.675151,-5.8449 -6.674197,-11.84402 -2.179799,-15.45288 5.821188,-15.45287 19.723739,-18.08722 19.72326,18.0427 5.82082,15.49739 -2.17943,15.4974 -6.69057,11.8225 z"
+       id="path417"
+       inkscape:export-filename="..\..\..\..\Godot\Assets\Cards\Wilds\path417.png"
+       inkscape:export-xdpi="50"
+       inkscape:export-ydpi="50" />
+    <path
+       style="display:inline;fill:#1981c7;fill-opacity:1;stroke:#113782;stroke-width:2;stroke-linecap:square;stroke-opacity:1"
+       d="m 79.455575,151.3155 5.806078,14.64584 7.393535,9.12393 12.329532,2.67426 11.64089,-2.67426 7.39354,-9.12393 6.52543,-14.64584 -2.17943,15.4974 -6.69057,11.8225 -16.68986,5.8219 -16.675149,-5.8449 -6.674197,-11.84402 z"
+       id="path2583" />
+  </g>
+</svg>

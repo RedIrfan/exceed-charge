@@ -10,11 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://3aqlslbi6gtd" path="res://Assets/Hud/AttackSpeedLogo.png" id="8_r8n1q"]
 [ext_resource type="Script" path="res://Scenes/Guis/Hud/PickupLabel.gd" id="9_bj2is"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgcv3"]
-bg_color = Color(0.0823529, 0.0862745, 0.34902, 1)
-
 [sub_resource type="Theme" id="Theme_4jci3"]
 Label/font_sizes/font_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgcv3"]
+bg_color = Color(0.0823529, 0.0862745, 0.34902, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2r03b"]
 bg_color = Color(0.290196, 0.290196, 0.290196, 1)
@@ -42,6 +42,7 @@ offset_left = 25.0
 offset_top = 25.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_4jci3")
 metadata/_edit_lock_ = true
 
 [node name="HudBar" type="TextureRect" parent="Margin"]
@@ -78,6 +79,8 @@ offset_right = 109.0
 offset_bottom = 109.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_xgcv3")
 text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Margin/HudBar"]
 layout_mode = 1
@@ -89,7 +92,6 @@ offset_left = 8.33334
 offset_top = 10.333
 offset_right = -0.171692
 offset_bottom = 161.333
-theme = SubResource("Theme_4jci3")
 metadata/_edit_lock_ = true
 
 [node name="GridContainer" type="GridContainer" parent="Margin/HudBar/VBoxContainer"]

@@ -4,6 +4,7 @@ signal card_activated
 
 const BLACK_SUIT_MATERIAL : Material = preload('res://Objects/Shaders/Player/Suits/BlackSuit.tres')
 const FIRE_SUIT_MATERIAL : Material = preload('res://Objects/Shaders/Player/Suits/FireSuit.tres')
+const WATER_SUIT_MATERIAL : Material = preload('res://Objects/Shaders/Player/Suits/WaterSuit.tres')
 
 const CARD_PICKUPABLE = preload('res://Objects/Interactable/CardPickupable/CardPickupable.tscn')
 
@@ -73,3 +74,5 @@ func _on_element_changed(to_element):
 			set_suit_material(BLACK_SUIT_MATERIAL)
 		StatusData.ELEMENTS.FIRE:
 			set_suit_material(FIRE_SUIT_MATERIAL)
+		StatusData.ELEMENTS.WATER:
+			set_suit_material(WATER_SUIT_MATERIAL)
