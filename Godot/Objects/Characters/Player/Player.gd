@@ -8,6 +8,9 @@ const WATER_SUIT_MATERIAL : Material = preload('res://Objects/Shaders/Player/Sui
 
 const CARD_PICKUPABLE = preload('res://Objects/Interactable/CardPickupable/CardPickupable.tscn')
 
+@onready var dust_particles_left : GPUParticles3D = $Pivot/Player/Armature/GeneralSkeleton/LeftFoot/DustParticles
+@onready var dust_particles_right : GPUParticles3D = $Pivot/Player/Armature/GeneralSkeleton/RightFoot/DustParticles
+
 @export var deck :DeckData
 @export var status : StatusData
 @export var player_model : MeshInstance3D
@@ -47,6 +50,11 @@ func set_move_attack_speed(new_speed:float):
 
 func set_suit_material(material:Material):
 	player_model.set_surface_override_material(0, material)
+
+
+func set_dust_particles(mode:bool):
+	dust_particles_left.emitting = mode
+	dust_particles_right.emitting = mode
 
 
 func use_card(card_index:int):

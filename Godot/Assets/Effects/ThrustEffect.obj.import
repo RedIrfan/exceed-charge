@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b3yxhex6au538"
+path="res://.godot/imported/ThrustEffect.obj-c3889a7cf51bfd9076f11f5a08eed3c4.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ThrustEffect.obj-c3889a7cf51bfd9076f11f5a08eed3c4.mesh"]
+
+source_file="res://Assets/Effects/ThrustEffect.obj"
+dest_files=["res://.godot/imported/ThrustEffect.obj-c3889a7cf51bfd9076f11f5a08eed3c4.mesh", "res://.godot/imported/ThrustEffect.obj-c3889a7cf51bfd9076f11f5a08eed3c4.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

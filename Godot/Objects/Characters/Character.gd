@@ -78,7 +78,8 @@ func start_animation_timer(animation_duration:float=0):
 
 
 func connect_to_animation_timer(target_callable:Callable):
-	animation_timer.timeout.connect(target_callable)
+	if animation_timer.timeout.is_connected(target_callable) == false:
+		animation_timer.timeout.connect(target_callable)
 
 
 func disconnect_from_animation_timer(target_callable:Callable):

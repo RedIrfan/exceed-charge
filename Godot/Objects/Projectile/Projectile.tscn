@@ -1,18 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqvnjcfcrfv1x"]
+[gd_scene load_steps=6 format=3 uid="uid://bqvnjcfcrfv1x"]
 
 [ext_resource type="Script" path="res://Objects/Projectile/Projectile.gd" id="1_23170"]
 [ext_resource type="Script" path="res://Objects/Engine/CollisionBox/Hitbox.gd" id="2_wd30t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xrp15"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_1jipm"]
+material = SubResource("StandardMaterial3D_xrp15")
+radius = 0.125
+height = 0.25
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b67lh"]
 
 [node name="Projectile" type="Node3D"]
 script = ExtResource("1_23170")
+explode_mesh = SubResource("SphereMesh_1jipm")
 
 [node name="Pivot" type="Node3D" parent="."]
 
 [node name="Hitbox" type="Area3D" parent="." node_paths=PackedStringArray("attack_position", "body")]
 script = ExtResource("2_wd30t")
 attack_position = NodePath("..")
+detect_collision_layer_1 = true
 body = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]

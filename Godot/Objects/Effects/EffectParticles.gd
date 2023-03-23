@@ -1,7 +1,7 @@
 extends Effect
-class_name HitParticles
+class_name EffectParticles
 
-@onready var particles : GPUParticles3D = $HitParticles
+@export var particles : GPUParticles3D
 
 
 func on_spawn(parameters=[]):
