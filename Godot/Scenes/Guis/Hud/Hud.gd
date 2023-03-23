@@ -39,7 +39,8 @@ func enter():
 
 
 func exit():
-	player.interact_area.disconnect("interact_list_changed", _on_interact_list_changed)
+	if player.interact_area.is_connected("interact_list_changed", _on_interact_list_changed):
+		player.interact_area.disconnect("interact_list_changed", _on_interact_list_changed)
 	
 	await get_tree().create_timer(0.1).timeout
 	

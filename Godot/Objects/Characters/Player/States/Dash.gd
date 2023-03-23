@@ -42,6 +42,8 @@ func physics_process(_delta):
 	if check_hurt():
 		fsm.enter_state("Hurt")
 	if dashing == true:
+		if check_primary_attack():
+			fsm.enter_state("PrimaryAttackMaster", [get_relative_direction_name(dash_direction)])
 		apply_direction(dash_direction)
 
 

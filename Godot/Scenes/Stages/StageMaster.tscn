@@ -14,18 +14,15 @@ sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_bottom_color = Color(0.0431373, 0.0352941, 0.109804, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_qjhby"]
+[sub_resource type="Sky" id="Sky_517kn"]
 sky_material = SubResource("ProceduralSkyMaterial_c5oh7")
 
 [sub_resource type="Environment" id="Environment_wa1dc"]
 background_mode = 2
-sky = SubResource("Sky_qjhby")
+sky = SubResource("Sky_517kn")
 ambient_light_source = 2
-ambient_light_color = Color(0.513726, 0.513726, 0.513726, 1)
-ambient_light_energy = 1.12
-tonemap_mode = 2
-tonemap_white = 0.88
-glow_enabled = true
+ambient_light_color = Color(0.231373, 0.231373, 0.231373, 1)
+ambient_light_energy = 5.85
 fog_light_color = Color(0.211765, 0.231373, 0.266667, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t8d3r"]
