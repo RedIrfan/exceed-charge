@@ -1,31 +1,41 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2astk8rgcw6d"]
+[gd_scene load_steps=11 format=3 uid="uid://dca03gb70l4j4"]
 
-[ext_resource type="PackedScene" uid="uid://c2uino4ucp46v" path="res://Objects/Rooms/Room.tscn" id="1_0ns5o"]
-[ext_resource type="Script" path="res://Objects/Rooms/EnemySpawner/EnemySpawner.gd" id="2_htfrh"]
-[ext_resource type="Script" path="res://Objects/Drop/ChanceData.gd" id="3_obd6w"]
-[ext_resource type="Script" path="res://Objects/Drop/EnemyDropData.gd" id="4_oeghh"]
+[ext_resource type="PackedScene" uid="uid://c2uino4ucp46v" path="res://Objects/Rooms/Room.tscn" id="1_to8cc"]
+[ext_resource type="Script" path="res://Objects/Rooms/EnemySpawner/EnemySpawner.gd" id="2_fm3bq"]
+[ext_resource type="Script" path="res://Objects/Drop/ChanceData.gd" id="3_e7v56"]
+[ext_resource type="Script" path="res://Objects/Drop/EnemyDropData.gd" id="4_r5d0e"]
+
+[sub_resource type="Resource" id="Resource_bvutu"]
+script = ExtResource("3_e7v56")
+item = "HighPriestess"
+chance = 100
+
+[sub_resource type="Resource" id="Resource_nguww"]
+script = ExtResource("4_r5d0e")
+drops_scene = {}
+drop_items = Array[ExtResource("3_e7v56")]([SubResource("Resource_bvutu")])
 
 [sub_resource type="Resource" id="Resource_wdxce"]
-script = ExtResource("3_obd6w")
+script = ExtResource("3_e7v56")
 item = "Fool"
 chance = 80
 
 [sub_resource type="Resource" id="Resource_lb1gr"]
-script = ExtResource("3_obd6w")
+script = ExtResource("3_e7v56")
 item = "Magician"
 chance = 20
 
-[sub_resource type="Resource" id="Resource_74tav"]
-script = ExtResource("4_oeghh")
-drops_scene = {}
-drop_items = Array[ExtResource("3_obd6w")]([SubResource("Resource_wdxce"), SubResource("Resource_lb1gr")])
-
 [sub_resource type="Resource" id="Resource_igp1p"]
-script = ExtResource("4_oeghh")
+script = ExtResource("4_r5d0e")
 drops_scene = {}
-drop_items = Array[ExtResource("3_obd6w")]([SubResource("Resource_wdxce"), SubResource("Resource_lb1gr")])
+drop_items = Array[ExtResource("3_e7v56")]([SubResource("Resource_wdxce"), SubResource("Resource_lb1gr")])
 
-[node name="MR1" instance=ExtResource("1_0ns5o")]
+[sub_resource type="Resource" id="Resource_74tav"]
+script = ExtResource("4_r5d0e")
+drops_scene = {}
+drop_items = Array[ExtResource("3_e7v56")]([SubResource("Resource_wdxce"), SubResource("Resource_lb1gr")])
+
+[node name="MR2" instance=ExtResource("1_to8cc")]
 room_size = 8
 
 [node name="GridMap" parent="." index="1"]
@@ -52,21 +62,21 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
 
 [node name="EnemySpawner" type="Node3D" parent="." index="8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)
-script = ExtResource("2_htfrh")
-drop_data = SubResource("Resource_74tav")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+script = ExtResource("2_fm3bq")
+drop_data = SubResource("Resource_nguww")
 
-[node name="EnemySpawner2" type="Node3D" parent="." index="9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
-script = ExtResource("2_htfrh")
-drop_data = SubResource("Resource_74tav")
-
-[node name="EnemySpawner3" type="Node3D" parent="." index="10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1.5)
-script = ExtResource("2_htfrh")
+[node name="EnemySpawner3" type="Node3D" parent="." index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+script = ExtResource("2_fm3bq")
 drop_data = SubResource("Resource_igp1p")
 
+[node name="EnemySpawner2" type="Node3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+script = ExtResource("2_fm3bq")
+drop_data = SubResource("Resource_74tav")
+
 [node name="EnemySpawner4" type="Node3D" parent="." index="11"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1.5)
-script = ExtResource("2_htfrh")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)
+script = ExtResource("2_fm3bq")
 drop_data = SubResource("Resource_igp1p")

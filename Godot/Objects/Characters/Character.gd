@@ -12,7 +12,7 @@ const HIT_PARTICLES : PackedScene = preload('res://Objects/Effects/HitParticles/
 @onready var animation_timer : Timer = $Pivot/AnimationTimer
 
 @export var HEALTH : int = 100
-@export var SPEED : int = 4
+@export var SPEED : float = 4
 @export_range(0, 1, 0.05) var rotation_speed : float = 0.5
 
 @export_group("Effects")
