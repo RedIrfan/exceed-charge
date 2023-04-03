@@ -13,6 +13,7 @@ extends Gui
 @onready var camera3d : Camera3D = $SubViewportContainer/SubViewport/Camera3D
 @onready var mouse_raycast : RayCast3D = $SubViewportContainer/SubViewport/Camera3D/MouseRaycast
 @onready var card_mesh : Sprite3D = $SubViewportContainer/SubViewport/DeckModel/Armature/Skeleton3D/BoneAttachment3D/CardMesh
+@onready var hand_animation : AnimationPlayer = $SubViewportContainer/SubViewport/DeckModel/AnimationPlayer
 
 const CARD_BUTTON = preload("res://Scenes/Guis/Deck/CardButton/CardButton.tscn")
 
@@ -23,7 +24,7 @@ var holding : bool = false
 
 func _ready():
 	self.visible = false
-	$SubViewportContainer/SubViewport/DeckModel/AnimationPlayer.play("ActivatingCard")
+	hand_animation.play("Deck")
 	$Cards.size = Vector2(1152, 578)
 	
 	await Signal(Global.root_scene(), "ready")
@@ -103,6 +104,7 @@ func drop_card():
 func _on_card_held(cbutton):
 	holding = true
 	held_card = cbutton.card_index_in_deck
+	hand_animation.play("DeckHolding")
 	animation_player.play("HoldingCard")
 	card_mesh.visible = true
 	activating_area.hold()
@@ -111,6 +113,7 @@ func _on_card_held(cbutton):
 
 func release_card():
 	holding = false
+	hand_animation.play("Deck")
 	animation_player.play_backwards("HoldingCard")
 	activating_area.release()
 	drop_area.release()
