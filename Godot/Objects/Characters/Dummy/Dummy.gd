@@ -12,5 +12,5 @@ func _ready():
 	object.global_transform.origin = self.global_transform.origin
 
 
-func set_health(health:int):
+func set_health(health:float):
 	pass	

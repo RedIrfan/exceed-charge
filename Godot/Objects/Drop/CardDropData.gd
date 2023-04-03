@@ -12,10 +12,12 @@ func get_drop_items():
 	return drop_cards
 
 
-func choose_item(choosen_item, drop_position:Vector3):
+func choose_item(choosen_item, drop_position:Vector3) -> Node3D:
 	var pickupable = CARD_PICKUPABLE.instantiate()
 	Global.add_child(pickupable)
 	pickupable.spawn(drop_position, [choosen_item])
+	
+	return pickupable
 
 
 func get_item_chance(item, receiver) -> float:

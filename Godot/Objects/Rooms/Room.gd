@@ -50,7 +50,7 @@ func _ready():
 	
 	for child in get_children():
 		if child is EnemySpawner:
-			enemies_amount += 1
+			enemies_amount += child.enemy_amount
 			enemies.append(child)
 		if child is TalonCrystal and room_cleared == false:
 			talon_crystals[child.name] = [child.scene_file_path, child.global_position]

@@ -3,6 +3,7 @@ class_name StateCharacterHurt
 
 @export_category("Knockback")
 
+@export_enum("None:-1", "Light:0", "Heavy:1", "Both:2") var unstaggerable : int = -1
 @export var immovable : bool = false
 
 @export_group("Light", "light_")
@@ -30,8 +31,13 @@ func enter_condition(_body, _fsm, msg=[]) -> bool:
 	hurt_data = body.hurt_data
 	body.hurt_data = null
 	
+	var unstaggerable_true : bool = false
+	if unstaggerable > -1:
+		if hurt_data.damage_type == unstaggerable or unstaggerable == 2:
+			unstaggerable_true = true
 	
-	if msg.has("unstaggerable"):
+	
+	if msg.has("unstaggerable") or unstaggerable_true:
 		_process_damage()
 		if _check_dead():
 			return true

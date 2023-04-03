@@ -22,6 +22,15 @@ func direction_to_relative(direction:Vector2) -> Vector2:
 	return direction.rotated(body.rotation.y)
 
 
+func direction_to_global(direction:Vector2) -> Vector2:
+	var body_form = body.global_transform.basis
+	var dir = Vector3.ZERO
+	dir += body_form.x * direction.x
+	dir += -body_form.z * direction.y
+	
+	return Vector2(dir.x, dir.z)
+
+
 func get_relative_direction_name(direction:Vector2=Vector2.ZERO) -> String:
 	if direction == Vector2.ZERO:
 		direction = body.direction

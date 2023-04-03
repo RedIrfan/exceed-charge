@@ -1,6 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://bypd64a681yxv"]
+[gd_scene load_steps=23 format=3 uid="uid://bypd64a681yxv"]
 
 [ext_resource type="PackedScene" uid="uid://80d5oe7mym0k" path="res://Objects/Characters/Enemies/Enemy.tscn" id="1_3bkxt"]
+[ext_resource type="Script" path="res://Objects/Engine/CollisionBox/Hitbox.gd" id="2_20lxf"]
+[ext_resource type="Script" path="res://Objects/Characters/Enemies/FoolEye/States/Homing.gd" id="2_ps51c"]
+[ext_resource type="Script" path="res://Objects/Engine/CollisionBox/Hurtbox.gd" id="3_ee6lb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hlpbr"]
+size = Vector3(0.2, 1, 0.2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ww6j"]
 resource_name = "WhiteEye"
@@ -299,7 +305,19 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_3fik5"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ysxsb"]
+size = Vector3(0.3, 1, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xxh81"]
+size = Vector3(0.5, 2, 0.5)
+
 [node name="FoolEye" instance=ExtResource("1_3bkxt")]
+HEALTH = 5
+SPEED = 1.5
+rotation_speed = 0.05
+
+[node name="CharacterCollision" parent="." index="0"]
+shape = SubResource("BoxShape3D_hlpbr")
 
 [node name="FoolEye" type="Node3D" parent="Pivot" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
@@ -312,56 +330,56 @@ bones/0/parent = -1
 bones/0/rest = Transform3D(1, -4.26326e-14, -3.89414e-07, -3.89414e-07, -1.19209e-07, -1, -4.26326e-14, 1, -1.19209e-07, 0, 0, 0)
 bones/0/enabled = true
 bones/0/position = Vector3(0, 0, 0)
-bones/0/rotation = Quaternion(0.745938, -1.26669e-07, -1.48248e-07, 0.666015)
+bones/0/rotation = Quaternion(0.686126, -1.41576e-07, -1.33664e-07, 0.727483)
 bones/0/scale = Vector3(1, 1, 1)
 bones/1/name = "Flesh1"
 bones/1/parent = 0
 bones/1/rest = Transform3D(1, -3.37422e-14, -2.97395e-21, 3.37422e-14, 1, 1.76275e-07, -2.97395e-21, -1.76275e-07, 1, 0, 0.0845337, 1.14813e-21)
 bones/1/enabled = true
 bones/1/position = Vector3(0, 0.0845337, 1.14813e-21)
-bones/1/rotation = Quaternion(0.186672, -0.0332101, -0.106501, 0.976068)
+bones/1/rotation = Quaternion(-9.09808e-08, 0.000288045, -0.00494232, 0.999988)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "Flesh2"
 bones/2/parent = 1
 bones/2/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0508954, 1.14813e-21)
 bones/2/enabled = true
 bones/2/position = Vector3(0, 0.0508954, 1.14813e-21)
-bones/2/rotation = Quaternion(-0.119577, 0.0292634, 0.16576, 0.978452)
+bones/2/rotation = Quaternion(0.0808338, 0.00124, 0.0545481, 0.995233)
 bones/2/scale = Vector3(1, 1, 1)
 bones/3/name = "Flesh3"
 bones/3/parent = 2
 bones/3/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0483436, 1.14813e-21)
 bones/3/enabled = true
 bones/3/position = Vector3(0, 0.0483436, 1.14813e-21)
-bones/3/rotation = Quaternion(-0.122218, 0.230891, -0.0312834, 0.964766)
+bones/3/rotation = Quaternion(0.127507, -0.0301904, -0.125301, 0.983428)
 bones/3/scale = Vector3(1, 1, 1)
 bones/4/name = "Wings1.L"
 bones/4/parent = 0
 bones/4/rest = Transform3D(-4.76837e-07, -0.822066, -0.569392, 1, -2.38419e-07, -5.36442e-07, 3.27826e-07, -0.569392, 0.822066, -0.0721789, -1.49012e-08, -0.0505252)
 bones/4/enabled = true
 bones/4/position = Vector3(-0.0721789, -1.49012e-08, -0.0505252)
-bones/4/rotation = Quaternion(0.0774911, 0.111343, 0.656724, 0.74183)
+bones/4/rotation = Quaternion(-0.202428, -0.20274, 0.677965, 0.676966)
 bones/4/scale = Vector3(1, 1, 1)
 bones/5/name = "Wings2.L"
 bones/5/parent = 4
 bones/5/rest = Transform3D(0.860231, 0.508762, 0.0341279, -0.378501, 0.681963, -0.62583, -0.341672, 0.525441, 0.779212, -1.9984e-15, 0.089548, 1.70697e-15)
 bones/5/enabled = true
 bones/5/position = Vector3(-1.9984e-15, 0.089548, 1.70697e-15)
-bones/5/rotation = Quaternion(-0.0319954, 0.0226811, -0.268849, 0.962383)
+bones/5/rotation = Quaternion(0.286301, 0.0956597, -0.248183, 0.920482)
 bones/5/scale = Vector3(1, 1, 1)
 bones/6/name = "Wings1.R"
 bones/6/parent = 0
 bones/6/rest = Transform3D(-4.76837e-07, 0.822066, 0.569392, -1, -2.38419e-07, -5.06639e-07, -3.27826e-07, -0.569392, 0.822066, 0.0721789, -1.49012e-08, -0.0505252)
 bones/6/enabled = true
 bones/6/position = Vector3(0.0721789, -1.49012e-08, -0.0505252)
-bones/6/rotation = Quaternion(0.0774907, -0.111342, -0.656724, 0.74183)
+bones/6/rotation = Quaternion(-0.202428, 0.202741, -0.677965, 0.676966)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/name = "Wings2.R"
 bones/7/parent = 6
 bones/7/rest = Transform3D(0.860231, -0.508762, -0.034128, 0.378501, 0.681963, -0.62583, 0.341672, 0.525441, 0.779212, -6.66134e-16, 0.089548, -5.82061e-11)
 bones/7/enabled = true
 bones/7/position = Vector3(-6.66134e-16, 0.089548, -5.82061e-11)
-bones/7/rotation = Quaternion(-0.0253764, -0.0245956, 0.268729, 0.962567)
+bones/7/rotation = Quaternion(0.286301, -0.0956598, 0.248183, 0.920482)
 bones/7/scale = Vector3(1, 1, 1)
 
 [node name="Cube" type="MeshInstance3D" parent="Pivot/FoolEye/Armature/Skeleton3D" index="0"]
@@ -378,3 +396,32 @@ tree_root = SubResource("AnimationNodeStateMachine_tljio")
 anim_player = NodePath("../FoolEye/AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_3fik5")
+
+[node name="Hitbox" type="Area3D" parent="Pivot" index="4" node_paths=PackedStringArray("attack_position", "body")]
+script = ExtResource("2_20lxf")
+exception_group = "Enemy"
+attack_position = NodePath("../..")
+body = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/Hitbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_ysxsb")
+
+[node name="Hurtbox" type="Area3D" parent="Pivot" index="5" node_paths=PackedStringArray("body")]
+script = ExtResource("3_ee6lb")
+body = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/Hurtbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_xxh81")
+
+[node name="StateMachine" parent="." index="2" node_paths=PackedStringArray("starting_state")]
+starting_state = NodePath("Homing")
+
+[node name="Homing" type="Node" parent="StateMachine" index="4" node_paths=PackedStringArray("hitbox")]
+script = ExtResource("2_ps51c")
+hitbox = NodePath("../../Pivot/Hitbox")
+
+[node name="Dead" parent="StateMachine" index="5"]
+hurt_light_animation_name = ""
+delay_before_process = 0.0

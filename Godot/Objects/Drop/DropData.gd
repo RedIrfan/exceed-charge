@@ -9,11 +9,17 @@ func get_drop_items():
 	return drop_items
 
 
+func get_drops_scene():
+	return drops_scene
+
+
 func get_drop_scene(item):
-	return drops_scene[item]
+	if get_drops_scene().has(item):
+		return get_drops_scene()[item].instantiate()
+	return null
 
 
-func drop(drop_position:Vector3, receiver:Character) -> Node3D:
+func drop(drop_position:Vector3, receiver:Character) -> Array:
 	var total_item_chance : float = 0
 	var item_chances : Array = []
 	for item in get_drop_items():
@@ -29,16 +35,19 @@ func drop(drop_position:Vector3, receiver:Character) -> Node3D:
 		if random_chance > item_chance[1] and random_chance <= item_chance[2]:
 			choosen_item = item_chance[0]
 	
+	var choosen_item_object = null
 	if choosen_item:
-		return choose_item(choosen_item, drop_position)
-	return null
+		choosen_item_object = choose_item(choosen_item, drop_position)
+	
+	return [choosen_item, choosen_item_object]
 
 
 func choose_item(choosen_item, drop_position:Vector3) -> Node3D:
 	var object = get_drop_scene(choosen_item.item)
-	Global.add_child(object)
-	
-	object.global_position = drop_position
+	if object:
+		Global.add_child(object)
+		
+		object.global_position = drop_position
 	return object
 
 

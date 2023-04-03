@@ -79,11 +79,7 @@ func play_action():
 	can_combo = action.can_combo
 	
 	if action.direction != Vector2.ZERO:
-		var body_form = body.global_transform.basis
-		var dir = Vector3.ZERO
-		dir += body_form.x * action.direction.x
-		dir += -body_form.z * action.direction.y
-		body.direction = Vector2(dir.x, dir.z)
+		body.direction = direction_to_global(action.direction)
 	else:
 		reset_direction()
 		
