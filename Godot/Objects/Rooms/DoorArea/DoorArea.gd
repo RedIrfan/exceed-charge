@@ -2,7 +2,8 @@ extends Area3D
 class_name DoorArea
 
 @onready var room : Room = get_parent()
-@onready var mesh : MeshInstance3D = $MeshInstance3D
+@onready var animation : AnimationPlayer = $WallCrystal/AnimationPlayer
+@onready var static_body : StaticBody3D = $WallCrystal/StaticBody3D
 
 @export var door_direction : Room.DIRECTIONS
 @export var active : bool = false : set = set_active
@@ -19,11 +20,18 @@ func _on_body_entered(body):
 
 
 func set_active(new_active:bool):
+	var old_active = active
+	
 	active = new_active
 	monitoring =  active 
 	
-	mesh.visible = ! active
-	mesh.get_node("StaticBody3D").set_collision_layer_value(1, ! active)
+	if old_active != new_active:
+		if active:	
+			animation.play_backwards("Close")
+		else:
+			animation.play("Close")
+	
+	static_body.set_collision_layer_value(1, ! active)
 	
 	if active == false and is_connected("body_entered", _on_body_entered):
 		disconnect("body_entered", _on_body_entered)

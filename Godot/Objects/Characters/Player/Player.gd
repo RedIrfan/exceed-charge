@@ -89,5 +89,4 @@ func _on_element_changed(to_element):
 
 func lock_to_target():
 	if locking_target_area.interact_list.size() > 0:
-		print(locking_target_area.get_interactable())
 		look_at(locking_target_area.get_interactable().global_position, Vector3.UP)
