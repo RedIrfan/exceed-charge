@@ -32,6 +32,8 @@ func process(delta):
 
 func enter(msg=[]):
 	super.enter(msg)
+	body.lock_to_target()	
+	
 	var new_distance = distance / (body.SPEED + body.get_attack_speed_calculation())
 	var new_whole_duration = whole_duration + new_distance
 	for action in actions:

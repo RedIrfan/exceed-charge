@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Objects/Characters/Enemies/States/StateEnemyPursue.gd" id="4_br72c"]
 [ext_resource type="Script" path="res://Objects/Characters/Enemies/States/StateEnemyAttack.gd" id="5_g2lbk"]
 
-[node name="Enemy" groups=["Enemy"] instance=ExtResource("1_07yf4")]
+[node name="Enemy" groups=["Enemy", "LockTargetable"] instance=ExtResource("1_07yf4")]
 script = ExtResource("2_0n1fk")
 drop_item = null
 drop_items = Array[Array]([[]])

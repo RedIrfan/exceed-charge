@@ -4260,7 +4260,7 @@ mesh = SubResource("ArrayMesh_gb51k")
 skin = SubResource("Skin_d26i5")
 
 [node name="RightArm" type="BoneAttachment3D" parent="Pivot/HighPriestess/Armature/GeneralSkeleton" index="1"]
-transform = Transform3D(-0.159928, -0.930255, -0.330246, 0.878454, 0.0184686, -0.477469, 0.450266, -0.366459, 0.814243, 0.348819, 0.218613, 0.0511342)
+transform = Transform3D(-0.159929, -0.930254, -0.330247, 0.878453, 0.0184695, -0.47747, 0.450267, -0.36646, 0.814241, 0.348819, 0.218613, 0.0511341)
 bone_name = "RightLowerArm"
 bone_idx = 11
 
@@ -4275,7 +4275,7 @@ transform = Transform3D(0.999995, 2.83122e-07, 3.27826e-07, -1.04308e-07, 0.9999
 shape = SubResource("BoxShape3D_ocfov")
 
 [node name="LeftArm" type="BoneAttachment3D" parent="Pivot/HighPriestess/Armature/GeneralSkeleton" index="2"]
-transform = Transform3D(-0.159928, 0.930254, 0.330247, -0.878453, 0.0184694, -0.477469, -0.450266, -0.366459, 0.814242, -0.348819, 0.218613, 0.0511341)
+transform = Transform3D(-0.159929, 0.930253, 0.330247, -0.878453, 0.0184694, -0.47747, -0.450267, -0.36646, 0.814241, -0.348819, 0.218613, 0.0511341)
 bone_name = "LeftLowerArm"
 bone_idx = 5
 

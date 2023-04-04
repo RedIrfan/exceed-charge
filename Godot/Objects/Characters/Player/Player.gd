@@ -10,6 +10,7 @@ const CARD_PICKUPABLE = preload('res://Objects/Interactable/CardPickupable/CardP
 
 @onready var dust_particles_left : GPUParticles3D = $Pivot/Player/Armature/GeneralSkeleton/LeftFoot/DustParticles
 @onready var dust_particles_right : GPUParticles3D = $Pivot/Player/Armature/GeneralSkeleton/RightFoot/DustParticles
+@onready var locking_target_area : ScanArea = $Pivot/LockingTargetArea
 
 @export var deck :DeckData
 @export var status : StatusData
@@ -84,3 +85,9 @@ func _on_element_changed(to_element):
 			set_suit_material(FIRE_SUIT_MATERIAL)
 		StatusData.ELEMENTS.WATER:
 			set_suit_material(WATER_SUIT_MATERIAL)
+
+
+func lock_to_target():
+	if locking_target_area.interact_list.size() > 0:
+		print(locking_target_area.get_interactable())
+		look_at(locking_target_area.get_interactable().global_position, Vector3.UP)
