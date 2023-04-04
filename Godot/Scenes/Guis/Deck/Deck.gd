@@ -1,5 +1,7 @@
 extends Gui
 
+const ACTIVATED_CARD = preload("res://Objects/Effects/ActivatedCard/ActivatedCard.tscn")
+
 @export var model : MeshInstance3D
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
@@ -21,6 +23,8 @@ var card_buttons : Array = []
 var held_card : int = -1
 var holding : bool = false
 
+var camera 
+
 
 func _ready():
 	self.visible = false
@@ -29,6 +33,7 @@ func _ready():
 	
 	await Signal(Global.root_scene(), "ready")
 	player = Global.root_scene().player
+	camera = Global.root_scene().camera
 	
 	var deck : DeckData = player.deck
 	
@@ -92,8 +97,13 @@ func physics_process(_delta):
 
 
 func use_card():
-	player.use_card(held_card)
+	var effect : Effect = ACTIVATED_CARD.instantiate()
+	effect.spawn(camera.camera3d.global_position)
+	
 	gm.enter_gui("Hud")
+	
+	await effect.effect_ended
+	player.use_card(held_card)
 
 
 func drop_card():

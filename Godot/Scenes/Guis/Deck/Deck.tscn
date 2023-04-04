@@ -1,10 +1,13 @@
-[gd_scene load_steps=55 format=3 uid="uid://brly1j0wxjkvn"]
+[gd_scene load_steps=56 format=3 uid="uid://brly1j0wxjkvn"]
 
 [ext_resource type="Script" path="res://Scenes/Guis/Deck/Deck.gd" id="1_kofso"]
 [ext_resource type="Texture2D" uid="uid://c3yk62rxsplax" path="res://Assets/Characters/Player/DeckTexture.png" id="2_8in37"]
 [ext_resource type="Texture2D" uid="uid://dg4irey4wfglx" path="res://Assets/Cards/Back.png" id="2_bnr0v"]
 [ext_resource type="Script" path="res://Scenes/Guis/Deck/DropArea.gd" id="3_4mheb"]
 [ext_resource type="Script" path="res://Scenes/Guis/Deck/ActivatingArea.gd" id="3_0806l"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l57ug"]
+blend_mode = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_075ha"]
 shading_mode = 0
@@ -7577,6 +7580,7 @@ model = NodePath("SubViewportContainer/SubViewport/DeckModel/Armature/Skeleton3D
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 y_sort_enabled = true
+material = SubResource("CanvasItemMaterial_l57ug")
 layout_mode = 1
 offset_top = 661.0
 offset_right = 1152.0
@@ -7931,8 +7935,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 192.0
-offset_right = 87552.0
-offset_bottom = 49440.0
+offset_right = 101376.0
+offset_bottom = 57216.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_jpb4a")

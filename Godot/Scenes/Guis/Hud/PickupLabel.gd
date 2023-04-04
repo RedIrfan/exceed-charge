@@ -1,4 +1,4 @@
-extends Label
+extends TextureRect
 
 @export var bonus_position : Vector2 = Vector2(-20, -60)
 

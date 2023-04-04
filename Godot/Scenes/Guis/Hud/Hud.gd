@@ -11,7 +11,7 @@ extends Gui
 @onready var attack_damage_percentage : Label = $Margin/HudBar/VBoxContainer/GridContainer/AttackDamage
 @onready var attack_speed_percentage: Label = $Margin/HudBar/VBoxContainer/GridContainer/AttackSpeed
 
-@onready var interact_label : Label = $InteractLabel
+@onready var interact_label : TextureRect = $InteractLabel
 
 var set_up : bool = false
 

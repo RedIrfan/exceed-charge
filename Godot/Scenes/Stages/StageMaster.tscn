@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://0y8aein16eo5"]
+[gd_scene load_steps=22 format=3 uid="uid://0y8aein16eo5"]
 
 [ext_resource type="Script" path="res://Scenes/Stages/StageMaster.gd" id="1_f31se"]
 [ext_resource type="PackedScene" uid="uid://dtj3l35v7fjgb" path="res://Objects/Characters/Player/Player.tscn" id="2_6j1x0"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://c2astk8rgcw6d" path="res://Objects/Rooms/NormalRooms/MediumRooms/MR1.tscn" id="5_egpl7"]
 [ext_resource type="PackedScene" uid="uid://dca03gb70l4j4" path="res://Objects/Rooms/NormalRooms/MediumRooms/MR2.tscn" id="6_1kh7h"]
 [ext_resource type="PackedScene" uid="uid://dwbqlnge51q7" path="res://Objects/GameCamera/GameCamera.tscn" id="7_mcxds"]
+[ext_resource type="Script" path="res://Objects/Decks/Cards/CardData.gd" id="9_3pnxl"]
+[ext_resource type="Script" path="res://Objects/Decks/DeckData.gd" id="10_ljsou"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c5oh7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -25,6 +27,41 @@ ambient_light_energy = 5.85
 tonemap_mode = 2
 tonemap_white = 0.52
 fog_light_color = Color(0.211765, 0.231373, 0.266667, 1)
+
+[sub_resource type="Resource" id="Resource_86ljp"]
+script = ExtResource("9_3pnxl")
+value = 1
+suit = 0
+card_name = ""
+card_drop_chance = 0
+
+[sub_resource type="Resource" id="Resource_q5xcd"]
+script = ExtResource("9_3pnxl")
+value = 1
+suit = 0
+card_name = ""
+card_drop_chance = 0
+
+[sub_resource type="Resource" id="Resource_rplte"]
+script = ExtResource("9_3pnxl")
+value = 1
+suit = 0
+card_name = ""
+card_drop_chance = 0
+
+[sub_resource type="Resource" id="Resource_emisy"]
+script = ExtResource("9_3pnxl")
+value = 1
+suit = 0
+card_name = ""
+card_drop_chance = 0
+
+[sub_resource type="Resource" id="Resource_jki7g"]
+script = ExtResource("10_ljsou")
+CHARGE = 3
+DECK_MAX_AMOUNT = 5
+deck_list = Array[ExtResource("9_3pnxl")]([SubResource("Resource_86ljp"), SubResource("Resource_q5xcd"), SubResource("Resource_rplte"), SubResource("Resource_emisy")])
+metadata/_editor_prop_ptr_body = NodePath(".")
 
 [sub_resource type="BoxMesh" id="BoxMesh_5wmst"]
 size = Vector3(100, 1, 100)
@@ -49,6 +86,7 @@ transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_6j1x0")]
+deck = SubResource("Resource_jki7g")
 
 [node name="GameCamera" parent="." instance=ExtResource("7_mcxds")]
 

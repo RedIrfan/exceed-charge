@@ -1,6 +1,8 @@
 extends Node3D
 class_name Effect
 
+signal effect_ended
+
 @onready var kill_timer : Timer = $KillTimer
 
 @export var duration : float = 0.1
@@ -12,7 +14,7 @@ func _ready():
 
 func spawn(spawn_position, parameters={}):
 	Global.root_scene().add_child(self)
-	self.global_transform.origin = spawn_position
+	self.global_position = spawn_position
 	
 	if duration > 0:
 		kill_timer.start(duration)
@@ -29,4 +31,5 @@ func _on_kill_timeout():
 
 
 func _destroy():
+	emit_signal("effect_ended")
 	queue_free()
