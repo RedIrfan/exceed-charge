@@ -70,6 +70,7 @@ func suit_to_string()->String:
 func process_card(body:Character) -> void:
 	var adjacent_suit_power :float = 0.0
 	var opposite_suit_power :float = 0.0
+	var active_card_mode : int = 0
 	match value:
 		1:
 			adjacent_suit_power += 0.01
@@ -82,15 +83,25 @@ func process_card(body:Character) -> void:
 		SUITS.PENTAGON:
 			status_data.defense_multiplier += adjacent_suit_power
 			status_data.speed_multiplier += opposite_suit_power
+			active_card_mode = 1
 		SUITS.TRIANGLE:
 			status_data.speed_multiplier += adjacent_suit_power
 			status_data.defense_multiplier += opposite_suit_power
+			active_card_mode = 2
 		SUITS.DIAMOND:
 			status_data.attack_damage_multiplier += adjacent_suit_power
 			status_data.attack_speed_multiplier += opposite_suit_power
+			active_card_mode = 1
 		SUITS.ARROW:
 			status_data.attack_speed_multiplier += adjacent_suit_power
 			status_data.attack_damage_multiplier += opposite_suit_power
+			active_card_mode = 2
+	
+	if value == 3:
+		if active_card_mode == 1:
+			body.status.primary_active_card = self
+		elif active_card_mode == 2:
+			body.status.secondary_active_card = self
 	
 	unique_process_card(body)
 

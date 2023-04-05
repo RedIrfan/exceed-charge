@@ -36,6 +36,18 @@ func check_secondary_attack():
 	return Input.is_action_just_pressed("action_secondary_attack")
 
 
+func check_skill():
+	if Input.is_action_pressed("action_skill"):
+		var mode = 0
+		if check_primary_attack():
+			mode = 1
+		elif check_secondary_attack():
+			mode = 2
+		
+		if mode > 0:
+			fsm.enter_state("SkillMaster", [mode])
+
+
 func check_interact():
 	if body.interact_area.interact_list.size() > 0:
 		if Input.is_action_just_pressed("action_pickup"):

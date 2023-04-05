@@ -22,18 +22,20 @@ signal element_changed(to_element)
 
 @export_group("Wild")
 @export var element : ELEMENTS = ELEMENTS.NONE : set = set_element
-@export var active_card : CardData = null
+@export var primary_active_card : CardData = null
+@export var secondary_active_card : CardData = null
 @export var extra_attributes : Dictionary = {}
 
 
-func _init(new_defense:float=1.0,new_speed:float=1.0,new_damage:float=1.0,new_atk_speed:float=1.0,new_luck:float=1.0,new_element:ELEMENTS=ELEMENTS.NONE,new_active:CardData=null):
+func _init(new_defense:float=1.0,new_speed:float=1.0,new_damage:float=1.0,new_atk_speed:float=1.0,new_luck:float=1.0,new_element:ELEMENTS=ELEMENTS.NONE,new_primary_active:CardData=null, new_secondary_active:CardData=null):
 	defense_multiplier = new_defense
 	speed_multiplier = new_speed
 	attack_damage_multiplier = new_damage
 	attack_speed_multiplier = new_speed
 	luck_multiplier = new_luck
 	element = new_element
-	active_card = new_active
+	primary_active_card = new_primary_active
+	secondary_active_card = new_secondary_active
 
 
 func set_element(new_element:ELEMENTS):

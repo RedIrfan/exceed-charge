@@ -72,8 +72,8 @@ func play_action():
 	
 	if action.hitbox != null:
 		set_damage(action)
-	if action.projectile != null:
-		var projectile = action.projectile.instantiate()
+	if action.projectile_scene != null:
+		var projectile = action.projectile_scene.instantiate()
 		projectile.spawn(body, action.projectile_spawn_position.global_transform, exception_group)
 	
 	can_combo = action.can_combo
@@ -87,6 +87,13 @@ func play_action():
 		set_move_attack_speed(action.speed)
 	else:
 		set_move_attack_speed(body.SPEED)
+	
+	if action.effect_scene != null:
+		var effect = action.effect_scene.instantiate()
+		for parameter in action.effect_parameters:
+			if action.effect_parameters[parameter] is NodePath:
+				action.effect_parameters[parameter] = action.get_node(action.effect_parameters[parameter])
+		effect.spawn(action.effect_spawn_position.global_position, action.effect_parameters)
 
 
 func set_damage(action):

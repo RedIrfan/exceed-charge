@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=50 format=3 uid="uid://cqnu6lhlckf3d"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=52 format=3 uid="uid://cqnu6lhlckf3d"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ce30f"]
 animation = &"DashBackward"
@@ -26,6 +26,9 @@ animation = &"BaseModel/HurtWakeup"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qmpeu"]
 animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2reiy"]
+animation = &"SkillGroundPound"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xso0d"]
 animation = &"Slash1"
@@ -168,32 +171,38 @@ switch_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5iog1"]
+switch_mode = 2
+advance_mode = 2
+
 [resource]
 states/DashBackward/node = SubResource("AnimationNodeAnimation_ce30f")
 states/DashBackward/position = Vector2(550.222, 250.667)
 states/DashForward/node = SubResource("AnimationNodeAnimation_62ust")
 states/DashForward/position = Vector2(545.778, -48)
 states/DashLeft/node = SubResource("AnimationNodeAnimation_85fqm")
-states/DashLeft/position = Vector2(276.333, 103.822)
+states/DashLeft/position = Vector2(275, 101.149)
 states/DashRight/node = SubResource("AnimationNodeAnimation_ydmjl")
-states/DashRight/position = Vector2(831, 102.699)
-states/End/position = Vector2(1020, 101.463)
+states/DashRight/position = Vector2(830.294, 96.8477)
+states/End/position = Vector2(1157.33, 101.142)
 states/HurtHeavy/node = SubResource("AnimationNodeAnimation_w32ah")
-states/HurtHeavy/position = Vector2(869.704, -47.4444)
+states/HurtHeavy/position = Vector2(830.935, -47.9383)
 states/HurtLight/node = SubResource("AnimationNodeAnimation_40471")
 states/HurtLight/position = Vector2(700.399, -47.6296)
 states/HurtLightDead/node = SubResource("AnimationNodeAnimation_8psnr")
 states/HurtLightDead/position = Vector2(695.078, -123.333)
 states/HurtWakeup/node = SubResource("AnimationNodeAnimation_4ryv1")
-states/HurtWakeup/position = Vector2(869.778, 15.2592)
+states/HurtWakeup/position = Vector2(824.902, 15.5062)
 states/Idle/node = SubResource("AnimationNodeAnimation_qmpeu")
 states/Idle/position = Vector2(546.667, 100.222)
+states/SkillGroundPound/node = SubResource("AnimationNodeAnimation_2reiy")
+states/SkillGroundPound/position = Vector2(700.034, 326)
 states/Slash1/node = SubResource("AnimationNodeAnimation_xso0d")
-states/Slash1/position = Vector2(700.555, 250.667)
+states/Slash1/position = Vector2(700.347, 250.075)
 states/Slash2/node = SubResource("AnimationNodeAnimation_81hn3")
-states/Slash2/position = Vector2(832.333, 250)
+states/Slash2/position = Vector2(830.605, 250.692)
 states/SlashHeavy/node = SubResource("AnimationNodeAnimation_owihp")
-states/SlashHeavy/position = Vector2(978, 251.556)
+states/SlashHeavy/position = Vector2(977.062, 250.371)
 states/Stab/node = SubResource("AnimationNodeAnimation_jqbdi")
 states/Stab/position = Vector2(978.111, 180.111)
 states/Start/position = Vector2(408.889, 15.1111)
@@ -202,8 +211,8 @@ states/WalkBackward/position = Vector2(545.222, 179)
 states/WalkForward/node = SubResource("AnimationNodeAnimation_ncwko")
 states/WalkForward/position = Vector2(546.556, 16.3333)
 states/WalkLeft/node = SubResource("AnimationNodeAnimation_4wy5x")
-states/WalkLeft/position = Vector2(408.63, 107.06)
+states/WalkLeft/position = Vector2(401.963, 103.92)
 states/WalkRight/node = SubResource("AnimationNodeAnimation_43xry")
-states/WalkRight/position = Vector2(700.333, 100.531)
-transitions = ["Idle", "WalkForward", SubResource("AnimationNodeStateMachineTransition_3n6x6"), "WalkForward", "Idle", SubResource("AnimationNodeStateMachineTransition_c4yx5"), "Idle", "WalkBackward", SubResource("AnimationNodeStateMachineTransition_su65y"), "WalkBackward", "Idle", SubResource("AnimationNodeStateMachineTransition_6o326"), "WalkLeft", "Idle", SubResource("AnimationNodeStateMachineTransition_laxcl"), "Idle", "WalkRight", SubResource("AnimationNodeStateMachineTransition_5y3wy"), "WalkRight", "Idle", SubResource("AnimationNodeStateMachineTransition_da433"), "Idle", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_7bubp"), "WalkLeft", "WalkRight", SubResource("AnimationNodeStateMachineTransition_mxbvc"), "WalkRight", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_8w5tn"), "WalkForward", "WalkBackward", SubResource("AnimationNodeStateMachineTransition_fflc3"), "WalkBackward", "WalkForward", SubResource("AnimationNodeStateMachineTransition_yph0a"), "WalkForward", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_cvhe5"), "WalkLeft", "WalkForward", SubResource("AnimationNodeStateMachineTransition_mb30l"), "WalkForward", "WalkRight", SubResource("AnimationNodeStateMachineTransition_ybmjd"), "WalkRight", "WalkForward", SubResource("AnimationNodeStateMachineTransition_vir0y"), "WalkRight", "WalkBackward", SubResource("AnimationNodeStateMachineTransition_1mr7a"), "WalkBackward", "WalkRight", SubResource("AnimationNodeStateMachineTransition_bsg6f"), "WalkBackward", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_xgmvl"), "WalkLeft", "WalkBackward", SubResource("AnimationNodeStateMachineTransition_xjmsk"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_0awhl"), "DashLeft", "Idle", SubResource("AnimationNodeStateMachineTransition_3lc1j"), "DashRight", "Idle", SubResource("AnimationNodeStateMachineTransition_702nh"), "DashBackward", "Idle", SubResource("AnimationNodeStateMachineTransition_eectf"), "DashForward", "Idle", SubResource("AnimationNodeStateMachineTransition_cihvs"), "Slash1", "Idle", SubResource("AnimationNodeStateMachineTransition_hgd55"), "Slash2", "Idle", SubResource("AnimationNodeStateMachineTransition_ug8id"), "SlashHeavy", "Idle", SubResource("AnimationNodeStateMachineTransition_chpti"), "HurtLight", "Idle", SubResource("AnimationNodeStateMachineTransition_t52bh"), "HurtHeavy", "HurtWakeup", SubResource("AnimationNodeStateMachineTransition_i6ruc"), "HurtWakeup", "Idle", SubResource("AnimationNodeStateMachineTransition_psqho"), "Stab", "Idle", SubResource("AnimationNodeStateMachineTransition_05cg8")]
-graph_offset = Vector2(497, 54)
+states/WalkRight/position = Vector2(699.532, 96.3105)
+transitions = ["Idle", "WalkForward", SubResource("AnimationNodeStateMachineTransition_3n6x6"), "WalkForward", "Idle", SubResource("AnimationNodeStateMachineTransition_c4yx5"), "Idle", "WalkBackward", SubResource("AnimationNodeStateMachineTransition_su65y"), "WalkBackward", "Idle", SubResource("AnimationNodeStateMachineTransition_6o326"), "WalkLeft", "Idle", SubResource("AnimationNodeStateMachineTransition_laxcl"), "Idle", "WalkRight", SubResource("AnimationNodeStateMachineTransition_5y3wy"), "WalkRight", "Idle", SubResource("AnimationNodeStateMachineTransition_da433"), "Idle", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_7bubp"), "WalkLeft", "WalkRight", SubResource("AnimationNodeStateMachineTransition_mxbvc"), "WalkRight", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_8w5tn"), "WalkForward", "WalkBackward", SubResource("AnimationNodeStateMachineTransition_fflc3"), "WalkBackward", "WalkForward", SubResource("AnimationNodeStateMachineTransition_yph0a"), "WalkForward", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_cvhe5"), "WalkLeft", "WalkForward", SubResource("AnimationNodeStateMachineTransition_mb30l"), "WalkForward", "WalkRight", SubResource("AnimationNodeStateMachineTransition_ybmjd"), "WalkRight", "WalkForward", SubResource("AnimationNodeStateMachineTransition_vir0y"), "WalkRight", "WalkBackward", SubResource("AnimationNodeStateMachineTransition_1mr7a"), "WalkBackward", "WalkRight", SubResource("AnimationNodeStateMachineTransition_bsg6f"), "WalkBackward", "WalkLeft", SubResource("AnimationNodeStateMachineTransition_xgmvl"), "WalkLeft", "WalkBackward", SubResource("AnimationNodeStateMachineTransition_xjmsk"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_0awhl"), "DashLeft", "Idle", SubResource("AnimationNodeStateMachineTransition_3lc1j"), "DashRight", "Idle", SubResource("AnimationNodeStateMachineTransition_702nh"), "DashBackward", "Idle", SubResource("AnimationNodeStateMachineTransition_eectf"), "DashForward", "Idle", SubResource("AnimationNodeStateMachineTransition_cihvs"), "Slash1", "Idle", SubResource("AnimationNodeStateMachineTransition_hgd55"), "Slash2", "Idle", SubResource("AnimationNodeStateMachineTransition_ug8id"), "SlashHeavy", "Idle", SubResource("AnimationNodeStateMachineTransition_chpti"), "HurtLight", "Idle", SubResource("AnimationNodeStateMachineTransition_t52bh"), "HurtHeavy", "HurtWakeup", SubResource("AnimationNodeStateMachineTransition_i6ruc"), "HurtWakeup", "Idle", SubResource("AnimationNodeStateMachineTransition_psqho"), "Stab", "Idle", SubResource("AnimationNodeStateMachineTransition_05cg8"), "SkillGroundPound", "Idle", SubResource("AnimationNodeStateMachineTransition_5iog1")]
+graph_offset = Vector2(437, 14)

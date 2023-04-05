@@ -1,0 +1,97 @@
+[gd_scene load_steps=17 format=3 uid="uid://bd6mcmxr4b0w6"]
+
+[ext_resource type="PackedScene" uid="uid://b2obq0cwg452y" path="res://Objects/Effects/Effect.tscn" id="1_dvl4o"]
+[ext_resource type="Script" path="res://Objects/Effects/Attacks/SkillGroundPoundEffect/SkillGroundPoundEffect.gd" id="2_xxw1n"]
+[ext_resource type="Script" path="res://Objects/Engine/CollisionBox/Hitbox.gd" id="3_whesp"]
+
+[sub_resource type="Curve" id="Curve_wd8iq"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.787162, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qq4v6"]
+curve = SubResource("Curve_wd8iq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w0dw0"]
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 3.0
+damping_max = 7.23
+scale_curve = SubResource("CurveTexture_qq4v6")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0g2wj"]
+transparency = 1
+diffuse_mode = 3
+specular_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.458824, 0.458824, 0.458824, 0.552941)
+
+[sub_resource type="SphereMesh" id="SphereMesh_rd364"]
+material = SubResource("StandardMaterial3D_0g2wj")
+radius = 0.25
+height = 0.5
+
+[sub_resource type="Gradient" id="Gradient_eooqf"]
+offsets = PackedFloat32Array(0, 0.4)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dnrye"]
+gradient = SubResource("Gradient_eooqf")
+
+[sub_resource type="Curve" id="Curve_6mi3d"]
+max_value = 5.5
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 5.5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4jav7"]
+curve = SubResource("Curve_6mi3d")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wp3es"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_4jav7")
+color_ramp = SubResource("GradientTexture1D_dnrye")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4bjev"]
+transparency = 1
+diffuse_mode = 3
+specular_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 1, 1, 0.615686)
+
+[sub_resource type="TorusMesh" id="TorusMesh_dm4w4"]
+material = SubResource("StandardMaterial3D_4bjev")
+inner_radius = 0.333
+outer_radius = 0.5
+rings = 8
+ring_segments = 4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mpsvn"]
+radius = 2.5
+
+[node name="SkillGroundPoundEffect" instance=ExtResource("1_dvl4o")]
+script = ExtResource("2_xxw1n")
+damage = 5
+damage_active_duration = 0.1
+duration = 1.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="1"]
+emitting = false
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_w0dw0")
+draw_pass_1 = SubResource("SphereMesh_rd364")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="." index="2"]
+emitting = false
+amount = 1
+lifetime = 0.7
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_wp3es")
+draw_pass_1 = SubResource("TorusMesh_dm4w4")
+
+[node name="Hitbox" type="Area3D" parent="." index="3" node_paths=PackedStringArray("attack_position")]
+script = ExtResource("3_whesp")
+attack_position = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" index="0"]
+shape = SubResource("SphereShape3D_mpsvn")
