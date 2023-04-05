@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://0y8aein16eo5"]
+[gd_scene load_steps=23 format=3 uid="uid://0y8aein16eo5"]
 
 [ext_resource type="Script" path="res://Scenes/Stages/StageMaster.gd" id="1_f31se"]
 [ext_resource type="PackedScene" uid="uid://dtj3l35v7fjgb" path="res://Objects/Characters/Player/Player.tscn" id="2_6j1x0"]
@@ -30,18 +30,32 @@ tonemap_mode = 2
 tonemap_white = 0.52
 fog_light_color = Color(0.211765, 0.231373, 0.266667, 1)
 
-[sub_resource type="Resource" id="Resource_xj4rl"]
+[sub_resource type="Resource" id="Resource_vkov4"]
 script = ExtResource("9_4fu27")
 value = 3
-suit = 2
+suit = 1
 card_name = ""
 card_drop_chance = 0
 
-[sub_resource type="Resource" id="Resource_hjxja"]
+[sub_resource type="Resource" id="Resource_fo0je"]
+script = ExtResource("9_4fu27")
+value = 3
+suit = 1
+card_name = ""
+card_drop_chance = 0
+
+[sub_resource type="Resource" id="Resource_3jml8"]
+script = ExtResource("9_4fu27")
+value = 3
+suit = 1
+card_name = ""
+card_drop_chance = 0
+
+[sub_resource type="Resource" id="Resource_h3e0r"]
 script = ExtResource("10_q5ux7")
-CHARGE = 3
+CHARGE = 12
 DECK_MAX_AMOUNT = 5
-deck_list = Array[ExtResource("9_4fu27")]([SubResource("Resource_xj4rl")])
+deck_list = Array[ExtResource("9_4fu27")]([SubResource("Resource_vkov4"), SubResource("Resource_fo0je"), SubResource("Resource_3jml8")])
 metadata/_editor_prop_ptr_body = NodePath(".")
 
 [sub_resource type="BoxMesh" id="BoxMesh_5wmst"]
@@ -67,7 +81,7 @@ transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("2_6j1x0")]
-deck = SubResource("Resource_hjxja")
+deck = SubResource("Resource_h3e0r")
 
 [node name="GameCamera" parent="." instance=ExtResource("7_mcxds")]
 

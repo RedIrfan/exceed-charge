@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bq3ucuk0qlnpq"]
+[gd_scene load_steps=25 format=3 uid="uid://bq3ucuk0qlnpq"]
 
 [ext_resource type="PackedScene" uid="uid://d0kf3afyurs0e" path="res://Objects/Destroyable/Destroyable.tscn" id="1_0ci5v"]
 [ext_resource type="Script" path="res://Objects/Destroyable/TalonCrystal/TalonCrystal.gd" id="2_xqv0n"]
@@ -61,9 +61,37 @@ suit = 3
 card_name = ""
 card_drop_chance = 0
 
+[sub_resource type="Resource" id="Resource_cg7jg"]
+script = ExtResource("3_cunnd")
+value = 3
+suit = 0
+card_name = ""
+card_drop_chance = 0
+
+[sub_resource type="Resource" id="Resource_lt5dt"]
+script = ExtResource("3_cunnd")
+value = 3
+suit = 1
+card_name = ""
+card_drop_chance = 0
+
+[sub_resource type="Resource" id="Resource_6aw2l"]
+script = ExtResource("3_cunnd")
+value = 3
+suit = 2
+card_name = ""
+card_drop_chance = 0
+
+[sub_resource type="Resource" id="Resource_b4oqy"]
+script = ExtResource("3_cunnd")
+value = 3
+suit = 3
+card_name = ""
+card_drop_chance = 0
+
 [sub_resource type="Resource" id="Resource_gp7si"]
 script = ExtResource("3_q3j6o")
-drop_cards = Array[ExtResource("3_cunnd")]([SubResource("Resource_pahh5"), SubResource("Resource_otm36"), SubResource("Resource_85ni6"), SubResource("Resource_7mhsy"), SubResource("Resource_xncye"), SubResource("Resource_do4xl"), SubResource("Resource_b6eje"), SubResource("Resource_8u8p7")])
+drop_cards = Array[ExtResource("3_cunnd")]([SubResource("Resource_pahh5"), SubResource("Resource_otm36"), SubResource("Resource_85ni6"), SubResource("Resource_7mhsy"), SubResource("Resource_xncye"), SubResource("Resource_do4xl"), SubResource("Resource_b6eje"), SubResource("Resource_8u8p7"), SubResource("Resource_cg7jg"), SubResource("Resource_lt5dt"), SubResource("Resource_6aw2l"), SubResource("Resource_b4oqy")])
 drops_scene = {}
 drop_items = Array[Resource("res://Objects/Drop/ChanceData.gd")]([])
 

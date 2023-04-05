@@ -9,8 +9,16 @@ enum SUITS {
 	WILD,
 }
 
+enum VALUES {
+	NONE,
+	ACE,
+	DEUCE,
+	THREE,
+	JACK
+}
+
 ## Ace is Adding an amount, Two is Adding 4 amount and subtracting an amount Jack is Learning a Skill
-@export_enum("1 - Ace:1", "2 - Deuce:2", "3 - Jack:3") var value : int = 1
+@export var value : VALUES = VALUES.ACE
 @export var suit : SUITS = SUITS.PENTAGON
 
 @export_group("Unique")
@@ -46,17 +54,19 @@ func get_card_image() -> Texture:
 func get_card_drop_chance(_receiver:Character) -> int:
 	if card_drop_chance == 0:
 		match value:
-			1:
+			VALUES.ACE:
 				card_drop_chance = 50
-			2:
+			VALUES.DEUCE:
 				card_drop_chance = 40
-			3:
+			VALUES.THREE:
+				card_drop_chance = 30
+			VALUES.JACK:
 				card_drop_chance = 20
 	return card_drop_chance
 
 
 func value_to_string() -> String:
-	var string_conversions = ["none", "Ace", "Deuce", "Jack"]
+	var string_conversions = ["none", "Ace", "Deuce", "Three", "Jack"]
 	
 	return string_conversions[value]
 
@@ -71,10 +81,12 @@ func process_card(body:Character) -> void:
 	var adjacent_suit_power :float = 0.0
 	var opposite_suit_power :float = 0.0
 	var active_card_mode : int = 0
+	var extra_attribute_name : String = ""
+	
 	match value:
-		1:
+		VALUES.ACE:
 			adjacent_suit_power += 0.01
-		2:
+		VALUES.DEUCE:
 			adjacent_suit_power += 0.04
 			opposite_suit_power -= 0.02
 	
@@ -83,25 +95,35 @@ func process_card(body:Character) -> void:
 		SUITS.PENTAGON:
 			status_data.defense_multiplier += adjacent_suit_power
 			status_data.speed_multiplier += opposite_suit_power
+			
 			active_card_mode = 1
+			extra_attribute_name = "defense_shield_amount"
 		SUITS.TRIANGLE:
 			status_data.speed_multiplier += adjacent_suit_power
 			status_data.defense_multiplier += opposite_suit_power
+			
 			active_card_mode = 2
+			extra_attribute_name = "agility_shield_amount"
 		SUITS.DIAMOND:
 			status_data.attack_damage_multiplier += adjacent_suit_power
 			status_data.attack_speed_multiplier += opposite_suit_power
+			
 			active_card_mode = 1
+			extra_attribute_name = ""
 		SUITS.ARROW:
 			status_data.attack_speed_multiplier += adjacent_suit_power
 			status_data.attack_damage_multiplier += opposite_suit_power
 			active_card_mode = 2
+			extra_attribute_name = ""
 	
-	if value == 3:
-		if active_card_mode == 1:
-			body.status.primary_active_card = self
-		elif active_card_mode == 2:
-			body.status.secondary_active_card = self
+	match value:
+		VALUES.THREE:
+			status_data.set_extra_attribute(extra_attribute_name, status_data.get_extra_attribute(extra_attribute_name) + 1)
+		VALUES.JACK:
+			if active_card_mode == 1:
+				status_data.primary_active_card = self
+			elif active_card_mode == 2:
+				status_data.secondary_active_card = self
 	
 	unique_process_card(body)
 

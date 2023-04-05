@@ -3,7 +3,7 @@ class_name DeckData
 
 const SOUND_EXCEED_CHARGE = preload("res://Assets/SFX/Deck/ExceedCharge.wav")
 
-@export var CHARGE : int = 3
+@export var CHARGE : int = 6
 @export var DECK_MAX_AMOUNT : int = 5
 @export var deck_list : Array[CardData] = []
 
