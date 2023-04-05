@@ -104,6 +104,7 @@ texture = ExtResource("2_ggns3")
 expand_mode = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/CardSprite" index="1"]
+process_mode = 3
 stream = ExtResource("3_sthtt")
 bus = &"Sfx"
 

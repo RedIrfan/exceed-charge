@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://0y8aein16eo5"]
+[gd_scene load_steps=17 format=3 uid="uid://0y8aein16eo5"]
 
 [ext_resource type="Script" path="res://Scenes/Stages/StageMaster.gd" id="1_f31se"]
 [ext_resource type="PackedScene" uid="uid://dtj3l35v7fjgb" path="res://Objects/Characters/Player/Player.tscn" id="2_6j1x0"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c2astk8rgcw6d" path="res://Objects/Rooms/NormalRooms/MediumRooms/MR1.tscn" id="5_egpl7"]
 [ext_resource type="PackedScene" uid="uid://dca03gb70l4j4" path="res://Objects/Rooms/NormalRooms/MediumRooms/MR2.tscn" id="6_1kh7h"]
 [ext_resource type="PackedScene" uid="uid://dwbqlnge51q7" path="res://Objects/GameCamera/GameCamera.tscn" id="7_mcxds"]
+[ext_resource type="AudioStream" uid="uid://bp3s22t4f4njl" path="res://Assets/Music/Stages/Level1.mp3" id="11_hoxgu"]
 [ext_resource type="PackedScene" uid="uid://j7sli074se1o" path="res://Objects/Effects/ShieldCircle/ShieldCircle.tscn" id="11_obvyp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c5oh7"]
@@ -65,3 +66,9 @@ collision_mask = 0
 shape = SubResource("ConcavePolygonShape3D_61bi3")
 
 [node name="ShieldCircle" parent="." instance=ExtResource("11_obvyp")]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("11_hoxgu")
+autoplay = true
+bus = &"Music"
