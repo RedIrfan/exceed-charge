@@ -83,6 +83,8 @@ func process(_delta):
 			fsm.enter_state(self.name)
 		elif hurt_state_index == 0 or hurt_state_index == 3:
 			fsm.enter_state(self.name)
+		elif hurt_state_index == 1 or hurt_state_index == 2:
+			body.hurt_data = null
 
 
 func _process_damage():
