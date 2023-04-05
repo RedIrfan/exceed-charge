@@ -1,6 +1,7 @@
 extends Gui
 
 const ACTIVATED_CARD = preload("res://Objects/Effects/ActivatedCard/ActivatedCard.tscn")
+const SOUND_SCAN_CARD = preload('res://Assets/SFX/Deck/ScanCard.wav')
 
 @export var model : MeshInstance3D
 
@@ -99,6 +100,9 @@ func physics_process(_delta):
 func use_card():
 	var effect : Effect = ACTIVATED_CARD.instantiate()
 	effect.spawn(camera.camera3d.global_position)
+	
+	var soundfx = SoundFx.new()
+	soundfx.spawn(Vector3.ZERO, {"audio" : SOUND_SCAN_CARD})
 	
 	gm.enter_gui("Hud")
 	
