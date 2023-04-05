@@ -1,6 +1,7 @@
 class_name EffectAnimation
 extends Effect
 
+@export var move : bool = false
 @export var animation_name : String = ""
 @export var animation_player : AnimationPlayer
 
@@ -9,8 +10,9 @@ var bonus_position : Vector3
 
 
 func on_spawn(params={}):
-	target = params['target']
-	bonus_position = params['bonus_position']
+	if move:
+		target = params['target']
+		bonus_position = params['bonus_position']
 	
 	animation_player.play(animation_name)
 	

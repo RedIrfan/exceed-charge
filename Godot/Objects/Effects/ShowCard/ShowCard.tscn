@@ -1,0 +1,113 @@
+[gd_scene load_steps=8 format=3 uid="uid://c62mr1nr1vuyq"]
+
+[ext_resource type="PackedScene" uid="uid://b2obq0cwg452y" path="res://Objects/Effects/Effect.tscn" id="1_b8iab"]
+[ext_resource type="Script" path="res://Objects/Effects/ShowCard/ShowCard.gd" id="2_51740"]
+[ext_resource type="Texture2D" uid="uid://dg4irey4wfglx" path="res://Assets/Cards/Back.png" id="2_ggns3"]
+[ext_resource type="AudioStream" uid="uid://d3nayt6bkwtqs" path="res://Assets/SFX/TakeItem.wav" id="3_sthtt"]
+
+[sub_resource type="Animation" id="Animation_f8l12"]
+resource_name = "ShowCard"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/CardSprite:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1152, 648)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/CardSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.8, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 477), Vector2(0, -30), Vector2(0, 0), Vector2(0, 0), Vector2(0, 477)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/CardSprite/AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_bl1k6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/CardSprite:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1152, 648)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/CardSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 477)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1h04m"]
+_data = {
+"RESET": SubResource("Animation_bl1k6"),
+"ShowCard": SubResource("Animation_f8l12")
+}
+
+[node name="ShowCard" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_b8iab")]
+script = ExtResource("2_51740")
+move = false
+animation_name = "ShowCard"
+animation_player = NodePath("AnimationPlayer")
+duration = 0.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="1"]
+
+[node name="CardSprite" type="CenterContainer" parent="CanvasLayer" index="0"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 477.0
+offset_right = 1152.0
+offset_bottom = 1125.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CardSprite" index="0"]
+custom_minimum_size = Vector2(206, 292)
+layout_mode = 2
+texture = ExtResource("2_ggns3")
+expand_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/CardSprite" index="1"]
+stream = ExtResource("3_sthtt")
+bus = &"Sfx"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_1h04m")
+}

@@ -2,6 +2,9 @@ class_name ScanArea
 extends Area3D
 
 signal interact_list_changed
+signal interacted(interactable)
+
+const SHOW_CARD = preload('res://Objects/Effects/ShowCard/ShowCard.tscn')
 
 enum CHECK_OPTIONS{
 	AREA,
@@ -46,6 +49,12 @@ func interact():
 	var interactable = get_interactable()
 	if interactable != null:
 		get_interactable().interact(body)
+		
+		if interactable is CardPickupable:
+			var show_card = SHOW_CARD.instantiate()
+			show_card.spawn(self.global_position, {"card" : interactable.card_data})
+		
+		emit_signal("interacted", interactable)
 
 
 func get_interactable():

@@ -1,6 +1,8 @@
 extends Resource
 class_name DeckData
 
+const SOUND_EXCEED_CHARGE = preload("res://Assets/SFX/Deck/ExceedCharge.wav")
+
 @export var CHARGE : int = 3
 @export var DECK_MAX_AMOUNT : int = 5
 @export var deck_list : Array[CardData] = []
@@ -65,6 +67,9 @@ func exceed_charge(body):
 			body.set_attribute("defense_shield_amount", 5)
 		CardData.SUITS.TRIANGLE:
 			body.set_attribute("agility_shield_amount", 5)
+	
+	var soundfx = SoundFx.new()
+	soundfx.spawn(Vector3.ZERO, {"audio" : SOUND_EXCEED_CHARGE})
 	
 	level += 1
 	if get_maximum_charge() > 0:

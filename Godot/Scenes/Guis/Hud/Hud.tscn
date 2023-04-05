@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://yl0ax47os7of"]
+[gd_scene load_steps=14 format=3 uid="uid://yl0ax47os7of"]
 
 [ext_resource type="Script" path="res://Scenes/Guis/Hud/Hud.gd" id="1_1krw8"]
 [ext_resource type="Texture2D" uid="uid://dkcuxnecprxav" path="res://Assets/Hud/Hud.png" id="2_iaoah"]
@@ -16,6 +16,8 @@ Label/font_sizes/font_size = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgcv3"]
 bg_color = Color(0.0823529, 0.0862745, 0.34902, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nlsv6"]
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -149,3 +151,6 @@ expand_mode = 1
 script = ExtResource("9_bj2is")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nlsv6")
+}

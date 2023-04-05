@@ -75,6 +75,7 @@ _data = {
 
 [node name="ActivatedCardParticles" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_3bjah")]
 script = ExtResource("2_xyov4")
+move = true
 animation_name = "Play"
 animation_player = NodePath("AnimationPlayer")
 

@@ -1,6 +1,7 @@
 extends Effect
 
 const PARTICLES = preload("res://Objects/Effects/ActivatedCard/Particles/Particles.tscn")
+const SOUND_ACTIVATE_CARD = preload('res://Assets/SFX/Deck/ActivateCard.wav')
 
 var middle_position : Vector3 = Vector3(-1, 1, -1.2)
 var end_position : Vector3 = Vector3(0, 1.3, 0)
@@ -45,5 +46,8 @@ func move_to(delta):
 func _on_kill_timeout():
 	var particles = PARTICLES.instantiate()
 	particles.spawn(player.global_position, {"target" : player, "bonus_position" : end_position})
+	
+	var soundfx = SoundFx.new()
+	soundfx.spawn(Vector3.ZERO, {"audio" : SOUND_ACTIVATE_CARD})
 	
 	_destroy()
