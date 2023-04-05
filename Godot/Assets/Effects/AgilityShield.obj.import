@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://caiw8wdshq3st"
+path="res://.godot/imported/AgilityShield.obj-945a6f9fc5804ed165965cc96cf5b2e4.mesh"
+
+[deps]
+
+files=["res://.godot/imported/AgilityShield.obj-945a6f9fc5804ed165965cc96cf5b2e4.mesh"]
+
+source_file="res://Assets/Effects/AgilityShield.obj"
+dest_files=["res://.godot/imported/AgilityShield.obj-945a6f9fc5804ed165965cc96cf5b2e4.mesh", "res://.godot/imported/AgilityShield.obj-945a6f9fc5804ed165965cc96cf5b2e4.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

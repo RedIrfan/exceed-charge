@@ -12,3 +12,8 @@ func enter(msg=[]):
 	
 	if slash == true:
 		fsm.enter_state("Slash")
+
+
+func exit():
+	look_at_mouse(1)
+	body.lock_to_target()

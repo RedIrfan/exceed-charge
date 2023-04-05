@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dovxnq365xwn8"
+path="res://.godot/imported/ExitHole.obj-9900a5909299f30dbb40c0cef37d2963.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ExitHole.obj-9900a5909299f30dbb40c0cef37d2963.mesh"]
+
+source_file="res://Assets/ExitHole/ExitHole.obj"
+dest_files=["res://.godot/imported/ExitHole.obj-9900a5909299f30dbb40c0cef37d2963.mesh", "res://.godot/imported/ExitHole.obj-9900a5909299f30dbb40c0cef37d2963.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

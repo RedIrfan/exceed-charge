@@ -32,7 +32,6 @@ func process(delta):
 
 func enter(msg=[]):
 	super.enter(msg)
-	body.lock_to_target()	
 	
 	var new_distance = distance / (body.SPEED + body.get_attack_speed_calculation())
 	var new_whole_duration = whole_duration + new_distance
@@ -44,3 +43,4 @@ func look_at_mouse(rotation_speed:float=0) -> void:
 	var mouse3d_pos = Global.root_scene().camera.get_mouse_position3d()
 	
 	look_at(mouse3d_pos, rotation_speed)
+	body.lock_to_target()

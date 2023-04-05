@@ -10,6 +10,7 @@ enum ELEMENTS{
 	VOID
 }
 
+signal extra_attributes_changed
 signal element_changed(to_element)
 
 @export_group("Multiplier")
@@ -22,6 +23,7 @@ signal element_changed(to_element)
 @export_group("Wild")
 @export var element : ELEMENTS = ELEMENTS.NONE : set = set_element
 @export var active_card : CardData = null
+@export var extra_attributes : Dictionary = {}
 
 
 func _init(new_defense:float=1.0,new_speed:float=1.0,new_damage:float=1.0,new_atk_speed:float=1.0,new_luck:float=1.0,new_element:ELEMENTS=ELEMENTS.NONE,new_active:CardData=null):
@@ -37,3 +39,14 @@ func _init(new_defense:float=1.0,new_speed:float=1.0,new_damage:float=1.0,new_at
 func set_element(new_element:ELEMENTS):
 	element = new_element
 	emit_signal("element_changed", new_element)
+
+
+func set_extra_attribute(attribute_name, attribute_value):
+	extra_attributes[attribute_name] = attribute_value
+	emit_signal("extra_attributes_changed")
+
+
+func get_extra_attribute(attribute_name):
+	if extra_attributes.has(attribute_name):
+		return extra_attributes[attribute_name]
+	return null

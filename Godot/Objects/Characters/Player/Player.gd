@@ -32,6 +32,10 @@ func process_damage(damage:float):
 	super.process_damage(damage)
 
 
+func get_extra_attribute(attribute_name:String):
+	return status.get_extra_attribute(attribute_name)
+
+
 func get_attack_damage(damage:float) -> float:
 	damage = damage + (log(status.attack_damage_multiplier) / log(1.5))
 	return damage
@@ -56,6 +60,10 @@ func set_suit_material(material:Material):
 func set_dust_particles(mode:bool):
 	dust_particles_left.emitting = mode
 	dust_particles_right.emitting = mode
+
+
+func set_attribute(attribute_name, attribute_value):
+	status.set_extra_attribute(attribute_name, attribute_value)
 
 
 func use_card(card_index:int):

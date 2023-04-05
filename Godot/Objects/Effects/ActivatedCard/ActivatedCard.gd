@@ -29,14 +29,13 @@ func change_direction(to_position:Vector3):
 	direction = (to_position - self.global_position).normalized()
 	
 
-
 func _physics_process(delta):
 	if direction != Vector3.ZERO:
 		move_to(delta)
 
 
 func move_to(delta):
-	look_at(direction*2, Vector3.UP)
+	look_at(global_position + (direction*2), Vector3.UP)
 	
 	var speed = (self.global_position.distance_to(player.global_position) / kill_timer.time_left)
 	direction = direction * speed

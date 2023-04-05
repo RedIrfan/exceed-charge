@@ -35,14 +35,15 @@ func use_card(card_index:int, body:Character) -> bool:
 		if charge.size() < get_maximum_charge():
 			var card = deck_list[card_index]
 			card.process_card(body)
-			body.on_card_activated()
 			
 			for index in range(0, card.value):
 				charge.append(card.suit)
 			
 			if charge.size() >= get_maximum_charge():
-				exceed_charge()
+				exceed_charge(body)
 			remove_card(card_index)
+			
+			body.on_card_activated()
 	return false
 
 
@@ -52,12 +53,18 @@ func get_card(card_index:int) -> CardData:
 	return null
 
 
-func exceed_charge():
+func exceed_charge(body):
 	var exceed_types : Array = [0,0,0,0,0]
 	for charge_type in charge:
 		exceed_types[charge_type] += 1
 	
 	var exceed_type = exceed_types.find(exceed_types.max())
+	
+	match exceed_type:
+		CardData.SUITS.PENTAGON:
+			body.set_attribute("defense_shield_amount", 5)
+		CardData.SUITS.TRIANGLE:
+			body.set_attribute("agility_shield_amount", 5)
 	
 	level += 1
 	if get_maximum_charge() > 0:
