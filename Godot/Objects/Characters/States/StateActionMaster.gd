@@ -96,7 +96,6 @@ func play_action():
 		for parameter in action.effect_parameters:
 			var effect_parameter = action.effect_parameters[parameter]
 			if effect_parameter is String:
-				print(effect_parameter)
 				match effect_parameter:
 					"body":
 						action.effect_parameters[parameter] = body
