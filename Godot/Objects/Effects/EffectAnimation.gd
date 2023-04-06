@@ -1,18 +1,22 @@
 class_name EffectAnimation
 extends Effect
 
-@export var move : bool = false
 @export var animation_name : String = ""
 @export var animation_player : AnimationPlayer
+
+@export_group("Target")
+@export var follow_position : bool = false
+@export var follow_rotation : bool = false
 
 var target
 var bonus_position : Vector3
 
 
 func on_spawn(params={}):
-	if move:
+	if follow_position or follow_rotation:
 		target = params['target']
-		bonus_position = params['bonus_position']
+		if params.has("bonus_position"):
+			bonus_position = params['bonus_position']
 	
 	animation_player.play(animation_name)
 	
@@ -23,7 +27,10 @@ func on_spawn(params={}):
 
 func _physics_process(delta):
 	if target:
-		global_position = target.global_position + bonus_position
+		if follow_position:
+			global_position = target.global_position + bonus_position
+		if follow_rotation:
+			global_rotation = target.global_rotation
 
 
 func _on_kill_timeout():

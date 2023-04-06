@@ -6,6 +6,8 @@
 [sub_resource type="SphereMesh" id="SphereMesh_4u5qj"]
 radius = 0.125
 height = 0.25
+radial_segments = 8
+rings = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1qh8h"]
 transparency = 1
@@ -75,9 +77,10 @@ _data = {
 
 [node name="ActivatedCardParticles" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_3bjah")]
 script = ExtResource("2_xyov4")
-move = true
 animation_name = "Play"
 animation_player = NodePath("AnimationPlayer")
+follow_position = true
+follow_rotation = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
 mesh = SubResource("SphereMesh_4u5qj")

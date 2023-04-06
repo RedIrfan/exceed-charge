@@ -32,10 +32,16 @@ func remove_card(card_index:int) -> bool:
 	return false
 
 
-func use_card(card_index:int, body:Character) -> bool:
-	if card_index < deck_list.size():
+func use_card(card_index:int, body:Character, card_data:CardData=null) -> bool:
+	if card_index < deck_list.size() or card_data != null:
 		if charge.size() < get_maximum_charge():
-			var card = deck_list[card_index]
+			var card :CardData
+			if card_data != null:
+				card = card_data
+			else:
+				card = deck_list[card_index]
+				remove_card(card_index)
+			
 			card.process_card(body)
 			
 			for index in range(0, card.value):
@@ -43,7 +49,6 @@ func use_card(card_index:int, body:Character) -> bool:
 			
 			if charge.size() >= get_maximum_charge():
 				exceed_charge(body)
-			remove_card(card_index)
 			
 			body.on_card_activated()
 	return false

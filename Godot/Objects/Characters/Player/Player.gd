@@ -66,17 +66,18 @@ func set_attribute(attribute_name, attribute_value):
 	status.set_extra_attribute(attribute_name, attribute_value)
 
 
-func use_card(card_index:int):
-	deck.use_card(card_index, self)
+func use_card(card_index:int, card_data:CardData=null):
+	deck.use_card(card_index, self, card_data)
 	set_move_speed(SPEED)
 
 
-func remove_card(card_index:int):
-	var card_data :CardData= deck.get_card(card_index)
-	var card_pickupable = CARD_PICKUPABLE.instantiate()
-	
-	Global.add_child(card_pickupable)
-	card_pickupable.spawn(self.global_transform.origin + self.global_transform.basis.z * -1.5, [card_data])
+func remove_card(card_index:int, spawn_card_mesh:bool=true):
+	if spawn_card_mesh:
+		var card_data :CardData= deck.get_card(card_index)
+		var card_pickupable = CARD_PICKUPABLE.instantiate()
+		
+		Global.add_child(card_pickupable)
+		card_pickupable.spawn(self.global_transform.origin + self.global_transform.basis.z * -1.5, [card_data])
 	
 	deck.remove_card(card_index)
 

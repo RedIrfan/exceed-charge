@@ -23,6 +23,7 @@ const CARD_BUTTON = preload("res://Scenes/Guis/Deck/CardButton/CardButton.tscn")
 var card_buttons : Array = []
 var held_card : int = -1
 var holding : bool = false
+var card_used : bool = false
 
 var camera 
 
@@ -53,16 +54,11 @@ func _ready():
 func enter():
 	super.enter()
 	
+	card_used = false
 	player.deck_on = true
 	release_card()
 	
-	for cbutton in card_buttons:
-		if cbutton.card_index_in_deck < player.deck.deck_list.size():
-			cbutton.visible = true
-			var card_data : CardData = player.deck.deck_list[cbutton.card_index_in_deck]
-			cbutton.texture_normal = card_data.card_image
-		else:
-			cbutton.visible = false
+	scan_cards()
 	
 	animation_player.play("Show")
 	skeleton_ik.start()
@@ -84,7 +80,7 @@ func exit():
 
 
 func physics_process(_delta):
-	if Input.is_action_just_pressed("action_deck"):
+	if Input.is_action_just_pressed("action_deck") or Input.is_action_pressed("action_deck") == false and card_used:
 		gm.enter_gui("Hud")
 	
 	if Input.is_action_just_released("action_primary_attack"):
@@ -97,17 +93,32 @@ func physics_process(_delta):
 		hand_ik.global_transform.origin = mouse_raycast.get_collision_point()
 
 
+func scan_cards():
+	for cbutton in card_buttons:
+		if cbutton.card_index_in_deck < player.deck.deck_list.size():
+			cbutton.visible = true
+			var card_data : CardData = player.deck.deck_list[cbutton.card_index_in_deck]
+			cbutton.texture_normal = card_data.card_image
+		else:
+			cbutton.visible = false
+
+
 func use_card():
+	var card_data = player.deck.get_card(held_card)
+	player.remove_card(held_card, false)
+	
 	var effect : Effect = ACTIVATED_CARD.instantiate()
 	effect.spawn(camera.camera3d.global_position)
 	
 	var soundfx = SoundFx.new()
 	soundfx.spawn(Vector3.ZERO, {"audio" : SOUND_SCAN_CARD})
 	
-	gm.enter_gui("Hud")
+	card_used = true
+	if Input.is_action_pressed("action_deck") == true:
+		scan_cards()
 	
-	await effect.effect_ended
-	player.use_card(held_card)
+	await effect.effect_ended	
+	player.use_card(0, card_data)
 
 
 func drop_card():
