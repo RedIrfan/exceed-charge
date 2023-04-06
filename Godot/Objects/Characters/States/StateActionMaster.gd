@@ -88,11 +88,21 @@ func play_action():
 	else:
 		set_move_attack_speed(body.SPEED)
 	
+	if action.effect_node != null:
+		action.effect_node.emitting = true
+	
 	if action.effect_scene != null:
 		var effect = action.effect_scene.instantiate()
 		for parameter in action.effect_parameters:
-			if action.effect_parameters[parameter] is NodePath:
-				action.effect_parameters[parameter] = action.get_node(action.effect_parameters[parameter])
+			var effect_parameter = action.effect_parameters[parameter]
+			if effect_parameter is String:
+				print(effect_parameter)
+				match effect_parameter:
+					"body":
+						action.effect_parameters[parameter] = body
+					"spawn_position":
+						action.effect_parameters[parameter] = action.effect_spawn_position.position
+		
 		effect.spawn(action.effect_spawn_position.global_position, action.effect_parameters)
 
 

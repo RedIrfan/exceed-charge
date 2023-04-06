@@ -17,7 +17,14 @@ var current_floor : int = 0
 
 func _ready():
 	max_room_amount -= 2
-	generate_stage()
+	restart()
+
+
+func _physics_process(delta):
+	if Input.is_action_just_pressed("debug_restart"):
+		restart()
+	if Input.is_action_just_pressed("debug_log"):
+		get_tree().call_group("Room", "print_log")
 
 
 func get_camera() -> GameCamera:
@@ -29,7 +36,10 @@ func get_player() -> Character:
 
 
 func restart():
+	Global.pause(true)
 	player.global_position = Vector3(0,0,0)
+	
+	await get_tree().create_timer(1).timeout
 	
 	get_tree().call_group("Interactable", "queue_free")
 	get_tree().call_group("Enemy", "queue_free")
@@ -39,6 +49,9 @@ func restart():
 	
 	get_tree().call_group("Enemy", "queue_free")
 	get_tree().call_group("Room", "restart")
+	get_tree().call_group("Enemy", "queue_free")
+	Global.pause(false)
+	get_tree().call_group("Enemy", "queue_free")
 
 
 func exit_stage():

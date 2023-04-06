@@ -226,7 +226,7 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_eeds4"]
 size = Vector3(0.5, 1, 0.5)
 
-[node name="TalonCrystal" groups=["Enemy"] instance=ExtResource("1_0ci5v")]
+[node name="TalonCrystal" instance=ExtResource("1_0ci5v")]
 script = ExtResource("2_xqv0n")
 drop_data = SubResource("Resource_gp7si")
 HEALTH = 17

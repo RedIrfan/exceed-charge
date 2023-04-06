@@ -20,7 +20,7 @@ func get_drop_scene(item):
 
 
 func drop(drop_position:Vector3, receiver:Character) -> Array:
-	var total_item_chance : float = 0
+	var total_item_chance : int = 0
 	var item_chances : Array = []
 	for item in get_drop_items():
 		var item_chance : Array = [item, total_item_chance]
@@ -51,5 +51,5 @@ func choose_item(choosen_item, drop_position:Vector3) -> Node3D:
 	return object
 
 
-func get_item_chance(item, receiver) -> float:
+func get_item_chance(item, receiver) -> int:
 	return item.get_chance(receiver)

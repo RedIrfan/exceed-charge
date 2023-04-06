@@ -37,7 +37,7 @@ func _ready():
 	
 	interest_array.resize(context_raycast_size)
 	danger_array.resize(context_raycast_size)
-	var raycast_angle_rotation = 360 / context_raycast_size
+	var raycast_angle_rotation = 360.0 / context_raycast_size
 	for i in context_raycast_size:
 		var angle = i * raycast_angle_rotation
 		var target_direction = Vector2(0, -1).rotated(deg_to_rad(angle))

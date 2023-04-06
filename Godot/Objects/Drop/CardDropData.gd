@@ -20,5 +20,5 @@ func choose_item(choosen_item, drop_position:Vector3) -> Node3D:
 	return pickupable
 
 
-func get_item_chance(item, receiver) -> float:
+func get_item_chance(item, receiver) -> int:
 	return item.get_card_drop_chance(receiver)

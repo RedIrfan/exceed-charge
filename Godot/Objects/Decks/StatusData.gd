@@ -31,7 +31,7 @@ func _init(new_defense:float=1.0,new_speed:float=1.0,new_damage:float=1.0,new_at
 	defense_multiplier = new_defense
 	speed_multiplier = new_speed
 	attack_damage_multiplier = new_damage
-	attack_speed_multiplier = new_speed
+	attack_speed_multiplier = new_atk_speed
 	luck_multiplier = new_luck
 	element = new_element
 	primary_active_card = new_primary_active

@@ -11,7 +11,7 @@ var level : int = 0
 var charge : Array[CardData.SUITS] = []
 
 
-func _init(new_body:Character=null, new_charge : int=10, new_deck_max_amount : int = 5, new_deck_list:Array[CardData]=[]):
+func _init(new_charge : int=10, new_deck_max_amount : int = 5, new_deck_list:Array[CardData]=[]):
 	CHARGE = new_charge
 	DECK_MAX_AMOUNT = new_deck_max_amount
 	deck_list = new_deck_list

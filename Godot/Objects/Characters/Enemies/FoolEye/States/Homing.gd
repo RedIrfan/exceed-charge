@@ -18,13 +18,13 @@ func exit():
 		hitbox.disconnect("hit", _on_hit)
 
 
-func physics_process(delta):
+func physics_process(_delta):
 	look_at_target()
 	
 	apply_direction(direction_to_global(Vector2(0, 1)))
 
 
-func process(delta):
+func process(_delta):
 	if check_hurt():
 		fsm.enter_state("Hurt")
 

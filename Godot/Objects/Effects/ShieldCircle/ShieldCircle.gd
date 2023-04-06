@@ -39,7 +39,7 @@ func _on_extra_attributes_changed():
 
 func spawn_shields(amount:int, mesh:PackedScene, shield_collection:Dictionary, object_name_prefix:String, shield_distance:Vector3):
 	if amount > 0:
-		var rotation_interval = 360 / amount
+		var rotation_interval = 360.0 / amount
 		
 		for index in amount:
 			var object : MeshInstance3D

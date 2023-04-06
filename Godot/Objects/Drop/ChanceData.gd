@@ -5,5 +5,5 @@ class_name ChanceData
 @export var chance : int = 10
 
 
-func get_chance(receiver) -> float:
+func get_chance(_receiver) -> int:
 	return chance

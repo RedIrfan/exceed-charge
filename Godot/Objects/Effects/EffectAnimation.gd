@@ -9,12 +9,13 @@ extends Effect
 @export var follow_rotation : bool = false
 
 var target
-var bonus_position : Vector3
+var bonus_position : Vector3 = Vector3.ZERO
 
 
 func on_spawn(params={}):
 	if follow_position or follow_rotation:
 		target = params['target']
+		print(target)
 		if params.has("bonus_position"):
 			bonus_position = params['bonus_position']
 	
@@ -25,7 +26,7 @@ func on_spawn(params={}):
 	_destroy()
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if target:
 		if follow_position:
 			global_position = target.global_position + bonus_position

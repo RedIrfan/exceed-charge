@@ -22,6 +22,8 @@ class_name ActionData
 @export var speed : float = 0
 
 @export_group("Effects", "effect_")
+@export var effect_node : GPUParticles3D
+@export_subgroup("External", "effect_")
 @export var effect_scene : PackedScene
 @export var effect_spawn_position : Node3D
 @export var effect_parameters : Dictionary

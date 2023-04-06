@@ -14,7 +14,7 @@ func _ready():
 	camera = Global.root_scene().camera.camera3d
 
 
-func _process(delta):
+func _process(_delta):
 	interactable = Global.root_scene().player.interact_area.get_interactable()
 	if interactable:
 		move_to_target_position(0.5)

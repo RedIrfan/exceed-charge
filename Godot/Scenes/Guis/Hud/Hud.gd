@@ -80,7 +80,7 @@ func _on_card_activated():
 
 func _on_interact_list_changed():
 	if Global.stage_master().camera:
-		var camera : Camera3D = Global.stage_master().camera.camera3d
+#		var camera : Camera3D = Global.stage_master().camera.camera3d
 		var interact_area = player.interact_area
 		
 		interact_label.visible = false

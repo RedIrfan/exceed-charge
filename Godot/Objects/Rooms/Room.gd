@@ -14,7 +14,6 @@ enum TYPES{
 	EXIT,
 }
 
-
 @onready var gridmap_hole : GridMap = $GridMapHole
 
 @export var room_type : TYPES = TYPES.NORMAL
@@ -33,6 +32,8 @@ var enemies_amount : int = 0
 var room_cleared : bool = false
 var room_entered : bool = false
 
+var last_neighbour : Room = null
+
 var neighbour_left : Room = null : set = set_neighbour_left
 var neighbour_right : Room = null : set = set_neighbour_right
 var neighbour_up : Room = null : set = set_neighbour_up
@@ -42,11 +43,7 @@ var neighbour_down : Room = null : set = set_neighbour_down
 func _ready():
 	gridmap_hole.visible = false
 	
-	if room_type == TYPES.STARTING or room_type == TYPES.EXIT:
-		room_cleared = true
-	
-	if room_type != TYPES.STARTING:
-		visible = false
+	restart()
 	
 	for child in get_children():
 		if child is EnemySpawner:
@@ -57,17 +54,41 @@ func _ready():
 			child.queue_free()
 
 
-func enter():
+func enter(last_room:Room=null):
 	visible = true 
+	if last_room:
+		last_neighbour = last_room
 
 
 func exit():
-	pass
+	last_neighbour = null
+	room_entered = false
+	visible = false
 
 
 func restart():
-	room_entered = false
+	if room_type == TYPES.STARTING or room_type == TYPES.EXIT:
+		room_cleared = true
+	
+	if room_type == TYPES.STARTING:
+		enter()
+	else:
+		exit()
+	
 	_open_doors()
+
+
+func print_log():
+	if room_entered:
+		print(self.name)
+		
+		var tab = "     "
+		
+		print(tab + "room entered : " + str(room_entered))
+		
+		var doors = [door_left, door_right, door_up, door_down]
+		for door in doors:
+			print(tab + "door opened : " + str(door.active))
 
 
 func _open_doors():
@@ -96,6 +117,8 @@ func _on_enemy_dead():
 
 func _on_spawn_area_body_entered(body):
 	if body.is_in_group("Player"):
+		if last_neighbour:
+			last_neighbour.exit()
 		spawn_enemy(body)
 
 
@@ -118,7 +141,7 @@ func enter_neighbour(neighbour_name):
 		"Down" : neighbour_up
 	}
 	
-	neighbours[neighbour_name].enter()
+	neighbours[neighbour_name].enter(self)
 
 
 func set_neighbour_left(new_neighbour):

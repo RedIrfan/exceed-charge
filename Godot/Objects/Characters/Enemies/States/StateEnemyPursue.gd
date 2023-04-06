@@ -17,7 +17,7 @@ func _ready():
 
 func enter(_msg=[]):
 	body.connect('context_raycast_colliding', _on_raycast_colliding)
-	body.raycasts[(body.context_raycast_size/2)/2]
+#	body.raycasts[(body.context_raycast_size/2)/2]
 
 
 func exit():

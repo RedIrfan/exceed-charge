@@ -27,7 +27,7 @@ enum VALUES {
 @export var card_drop_chance : int = 0
 
 
-func _init(new_value : int=1, new_suit : SUITS=SUITS.PENTAGON, new_card_name : String="", new_card_image:Texture=null, new_card_drop_chance:int=0):
+func _init(new_value : VALUES=VALUES.ACE, new_suit : SUITS=SUITS.PENTAGON, new_card_name : String="", new_card_image:Texture=null, new_card_drop_chance:int=0):
 	value = new_value
 	suit = new_suit
 	
