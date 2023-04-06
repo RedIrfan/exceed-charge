@@ -11,6 +11,7 @@ const EXPLODE_PARTICLES : PackedScene = preload("res://Objects/Effects/ExplodePa
 @export var damage : int = 5
 
 @export var explode_mesh : Mesh
+@export var explode_particles_scene : PackedScene
 
 var kill_duration : float = 0
 
@@ -58,7 +59,15 @@ func _on_hit_body(body):
 
 
 func _destroy():
-	var particles = EXPLODE_PARTICLES.instantiate()
-	particles.spawn(self.global_position, [self.global_rotation + Vector3(0, deg_to_rad(180), 0), explode_mesh])
+	var particles : Effect
+	var effect_parameters
+	if explode_particles_scene == null:
+		particles = EXPLODE_PARTICLES.instantiate()
+		effect_parameters = [self.global_rotation + Vector3(0, deg_to_rad(180), 0), explode_mesh]
+	else:
+		particles = explode_particles_scene.instantiate()
+		effect_parameters = {}
+	
+	particles.spawn(self.global_position, effect_parameters)
 	
 	queue_free()

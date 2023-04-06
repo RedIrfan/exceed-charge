@@ -30,7 +30,7 @@ tonemap_mode = 2
 tonemap_white = 0.52
 fog_light_color = Color(0.211765, 0.231373, 0.266667, 1)
 
-[sub_resource type="Resource" id="Resource_vkov4"]
+[sub_resource type="Resource" id="Resource_evyvi"]
 script = ExtResource("9_4fu27")
 value = 4
 suit = 2
@@ -55,7 +55,7 @@ card_drop_chance = 0
 script = ExtResource("10_q5ux7")
 CHARGE = 12
 DECK_MAX_AMOUNT = 5
-deck_list = Array[ExtResource("9_4fu27")]([SubResource("Resource_vkov4"), SubResource("Resource_fo0je"), SubResource("Resource_3jml8")])
+deck_list = Array[ExtResource("9_4fu27")]([SubResource("Resource_evyvi"), SubResource("Resource_fo0je"), SubResource("Resource_3jml8")])
 metadata/_editor_prop_ptr_body = NodePath(".")
 
 [sub_resource type="BoxMesh" id="BoxMesh_5wmst"]

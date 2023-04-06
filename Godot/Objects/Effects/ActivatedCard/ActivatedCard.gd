@@ -36,7 +36,9 @@ func _physics_process(delta):
 
 
 func move_to(delta):
-	look_at(global_position + (direction*2), Vector3.UP)
+	var look_position = global_position + direction
+	if look_position != global_position:
+		look_at(look_position, Vector3.UP)
 	
 	var speed = (self.global_position.distance_to(player.global_position) / kill_timer.time_left)
 	direction = direction * speed
