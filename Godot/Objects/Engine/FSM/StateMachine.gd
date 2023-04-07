@@ -9,6 +9,7 @@ var states : Dictionary = {}
 
 var previous_state
 var current_state
+var next_state
 
 
 func _ready():
@@ -24,7 +25,7 @@ func _ready():
 func enter_state(state_name:String, msg=[]):
 	state_name = state_name.to_lower()
 	if states.has(state_name):
-		var next_state = states[state_name]
+		next_state = states[state_name]
 		var next_state_condition = next_state.enter_condition(body, self, msg)
 		
 		if next_state_condition:

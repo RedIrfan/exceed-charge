@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://chm4uelq4mop0"]
+[gd_scene load_steps=19 format=3 uid="uid://chm4uelq4mop0"]
 
 [ext_resource type="PackedScene" uid="uid://bqvnjcfcrfv1x" path="res://Objects/Projectile/Projectile.tscn" id="1_ydwgu"]
 [ext_resource type="PackedScene" uid="uid://bfreskdsik1pi" path="res://Objects/Effects/Attacks/Enemies/Empress/FireArea/FireArea.tscn" id="2_1m0yk"]
@@ -74,8 +74,11 @@ height = 0.6
 radial_segments = 8
 rings = 4
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_jylo3"]
+radius = 0.299276
+
 [node name="FireBall" instance=ExtResource("1_ydwgu")]
-speed = 5.0
+speed = 3.0
 gravity = true
 max_distance = 5.0
 explode_particles_scene = ExtResource("2_1m0yk")
@@ -95,3 +98,6 @@ draw_pass_1 = SubResource("SphereMesh_ya8yg")
 collision_mask = 0
 exception_group = "Enemy"
 detect_collision_layer_1 = false
+
+[node name="CollisionShape3D" parent="Pivot/Hitbox" index="0"]
+shape = SubResource("SphereShape3D_jylo3")

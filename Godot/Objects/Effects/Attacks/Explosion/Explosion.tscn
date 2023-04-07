@@ -1,0 +1,259 @@
+[gd_scene load_steps=28 format=3 uid="uid://ce3rjp8w7a2md"]
+
+[ext_resource type="PackedScene" uid="uid://b2obq0cwg452y" path="res://Objects/Effects/Effect.tscn" id="1_hyk3s"]
+[ext_resource type="Script" path="res://Objects/Effects/Attacks/EffectAttack.gd" id="2_m2oxw"]
+[ext_resource type="Script" path="res://Objects/Engine/CollisionBox/Hitbox.gd" id="3_wiq6i"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2kjmp"]
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 7.0
+tangential_accel_min = -0.5
+tangential_accel_max = 0.5
+scale_min = 0.25
+scale_max = 1.5
+
+[sub_resource type="Gradient" id="Gradient_0wakh"]
+colors = PackedColorArray(0.48, 0.1776, 0.20784, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_04n3e"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_5lssl"]
+color_ramp = SubResource("Gradient_0wakh")
+noise = SubResource("FastNoiseLite_04n3e")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v6bau"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(1, 0.188235, 0.188235, 1)
+albedo_texture = SubResource("NoiseTexture2D_5lssl")
+
+[sub_resource type="PrismMesh" id="PrismMesh_bg0gp"]
+material = SubResource("StandardMaterial3D_v6bau")
+size = Vector3(0.125, 0.125, 0.125)
+
+[sub_resource type="Gradient" id="Gradient_waave"]
+offsets = PackedFloat32Array(0, 0.240223, 0.402235)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yjvkk"]
+gradient = SubResource("Gradient_waave")
+
+[sub_resource type="Curve" id="Curve_a0ska"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.241294, 0.447853), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_7tg45"]
+curve = SubResource("Curve_a0ska")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oogmt"]
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+scale_min = 0.25
+scale_max = 0.25
+scale_curve = SubResource("CurveTexture_7tg45")
+color_ramp = SubResource("GradientTexture1D_yjvkk")
+
+[sub_resource type="Gradient" id="Gradient_hr2of"]
+colors = PackedColorArray(0.658824, 0.478431, 0.0588235, 0.270588, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_fwkgx"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rbyv1"]
+color_ramp = SubResource("Gradient_hr2of")
+noise = SubResource("FastNoiseLite_fwkgx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tjii0"]
+transparency = 1
+diffuse_mode = 3
+specular_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.52549, 0.109804, 1)
+albedo_texture = SubResource("NoiseTexture2D_rbyv1")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_cj0sl"]
+_surfaces = [{
+"aabb": AABB(-0.866025, -1, -1, 1.73205, 2.00001, 2),
+"attribute_data": PackedByteArray(187, 238, 121, 63, 131, 249, 127, 63, 242, 93, 10, 63, 56, 246, 204, 61, 187, 238, 121, 63, 56, 158, 207, 56, 31, 244, 124, 63, 31, 244, 124, 63, 191, 185, 63, 188, 31, 244, 124, 63, 25, 203, 180, 61, 69, 99, 13, 63, 31, 244, 124, 63, 31, 244, 124, 63, 25, 203, 180, 61, 69, 99, 13, 63, 186, 135, 188, 62, 105, 138, 80, 62, 31, 244, 124, 63, 31, 244, 124, 63, 186, 135, 188, 62, 105, 138, 80, 62, 42, 171, 69, 63, 56, 248, 66, 60, 229, 10, 151, 62, 56, 44, 205, 61, 222, 255, 39, 62, 49, 96, 201, 60, 229, 10, 151, 62, 3, 181, 128, 62, 229, 10, 151, 62, 3, 181, 128, 62, 222, 255, 39, 62, 49, 96, 201, 60, 222, 255, 39, 62, 236, 105, 167, 62, 222, 255, 39, 62, 236, 105, 167, 62, 222, 255, 39, 62, 49, 96, 201, 60, 214, 168, 7, 61, 3, 181, 128, 62, 214, 168, 7, 61, 3, 181, 128, 62, 222, 255, 39, 62, 49, 96, 201, 60, 214, 168, 7, 61, 56, 44, 205, 61, 187, 238, 121, 63, 131, 249, 127, 63, 56, 158, 207, 56, 142, 176, 72, 63, 218, 116, 68, 62, 129, 146, 194, 62, 187, 238, 121, 63, 131, 249, 127, 63, 218, 116, 68, 62, 129, 146, 194, 62, 242, 93, 10, 63, 56, 246, 204, 61),
+"format": 4119,
+"index_count": 30,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 23, 0, 24, 0, 25, 0, 26, 0, 27, 0, 28, 0, 29, 0),
+"material": SubResource("StandardMaterial3D_tjii0"),
+"name": "None",
+"primitive": 3,
+"vertex_count": 30,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 47, 225, 108, 220, 58, 193, 93, 200, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 128, 191, 47, 225, 108, 220, 58, 193, 93, 200, 208, 179, 93, 63, 0, 0, 128, 191, 0, 0, 0, 191, 47, 225, 108, 220, 58, 193, 93, 200, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 81, 217, 173, 166, 16, 95, 5, 230, 208, 179, 93, 63, 0, 0, 128, 191, 0, 0, 0, 191, 81, 217, 173, 166, 16, 95, 5, 230, 208, 179, 93, 63, 0, 0, 128, 191, 0, 0, 0, 63, 81, 217, 173, 166, 16, 95, 5, 230, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 145, 163, 207, 158, 196, 66, 107, 223, 208, 179, 93, 63, 0, 0, 128, 191, 0, 0, 0, 63, 145, 163, 207, 158, 196, 66, 107, 223, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 128, 63, 145, 163, 207, 158, 196, 66, 107, 223, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 109, 92, 207, 158, 206, 29, 152, 229, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 128, 63, 109, 92, 207, 158, 206, 29, 152, 229, 208, 179, 93, 191, 0, 0, 128, 191, 0, 0, 0, 63, 109, 92, 207, 158, 206, 29, 152, 229, 208, 179, 93, 63, 0, 0, 128, 191, 0, 0, 0, 191, 255, 127, 0, 0, 255, 255, 255, 63, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 128, 191, 255, 127, 0, 0, 255, 255, 255, 63, 208, 179, 93, 63, 0, 0, 128, 191, 0, 0, 0, 63, 255, 127, 0, 0, 255, 255, 255, 63, 208, 179, 93, 63, 0, 0, 128, 191, 0, 0, 0, 63, 255, 127, 0, 0, 255, 255, 255, 63, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 128, 191, 255, 127, 0, 0, 255, 255, 255, 63, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 128, 63, 255, 127, 0, 0, 255, 255, 255, 63, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 128, 63, 255, 127, 0, 0, 255, 255, 255, 63, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 128, 191, 255, 127, 0, 0, 255, 255, 255, 63, 208, 179, 93, 191, 0, 0, 128, 191, 0, 0, 0, 63, 255, 127, 0, 0, 254, 255, 255, 63, 208, 179, 93, 191, 0, 0, 128, 191, 0, 0, 0, 63, 255, 127, 0, 0, 254, 255, 255, 63, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 128, 191, 255, 127, 0, 0, 255, 255, 255, 63, 208, 179, 93, 191, 0, 0, 128, 191, 0, 0, 0, 191, 255, 127, 0, 0, 254, 255, 255, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 173, 38, 173, 166, 94, 190, 201, 241, 208, 179, 93, 191, 0, 0, 128, 191, 0, 0, 0, 63, 173, 38, 173, 166, 94, 190, 201, 241, 208, 179, 93, 191, 0, 0, 128, 191, 0, 0, 0, 191, 173, 38, 173, 166, 94, 190, 201, 241, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 0, 0, 207, 30, 108, 220, 130, 208, 242, 222, 208, 179, 93, 191, 0, 0, 128, 191, 0, 0, 0, 191, 207, 30, 108, 220, 130, 208, 242, 222, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 128, 191, 207, 30, 108, 220, 130, 208, 242, 222)
+}]
+
+[sub_resource type="Gradient" id="Gradient_24uws"]
+colors = PackedColorArray(0.36, 0.00719999, 0.0130799, 0.364706, 1, 1, 1, 1)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_f3jro"]
+color_ramp = SubResource("Gradient_24uws")
+noise = SubResource("FastNoiseLite_fwkgx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gn44o"]
+transparency = 1
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(1, 0.52549, 0.109804, 1)
+albedo_texture = SubResource("NoiseTexture2D_f3jro")
+
+[sub_resource type="SphereMesh" id="SphereMesh_78g01"]
+material = SubResource("StandardMaterial3D_gn44o")
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_b6gke"]
+radius = 2.0
+
+[sub_resource type="Animation" id="Animation_ebvuu"]
+resource_name = "Play"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D2:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.5, 0.5, 0.5), Vector3(4, 4, 4), Vector3(5, 5, 5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D:mesh:material:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.27),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.52549, 0.109804, 1), Color(1, 0.52549, 0.109804, 1), Color(1, 0.729412, 0.439216, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p43hh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D2:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D:mesh:material:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.52549, 0.109804, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rrja3"]
+_data = {
+"Play": SubResource("Animation_ebvuu"),
+"RESET": SubResource("Animation_p43hh")
+}
+
+[node name="Explosion" node_paths=PackedStringArray("hitbox") instance=ExtResource("1_hyk3s")]
+script = ExtResource("2_m2oxw")
+hitbox = NodePath("Hitbox")
+damage = 7
+damage_type = 1
+damage_active_duration = 0.5
+duration = 2.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="1"]
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_2kjmp")
+draw_pass_1 = SubResource("PrismMesh_bg0gp")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="." index="2"]
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_oogmt")
+draw_pass_1 = SubResource("ArrayMesh_cj0sl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3"]
+mesh = SubResource("SphereMesh_78g01")
+
+[node name="Hitbox" type="Area3D" parent="." index="4"]
+script = ExtResource("3_wiq6i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" index="0"]
+shape = SubResource("SphereShape3D_b6gke")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+autoplay = "Play"
+libraries = {
+"": SubResource("AnimationLibrary_rrja3")
+}

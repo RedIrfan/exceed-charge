@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://bfreskdsik1pi"]
+[gd_scene load_steps=24 format=3 uid="uid://bfreskdsik1pi"]
 
 [ext_resource type="PackedScene" uid="uid://b2obq0cwg452y" path="res://Objects/Effects/Effect.tscn" id="1_6yjiu"]
 [ext_resource type="Script" path="res://Objects/Effects/Attacks/EffectAttack.gd" id="2_vlg5a"]
 [ext_resource type="Script" path="res://Objects/Engine/CollisionBox/Hitbox.gd" id="3_gyry3"]
+[ext_resource type="Script" path="res://Objects/Effects/StayOnGround.gd" id="3_ih6ai"]
 
 [sub_resource type="Gradient" id="Gradient_jf5jf"]
 offsets = PackedFloat32Array(0, 0.865922, 1)
@@ -88,7 +89,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/path = NodePath("Pivot/GPUParticles3D:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -100,7 +101,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MeshInstance3D:position")
+tracks/1/path = NodePath("Pivot/MeshInstance3D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -116,7 +117,7 @@ length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/path = NodePath("Pivot/GPUParticles3D:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -128,7 +129,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("MeshInstance3D:position")
+tracks/1/path = NodePath("Pivot/MeshInstance3D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -146,32 +147,38 @@ _data = {
 
 [node name="FireArea" node_paths=PackedStringArray("hitbox") instance=ExtResource("1_6yjiu")]
 script = ExtResource("2_vlg5a")
-hitbox = NodePath("Hitbox")
+hitbox = NodePath("Pivot/Hitbox")
 damage = 7
 damage_type = 0
 damage_active_duration = 2.8
 duration = 3.1
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="1"]
+[node name="Pivot" type="Node3D" parent="." index="1"]
+script = ExtResource("3_ih6ai")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Pivot" index="0"]
 amount = 16
 visibility_aabb = AABB(-1.51655, -3.06116, -1.51027, 3.03309, 6.12231, 3.02053)
 process_material = SubResource("ParticleProcessMaterial_qjwrk")
 draw_pass_1 = SubResource("SphereMesh_e4kbi")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" index="1"]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.1, 0)
 mesh = SubResource("SphereMesh_lom44")
+skeleton = NodePath("../..")
 
-[node name="Hitbox" type="Area3D" parent="." index="3" node_paths=PackedStringArray("attack_position")]
+[node name="Hitbox" type="Area3D" parent="Pivot" index="2" node_paths=PackedStringArray("attack_position")]
 script = ExtResource("3_gyry3")
 exception_group = "Enemy"
-attack_position = NodePath("..")
+attack_position = NodePath("../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/Hitbox" index="0"]
 shape = SubResource("SphereShape3D_yr2kf")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 autoplay = "play"
 libraries = {
 "": SubResource("AnimationLibrary_3amea")
 }
+
+[connection signal="effect_spawned" from="." to="Pivot" method="on_spawn"]

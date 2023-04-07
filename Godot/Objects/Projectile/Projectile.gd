@@ -41,7 +41,7 @@ func _physics_process(delta):
 		
 		pivot.global_position.y += vertical_velocity * delta
 #		pivot.look_at(pivot.global_position * 2)
-		if pivot.global_position.y <= 0: #debug
+		if pivot.global_position.y < 0:
 			_destroy()
 
 	self.global_position += (-self.global_transform.basis.z * speed) * delta
@@ -51,19 +51,16 @@ func spawn(spawner, spawn_transform, exception_group="", parameters=[]):
 	Global.add_child(self)
 	
 	hitbox.body = spawner
-	hitbox.set_damage(damage)
 	hitbox.exception_group = exception_group
+	hitbox.set_damage(damage)
 	
 	self.global_transform = spawn_transform
-#	global_position.y = 0
-	print("pos" + str(global_position.y))
 	spawn_position = self.global_position
 	kill_timer.start(kill_duration)
 	
 	if gravity:
 		var vertical_duration = kill_duration
 		vertical_velocity = (((vertical_duration/2) * Global.GRAVITY) - global_position.y) + (kill_duration - 1)
-		print("vertical_velocity" + str(vertical_velocity))
 		
 		set_velocity = true
 	
@@ -75,16 +72,17 @@ func _on_spawn(_parameters=[]):
 
 
 func _on_kill():
-#	_destroy()
-	pass
+	if gravity == false:
+		_destroy()
 
 
 func _on_hit():
-	_destroy()
+	if hitbox.body != self:
+		_destroy()
 
 
 func _on_hit_body(body):
-	if body != Character:
+	if body != Character and set_velocity:
 		_destroy()
 
 
@@ -99,13 +97,6 @@ func get_effect_parameters() -> Dictionary:
 
 
 func _destroy():
-	print("kill duration" + str(kill_duration))
-	print("elapsed time" + str(time))
-	var elapsed_vector = pivot.global_position - spawn_position
-	elapsed_vector.y = pivot.global_position.y
-	print(elapsed_vector)
-	print(vertical_velocity)
-	
 	var particles : Effect
 	var effect_parameters
 	if explode_particles_scene == null:
@@ -115,9 +106,6 @@ func _destroy():
 		particles = explode_particles_scene.instantiate()
 		effect_parameters = get_effect_parameters()
 	
-	var particles_pos = self.global_position
-	particles_pos.y = 0
-	
-	particles.spawn(particles_pos, effect_parameters)
+	particles.spawn(self.global_position, effect_parameters)
 	
 	queue_free()

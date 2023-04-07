@@ -1,6 +1,7 @@
 extends Node3D
 class_name Effect
 
+signal effect_spawned
 signal effect_ended
 
 @onready var kill_timer : Timer = $KillTimer
@@ -18,6 +19,8 @@ func spawn(spawn_position, parameters={}):
 	
 	if duration > 0:
 		kill_timer.start(duration)
+	
+	emit_signal("effect_spawned")
 	
 	on_spawn(parameters)
 
