@@ -3,8 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://bqvnjcfcrfv1x" path="res://Objects/Projectile/Projectile.tscn" id="1_601su"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ng2vp"]
+transparency = 1
 shading_mode = 0
-albedo_color = Color(0.180392, 0.490196, 0.227451, 0.698039)
+albedo_color = Color(0.180392, 0.490196, 0.227451, 0.764706)
 
 [sub_resource type="SphereMesh" id="SphereMesh_fkfeg"]
 material = SubResource("StandardMaterial3D_ng2vp")
@@ -39,13 +40,13 @@ scale_curve = SubResource("CurveTexture_4rogb")
 
 [sub_resource type="SphereMesh" id="SphereMesh_ygg0q"]
 material = SubResource("StandardMaterial3D_ng2vp")
-radius = 0.125
-height = 0.25
+radius = 0.175
+height = 0.3
 radial_segments = 8
 rings = 4
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_osryb"]
-radius = 0.125
+[sub_resource type="SphereShape3D" id="SphereShape3D_5fd4u"]
+radius = 0.143231
 
 [node name="MagicBall" instance=ExtResource("1_601su")]
 explode_mesh = SubResource("SphereMesh_fkfeg")
@@ -58,5 +59,8 @@ lifetime = 0.7
 process_material = SubResource("ParticleProcessMaterial_kekgd")
 draw_pass_1 = SubResource("SphereMesh_ygg0q")
 
-[node name="CollisionShape3D" parent="Hitbox" index="0"]
-shape = SubResource("SphereShape3D_osryb")
+[node name="Hitbox" parent="Pivot" index="2"]
+exception_group = "Enemy"
+
+[node name="CollisionShape3D" parent="Pivot/Hitbox" index="0"]
+shape = SubResource("SphereShape3D_5fd4u")

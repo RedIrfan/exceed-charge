@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://yl0ax47os7of"]
+[gd_scene load_steps=19 format=3 uid="uid://yl0ax47os7of"]
 
 [ext_resource type="Script" path="res://Scenes/Guis/Hud/Hud.gd" id="1_1krw8"]
 [ext_resource type="Texture2D" uid="uid://dkcuxnecprxav" path="res://Assets/Hud/Hud.png" id="2_iaoah"]
 [ext_resource type="Texture2D" uid="uid://d3kgs25cesn72" path="res://Assets/Hud/HealthBar.png" id="3_7a0nq"]
 [ext_resource type="Texture2D" uid="uid://cu8bhwxbyq1r8" path="res://Assets/Hud/ChargeBar.png" id="4_g8jse"]
+[ext_resource type="Shader" path="res://Objects/Shaders/Noise.gdshader" id="5_73te6"]
 [ext_resource type="Texture2D" uid="uid://csxw0kirvkbyc" path="res://Assets/Hud/DefenseLogo.png" id="5_ejyfi"]
 [ext_resource type="Texture2D" uid="uid://cangu2c66qlw6" path="res://Assets/Hud/SpeedLogo.png" id="6_7lb07"]
 [ext_resource type="Texture2D" uid="uid://caol04j7qpf81" path="res://Assets/Hud/AttackDamageLogo.png" id="7_lqdx0"]
@@ -14,8 +15,40 @@
 [sub_resource type="Theme" id="Theme_4jci3"]
 Label/font_sizes/font_size = 30
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgcv3"]
-bg_color = Color(0.0823529, 0.0862745, 0.34902, 1)
+[sub_resource type="Gradient" id="Gradient_pd4xv"]
+offsets = PackedFloat32Array(0, 0.273743, 1)
+colors = PackedColorArray(0.529067, 0.529067, 0.529066, 1, 0.691357, 0.691357, 0.691357, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3nl45"]
+frequency = 0.1
+fractal_octaves = 1
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qnoyf"]
+width = 38
+height = 38
+generate_mipmaps = false
+seamless = true
+seamless_blend_skirt = 1.0
+color_ramp = SubResource("Gradient_pd4xv")
+noise = SubResource("FastNoiseLite_3nl45")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j7ya8"]
+shader = ExtResource("5_73te6")
+shader_parameter/colour = Color(0.184314, 0.223529, 0.498039, 1)
+shader_parameter/modulate = Color(0.168627, 0.168627, 0.168627, 1)
+shader_parameter/move_direction = Vector3(-1, 1, 0)
+shader_parameter/speed = 0.125
+shader_parameter/noise = SubResource("NoiseTexture2D_qnoyf")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vrms1"]
+draw_center = false
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.0823529, 0.0862745, 0.352941, 1)
+border_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nlsv6"]
 
@@ -66,13 +99,32 @@ offset_bottom = 154.0
 value = 100.0
 texture_progress = ExtResource("4_g8jse")
 
-[node name="LevelLabel" type="Label" parent="Margin/HudBar"]
+[node name="LevelPanel" type="TextureRect" parent="Margin/HudBar"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_j7ya8")
 layout_mode = 0
 offset_left = 33.0
 offset_top = 33.0
 offset_right = 109.0
 offset_bottom = 109.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_xgcv3")
+texture = SubResource("NoiseTexture2D_qnoyf")
+
+[node name="Panel" type="Panel" parent="Margin/HudBar/LevelPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vrms1")
+
+[node name="Label" type="Label" parent="Margin/HudBar/LevelPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1

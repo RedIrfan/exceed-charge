@@ -6,6 +6,7 @@ class_name StateActionMaster
 @export var unstaggerable : bool = false
 ## The next state fsm will go to if all action ends except if comboing
 @export var next_state : State
+@export var hurt_state : State
 
 var actions : Array = []
 var action_index : int
@@ -46,8 +47,11 @@ func exit():
 
 func process(_delta):
 	if check_hurt():
-		var parameter = "unstaggerable" if unstaggerable else ""
-		fsm.enter_state("Hurt", [parameter])
+		if hurt_state == null:
+			var parameter = "unstaggerable" if unstaggerable else ""
+			fsm.enter_state("Hurt", [parameter])
+		else:
+			fsm.enter_state(hurt_state.name)
 
 
 func _on_animation_timeout():
@@ -60,7 +64,8 @@ func _on_animation_timeout():
 			action_index = 0
 			play_action()
 		else:
-			fsm.enter_state(next_state.name)
+			if next_state:
+				fsm.enter_state(next_state.name)
 
 
 func play_action():
@@ -96,7 +101,6 @@ func play_action():
 		for parameter in action.effect_parameters:
 			var effect_parameter = action.effect_parameters[parameter]
 			if effect_parameter is String:
-				print(effect_parameter)
 				match effect_parameter:
 					"body":
 						action.effect_parameters[parameter] = body

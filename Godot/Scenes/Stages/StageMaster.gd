@@ -8,6 +8,7 @@ class_name StageMaster
 @export_group("Room Generation")
 @export var rooms : Array[PackedScene]
 @export var max_room_amount : float = 5
+@export var generation_active: bool = true
 
 var camera : GameCamera : get = get_camera
 var player : Character : get = get_player
@@ -17,7 +18,8 @@ var current_floor : int = 0
 
 func _ready():
 	max_room_amount -= 2
-	restart()
+	if generation_active:
+		restart()
 
 
 func _physics_process(delta):
@@ -47,11 +49,9 @@ func restart():
 	
 	generate_stage()
 	
-	get_tree().call_group("Enemy", "queue_free")
+	get_tree().call_group("Enemy", "queuae_free")
 	get_tree().call_group("Room", "restart")
-	get_tree().call_group("Enemy", "queue_free")
 	Global.pause(false)
-	get_tree().call_group("Enemy", "queue_free")
 
 
 func exit_stage():

@@ -1,0 +1,103 @@
+[gd_scene load_steps=19 format=3 uid="uid://chm4uelq4mop0"]
+
+[ext_resource type="PackedScene" uid="uid://bqvnjcfcrfv1x" path="res://Objects/Projectile/Projectile.tscn" id="1_ydwgu"]
+[ext_resource type="PackedScene" uid="uid://bfreskdsik1pi" path="res://Objects/Effects/Attacks/Enemies/Empress/FireArea/FireArea.tscn" id="2_1m0yk"]
+
+[sub_resource type="Gradient" id="Gradient_4kns0"]
+colors = PackedColorArray(0.758433, 0.478605, 0.477197, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8x8mk"]
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v1o8j"]
+in_3d_space = true
+bump_strength = 0.0
+color_ramp = SubResource("Gradient_4kns0")
+noise = SubResource("FastNoiseLite_8x8mk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pqkto"]
+shading_mode = 0
+albedo_color = Color(1, 0.6, 0, 1)
+albedo_texture = SubResource("NoiseTexture2D_v1o8j")
+
+[sub_resource type="SphereMesh" id="SphereMesh_e2em1"]
+material = SubResource("StandardMaterial3D_pqkto")
+radius = 0.25
+height = 0.5
+radial_segments = 8
+rings = 4
+
+[sub_resource type="Gradient" id="Gradient_wx7ix"]
+offsets = PackedFloat32Array(0, 0.150838, 0.195531)
+colors = PackedColorArray(1, 0.9275, 0.71, 1, 0.541176, 0, 0, 0.65098, 0.541176, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yjn5v"]
+gradient = SubResource("Gradient_wx7ix")
+
+[sub_resource type="Curve" id="Curve_4ef5e"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.246269, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6lf2l"]
+curve = SubResource("Curve_4ef5e")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o0yxd"]
+particle_flag_align_y = true
+direction = Vector3(0, 0, 1)
+spread = 25.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+scale_curve = SubResource("CurveTexture_6lf2l")
+color_ramp = SubResource("GradientTexture1D_yjn5v")
+
+[sub_resource type="Gradient" id="Gradient_ws7vy"]
+colors = PackedColorArray(0.680321, 0.680321, 0.680321, 0.196078, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7bcwj"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6qsku"]
+color_ramp = SubResource("Gradient_ws7vy")
+noise = SubResource("FastNoiseLite_7bcwj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cwrq1"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.368627, 0, 1)
+albedo_texture = SubResource("NoiseTexture2D_6qsku")
+
+[sub_resource type="SphereMesh" id="SphereMesh_ya8yg"]
+material = SubResource("StandardMaterial3D_cwrq1")
+radius = 0.3
+height = 0.6
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jylo3"]
+radius = 0.299276
+
+[node name="FireBall" instance=ExtResource("1_ydwgu")]
+speed = 3.0
+gravity = true
+max_distance = 5.0
+explode_particles_scene = ExtResource("2_1m0yk")
+explode_particles_parameters = {
+"body": "body"
+}
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" index="0"]
+mesh = SubResource("SphereMesh_e2em1")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Pivot" index="1"]
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_o0yxd")
+draw_pass_1 = SubResource("SphereMesh_ya8yg")
+
+[node name="Hitbox" parent="Pivot" index="2"]
+collision_mask = 0
+exception_group = "Enemy"
+detect_collision_layer_1 = false
+
+[node name="CollisionShape3D" parent="Pivot/Hitbox" index="0"]
+shape = SubResource("SphereShape3D_jylo3")

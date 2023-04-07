@@ -1,0 +1,184 @@
+[gd_scene load_steps=24 format=3 uid="uid://bfreskdsik1pi"]
+
+[ext_resource type="PackedScene" uid="uid://b2obq0cwg452y" path="res://Objects/Effects/Effect.tscn" id="1_6yjiu"]
+[ext_resource type="Script" path="res://Objects/Effects/Attacks/EffectAttack.gd" id="2_vlg5a"]
+[ext_resource type="Script" path="res://Objects/Engine/CollisionBox/Hitbox.gd" id="3_gyry3"]
+[ext_resource type="Script" path="res://Objects/Effects/StayOnGround.gd" id="3_ih6ai"]
+
+[sub_resource type="Gradient" id="Gradient_jf5jf"]
+offsets = PackedFloat32Array(0, 0.865922, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.41, 0.41, 0.537255, 1, 1, 1, 0.266667)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_162ca"]
+gradient = SubResource("Gradient_jf5jf")
+
+[sub_resource type="Curve" id="Curve_tvy1f"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_gl1g4"]
+curve = SubResource("Curve_tvy1f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qjwrk"]
+emission_shape = 1
+emission_sphere_radius = 0.5
+particle_flag_align_y = true
+direction = Vector3(0, 1, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+tangential_accel_min = -1.0
+tangential_accel_max = -1.0
+scale_curve = SubResource("CurveTexture_gl1g4")
+color_ramp = SubResource("GradientTexture1D_162ca")
+turbulence_noise_strength = 0.01
+
+[sub_resource type="Gradient" id="Gradient_ws7vy"]
+colors = PackedColorArray(0.680321, 0.680321, 0.680321, 0.196078, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7bcwj"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6qsku"]
+color_ramp = SubResource("Gradient_ws7vy")
+noise = SubResource("FastNoiseLite_7bcwj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cwrq1"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.368627, 0, 1)
+albedo_texture = SubResource("NoiseTexture2D_6qsku")
+
+[sub_resource type="SphereMesh" id="SphereMesh_e4kbi"]
+material = SubResource("StandardMaterial3D_cwrq1")
+radius = 0.125
+height = 0.25
+radial_segments = 8
+rings = 4
+
+[sub_resource type="Gradient" id="Gradient_gl4wa"]
+colors = PackedColorArray(0.411765, 0.223529, 0.223529, 0.694118, 1, 1, 1, 0.921569)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tqugr"]
+metadata/_preview_in_3d_space_ = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yhnw2"]
+in_3d_space = true
+bump_strength = 0.0
+color_ramp = SubResource("Gradient_gl4wa")
+noise = SubResource("FastNoiseLite_tqugr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x6ww4"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 0.6, 0, 1)
+albedo_texture = SubResource("NoiseTexture2D_yhnw2")
+
+[sub_resource type="SphereMesh" id="SphereMesh_lom44"]
+material = SubResource("StandardMaterial3D_x6ww4")
+height = 0.5
+radial_segments = 8
+rings = 4
+is_hemisphere = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yr2kf"]
+
+[sub_resource type="Animation" id="Animation_wlfgm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/MeshInstance3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lkvae"]
+resource_name = "play"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/MeshInstance3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.1, 0), Vector3(0, -0.0107942, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3amea"]
+_data = {
+"RESET": SubResource("Animation_wlfgm"),
+"play": SubResource("Animation_lkvae")
+}
+
+[node name="FireArea" node_paths=PackedStringArray("hitbox") instance=ExtResource("1_6yjiu")]
+script = ExtResource("2_vlg5a")
+hitbox = NodePath("Pivot/Hitbox")
+damage = 7
+damage_type = 0
+damage_active_duration = 2.8
+duration = 3.1
+
+[node name="Pivot" type="Node3D" parent="." index="1"]
+script = ExtResource("3_ih6ai")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Pivot" index="0"]
+amount = 16
+visibility_aabb = AABB(-1.51655, -3.06116, -1.51027, 3.03309, 6.12231, 3.02053)
+process_material = SubResource("ParticleProcessMaterial_qjwrk")
+draw_pass_1 = SubResource("SphereMesh_e4kbi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" index="1"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("SphereMesh_lom44")
+skeleton = NodePath("../..")
+
+[node name="Hitbox" type="Area3D" parent="Pivot" index="2" node_paths=PackedStringArray("attack_position")]
+script = ExtResource("3_gyry3")
+exception_group = "Enemy"
+attack_position = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/Hitbox" index="0"]
+shape = SubResource("SphereShape3D_yr2kf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+autoplay = "play"
+libraries = {
+"": SubResource("AnimationLibrary_3amea")
+}
+
+[connection signal="effect_spawned" from="." to="Pivot" method="on_spawn"]

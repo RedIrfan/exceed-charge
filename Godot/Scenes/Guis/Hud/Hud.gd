@@ -2,7 +2,8 @@ extends Gui
 
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 
-@onready var level_label : Label = $Margin/HudBar/LevelLabel
+@onready var level_panel : TextureRect = $Margin/HudBar/LevelPanel
+@onready var level_label : Label = $Margin/HudBar/LevelPanel/Label
 @onready var health_bar : TextureProgressBar = $Margin/HudBar/HealthBar
 @onready var charge_bar : TextureProgressBar = $Margin/HudBar/ChargeBar
 
@@ -97,4 +98,4 @@ func _format_percentage(text) -> String:
 func _on_element_changed(to_element):
 	var elements_material : Array[ShaderMaterial] = [player.BLACK_SUIT_MATERIAL, player.FIRE_SUIT_MATERIAL, null, player.WATER_SUIT_MATERIAL]
 	
-	level_label.get('theme_override_styles/normal').bg_color = elements_material[to_element].get_shader_parameter('albedo')
+	level_panel.material.set_shader_parameter("colour", elements_material[to_element].get_shader_parameter('albedo'))
