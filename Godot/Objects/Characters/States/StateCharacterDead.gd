@@ -33,6 +33,11 @@ func enter(msg=[]):
 		on_dead()
 
 
+func process(_delta):
+	if check_hurt():
+		body.hurt_data = null
+
+
 func on_dead():
 	already_dead = true
 	if after_death_state:

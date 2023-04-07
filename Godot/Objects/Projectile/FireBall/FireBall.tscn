@@ -78,9 +78,9 @@ rings = 4
 radius = 0.299276
 
 [node name="FireBall" instance=ExtResource("1_ydwgu")]
-speed = 3.0
+speed = 6.0
 gravity = true
-max_distance = 5.0
+max_distance = 4.0
 explode_particles_scene = ExtResource("2_1m0yk")
 explode_particles_parameters = {
 "body": "body"
@@ -95,9 +95,7 @@ process_material = SubResource("ParticleProcessMaterial_o0yxd")
 draw_pass_1 = SubResource("SphereMesh_ya8yg")
 
 [node name="Hitbox" parent="Pivot" index="2"]
-collision_mask = 0
 exception_group = "Enemy"
-detect_collision_layer_1 = false
 
 [node name="CollisionShape3D" parent="Pivot/Hitbox" index="0"]
 shape = SubResource("SphereShape3D_jylo3")
