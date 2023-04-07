@@ -17,7 +17,7 @@ var current_floor : int = 0
 
 func _ready():
 	max_room_amount -= 2
-	restart()
+#	restart()sd
 
 
 func _physics_process(delta):
@@ -42,16 +42,14 @@ func restart():
 	await get_tree().create_timer(1).timeout
 	
 	get_tree().call_group("Interactable", "queue_free")
-	get_tree().call_group("Enemy", "queue_free")
+#	get_tree().call_group("Enemy", "queue_free")
 	get_tree().call_group("Room", "queue_free")
 	
 	generate_stage()
 	
-	get_tree().call_group("Enemy", "queue_free")
+#	get_tree().call_group("Enemy", "queuae_free")
 	get_tree().call_group("Room", "restart")
-	get_tree().call_group("Enemy", "queue_free")
 	Global.pause(false)
-	get_tree().call_group("Enemy", "queue_free")
 
 
 func exit_stage():

@@ -18,13 +18,13 @@ explode_mesh = SubResource("SphereMesh_1jipm")
 
 [node name="Pivot" type="Node3D" parent="."]
 
-[node name="Hitbox" type="Area3D" parent="." node_paths=PackedStringArray("attack_position", "body")]
+[node name="Hitbox" type="Area3D" parent="Pivot" node_paths=PackedStringArray("attack_position", "body")]
 script = ExtResource("2_wd30t")
-attack_position = NodePath("..")
+attack_position = NodePath("../..")
+body = NodePath("../..")
 detect_collision_layer_1 = true
-body = NodePath("..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/Hitbox"]
 shape = SubResource("BoxShape3D_b67lh")
 
 [node name="KillTimer" type="Timer" parent="."]
