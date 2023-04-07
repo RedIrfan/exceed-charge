@@ -16,6 +16,8 @@ var can_combo : bool = false
 var distance : float = 0
 var whole_duration : float = 0
 
+var process_direction : Vector2
+
 
 func _ready():
 	for child in get_children():
@@ -43,6 +45,11 @@ func exit():
 			action.hitbox.set_damage(0)
 	reset_speed()
 	body.disconnect_from_animation_timer(_on_animation_timeout)
+
+
+func physics_process(_delta):
+	if process_direction:
+		body.direction = direction_to_global(process_direction)
 
 
 func process(_delta):
@@ -84,8 +91,12 @@ func play_action():
 	can_combo = action.can_combo
 	
 	if action.direction != Vector2.ZERO:
-		body.direction = direction_to_global(action.direction)
+		if action.process_direction:
+			process_direction = action.direction
+		else:
+			body.direction = direction_to_global(action.direction)
 	else:
+		process_direction = Vector2.ZERO
 		reset_direction()
 		
 	if action.speed > 0:
@@ -98,16 +109,19 @@ func play_action():
 	
 	if action.effect_scene != null:
 		var effect = action.effect_scene.instantiate()
+		var effect_parameters = {}
 		for parameter in action.effect_parameters:
 			var effect_parameter = action.effect_parameters[parameter]
 			if effect_parameter is String:
 				match effect_parameter:
 					"body":
-						action.effect_parameters[parameter] = body
+						effect_parameters[parameter] = body
 					"spawn_position":
-						action.effect_parameters[parameter] = action.effect_spawn_position.position
+						effect_parameters[parameter] = action.effect_spawn_position.position
+			else:
+				effect_parameters[parameter] = action.effect_parameters[parameter]
 		
-		effect.spawn(action.effect_spawn_position.global_position, action.effect_parameters)
+		effect.spawn(action.effect_spawn_position.global_position, effect_parameters)
 
 
 func set_damage(action):

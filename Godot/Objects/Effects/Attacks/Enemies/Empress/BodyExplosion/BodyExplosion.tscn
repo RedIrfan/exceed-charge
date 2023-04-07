@@ -5,4 +5,4 @@
 
 [node name="BodyExplosion" instance=ExtResource("1_002xd")]
 script = ExtResource("2_isfp4")
-damage = 14
+damage = 21

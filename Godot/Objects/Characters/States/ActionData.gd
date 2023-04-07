@@ -20,6 +20,7 @@ class_name ActionData
 @export_group("Transform")
 @export var direction : Vector2
 @export var speed : float = 0
+@export var process_direction : bool = false
 
 @export_group("Effects", "effect_")
 @export var effect_node : GPUParticles3D
