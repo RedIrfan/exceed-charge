@@ -4111,7 +4111,7 @@ bones/31/rotation = Quaternion(0, 0, 0, 1)
 bones/31/scale = Vector3(1, 1, 1)
 
 [node name="Hips" type="BoneAttachment3D" parent="Pivot/Empress/Armature/GeneralSkeleton" index="0"]
-transform = Transform3D(1, 2.0286e-09, -9.9269e-11, -2.02915e-09, 0.999983, -0.00582494, 8.74508e-11, 0.00582494, 0.999983, -8.43963e-11, -0.0256732, 1.16415e-10)
+transform = Transform3D(1, 2.0286e-09, -9.92689e-11, -2.02914e-09, 0.999983, -0.00582493, 8.74507e-11, 0.00582493, 0.999983, -8.43963e-11, -0.0256732, 1.16415e-10)
 bone_name = "Hips"
 bone_idx = 0
 
@@ -4131,7 +4131,7 @@ mesh = SubResource("ArrayMesh_1188o")
 skin = SubResource("Skin_teujy")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Pivot/Empress/Armature/GeneralSkeleton" index="2"]
-transform = Transform3D(1, -2.63515e-09, -6.00543e-10, 2.63963e-09, 0.999971, 0.00757993, 5.80551e-10, -0.00757993, 0.999971, 7.24098e-10, 0.372079, -0.0159866)
+transform = Transform3D(1, -2.63515e-09, -6.00543e-10, 2.63963e-09, 0.999971, 0.00757993, 5.80552e-10, -0.00757993, 0.999971, 7.24097e-10, 0.372079, -0.0159866)
 bone_name = "Spine"
 bone_idx = 1
 
