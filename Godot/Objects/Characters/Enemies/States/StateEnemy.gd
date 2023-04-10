@@ -24,5 +24,9 @@ func get_distance_to_target() -> float:
 	return body.global_transform.origin.distance_to(body.target.global_transform.origin)
 
 
+func get_raw_distance_to_target() -> Vector3:
+	return body.target.global_transform.origin - body.global_transform.origin
+
+
 func check_attack() -> bool:
 	return body.attack_timer.is_stopped()

@@ -15,5 +15,7 @@ func enter(msg=[]):
 
 
 func exit():
+	body.player_attack()
+	
 	look_at_mouse(1)
 	body.lock_to_target()

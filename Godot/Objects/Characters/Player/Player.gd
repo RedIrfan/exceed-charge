@@ -1,5 +1,6 @@
 extends Character
 
+signal player_attacked
 signal card_activated
 
 const BLACK_SUIT_MATERIAL : Material = preload('res://Objects/Shaders/Player/Suits/BlackSuit.tres')
@@ -25,6 +26,10 @@ func _ready():
 	super._ready()
 	
 	status.connect("element_changed", _on_element_changed)
+
+
+func player_attack():
+	emit_signal("player_attacked")
 
 
 func process_damage(damage:float):
