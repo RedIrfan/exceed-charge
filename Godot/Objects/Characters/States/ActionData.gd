@@ -24,9 +24,11 @@ class_name ActionData
 
 @export_group("Effects", "effect_")
 @export var effect_node : GPUParticles3D
+
 @export_subgroup("External", "effect_")
 @export var effect_scene : PackedScene
 @export var effect_spawn_position : Node3D
 @export var effect_parameters : Dictionary
+@export var effect_connect_to_ended : CallableData
 
 var divided_to_whole_duration : float = 0

@@ -122,6 +122,9 @@ func play_action():
 				effect_parameters[parameter] = action.effect_parameters[parameter]
 		
 		effect.spawn(action.effect_spawn_position.global_position, effect_parameters)
+		
+		if action.effect_connect_to_ended:
+			effect.connect("effect_ended", action.effect_connect_to_ended.get_callable())
 
 
 func set_damage(action):
