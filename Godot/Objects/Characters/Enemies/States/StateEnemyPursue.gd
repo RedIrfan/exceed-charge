@@ -1,6 +1,8 @@
 extends StateEnemy
 class_name StateEnemyPursue
 
+@export var if_player_attacked_state : State
+
 var horizontal_movement : int = 1
 var right_raycast : int = 0
 var left_raycast : int = 0
@@ -16,11 +18,15 @@ func _ready():
 
 
 func enter(_msg=[]):
+	if if_player_attacked_state != null:
+		body.connect_to_player_attack(_on_player_attacked)
 	body.connect('context_raycast_colliding', _on_raycast_colliding)
 #	body.raycasts[(body.context_raycast_size/2)/2]
 
 
 func exit():
+	if if_player_attacked_state != null:
+		body.disconnect_from_player_attack(_on_player_attacked)
 	reset_direction()
 	if body.is_connected('context_raycast_colliding', _on_raycast_colliding):
 		body.disconnect('context_raycast_colliding', _on_raycast_colliding)
@@ -56,3 +62,7 @@ func _on_raycast_colliding(raycast_index):
 			horizontal_movement = 1
 		right_raycast:
 			horizontal_movement = -1
+
+
+func _on_player_attacked():
+	fsm.enter_state(if_player_attacked_state.name)

@@ -61,6 +61,16 @@ func get_target():
 	return target
 
 
+func connect_to_player_attack(method:Callable):
+	if get_target().is_connected("player_attacked", method) == false:
+		get_target().connect("player_attacked", method)
+
+
+func disconnect_from_player_attack(method:Callable):
+	if get_target().is_connected("player_attacked", method) == true:
+		get_target().disconnect("player_attacked", method)
+
+
 func start_attack_timer():
 	var duration = attack_interval
 	if first_start == false:

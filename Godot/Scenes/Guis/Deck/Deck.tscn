@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://brly1j0wxjkvn"]
+[gd_scene load_steps=57 format=3 uid="uid://brly1j0wxjkvn"]
 
 [ext_resource type="Script" path="res://Scenes/Guis/Deck/Deck.gd" id="1_kofso"]
 [ext_resource type="Texture2D" uid="uid://c3yk62rxsplax" path="res://Assets/Characters/Player/DeckTexture.png" id="2_8in37"]
@@ -6,8 +6,10 @@
 [ext_resource type="Script" path="res://Scenes/Guis/Deck/DropArea.gd" id="3_4mheb"]
 [ext_resource type="Script" path="res://Scenes/Guis/Deck/ActivatingArea.gd" id="3_0806l"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_l57ug"]
-blend_mode = 1
+[sub_resource type="Sky" id="Sky_8rfw4"]
+
+[sub_resource type="Environment" id="Environment_ctx1a"]
+sky = SubResource("Sky_8rfw4")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_075ha"]
 shading_mode = 0
@@ -7580,7 +7582,6 @@ model = NodePath("SubViewportContainer/SubViewport/DeckModel/Armature/Skeleton3D
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 y_sort_enabled = true
-material = SubResource("CanvasItemMaterial_l57ug")
 layout_mode = 1
 offset_top = 661.0
 offset_right = 1152.0
@@ -7595,6 +7596,7 @@ render_target_update_mode = 4
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(-1, 6.18173e-08, -6.18173e-08, 0, 0.707107, 0.707107, 8.74228e-08, 0.707107, -0.707107, 0, 5, -4)
 cull_mask = 524288
+environment = SubResource("Environment_ctx1a")
 current = true
 
 [node name="MouseRaycast" type="RayCast3D" parent="SubViewportContainer/SubViewport/Camera3D"]
@@ -7935,8 +7937,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 192.0
-offset_right = 110592.0
-offset_bottom = 62400.0
+offset_right = 111744.0
+offset_bottom = 63048.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_jpb4a")
