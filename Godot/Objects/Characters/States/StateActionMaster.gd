@@ -123,8 +123,8 @@ func play_action():
 		
 		effect.spawn(action.effect_spawn_position.global_position, effect_parameters)
 		
-		if action.effect_connect_to_ended:
-			effect.connect("effect_ended", action.effect_connect_to_ended.get_callable())
+		if action.external_signal_name:
+			effect.connect(action.external_signal_name, Callable(action.connect_node, action.connect_method_name))
 
 
 func set_damage(action):

@@ -29,6 +29,10 @@ class_name ActionData
 @export var effect_scene : PackedScene
 @export var effect_spawn_position : Node3D
 @export var effect_parameters : Dictionary
-@export var effect_connect_to_ended : CallableData
+
+@export_subgroup("External Signal")
+@export var external_signal_name : String
+@export var connect_node : Node
+@export var connect_method_name : String
 
 var divided_to_whole_duration : float = 0
