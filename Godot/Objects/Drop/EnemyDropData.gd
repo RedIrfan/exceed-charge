@@ -6,6 +6,7 @@ const ENEMIES : Dictionary = {
 	"FoolEye" : preload("res://Objects/Characters/Enemies/FoolEye/FoolEye.tscn"),
 	"Magician" : preload("res://Objects/Characters/Enemies/Magician/Magician.tscn"),
 	"HighPriestess" : preload('res://Objects/Characters/Enemies/HighPriestess/HighPriestess.tscn'),
+	"Empress" : preload("res://Objects/Characters/Enemies/Empress/Empress.tscn")
 }
 
 

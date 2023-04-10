@@ -65,4 +65,5 @@ func _on_raycast_colliding(raycast_index):
 
 
 func _on_player_attacked():
-	fsm.enter_state(if_player_attacked_state.name)
+	if get_distance_to_target() < body.attack_range:
+		fsm.enter_state(if_player_attacked_state.name)

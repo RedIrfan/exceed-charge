@@ -22,7 +22,7 @@ func _ready():
 		restart()
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if Input.is_action_just_pressed("debug_restart"):
 		restart()
 	if Input.is_action_just_pressed("debug_log"):

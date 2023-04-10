@@ -122,6 +122,9 @@ func play_action():
 				effect_parameters[parameter] = action.effect_parameters[parameter]
 		
 		effect.spawn(action.effect_spawn_position.global_position, effect_parameters)
+		
+		if action.external_signal_name:
+			effect.connect(action.external_signal_name, Callable(action.connect_node, action.connect_method_name))
 
 
 func set_damage(action):

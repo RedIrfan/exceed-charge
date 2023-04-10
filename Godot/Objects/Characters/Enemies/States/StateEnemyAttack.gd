@@ -2,6 +2,7 @@ extends StateEnemy
 class_name StateEnemyAttack
 
 @export var attack_state : State
+@export var check_condition_state : State
 
 @export_group("Movement")
 @export var speed : int = 4
@@ -21,6 +22,8 @@ func _ready():
 
 
 func enter(_msg=[]):
+	if check_condition_state:
+		fsm.enter_state(check_condition_state.name)
 	if attack_timer.is_connected("timeout", _on_attack_timeout) == false:
 		attack_timer.connect("timeout", _on_attack_timeout)
 	attacking = false

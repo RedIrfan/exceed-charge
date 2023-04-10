@@ -9,7 +9,7 @@ class_name StateCharacterDead
 var already_dead : bool
 
 
-func enter_condition(_new_body, new_fsm, _msg=[]):
+func enter_condition(_new_body, _new_fsm, _msg=[]):
 	if already_dead:
 		on_dead()
 		return false
