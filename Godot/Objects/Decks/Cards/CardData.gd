@@ -73,7 +73,7 @@ func value_to_string() -> String:
 
 
 func suit_to_string()->String:
-	var string_conversions = ["Pentagons", "Triangles", "Diamonds", "Arrows", "Wilds"]
+	var string_conversions = ["none", "Pentagons", "Triangles", "Diamonds", "Arrows", "Wilds"]
 	
 	return string_conversions[suit]
 
