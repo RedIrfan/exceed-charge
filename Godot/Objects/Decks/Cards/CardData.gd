@@ -97,19 +97,16 @@ func process_card(body:Character) -> void:
 			status_data.speed_multiplier += opposite_suit_power
 			
 			active_card_mode = 1
-			extra_attribute_name = "defense_shield_amount"
 		SUITS.TRIANGLE:
 			status_data.speed_multiplier += adjacent_suit_power
 			status_data.defense_multiplier += opposite_suit_power
 			
 			active_card_mode = 2
-			extra_attribute_name = "agility_shield_amount"
 		SUITS.DIAMOND:
 			status_data.attack_damage_multiplier += adjacent_suit_power
 			status_data.attack_speed_multiplier += opposite_suit_power
 			
 			active_card_mode = 1
-			extra_attribute_name = ""
 		SUITS.ARROW:
 			status_data.attack_speed_multiplier += adjacent_suit_power
 			status_data.attack_damage_multiplier += opposite_suit_power
@@ -117,8 +114,8 @@ func process_card(body:Character) -> void:
 			extra_attribute_name = ""
 	
 	match value:
-		VALUES.THREE:
-			status_data.set_extra_attribute(extra_attribute_name, status_data.get_extra_attribute(extra_attribute_name) + 1)
+		_:
+			status_data.add_passive_card(suit, value)
 		VALUES.JACK:
 			if active_card_mode == 1:
 				status_data.primary_active_card = self

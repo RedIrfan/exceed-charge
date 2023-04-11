@@ -10,7 +10,7 @@ enum ELEMENTS{
 	VOID
 }
 
-signal extra_attributes_changed
+signal passive_cards_changed
 signal element_changed(to_element)
 
 @export_group("Multiplier")
@@ -24,10 +24,12 @@ signal element_changed(to_element)
 @export var element : ELEMENTS = ELEMENTS.NONE : set = set_element
 @export var primary_active_card : CardData = null
 @export var secondary_active_card : CardData = null
-@export var extra_attributes : Dictionary = {}
+@export var var_passive_cards : Array[CardData] = []
+
+var passive_cards : Array[Array]
 
 
-func _init(new_defense:float=1.0,new_speed:float=1.0,new_damage:float=1.0,new_atk_speed:float=1.0,new_luck:float=1.0,new_element:ELEMENTS=ELEMENTS.NONE,new_primary_active:CardData=null, new_secondary_active:CardData=null):
+func _init(new_defense:float=1.0,new_speed:float=1.0,new_damage:float=1.0,new_atk_speed:float=1.0,new_luck:float=1.0,new_element:ELEMENTS=ELEMENTS.NONE,new_primary_active:CardData=null, new_secondary_active:CardData=null, new_passive_cards:Array[CardData]=[]):
 	defense_multiplier = new_defense
 	speed_multiplier = new_speed
 	attack_damage_multiplier = new_damage
@@ -36,6 +38,9 @@ func _init(new_defense:float=1.0,new_speed:float=1.0,new_damage:float=1.0,new_at
 	element = new_element
 	primary_active_card = new_primary_active
 	secondary_active_card = new_secondary_active
+	
+	for card in new_passive_cards:
+		add_passive_card(card.suit, card.value)
 
 
 func set_element(new_element:ELEMENTS):
@@ -43,12 +48,23 @@ func set_element(new_element:ELEMENTS):
 	emit_signal("element_changed", new_element)
 
 
-func set_extra_attribute(attribute_name, attribute_value):
-	extra_attributes[attribute_name] = attribute_value
-	emit_signal("extra_attributes_changed")
+func get_total_passive_card(suit:CardData.SUITS, value:CardData.VALUES):
+	var amount : int = 0
+	for card in passive_cards:
+		if card[0] == suit and card[1] == value:
+			amount += 1
+	
+	return amount
 
 
-func get_extra_attribute(attribute_name):
-	if extra_attributes.has(attribute_name):
-		return extra_attributes[attribute_name]
-	return null
+func add_passive_card(suit:CardData.SUITS, value:CardData.VALUES):
+	passive_cards.append([suit, value])
+
+
+func remove_passive_card(suit:CardData.SUITS, value:CardData.VALUES):
+	for index in passive_cards.size():
+		var card = passive_cards[index]
+		if card[0] == suit and card[1] == value:
+			passive_cards.remove_at(index)
+			emit_signal("passive_cards_changed")
+			break
