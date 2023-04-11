@@ -24,13 +24,17 @@ func _ready():
 func enter():
 	super.enter()
 	
+	if player.get_exceed_charge_suit() == CardData.SUITS.NONE:
+		charge_bar.max_value = player.deck.get_maximum_charge()
+		charge_bar.value = player.get_total_charge()
+	
 	if player.interact_area.is_connected("interact_list_changed", _on_interact_list_changed) == false:
 		player.interact_area.connect("interact_list_changed", _on_interact_list_changed)
 	
 	if set_up == false:
 		set_up = true
 		health_bar.max_value = player.HEALTH
-		charge_bar.max_value = player.deck.CHARGE
+		charge_bar.max_value = player.deck.get_maximum_charge()
 		
 		set_all_value()
 		
@@ -49,6 +53,14 @@ func exit():
 
 
 func process(_delta):
+	if player.get_exceed_charge_suit() != CardData.SUITS.NONE:
+		charge_bar.max_value = player.deck.get_maximum_charge() * 100
+		charge_bar.value = player.get_total_charge() * 100
+		
+		if charge_bar.value <= 0.1:
+			charge_bar.max_value = player.deck.get_maximum_charge()
+			charge_bar.value = player.get_total_charge()
+	
 	if Input.is_action_just_pressed("action_deck"):
 		gm.enter_gui("Deck")
 
@@ -56,7 +68,7 @@ func process(_delta):
 func set_all_value():
 	health_bar.value = player.health
 	
-	charge_bar.value = player.deck.charge.size()
+	charge_bar.value = player.get_total_charge()
 	level_label.set_text(str(player.deck.level))
 	
 	defense_percentage.set_text(_format_percentage(str(player.status.defense_multiplier)))
@@ -70,7 +82,7 @@ func _on_health_changed(new_health):
 
 
 func _on_card_activated():
-	charge_bar.value = player.deck.charge.size()
+	charge_bar.value = player.get_total_charge()
 	level_label.set_text(str(player.deck.level))
 	
 	defense_percentage.set_text(_format_percentage(str(player.status.defense_multiplier)))

@@ -3,15 +3,20 @@ class_name DeckData
 
 const SOUND_EXCEED_CHARGE = preload("res://Assets/SFX/Deck/ExceedCharge.wav")
 
-@export var CHARGE : int = 6
+signal exceeded_charge
+
+@export var CHARGE : int = 3
 @export var DECK_MAX_AMOUNT : int = 5
 @export var deck_list : Array[CardData] = []
 
-var level : int = 0
+var level : int = 1
 var charge : Array[CardData.SUITS] = []
+var normal_status : Array = []
+
+var exceed_charge_suit : CardData.SUITS = CardData.SUITS.NONE
 
 
-func _init(new_charge : int=10, new_deck_max_amount : int = 5, new_deck_list:Array[CardData]=[]):
+func _init(new_charge : int=3, new_deck_max_amount : int = 5, new_deck_list:Array[CardData]=[]):
 	CHARGE = new_charge
 	DECK_MAX_AMOUNT = new_deck_max_amount
 	deck_list = new_deck_list
@@ -60,26 +65,47 @@ func get_card(card_index:int) -> CardData:
 	return null
 
 
+func reset_charge(body):
+	charge.clear()
+	
+	if exceed_charge_suit:
+		body.status.defense_multiplier = normal_status[0]
+		body.status.speed_multiplier = normal_status[1]
+		body.status.attack_damage_multiplier = normal_status[2]
+		body.status.attack_speed_multiplier = normal_status[3]
+		body.status.passive_cards = normal_status[4]
+		
+		exceed_charge_suit = CardData.SUITS.NONE
+
+
 func exceed_charge(body):
-	var exceed_types : Array = [0,0,0,0,0]
+	var status : StatusData = body.status
+	normal_status = [status.defense_multiplier, status.speed_multiplier, status.attack_damage_multiplier, status.attack_speed_multiplier, status.passive_cards]
+	
+	var exceed_types : Array[int] = [0]
+	exceed_types.resize(CardData.SUITS.size())
 	for charge_type in charge:
 		exceed_types[charge_type] += 1
 	
-	var exceed_type = exceed_types.find(exceed_types.max())
-	
-	match exceed_type:
+	@warning_ignore("int_as_enum_without_cast")
+	exceed_charge_suit = exceed_types.find(exceed_types.max())
+	match exceed_charge_suit:
 		CardData.SUITS.PENTAGON:
-			body.set_attribute("defense_shield_amount", 5)
+			pass
 		CardData.SUITS.TRIANGLE:
-			body.set_attribute("agility_shield_amount", 5)
+			pass
+		CardData.SUITS.DIAMOND:
+			pass
+		CardData.SUITS.ARROW:
+			pass
 	
 	var soundfx = SoundFx.new()
 	soundfx.spawn(Vector3.ZERO, {"audio" : SOUND_EXCEED_CHARGE})
 	
 	level += 1
-	if get_maximum_charge() > 0:
-		charge.clear()
+	
+	emit_signal("exceeded_charge")
 
 
 func get_maximum_charge() -> int:
-	return CHARGE + level
+	return CHARGE + (level-1)

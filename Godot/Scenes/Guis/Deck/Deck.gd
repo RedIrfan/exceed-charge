@@ -2,6 +2,7 @@ extends Gui
 
 const ACTIVATED_CARD = preload("res://Objects/Effects/ActivatedCard/ActivatedCard.tscn")
 const SOUND_SCAN_CARD = preload('res://Assets/SFX/Deck/ScanCard.wav')
+const SOUND_SCAN_CARD_FAILED = preload('res://Assets/SFX/Deck/ScanCard.wav')
 
 @export var model : MeshInstance3D
 
@@ -104,21 +105,25 @@ func scan_cards():
 
 
 func use_card():
-	var card_data = player.deck.get_card(held_card)
-	player.remove_card(held_card, false)
-	
-	var effect : Effect = ACTIVATED_CARD.instantiate()
-	effect.spawn(camera.camera3d.global_position)
-	
-	var soundfx = SoundFx.new()
-	soundfx.spawn(Vector3.ZERO, {"audio" : SOUND_SCAN_CARD})
-	
-	card_used = true
-	if Input.is_action_pressed("action_deck") == true:
-		scan_cards()
-	
-	await effect.effect_ended	
-	player.use_card(0, card_data)
+	if player.get_exceed_charge_suit() == CardData.SUITS.NONE:
+		var card_data = player.deck.get_card(held_card)
+		player.remove_card(held_card, false)
+		
+		var effect : Effect = ACTIVATED_CARD.instantiate()
+		effect.spawn(camera.camera3d.global_position)
+		
+		var soundfx = SoundFx.new()
+		soundfx.spawn(Vector3.ZERO, {"audio" : SOUND_SCAN_CARD})
+		
+		card_used = true
+		if Input.is_action_pressed("action_deck") == true:
+			scan_cards()
+		
+		await effect.effect_ended	
+		player.use_card(0, card_data)
+	else:
+		var soundfx = SoundFx.new()
+		soundfx.spawn(Vector3.ZERO, {"audio" : SOUND_SCAN_CARD_FAILED})
 
 
 func drop_card():
