@@ -2,6 +2,7 @@ extends Resource
 class_name CardData
 
 enum SUITS {
+	NONE,
 	PENTAGON, ## Heavy Defense (Health Amount)
 	TRIANGLE, ## Light Defense (Move Speed)
 	DIAMOND, ## Heavy Damage(Attack Damage)

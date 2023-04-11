@@ -12,6 +12,7 @@ const CARD_PICKUPABLE = preload('res://Objects/Interactable/CardPickupable/CardP
 @onready var dust_particles_left : GPUParticles3D = $Pivot/Player/Armature/GeneralSkeleton/LeftFoot/DustParticles
 @onready var dust_particles_right : GPUParticles3D = $Pivot/Player/Armature/GeneralSkeleton/RightFoot/DustParticles
 @onready var locking_target_area : ScanArea = $Pivot/LockingTargetArea
+@onready var exceed_charge_timer : Timer = $ExceedChargeTimer
 
 @export var deck :DeckData
 @export var status : StatusData
@@ -23,9 +24,12 @@ var deck_on : bool = false
 
 
 func _ready():
+	exceed_charge_timer.connect("timeout", _on_exceed_charge_timeout)
+	
 	super._ready()
 	
 	status.connect("element_changed", _on_element_changed)
+	deck.connect("exceeded_charge", _on_exceeded_charge)
 
 
 func player_attack():
@@ -35,6 +39,21 @@ func player_attack():
 func process_damage(damage:float):
 	damage = damage / status.defense_multiplier
 	super.process_damage(damage)
+
+
+func lock_to_target():
+	if locking_target_area.interact_list.size() > 0:
+		look_at(locking_target_area.get_interactable().global_position, Vector3.UP)
+
+
+func get_total_charge() -> float:
+	if get_exceed_charge_suit() != CardData.SUITS.NONE:
+		return exceed_charge_timer.time_left * (deck.get_maximum_charge() - 1)
+	return deck.charge.size()
+
+
+func get_exceed_charge_suit():
+	return deck.exceed_charge_suit
 
 
 func get_attack_damage(damage:float) -> float:
@@ -93,6 +112,14 @@ func on_card_activated():
 	emit_signal("card_activated")
 
 
+func _on_exceeded_charge():
+	exceed_charge_timer.start(deck.get_maximum_charge() - 1)
+
+
+func _on_exceed_charge_timeout():
+	deck.reset_charge(self)
+
+
 func _on_element_changed(to_element):
 	match to_element:
 		StatusData.ELEMENTS.NONE:
@@ -101,8 +128,3 @@ func _on_element_changed(to_element):
 			set_suit_material(FIRE_SUIT_MATERIAL)
 		StatusData.ELEMENTS.WATER:
 			set_suit_material(WATER_SUIT_MATERIAL)
-
-
-func lock_to_target():
-	if locking_target_area.interact_list.size() > 0:
-		look_at(locking_target_area.get_interactable().global_position, Vector3.UP)
