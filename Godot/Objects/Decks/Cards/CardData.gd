@@ -87,8 +87,8 @@ func process_card(body:Character) -> void:
 		VALUES.ACE:
 			adjacent_suit_power += 0.01
 		VALUES.DEUCE:
-			adjacent_suit_power += 0.04
-			opposite_suit_power -= 0.02
+			adjacent_suit_power += 0.03
+			opposite_suit_power -= 0.01
 	
 	var status_data : StatusData = body.status
 	match suit:
