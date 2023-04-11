@@ -48,7 +48,7 @@ func set_element(new_element:ELEMENTS):
 	emit_signal("element_changed", new_element)
 
 
-func get_total_passive_card(suit:CardData.SUITS, value:CardData.VALUES):
+func get_total_passive_card(suit:CardData.SUITS, value:CardData.VALUES) -> int:
 	var amount : int = 0
 	for card in passive_cards:
 		if card[0] == suit and card[1] == value:
