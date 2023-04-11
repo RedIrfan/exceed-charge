@@ -37,10 +37,6 @@ func process_damage(damage:float):
 	super.process_damage(damage)
 
 
-func get_extra_attribute(attribute_name:String):
-	return status.get_extra_attribute(attribute_name)
-
-
 func get_attack_damage(damage:float) -> float:
 	damage = damage + (log(status.attack_damage_multiplier) / log(1.5))
 	return damage
@@ -67,8 +63,14 @@ func set_dust_particles(mode:bool):
 	dust_particles_right.emitting = mode
 
 
-func set_attribute(attribute_name, attribute_value):
-	status.set_extra_attribute(attribute_name, attribute_value)
+func add_passive_cards(suit:CardData.SUITS, value:CardData.VALUES, amount:int=1):
+	for index in amount:
+		status.add_passive_card(suit, value)
+
+
+func remove_passive_cards(suit:CardData.SUITS, value:CardData.VALUES, amount:int=1):
+	for index in amount:
+		status.remove_passive_card(suit, value)
 
 
 func use_card(card_index:int, card_data:CardData=null):
