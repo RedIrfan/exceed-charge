@@ -1,6 +1,8 @@
 extends Node
 class_name ActionData
 
+signal action_played
+
 ## Action duration
 @export var duration : float = 0
 
@@ -34,5 +36,9 @@ class_name ActionData
 @export var external_signal_name : String
 @export var connect_node : Node
 @export var connect_method_name : String
+
+@export_group("Physics", "physics_")
+@export var physics_collision_mask_value : int = 0
+@export var physics_collision_mask_mode : bool = false
 
 var divided_to_whole_duration : float = 0

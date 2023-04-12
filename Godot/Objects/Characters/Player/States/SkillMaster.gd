@@ -23,5 +23,9 @@ func enter(msg=[]):
 		active_card = body.status.primary_active_card
 		
 		match active_card.suit:
-			CardData.SUITS.DIAMOND:
+			CardData.SUITS.PENTAGON:
 				fsm.enter_state("SkillGroundPound")
+			CardData.SUITS.TRIANGLE:
+				fsm.enter_state("SkillTeleport")
+		
+		body.status.remove_active_charge(msg[0], 1)

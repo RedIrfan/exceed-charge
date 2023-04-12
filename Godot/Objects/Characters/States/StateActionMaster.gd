@@ -41,6 +41,10 @@ func enter(_msg=[]):
 
 func exit():
 	for action in actions:
+		if action.physics_collision_mask_value > 0:
+			if action.physics_collision_mask_value == 2:
+				body.set_collision_mask_value(action.physics_collision_mask_value, true)
+				body.set_collision_layer_value(action.physics_collision_mask_value, true)
 		if action.hitbox:
 			action.hitbox.set_damage(0)
 	reset_speed()
@@ -125,6 +129,12 @@ func play_action():
 		
 		if action.external_signal_name:
 			effect.connect(action.external_signal_name, Callable(action.connect_node, action.connect_method_name))
+	
+	if action.physics_collision_mask_value > 0:
+		body.set_collision_mask_value(action.physics_collision_mask_value, action.physics_collision_mask_mode)
+		body.set_collision_layer_value(action.physics_collision_mask_value, action.physics_collision_mask_mode)
+	
+	action.emit_signal("action_played")
 
 
 func set_damage(action):

@@ -26,6 +26,8 @@ signal element_changed(to_element)
 @export var secondary_active_card : CardData = null
 @export var var_passive_cards : Array[CardData] = []
 
+var primary_active_card_charge : int = 0
+var secondary_active_card_charge : int = 0
 var passive_cards : Array[Array]
 
 
@@ -43,28 +45,47 @@ func _init(new_defense:float=1.0,new_speed:float=1.0,new_damage:float=1.0,new_at
 		add_passive_card(card.suit, card.value)
 
 
+func add_active_card(mode:int, card:CardData, charge:int):
+	if mode == 1:
+		if primary_active_card == null:
+			primary_active_card = card
+			primary_active_card_charge = charge
+		elif primary_active_card.suit == card.suit:
+			primary_active_card_charge += charge
+	else:
+		if secondary_active_card == null:
+			secondary_active_card = card
+			secondary_active_card_charge = charge
+		elif secondary_active_card.suit == card.suit:
+			secondary_active_card_charge += charge
+
+
+func remove_active_charge(mode:int, amount:int):
+	if mode == 1:
+		primary_active_card_charge -= amount
+		if primary_active_card_charge <= 0:
+			primary_active_card = null
+	else:
+		secondary_active_card_charge -= amount
+		if secondary_active_card_charge <= 0:
+			secondary_active_card = null
+
+
 func set_element(new_element:ELEMENTS):
 	element = new_element
 	emit_signal("element_changed", new_element)
 
 
-func get_total_passive_card(suit:CardData.SUITS, value:CardData.VALUES):
-	var amount : int = 0
-	for card in passive_cards:
-		if card[0] == suit and card[1] == value:
-			amount += 1
-	
+func get_total_passive_card(suit:CardData.SUITS, value:CardData.VALUES) -> int:
+	var amount = passive_cards.count([suit, value])
 	return amount
 
 
 func add_passive_card(suit:CardData.SUITS, value:CardData.VALUES):
 	passive_cards.append([suit, value])
+	emit_signal("passive_cards_changed")
 
 
 func remove_passive_card(suit:CardData.SUITS, value:CardData.VALUES):
-	for index in passive_cards.size():
-		var card = passive_cards[index]
-		if card[0] == suit and card[1] == value:
-			passive_cards.remove_at(index)
-			emit_signal("passive_cards_changed")
-			break
+	passive_cards.erase([suit, value])
+	emit_signal("passive_cards_changed")

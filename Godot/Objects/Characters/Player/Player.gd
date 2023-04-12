@@ -48,7 +48,7 @@ func lock_to_target():
 
 func get_total_charge() -> float:
 	if get_exceed_charge_suit() != CardData.SUITS.NONE:
-		return exceed_charge_timer.time_left * (deck.get_maximum_charge() - 1)
+		return exceed_charge_timer.time_left
 	return deck.charge.size()
 
 
@@ -85,6 +85,10 @@ func set_dust_particles(mode:bool):
 func add_passive_cards(suit:CardData.SUITS, value:CardData.VALUES, amount:int=1):
 	for index in amount:
 		status.add_passive_card(suit, value)
+
+
+func get_total_passive_card(suit:CardData.SUITS, value:CardData.VALUES) -> int:
+	return status.get_total_passive_card(suit, value)
 
 
 func remove_passive_cards(suit:CardData.SUITS, value:CardData.VALUES, amount:int=1):
