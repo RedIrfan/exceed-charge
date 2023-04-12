@@ -20,6 +20,7 @@ func _ready():
 
 
 func enter(_msg=[]):
+	chain_dash_max_amount = body.get_total_passive_card(CardData.SUITS.TRIANGLE, CardData.VALUES.THREE)
 	body.connect_to_animation_timer(_on_animation_timeout)
 	set_move_speed(dash_speed)
 	dashing = true
@@ -44,7 +45,8 @@ func exit():
 func physics_process(_delta):
 #	look_at_mouse()
 	if check_dash() and chain_dash_amount < chain_dash_max_amount:
-		chain_dash_amount += 1
+		body.remove_passive_cards(CardData.SUITS.TRIANGLE, CardData.VALUES.THREE)
+#		chain_dash_amount += 1
 		look_at_mouse(1)
 		enter()
 	if check_hurt():

@@ -19,25 +19,27 @@ func _ready():
 	
 	player = Global.root_scene().player
 	
-	player.status.connect("extra_attributes_changed", _on_extra_attributes_changed)
+	player.status.connect("passive_cards_changed", _on_passive_changed)
 
 
 func _physics_process(delta):
-	
 	if player:
 		self.global_position = player.global_position
 		pivot.rotate(Vector3.UP, speed * delta)
 
 
-func _on_extra_attributes_changed():
-	var shield_amount = player.get_extra_attribute('defense_shield_amount')
-	var agility_shield_amount = player.get_extra_attribute('agility_shield_amount')
+func _on_passive_changed():
+	var shield_amount = player.get_total_passive_card(CardData.SUITS.PENTAGON, CardData.VALUES.THREE)
+	var agility_shield_amount = player.get_total_passive_card(CardData.SUITS.TRIANGLE, CardData.VALUES.THREE)
 	
 	defense_shields = spawn_shields(shield_amount, SHIELD_MESH, defense_shields, "Defense", defense_shield_distance)
 	agility_shields = spawn_shields(agility_shield_amount, AGILITY_SHIELD_MESH, agility_shields, "Agility", agility_shield_distance)
 
 
 func spawn_shields(amount:int, mesh:PackedScene, shield_collection:Dictionary, object_name_prefix:String, shield_distance:Vector3):
+	if amount < shield_collection.size():
+		for object in shield_collection:
+			shield_collection[object].visible = false
 	if amount > 0:
 		var rotation_interval = 360.0 / amount
 		
@@ -49,6 +51,7 @@ func spawn_shields(amount:int, mesh:PackedScene, shield_collection:Dictionary, o
 			
 			if shield_collection.has(object_name):
 				object = shield_collection[object_name]
+				object.visible = true
 			else:
 				object = mesh.instantiate()
 				pivot.add_child(object)
