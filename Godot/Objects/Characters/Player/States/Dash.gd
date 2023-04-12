@@ -12,6 +12,10 @@ extends StatePlayer
 @export var attack_hitbox : Hitbox
 @export var attack_damage : int
 
+@export_group("Exceed Charge", "exceed_")
+@export var exceed_dash_speed : int = 25
+@export var exceed_dash_distance : float = 2.5
+
 var dash_direction : Vector2 = Vector2.ZERO
 
 var chain_dash_amount : int = 0
@@ -24,25 +28,38 @@ func _ready():
 
 
 func enter(_msg=[]):
-	chain_dash_max_amount = body.get_total_passive_card(CardData.SUITS.TRIANGLE, CardData.VALUES.THREE)
+	body.connect_to_animation_timer(_on_animation_timeout)
 	
 	var four_card_amount = body.get_total_passive_card(CardData.SUITS.TRIANGLE, CardData.VALUES.FOUR)
-	if four_card_amount > 0:
-		attack_hitbox.set_damage(body.get_attack_damage(attack_damage * four_card_amount))
-		body.remove_passive_cards(CardData.SUITS.TRIANGLE, CardData.VALUES.FOUR)
+	var distance = dash_distance
+	var speed = dash_speed
 	
-	body.connect_to_animation_timer(_on_animation_timeout)
-	set_move_speed(dash_speed)
+	if body.get_exceed_charge_suit() == CardData.SUITS.TRIANGLE:
+		four_card_amount += 1
+		distance = exceed_dash_distance
+		speed = exceed_dash_speed
+		body.set_collision_layer_value(2, false)
+		body.set_collision_mask_value(2, false)
+	
+	chain_dash_max_amount = body.get_total_passive_card(CardData.SUITS.TRIANGLE, CardData.VALUES.THREE)
+	if four_card_amount > 0 or body.get_exceed_charge_suit() == CardData.SUITS.TRIANGLE:
+		attack_hitbox.set_damage(body.get_attack_damage(attack_damage * four_card_amount))
+		if four_card_amount > 0:
+			body.remove_passive_cards(CardData.SUITS.TRIANGLE, CardData.VALUES.FOUR)
+	
+	set_move_speed(speed)
 	dashing = true
 	
-	if body.speed != dash_speed:
-		dash_duration = dash_distance / body.speed
+	if body.speed != speed:
+		dash_duration = distance / body.speed
 	
 	dash_direction = get_direction()
 	_play_dash_animation()
 
 
 func exit():
+	body.set_collision_layer_value(2, true)
+	body.set_collision_mask_value(2, true)
 	chain_dash_amount = 0
 	body.set_dust_particles(false)
 	body.disconnect_from_animation_timer(_on_animation_timeout)
@@ -60,7 +77,10 @@ func physics_process(_delta):
 		look_at_mouse(1)
 		enter()
 	if check_hurt():
-		fsm.enter_state("Hurt")
+		if dashing:
+			body.hurt_data = null
+		else:
+			fsm.enter_state("Hurt")
 	if dashing == true:
 		body.set_dust_particles(true)
 		
