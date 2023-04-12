@@ -87,6 +87,10 @@ func add_passive_cards(suit:CardData.SUITS, value:CardData.VALUES, amount:int=1)
 		status.add_passive_card(suit, value)
 
 
+func get_total_passive_card(suit:CardData.SUITS, value:CardData.VALUES) -> int:
+	return status.get_total_passive_card(suit, value)
+
+
 func remove_passive_cards(suit:CardData.SUITS, value:CardData.VALUES, amount:int=1):
 	for index in amount:
 		status.remove_passive_card(suit, value)

@@ -49,22 +49,15 @@ func set_element(new_element:ELEMENTS):
 
 
 func get_total_passive_card(suit:CardData.SUITS, value:CardData.VALUES) -> int:
-	var amount : int = 0
-	for card in passive_cards:
-		if card[0] == suit and card[1] == value:
-			amount += 1
-	
+	var amount = passive_cards.count([suit, value])
 	return amount
 
 
 func add_passive_card(suit:CardData.SUITS, value:CardData.VALUES):
 	passive_cards.append([suit, value])
+	emit_signal("passive_cards_changed")
 
 
 func remove_passive_card(suit:CardData.SUITS, value:CardData.VALUES):
-	for index in passive_cards.size():
-		var card = passive_cards[index]
-		if card[0] == suit and card[1] == value:
-			passive_cards.remove_at(index)
-			emit_signal("passive_cards_changed")
-			break
+	passive_cards.erase([suit, value])
+	emit_signal("passive_cards_changed")
