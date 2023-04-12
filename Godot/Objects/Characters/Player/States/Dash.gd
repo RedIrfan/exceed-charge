@@ -8,6 +8,10 @@ extends StatePlayer
 @export var dash_cooldown : float = 0.1
 @export var chain_dash_max_amount : int = 0
 
+@export_group("Attack", "attack_")
+@export var attack_hitbox : Hitbox
+@export var attack_damage : int
+
 var dash_direction : Vector2 = Vector2.ZERO
 
 var chain_dash_amount : int = 0
@@ -21,6 +25,12 @@ func _ready():
 
 func enter(_msg=[]):
 	chain_dash_max_amount = body.get_total_passive_card(CardData.SUITS.TRIANGLE, CardData.VALUES.THREE)
+	
+	var four_card_amount = body.get_total_passive_card(CardData.SUITS.TRIANGLE, CardData.VALUES.FOUR)
+	if four_card_amount > 0:
+		attack_hitbox.set_damage(body.get_attack_damage(attack_damage * four_card_amount))
+		body.remove_passive_cards(CardData.SUITS.TRIANGLE, CardData.VALUES.FOUR)
+	
 	body.connect_to_animation_timer(_on_animation_timeout)
 	set_move_speed(dash_speed)
 	dashing = true
@@ -70,6 +80,7 @@ func _play_dash_animation():
 
 func _on_animation_timeout():
 	if dashing:
+		attack_hitbox.set_damage(0)
 		dashing = false
 		body.set_dust_particles(false)
 		reset_speed()
