@@ -15,6 +15,7 @@ enum VALUES {
 	ACE,
 	DEUCE,
 	THREE,
+	FOUR,
 	JACK
 }
 
@@ -67,7 +68,7 @@ func get_card_drop_chance(_receiver:Character) -> int:
 
 
 func value_to_string() -> String:
-	var string_conversions = ["none", "Ace", "Deuce", "Three", "Jack"]
+	var string_conversions = ["none", "Ace", "Deuce", "Three", "Four", "Jack"]
 	
 	return string_conversions[value]
 
