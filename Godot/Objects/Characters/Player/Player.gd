@@ -48,7 +48,7 @@ func lock_to_target():
 
 func get_total_charge() -> float:
 	if get_exceed_charge_suit() != CardData.SUITS.NONE:
-		return exceed_charge_timer.time_left * (deck.get_maximum_charge() - 1)
+		return exceed_charge_timer.time_left
 	return deck.charge.size()
 
 
