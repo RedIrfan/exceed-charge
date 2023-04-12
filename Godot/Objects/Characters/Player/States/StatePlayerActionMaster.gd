@@ -1,6 +1,8 @@
 extends StateActionMaster
 class_name StatePlayerActionMaster
 
+@export var lock_to_target :bool = true
+
 @export_category("Combo")
 @export var primary_attack : State
 @export var secondary_attack : State
@@ -43,4 +45,5 @@ func look_at_mouse(rotation_speed:float=0) -> void:
 	var mouse3d_pos = Global.root_scene().camera.get_mouse_position3d()
 	
 	look_at(mouse3d_pos, rotation_speed)
-	body.lock_to_target()
+	if lock_to_target:
+		body.lock_to_target()
