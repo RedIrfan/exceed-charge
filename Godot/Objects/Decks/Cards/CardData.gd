@@ -83,6 +83,7 @@ func process_card(body:Character) -> void:
 	var adjacent_suit_power :float = 0.0
 	var opposite_suit_power :float = 0.0
 	var active_card_mode : int = 0
+	var charge : int = 3
 	var extra_attribute_name : String = ""
 	
 	match value:
@@ -103,12 +104,12 @@ func process_card(body:Character) -> void:
 			status_data.speed_multiplier += adjacent_suit_power
 			status_data.defense_multiplier += opposite_suit_power
 			
-			active_card_mode = 2
+			active_card_mode = 1
 		SUITS.DIAMOND:
 			status_data.attack_damage_multiplier += adjacent_suit_power
 			status_data.attack_speed_multiplier += opposite_suit_power
 			
-			active_card_mode = 1
+			active_card_mode = 2
 		SUITS.ARROW:
 			status_data.attack_speed_multiplier += adjacent_suit_power
 			status_data.attack_damage_multiplier += opposite_suit_power
@@ -116,13 +117,10 @@ func process_card(body:Character) -> void:
 			extra_attribute_name = ""
 	
 	match value:
+		VALUES.JACK:
+			status_data.add_active_card(active_card_mode, self, charge)
 		_:
 			status_data.add_passive_card(suit, value)
-		VALUES.JACK:
-			if active_card_mode == 1:
-				status_data.primary_active_card = self
-			elif active_card_mode == 2:
-				status_data.secondary_active_card = self
 	
 	unique_process_card(body)
 

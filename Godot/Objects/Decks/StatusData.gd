@@ -26,6 +26,8 @@ signal element_changed(to_element)
 @export var secondary_active_card : CardData = null
 @export var var_passive_cards : Array[CardData] = []
 
+var primary_active_card_charge : int = 0
+var secondary_active_card_charge : int = 0
 var passive_cards : Array[Array]
 
 
@@ -41,6 +43,32 @@ func _init(new_defense:float=1.0,new_speed:float=1.0,new_damage:float=1.0,new_at
 	
 	for card in new_passive_cards:
 		add_passive_card(card.suit, card.value)
+
+
+func add_active_card(mode:int, card:CardData, charge:int):
+	if mode == 1:
+		if primary_active_card == null:
+			primary_active_card = card
+			primary_active_card_charge = charge
+		elif primary_active_card.suit == card.suit:
+			primary_active_card_charge += charge
+	else:
+		if secondary_active_card == null:
+			secondary_active_card = card
+			secondary_active_card_charge = charge
+		elif secondary_active_card.suit == card.suit:
+			secondary_active_card_charge += charge
+
+
+func remove_active_charge(mode:int, amount:int):
+	if mode == 1:
+		primary_active_card_charge -= amount
+		if primary_active_card_charge <= 0:
+			primary_active_card = null
+	else:
+		secondary_active_card_charge -= amount
+		if secondary_active_card_charge <= 0:
+			secondary_active_card = null
 
 
 func set_element(new_element:ELEMENTS):
