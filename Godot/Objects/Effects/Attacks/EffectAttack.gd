@@ -4,6 +4,7 @@ extends Effect
 @export var hitbox : Hitbox
 @export var damage : int = 7
 @export var damage_type : Global.DAMAGES = Global.DAMAGES.LIGHT
+@export var force_damage : bool = false
 @export var damage_active_duration : float = 0.1
 
 
@@ -17,4 +18,4 @@ func on_spawn(params={}):
 
 
 func set_damage(_parameters={}):
-	hitbox.set_damage(damage, damage_type)
+	hitbox.set_damage(damage, damage_type, force_damage)

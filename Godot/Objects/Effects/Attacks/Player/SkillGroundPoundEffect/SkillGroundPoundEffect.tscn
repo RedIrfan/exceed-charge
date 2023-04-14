@@ -133,6 +133,7 @@ script = ExtResource("2_xvbwc")
 hitbox = NodePath("Hitbox")
 damage = 3
 damage_type = 1
+force_damage = false
 damage_active_duration = 0.1
 duration = 1.0
 

@@ -31,7 +31,7 @@ func enter_condition(_body, _fsm, msg=[]) -> bool:
 	hurt_data = body.hurt_data
 	body.hurt_data = null
 	
-	if hurt_data.damage > 0:
+	if hurt_data.force_damage == false:
 		var unstaggerable_true : bool = false
 		if unstaggerable > -1:
 			if hurt_data.damage_type == unstaggerable or unstaggerable == 2:

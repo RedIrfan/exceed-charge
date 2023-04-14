@@ -8,6 +8,7 @@ signal hit
 
 var _damage : float = 0 # underscored for abstraction
 var _damage_type : int = 0
+var _force_damage : bool = false
 
 var hitlist : Array[Hurtbox] = []
 
@@ -20,9 +21,10 @@ func _ready():
 	area_exited.connect(_on_area_exited)
 
 
-func set_damage(damage, damage_type:Global.DAMAGES=Global.DAMAGES.LIGHT):
+func set_damage(damage, damage_type:Global.DAMAGES=Global.DAMAGES.LIGHT, force_damage:bool=false):
 	_damage = damage
 	_damage_type = damage_type
+	_force_damage = force_damage
 	
 	if _damage > 0:
 		for hurtbox in hitlist:
@@ -49,6 +51,6 @@ func process_attack(hurtbox):
 	if attack_position != null:
 		attack_pos = attack_position.global_transform.origin
 	
-	hurtbox.set_hurtdata(body, attack_pos, _damage, _damage_type)
+	hurtbox.set_hurtdata(body, attack_pos, _damage, _damage_type, _force_damage)
 	
 	emit_signal('hit')
