@@ -50,7 +50,7 @@ func get_relative_direction_name(direction:Vector2=Vector2.ZERO) -> String:
 	return animation_name
 
 
-func look_at(target, rotation_speed):
+func look_at(target, rotation_speed=0):
 	if rotation_speed == 0:
 		rotation_speed = body.rotation_speed
 
