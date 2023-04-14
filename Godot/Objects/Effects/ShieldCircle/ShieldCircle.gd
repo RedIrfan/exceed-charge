@@ -1,5 +1,6 @@
 extends Effect
 
+const PENTAGON_SHOCKWAVE = preload("res://Objects/Effects/Attacks/Player/SkillGroundPoundEffect/PentagonShockwave/PentagonShockwave.tscn")
 const SHIELD_MESH = preload('res://Objects/Effects/ShieldCircle/ShieldMesh.tscn')
 const AGILITY_SHIELD_MESH = preload("res://Objects/Effects/ShieldCircle/AgilityShieldMesh.tscn")
 
@@ -13,6 +14,8 @@ const AGILITY_SHIELD_MESH = preload("res://Objects/Effects/ShieldCircle/AgilityS
 var player : Character
 var defense_shields : Dictionary
 var agility_shields : Dictionary
+
+var shield_regeneration_turn : int = 0
 
 
 func _ready():
@@ -71,10 +74,22 @@ func _on_player_exceeded_charge():
 	var suit = player.get_exceed_charge_suit()
 	if suit == CardData.SUITS.PENTAGON or suit == CardData.SUITS.TRIANGLE:
 		player.add_passive_cards(player.get_exceed_charge_suit(), CardData.VALUES.THREE, 5)
+		shield_regeneration_turn = 0
 		shield_regeneration_timer.start(0.2)
 
 
 func _on_shield_regeneration_timer_timeout():
+	shield_regeneration_turn += 1
+	
 	var suit = player.get_exceed_charge_suit()
-	if suit != CardData.SUITS.NONE and player.get_total_passive_card(suit, CardData.VALUES.THREE) < 5:
-		player.add_passive_cards(suit, CardData.VALUES.THREE, 1)
+	if suit != CardData.SUITS.NONE:
+		if player.get_total_passive_card(suit, CardData.VALUES.THREE) < 5:
+			player.add_passive_cards(suit, CardData.VALUES.THREE, 1)
+		
+		if suit == CardData.SUITS.PENTAGON and shield_regeneration_turn >= 8:
+			var shockwave = PENTAGON_SHOCKWAVE.instantiate()
+			shockwave.spawn(self.global_position, {"body" : player})
+			
+			shield_regeneration_turn = 0
+		
+		shield_regeneration_timer.start(0.2)

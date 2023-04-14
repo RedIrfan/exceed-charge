@@ -22,7 +22,7 @@ func _ready():
 	enter_state(starting_state.name)
 
 
-func enter_state(state_name:String, msg=[]):
+func enter_state(state_name:String, msg=[]) -> bool:
 	state_name = state_name.to_lower()
 	if states.has(state_name):
 		next_state = states[state_name]
@@ -37,6 +37,8 @@ func enter_state(state_name:String, msg=[]):
 			current_state.body = body
 			current_state.fsm = self
 			current_state.enter(msg)
+		return next_state_condition
+	return false
 
 
 func _physics_process(delta):

@@ -22,7 +22,8 @@ func physics_process(_delta):
 			fsm.enter_state("SecondaryAttackMaster")
 		check_skill()
 	if check_hurt():
-		fsm.enter_state("Hurt")
+		if fsm.enter_state("Parry") == false:
+			fsm.enter_state("Hurt")
 	check_interact()
 
 

@@ -7,5 +7,5 @@ func _ready():
 	set_collision_mask_value(9, true)
 
 
-func set_hurtdata(attacker, attack_position, damage, damage_type):
-	body.set_hurtdata(Hurtdata.new(attacker, attack_position, damage, damage_type))
+func set_hurtdata(attacker, attack_position, damage, damage_type, force_damage):
+	body.set_hurtdata(Hurtdata.new(attacker, attack_position, damage, damage_type, force_damage))

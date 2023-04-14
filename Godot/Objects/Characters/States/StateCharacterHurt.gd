@@ -31,18 +31,19 @@ func enter_condition(_body, _fsm, msg=[]) -> bool:
 	hurt_data = body.hurt_data
 	body.hurt_data = null
 	
-	var unstaggerable_true : bool = false
-	if unstaggerable > -1:
-		if hurt_data.damage_type == unstaggerable or unstaggerable == 2:
-			unstaggerable_true = true
-	
-	
-	if msg.has("unstaggerable") or unstaggerable_true:
-		_process_damage()
-		if _check_dead():
-			return true
-		else:
-			return false
+	if hurt_data.force_damage == false:
+		var unstaggerable_true : bool = false
+		if unstaggerable > -1:
+			if hurt_data.damage_type == unstaggerable or unstaggerable == 2:
+				unstaggerable_true = true
+		
+		
+		if msg.has("unstaggerable") or unstaggerable_true:
+			_process_damage()
+			if _check_dead():
+				return true
+			else:
+				return false
 	return true
 
 

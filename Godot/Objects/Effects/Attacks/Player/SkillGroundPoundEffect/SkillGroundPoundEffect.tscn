@@ -131,8 +131,9 @@ _data = {
 [node name="SkillGroundPoundEffect" node_paths=PackedStringArray("hitbox") instance=ExtResource("1_dvl4o")]
 script = ExtResource("2_xvbwc")
 hitbox = NodePath("Hitbox")
-damage = 5
+damage = 3
 damage_type = 1
+force_damage = false
 damage_active_duration = 0.1
 duration = 1.0
 
