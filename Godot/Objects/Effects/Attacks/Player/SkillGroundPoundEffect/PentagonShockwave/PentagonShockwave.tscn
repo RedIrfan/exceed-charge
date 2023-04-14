@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://thue3jm8tnwm"]
+
+[ext_resource type="PackedScene" uid="uid://bgrjg4w5mvkjc" path="res://Objects/Effects/Attacks/Player/SkillGroundPoundEffect/SkillGroundPoundEffect.tscn" id="1_cf3i6"]
+
+[node name="PentagonShockwave" instance=ExtResource("1_cf3i6")]
+damage = 1
+damage_type = 0
+force_damage = true
