@@ -16,11 +16,11 @@ func physics_process(_delta):
 	if check_dash():
 		fsm.enter_state("Dash")
 	if is_deck_on() == false:
-		if check_primary_attack():
-			fsm.enter_state("PrimaryAttackMaster")
-		if check_secondary_attack():
-			fsm.enter_state("SecondaryAttackMaster")
-		check_skill()
+		if check_skill() == false:
+			if check_primary_attack():
+				fsm.enter_state("PrimaryAttackMaster")
+			if check_secondary_attack():
+				fsm.enter_state("SecondaryAttackMaster")
 	if check_hurt():
 		if fsm.enter_state("Parry") == false:
 			fsm.enter_state("Hurt")

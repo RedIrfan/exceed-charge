@@ -1,0 +1,249 @@
+[gd_scene load_steps=19 format=3 uid="uid://dtkgllwntcpa1"]
+
+[ext_resource type="PackedScene" uid="uid://b2obq0cwg452y" path="res://Objects/Effects/Effect.tscn" id="1_tko7m"]
+[ext_resource type="Script" path="res://Objects/Effects/Attacks/Player/SkillBlackHeart/SkillBlackHeart.gd" id="2_2k5hx"]
+[ext_resource type="Script" path="res://Objects/Engine/CollisionBox/Hitbox.gd" id="3_0f7n8"]
+
+[sub_resource type="Gradient" id="Gradient_k4uuk"]
+offsets = PackedFloat32Array(0, 0.564246, 0.759777)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_t3iv7"]
+gradient = SubResource("Gradient_k4uuk")
+
+[sub_resource type="Curve" id="Curve_435nb"]
+_data = [Vector2(0.0223881, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_j0vk0"]
+curve = SubResource("Curve_435nb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nmsv5"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 1.0
+emission_ring_radius = 3.0
+emission_ring_inner_radius = 0.0
+particle_flag_align_y = true
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_j0vk0")
+color_ramp = SubResource("GradientTexture1D_t3iv7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwqte"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.929412, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_kovem"]
+material = SubResource("StandardMaterial3D_qwqte")
+radius = 0.063
+height = 0.25
+radial_segments = 4
+rings = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kofxa"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.929412, 0, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_6ns04"]
+material = SubResource("StandardMaterial3D_kofxa")
+radius = 0.25
+height = 0.5
+radial_segments = 8
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5aos"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.294118, 0.137255, 0.34902, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_cbis0"]
+material = SubResource("StandardMaterial3D_l5aos")
+height = 0.5
+radial_segments = 8
+rings = 4
+is_hemisphere = true
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_r0p4o"]
+radius = 2.3
+
+[sub_resource type="Animation" id="Animation_yi6mq"]
+resource_name = "Play"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/MeshInstance3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1), Vector3(0.1, 0.1, 0.1), Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/MeshInstance3D:mesh:material:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.929412, 0, 0, 1), Color(0.929412, 0, 0, 1), Color(0.929412, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(5, 5, 5)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MeshInstance3D:mesh:material:albedo_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.294118, 0.137255, 0.34902, 0.694118), Color(0.294118, 0.137255, 0.34902, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jvvdx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/MeshInstance3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/MeshInstance3D:mesh:material:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.929412, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MeshInstance3D:mesh:material:albedo_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.294118, 0.137255, 0.34902, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6oewk"]
+_data = {
+"Play": SubResource("Animation_yi6mq"),
+"RESET": SubResource("Animation_jvvdx")
+}
+
+[node name="SkillBlackHeart" node_paths=PackedStringArray("hitbox") instance=ExtResource("1_tko7m")]
+script = ExtResource("2_2k5hx")
+hitbox = NodePath("Hitbox")
+damage = 5
+damage_type = 0
+force_damage = false
+damage_active_duration = 0.1
+duration = 1.5
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="1"]
+amount = 24
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_nmsv5")
+draw_pass_1 = SubResource("CapsuleMesh_kovem")
+
+[node name="Pivot" type="Node3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.751177, 0)
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="Pivot" index="0"]
+strength = 10.0
+radius = 5.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" index="1"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("SphereMesh_6ns04")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.5, 0)
+mesh = SubResource("SphereMesh_cbis0")
+
+[node name="Hitbox" type="Area3D" parent="." index="4" node_paths=PackedStringArray("attack_position")]
+script = ExtResource("3_0f7n8")
+attack_position = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" index="0"]
+shape = SubResource("SphereShape3D_r0p4o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+autoplay = "Play"
+libraries = {
+"": SubResource("AnimationLibrary_6oewk")
+}
+
+[connection signal="hit" from="Hitbox" to="." method="_on_hitbox_hit"]

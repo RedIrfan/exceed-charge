@@ -18,6 +18,7 @@ const HIT_PARTICLES : PackedScene = preload('res://Objects/Effects/HitParticles/
 @export_group("Effects")
 @export var hit_colour : Color = Color(1,0,0)
 
+var maximum_health : float = HEALTH
 var health : float = HEALTH : set = set_health
 var speed  : float = SPEED
 
@@ -26,6 +27,7 @@ var hurt_data : Hurtdata = null
 
 
 func _ready():
+	maximum_health = HEALTH
 	health = HEALTH
 	speed = SPEED
 
@@ -92,7 +94,7 @@ func set_hurtdata(new_hurt_data : Hurtdata):
 
 
 func set_health(new_health:float):
-	health = new_health
+	health = clamp(new_health, 0, maximum_health)
 	emit_signal("health_changed", health)
 
 

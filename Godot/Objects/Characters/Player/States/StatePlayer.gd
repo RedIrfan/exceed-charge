@@ -46,6 +46,8 @@ func check_skill():
 		
 		if mode > 0:
 			fsm.enter_state("SkillMaster", [mode])
+			return true
+	return false
 
 
 func check_interact():

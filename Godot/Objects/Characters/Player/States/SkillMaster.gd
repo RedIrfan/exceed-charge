@@ -27,5 +27,9 @@ func enter(msg=[]):
 				fsm.enter_state("SkillGroundPound")
 			CardData.SUITS.TRIANGLE:
 				fsm.enter_state("SkillTeleport")
+			CardData.SUITS.HEART:
+				fsm.enter_state("SkillHeart")
+			CardData.SUITS.BLACKHEART:
+				fsm.enter_state("SkillBlackHeart")
 		
 		body.status.remove_active_charge(msg[0], 1)
