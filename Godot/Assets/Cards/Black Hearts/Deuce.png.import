@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlcbl3h7q5g8g"
-path="res://.godot/imported/Ace.png-eb3ffa311839d59c55fac3e04b09f917.ctex"
+uid="uid://bq075ln66mdua"
+path="res://.godot/imported/Deuce.png-cbad218c54c93d847885dc726c928465.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Cards/BlackHearts/Ace.png"
-dest_files=["res://.godot/imported/Ace.png-eb3ffa311839d59c55fac3e04b09f917.ctex"]
+source_file="res://Assets/Cards/Black Hearts/Deuce.png"
+dest_files=["res://.godot/imported/Deuce.png-cbad218c54c93d847885dc726c928465.ctex"]
 
 [params]
 
