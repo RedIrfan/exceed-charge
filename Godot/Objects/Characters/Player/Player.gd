@@ -132,3 +132,8 @@ func _on_element_changed(to_element):
 			set_suit_material(FIRE_SUIT_MATERIAL)
 		StatusData.ELEMENTS.WATER:
 			set_suit_material(WATER_SUIT_MATERIAL)
+
+
+func _on_hitbox_hit():
+	if get_exceed_charge_suit() == CardData.SUITS.BLACKHEART:
+		set_health(health + 1)

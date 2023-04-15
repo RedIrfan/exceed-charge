@@ -16,6 +16,7 @@ var defense_shields : Dictionary
 var agility_shields : Dictionary
 
 var shield_regeneration_turn : int = 0
+var shield_regeneration_duration : float = 0
 
 
 func _ready():
@@ -74,8 +75,17 @@ func _on_player_exceeded_charge():
 	var suit = player.get_exceed_charge_suit()
 	if suit == CardData.SUITS.PENTAGON or suit == CardData.SUITS.TRIANGLE:
 		player.add_passive_cards(player.get_exceed_charge_suit(), CardData.VALUES.THREE, 5)
-		shield_regeneration_turn = 0
-		shield_regeneration_timer.start(0.2)
+		
+		shield_regeneration_duration = 0.2
+	if suit == CardData.SUITS.HEART or suit == CardData.SUITS.BLACKHEART:
+		shield_regeneration_duration = 1
+		if suit == CardData.SUITS.BLACKHEART:
+			player.maximum_health -= 5
+		if suit == CardData.SUITS.HEART:
+			player.maximum_health += 2
+	
+	shield_regeneration_turn = 0
+	shield_regeneration_timer.start(shield_regeneration_duration)
 
 
 func _on_shield_regeneration_timer_timeout():
@@ -83,13 +93,19 @@ func _on_shield_regeneration_timer_timeout():
 	
 	var suit = player.get_exceed_charge_suit()
 	if suit != CardData.SUITS.NONE:
-		if player.get_total_passive_card(suit, CardData.VALUES.THREE) < 5:
-			player.add_passive_cards(suit, CardData.VALUES.THREE, 1)
-		
-		if suit == CardData.SUITS.PENTAGON and shield_regeneration_turn >= 8:
-			var shockwave = PENTAGON_SHOCKWAVE.instantiate()
-			shockwave.spawn(self.global_position, {"body" : player})
+		if suit == CardData.SUITS.PENTAGON or suit == CardData.SUITS.TRIANGLE:
+			if player.get_total_passive_card(suit, CardData.VALUES.THREE) < 5:
+				player.add_passive_cards(suit, CardData.VALUES.THREE, 1)
 			
-			shield_regeneration_turn = 0
+			if suit == CardData.SUITS.PENTAGON and shield_regeneration_turn >= 8:
+				var shockwave = PENTAGON_SHOCKWAVE.instantiate()
+				shockwave.spawn(self.global_position, {"body" : player})
+				
+				shield_regeneration_turn = 0
 		
-		shield_regeneration_timer.start(0.2)
+		if suit == CardData.SUITS.HEART:
+			player.health += 3
+		if suit == CardData.SUITS.BLACKHEART:
+			player.health += 5
+		
+		shield_regeneration_timer.start(shield_regeneration_duration)
