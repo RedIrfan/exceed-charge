@@ -33,7 +33,7 @@ func enter():
 	
 	if set_up == false:
 		set_up = true
-		health_bar.max_value = player.HEALTH
+		health_bar.max_value = player.maximum_health
 		charge_bar.max_value = player.deck.get_maximum_charge()
 		
 		set_all_value()
@@ -78,6 +78,7 @@ func set_all_value():
 
 
 func _on_health_changed(new_health):
+	health_bar.max_value = player.maximum_health
 	health_bar.value = new_health
 
 

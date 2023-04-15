@@ -7,6 +7,8 @@ enum SUITS {
 	TRIANGLE, ## Light Defense (Move Speed)
 	DIAMOND, ## Heavy Damage(Attack Damage)
 	ARROW, ## Light Damage(Attack Speed)
+	HEART,
+	BLACKHEART,
 	WILD,
 }
 
@@ -74,7 +76,7 @@ func value_to_string() -> String:
 
 
 func suit_to_string()->String:
-	var string_conversions = ["none", "Pentagons", "Triangles", "Diamonds", "Arrows", "Wilds"]
+	var string_conversions = ["none", "Pentagons", "Triangles", "Diamonds", "Arrows", "Hearts", "Black Hearts", "Wilds"]
 	
 	return string_conversions[suit]
 
@@ -115,6 +117,23 @@ func process_card(body:Character) -> void:
 			status_data.attack_damage_multiplier += opposite_suit_power
 			active_card_mode = 2
 			extra_attribute_name = ""
+		SUITS.HEART:
+			match value:
+				VALUES.ACE:
+					body.health += 5
+				VALUES.DEUCE:
+					body.maximum_health += 1
+					body.health += 3
+			active_card_mode = 1
+		SUITS.BLACKHEART:
+			match value:
+				VALUES.ACE:
+					body.maximum_health -= 1
+					body.health += 10
+				VALUES.DEUCE:
+					body.maximum_health -= 2
+					body.health += 25
+			active_card_mode = 1
 	
 	match value:
 		VALUES.JACK:
