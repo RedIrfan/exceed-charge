@@ -21,15 +21,21 @@ func enter(msg=[]):
 	var active_card : CardData
 	if msg[0] == MODES.PRIMARY:
 		active_card = body.status.primary_active_card
+	else:
+		active_card = body.status.secondary_active_card
 		
-		match active_card.suit:
-			CardData.SUITS.PENTAGON:
-				fsm.enter_state("SkillGroundPound")
-			CardData.SUITS.TRIANGLE:
-				fsm.enter_state("SkillTeleport")
-			CardData.SUITS.HEART:
-				fsm.enter_state("SkillHeart")
-			CardData.SUITS.BLACKHEART:
-				fsm.enter_state("SkillBlackHeart")
+	match active_card.suit:
+		CardData.SUITS.PENTAGON:
+			fsm.enter_state("SkillGroundPound")
+		CardData.SUITS.TRIANGLE:
+			fsm.enter_state("SkillTeleport")
+		CardData.SUITS.DIAMOND:
+			pass
+		CardData.SUITS.ARROW:
+			fsm.enter_state("SkillInstantSlash")
+		CardData.SUITS.HEART:
+			fsm.enter_state("SkillHeart")
+		CardData.SUITS.BLACKHEART:
+			fsm.enter_state("SkillBlackHeart")
 		
-		body.status.remove_active_charge(msg[0], 1)
+	body.status.remove_active_charge(msg[0], 1)

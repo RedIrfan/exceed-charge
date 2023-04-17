@@ -1,0 +1,327 @@
+[gd_scene load_steps=27 format=3 uid="uid://db0hdhubh6jey"]
+
+[ext_resource type="PackedScene" uid="uid://b2obq0cwg452y" path="res://Objects/Effects/Effect.tscn" id="1_5f8a5"]
+[ext_resource type="Script" path="res://Objects/Effects/Attacks/Player/EffectAttackPlayer.gd" id="2_o4dl1"]
+[ext_resource type="Script" path="res://Objects/Engine/CollisionBox/Hitbox.gd" id="3_ruc3j"]
+[ext_resource type="ArrayMesh" uid="uid://cu55q2ghga8vv" path="res://Assets/Projectiles/SlashProjectile.obj" id="4_c41de"]
+[ext_resource type="Shader" path="res://Objects/Shaders/Slash.gdshader" id="5_co0ly"]
+
+[sub_resource type="Gradient" id="Gradient_wt4i2"]
+offsets = PackedFloat32Array(0, 0.24581)
+colors = PackedColorArray(1, 1, 1, 0.960784, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q0vvo"]
+gradient = SubResource("Gradient_wt4i2")
+
+[sub_resource type="Curve" id="Curve_32tjm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.276119, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2mn7a"]
+curve = SubResource("Curve_32tjm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_abomd"]
+direction = Vector3(0, 0, 1)
+flatness = 1.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+scale_curve = SubResource("CurveTexture_2mn7a")
+color_ramp = SubResource("GradientTexture1D_q0vvo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1suvl"]
+transparency = 1
+diffuse_mode = 3
+specular_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.905882, 0.764706, 0.188235, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_jqbag"]
+material = SubResource("StandardMaterial3D_1suvl")
+radius = 0.125
+height = 0.25
+radial_segments = 8
+rings = 4
+
+[sub_resource type="Gradient" id="Gradient_6au7y"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gaw22"]
+gradient = SubResource("Gradient_6au7y")
+fill_from = Vector2(1, 0.0997151)
+fill_to = Vector2(0, 0.7151)
+
+[sub_resource type="Gradient" id="Gradient_jo157"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0y0hl"]
+gradient = SubResource("Gradient_jo157")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_85584"]
+render_priority = 0
+shader = ExtResource("5_co0ly")
+shader_parameter/albedo = Color(0.905882, 0.764706, 0.188235, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/emission_amount = 0.0
+shader_parameter/burn_size = 0.5
+shader_parameter/dissolve_amount = 1.0
+shader_parameter/texture_albedo = SubResource("GradientTexture2D_0y0hl")
+shader_parameter/dissolve_texture = SubResource("GradientTexture2D_gaw22")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ebyb"]
+size = Vector3(0.5, 1.4, 1)
+
+[sub_resource type="Animation" id="Animation_o34p2"]
+resource_name = "Play"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.700028, -0.5), Vector3(0, -0.7, -10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node3D/GPUParticles3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.000118792, -0.5), Vector3(0, 0, -10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node3D/GPUParticles3D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_hhxqr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node3D/GPUParticles3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.000118792, -0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_50yja"]
+_data = {
+"Play": SubResource("Animation_o34p2"),
+"RESET": SubResource("Animation_hhxqr")
+}
+
+[sub_resource type="Animation" id="Animation_l0ylr"]
+resource_name = "Play"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.700028, -0.5), Vector3(0, -0.7, -5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.000118792, -0.5), Vector3(0, 0, -5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles3D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ffe11"]
+_data = {
+"Play": SubResource("Animation_l0ylr")
+}
+
+[sub_resource type="Animation" id="Animation_hwwj0"]
+resource_name = "Play"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.700028, -0.5), Vector3(0, -0.7, -5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -0.000118792, -0.5), Vector3(0, 0, -5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles3D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_v0oko"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_edg8b"]
+_data = {
+"Play": SubResource("Animation_hwwj0"),
+"RESET": SubResource("Animation_v0oko")
+}
+
+[node name="SkillInstantSlash" node_paths=PackedStringArray("hitbox") instance=ExtResource("1_5f8a5")]
+script = ExtResource("2_o4dl1")
+hitbox = NodePath("Node3D/MeshInstance3D/Hitbox")
+damage = 5
+damage_type = 0
+force_damage = false
+damage_active_duration = 0.5
+var_extra_hitboxes = Array[NodePath]([NodePath("Node3D2/MeshInstance3D/Hitbox"), NodePath("Node3D3/MeshInstance3D/Hitbox")])
+get_rotation_from_body = true
+duration = 0.6
+
+[node name="Node3D" type="Node3D" parent="." index="1"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Node3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000118792, -0.5)
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_abomd")
+draw_pass_1 = SubResource("SphereMesh_jqbag")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, -10)
+mesh = ExtResource("4_c41de")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_85584")
+
+[node name="Hitbox" type="Area3D" parent="Node3D/MeshInstance3D" index="0" node_paths=PackedStringArray("attack_position")]
+script = ExtResource("3_ruc3j")
+attack_position = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/MeshInstance3D/Hitbox" index="0"]
+shape = SubResource("BoxShape3D_7ebyb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D" index="2"]
+root_node = NodePath("../..")
+autoplay = "Play"
+libraries = {
+"": SubResource("AnimationLibrary_50yja")
+}
+
+[node name="Node3D2" type="Node3D" parent="." index="2"]
+transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, 0, 0, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Node3D2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_abomd")
+draw_pass_1 = SubResource("SphereMesh_jqbag")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, -5)
+mesh = ExtResource("4_c41de")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_85584")
+
+[node name="Hitbox" type="Area3D" parent="Node3D2/MeshInstance3D" index="0" node_paths=PackedStringArray("attack_position")]
+script = ExtResource("3_ruc3j")
+attack_position = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D2/MeshInstance3D/Hitbox" index="0"]
+shape = SubResource("BoxShape3D_7ebyb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D2" index="2"]
+autoplay = "Play"
+libraries = {
+"": SubResource("AnimationLibrary_ffe11")
+}
+
+[node name="Node3D3" type="Node3D" parent="." index="3"]
+transform = Transform3D(0.939693, 0, -0.34202, 0, 1, 0, 0.34202, 0, 0.939693, 0, 0, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Node3D3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.9396e-05, -2.75)
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_abomd")
+draw_pass_1 = SubResource("SphereMesh_jqbag")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D3" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40071e-05, -2.75)
+mesh = ExtResource("4_c41de")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_85584")
+
+[node name="Hitbox" type="Area3D" parent="Node3D3/MeshInstance3D" index="0" node_paths=PackedStringArray("attack_position")]
+script = ExtResource("3_ruc3j")
+attack_position = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D3/MeshInstance3D/Hitbox" index="0"]
+shape = SubResource("BoxShape3D_7ebyb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D3" index="2"]
+autoplay = "Play"
+libraries = {
+"": SubResource("AnimationLibrary_edg8b")
+}
