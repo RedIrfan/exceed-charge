@@ -52,7 +52,7 @@ func spawn(spawner, spawn_transform, exception_group="", parameters=[]):
 	
 	hitbox.body = spawner
 	hitbox.exception_group = exception_group
-	hitbox.set_damage(damage)
+	set_damage(spawner)
 	
 	self.global_transform = spawn_transform
 	spawn_position = self.global_position
@@ -65,6 +65,10 @@ func spawn(spawner, spawn_transform, exception_group="", parameters=[]):
 		set_velocity = true
 	
 	_on_spawn(parameters)
+
+
+func set_damage(_spawner):
+	hitbox.set_damage(damage)
 
 
 func _on_spawn(_parameters=[]):
