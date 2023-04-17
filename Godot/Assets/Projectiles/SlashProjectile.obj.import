@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cu55q2ghga8vv"
+path="res://.godot/imported/SlashProjectile.obj-37d5425716b330db24bd22f80632b2db.mesh"
+
+[deps]
+
+files=["res://.godot/imported/SlashProjectile.obj-37d5425716b330db24bd22f80632b2db.mesh"]
+
+source_file="res://Assets/Projectiles/SlashProjectile.obj"
+dest_files=["res://.godot/imported/SlashProjectile.obj-37d5425716b330db24bd22f80632b2db.mesh", "res://.godot/imported/SlashProjectile.obj-37d5425716b330db24bd22f80632b2db.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
