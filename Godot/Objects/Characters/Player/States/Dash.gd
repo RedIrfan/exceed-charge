@@ -84,7 +84,7 @@ func physics_process(_delta):
 	if dashing == true:
 		body.set_dust_particles(true)
 		
-		if check_primary_attack():
+		if check_primary_attack() and body.get_total_passive_card(CardData.SUITS.ARROW, CardData.VALUES.THREE):
 			fsm.enter_state("PrimaryAttackMaster", [get_relative_direction_name(dash_direction)])
 		apply_direction(dash_direction)
 
