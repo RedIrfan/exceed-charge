@@ -11,6 +11,7 @@ enum ELEMENTS{
 }
 
 signal passive_cards_changed
+signal active_cards_changed
 signal element_changed(to_element)
 
 @export_group("Multiplier")
@@ -47,17 +48,18 @@ func _init(new_defense:float=1.0,new_speed:float=1.0,new_damage:float=1.0,new_at
 
 func add_active_card(mode:int, card:CardData, charge:int):
 	if mode == 1:
-		if primary_active_card == null:
+		if primary_active_card == null or primary_active_card.suit != card.suit:
 			primary_active_card = card
 			primary_active_card_charge = charge
 		elif primary_active_card.suit == card.suit:
 			primary_active_card_charge += charge
 	else:
-		if secondary_active_card == null:
+		if secondary_active_card == null or secondary_active_card.suit != card.suit:
 			secondary_active_card = card
 			secondary_active_card_charge = charge
 		elif secondary_active_card.suit == card.suit:
 			secondary_active_card_charge += charge
+	emit_signal("active_cards_changed")
 
 
 func remove_active_charge(mode:int, amount:int):
@@ -69,6 +71,7 @@ func remove_active_charge(mode:int, amount:int):
 		secondary_active_card_charge -= amount
 		if secondary_active_card_charge <= 0:
 			secondary_active_card = null
+	emit_signal("active_cards_changed")
 
 
 func set_element(new_element:ELEMENTS):

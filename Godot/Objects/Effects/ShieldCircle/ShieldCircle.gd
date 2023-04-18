@@ -74,9 +74,10 @@ func spawn_shields(amount:int, mesh:PackedScene, shield_collection:Dictionary, o
 func _on_player_exceeded_charge():
 	var suit = player.get_exceed_charge_suit()
 	if suit == CardData.SUITS.PENTAGON or suit == CardData.SUITS.TRIANGLE:
-		player.add_passive_cards(player.get_exceed_charge_suit(), CardData.VALUES.THREE, 5)
+		if player.get_total_passive_card(suit, CardData.VALUES.THREE) < 5:
+			player.add_passive_cards(suit, CardData.VALUES.THREE, 5)
 		
-		shield_regeneration_duration = 0.2
+		shield_regeneration_duration = 1
 	if suit == CardData.SUITS.HEART or suit == CardData.SUITS.BLACKHEART:
 		shield_regeneration_duration = 1
 		if suit == CardData.SUITS.BLACKHEART:
@@ -97,7 +98,7 @@ func _on_shield_regeneration_timer_timeout():
 			if player.get_total_passive_card(suit, CardData.VALUES.THREE) < 5:
 				player.add_passive_cards(suit, CardData.VALUES.THREE, 1)
 			
-			if suit == CardData.SUITS.PENTAGON and shield_regeneration_turn >= 8:
+			if suit == CardData.SUITS.PENTAGON and shield_regeneration_turn >= 2:
 				var shockwave = PENTAGON_SHOCKWAVE.instantiate()
 				shockwave.spawn(self.global_position, {"body" : player})
 				

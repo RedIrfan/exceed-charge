@@ -42,14 +42,16 @@ func _init(new_value : VALUES=VALUES.ACE, new_suit : SUITS=SUITS.PENTAGON, new_c
 
 func get_card_name() -> String:
 	if card_name == "":
-		card_name += value_to_string() + " Of " + suit_to_string()
+		@warning_ignore("static_called_on_instance")
+		card_name += value_to_string(value) + " Of " + suit_to_string(suit)
 	return card_name
 
 
 func get_card_image() -> Texture:
 	if card_image == null:
 		# res://Assets/Cards/Suits/Value.png
-		var img_path = "res://Assets/Cards/" + suit_to_string() + "/" + value_to_string() + ".png"
+		@warning_ignore("static_called_on_instance")
+		var img_path = "res://Assets/Cards/" + suit_to_string(suit) + "/" + value_to_string(value) + ".png"
 		
 		card_image = load(img_path)
 	return card_image
@@ -69,16 +71,16 @@ func get_card_drop_chance(_receiver:Character) -> int:
 	return card_drop_chance
 
 
-func value_to_string() -> String:
+static func value_to_string(val) -> String:
 	var string_conversions = ["none", "Ace", "Deuce", "Three", "Four", "Jack"]
 	
-	return string_conversions[value]
+	return string_conversions[val]
 
 
-func suit_to_string()->String:
+static func suit_to_string(int_suit)->String:
 	var string_conversions = ["none", "Pentagons", "Triangles", "Diamonds", "Arrows", "Hearts", "Black Hearts", "Wilds"]
 	
-	return string_conversions[suit]
+	return string_conversions[int_suit]
 
 
 func process_card(body:Character) -> void:
