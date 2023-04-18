@@ -99,17 +99,6 @@ func _on_card_activated():
 
 
 func _on_passive_cards_changed():
-#	for suit in CardData.SUITS:
-#		for value in CardData.VALUES:
-#			var card_id = str(suit) + str(value)
-#			var card_amount = player.get_total_passive_card(suit, value)
-#			if passive_card_uis.has(card_id) == false:
-#				var ui = PASSIVE_CARD.instantiate()
-#				passive_card_parent.add_child(ui)
-#				ui.set_card_data(suit, value, 1)
-#
-#				passive_card_uis[card_id] = ui
-#			passive_card_uis[card_id].set_amount(card_amount)
 	var passive_cards = player.status.passive_cards
 	var looped_uis : Dictionary = {}
 	
