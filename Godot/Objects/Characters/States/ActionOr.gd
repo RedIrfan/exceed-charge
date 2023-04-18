@@ -1,7 +1,7 @@
 class_name ActionOr
 extends ActionData
 
-@export_enum("First", "Second") var choose_child_number : int
+@export var default_child_number : int = 1
 
 var possible_actions : Array[ActionData] = []
 
@@ -13,10 +13,11 @@ func _ready():
 
 
 func get_action_data(body) -> ActionData:
-	if get_chosen(body):
-		return possible_actions[choose_child_number]
-	return possible_actions[1] if choose_child_number == 0 else possible_actions[0]
+	var chosen = get_chosen(body)
+	if chosen != null:
+		return chosen
+	return possible_actions[default_child_number - 1]
 
 
-func get_chosen(body) -> bool:
-	return true
+func get_chosen(body) -> ActionData:
+	return null
