@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://yl0ax47os7of"]
+[gd_scene load_steps=26 format=3 uid="uid://yl0ax47os7of"]
 
 [ext_resource type="Script" path="res://Scenes/Guis/Hud/Hud.gd" id="1_1krw8"]
 [ext_resource type="Texture2D" uid="uid://dkcuxnecprxav" path="res://Assets/Hud/Hud.png" id="2_iaoah"]
@@ -12,10 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://csdfb5eedneg1" path="res://Assets/Xelu_Free_Controller&Key_Prompts/Keyboard & Mouse/Dark/E_Key_Dark.png" id="9_8r6nm"]
 [ext_resource type="Script" path="res://Scenes/Guis/Hud/PickupLabel.gd" id="9_bj2is"]
 [ext_resource type="Texture2D" uid="uid://c30281oavk8l0" path="res://Assets/Hud/Cards/ActiveCards/ActiveCardPanel.png" id="10_hh7ml"]
+[ext_resource type="Script" path="res://Scenes/Guis/Hud/ActiveCard/ActiveCards.gd" id="10_s7pse"]
 [ext_resource type="Texture2D" uid="uid://dnmor6dp05bwd" path="res://Assets/Xelu_Free_Controller&Key_Prompts/Keyboard & Mouse/Dark/Mouse_Left_Key_Dark.png" id="11_xiixa"]
 [ext_resource type="Texture2D" uid="uid://dvmj4o38hglx4" path="res://Assets/Xelu_Free_Controller&Key_Prompts/Keyboard & Mouse/Dark/Mouse_Right_Key_Dark.png" id="12_cd7u0"]
 [ext_resource type="Texture2D" uid="uid://6b3hcxbeefcy" path="res://Assets/Hud/Cards/ActiveCards/ChargeBar.png" id="12_jrnjy"]
 [ext_resource type="Texture2D" uid="uid://bu6dw3jvio77i" path="res://Assets/Xelu_Free_Controller&Key_Prompts/Keyboard & Mouse/Dark/Shift_Key_Dark.png" id="14_4jj2d"]
+[ext_resource type="Texture2D" uid="uid://bg1cqq20m3ie8" path="res://Assets/Hud/Cards/PassiveCards/Arrows/Ace.png" id="16_xvh8r"]
 
 [sub_resource type="Theme" id="Theme_4jci3"]
 Label/font_sizes/font_size = 30
@@ -200,11 +202,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ActiveCards" type="Control" parent="Margin"]
+visible = false
 anchors_preset = 0
 offset_left = 515.0
 offset_top = 10.0
 offset_right = 777.0
 offset_bottom = 167.0
+script = ExtResource("10_s7pse")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Margin/ActiveCards"]
 layout_mode = 2
@@ -216,21 +220,6 @@ theme_override_constants/separation = 20
 layout_mode = 2
 texture = ExtResource("10_hh7ml")
 
-[node name="ActivatePrompt" type="TextureRect" parent="Margin/ActiveCards/HBoxContainer/PrimaryActiveCard"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_top = -10.0
-offset_right = 20.0
-offset_bottom = 30.0
-grow_horizontal = 2
-scale = Vector2(1.65, 1.65)
-pivot_offset = Vector2(20, 0)
-texture = ExtResource("11_xiixa")
-expand_mode = 1
-
 [node name="SuitPip" type="TextureRect" parent="Margin/ActiveCards/HBoxContainer/PrimaryActiveCard"]
 layout_mode = 1
 anchors_preset = 5
@@ -241,6 +230,9 @@ offset_top = 12.0
 offset_right = 49.5
 offset_bottom = 107.0
 grow_horizontal = 2
+texture = ExtResource("16_xvh8r")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="CardChargeBar" type="TextureProgressBar" parent="Margin/ActiveCards/HBoxContainer/PrimaryActiveCard"]
 layout_mode = 1
@@ -255,27 +247,31 @@ offset_right = 49.0
 offset_bottom = -13.3333
 grow_horizontal = 2
 grow_vertical = 0
-value = 54.0
+max_value = 1.0
+value = 1.0
 texture_progress = ExtResource("12_jrnjy")
+
+[node name="ActivatePrompt" type="TextureRect" parent="Margin/ActiveCards/HBoxContainer/PrimaryActiveCard"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.3333
+offset_right = 20.0
+offset_bottom = 16.6667
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.65, 1.65)
+pivot_offset = Vector2(20, 0)
+texture = ExtResource("11_xiixa")
+expand_mode = 1
 
 [node name="SecondaryActiveCard" type="TextureRect" parent="Margin/ActiveCards/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("10_hh7ml")
-
-[node name="ActivatePrompt" type="TextureRect" parent="Margin/ActiveCards/HBoxContainer/SecondaryActiveCard"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_top = -10.0
-offset_right = 20.0
-offset_bottom = 30.0
-grow_horizontal = 2
-scale = Vector2(1.65, 1.65)
-pivot_offset = Vector2(20, 0)
-texture = ExtResource("12_cd7u0")
-expand_mode = 1
 
 [node name="SuitPip" type="TextureRect" parent="Margin/ActiveCards/HBoxContainer/SecondaryActiveCard"]
 layout_mode = 1
@@ -301,8 +297,26 @@ offset_right = 49.0
 offset_bottom = -13.3333
 grow_horizontal = 2
 grow_vertical = 0
-value = 54.0
+max_value = 1.0
 texture_progress = ExtResource("12_jrnjy")
+
+[node name="ActivatePrompt" type="TextureRect" parent="Margin/ActiveCards/HBoxContainer/SecondaryActiveCard"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.3333
+offset_right = 20.0
+offset_bottom = 16.6667
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.65, 1.65)
+pivot_offset = Vector2(20, 0)
+texture = ExtResource("12_cd7u0")
+expand_mode = 1
 
 [node name="ActiveModePrompt" type="TextureRect" parent="Margin/ActiveCards"]
 layout_mode = 1
