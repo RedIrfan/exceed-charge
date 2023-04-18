@@ -80,7 +80,7 @@ func _on_animation_timeout():
 
 
 func play_action():
-	var action : ActionData = actions[action_index]
+	var action : ActionData = actions[action_index].get_action_data(body)
 	
 	if action.animation_name != "":
 		body.play_animation(action.animation_name, 0, true)

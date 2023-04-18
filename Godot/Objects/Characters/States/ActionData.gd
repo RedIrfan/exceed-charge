@@ -42,3 +42,7 @@ signal action_played
 @export var physics_collision_mask_mode : bool = false
 
 var divided_to_whole_duration : float = 0
+
+
+func get_action_data(_body) -> ActionData:
+	return self

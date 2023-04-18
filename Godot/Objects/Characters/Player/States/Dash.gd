@@ -85,7 +85,8 @@ func physics_process(_delta):
 		body.set_dust_particles(true)
 		
 		if check_primary_attack():
-			fsm.enter_state("PrimaryAttackMaster", [get_relative_direction_name(dash_direction)])
+			if body.get_total_passive_card(CardData.SUITS.ARROW, CardData.VALUES.THREE) or body.get_exceed_charge_suit() == CardData.SUITS.ARROW:
+				fsm.enter_state("PrimaryAttackMaster", [get_relative_direction_name(dash_direction)])
 		apply_direction(dash_direction)
 
 
