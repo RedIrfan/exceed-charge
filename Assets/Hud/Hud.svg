@@ -25,9 +25,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.4204826"
-     inkscape:cx="297.27746"
-     inkscape:cy="272.30615"
+     inkscape:zoom="0.5946522"
+     inkscape:cx="2132.3389"
+     inkscape:cy="470.02265"
      inkscape:window-width="1024"
      inkscape:window-height="705"
      inkscape:window-x="-8"
@@ -36,6 +36,24 @@
      inkscape:current-layer="layer1" />
   <defs
      id="defs12850">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5717">
+      <stop
+         style="stop-color:#ab9411;stop-opacity:1;"
+         offset="0"
+         id="stop5715" />
+      <stop
+         style="stop-color:#ced118;stop-opacity:1;"
+         offset="1"
+         id="stop5713" />
+    </linearGradient>
+    <rect
+       x="863.29375"
+       y="323.43788"
+       width="128.42386"
+       height="152.80062"
+       id="rect3985" />
     <rect
        x="119.39752"
        y="563.35451"
@@ -114,13 +132,23 @@
        width="734.04252"
        height="600.35093"
        id="rect33642" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5717"
+       id="linearGradient5719"
+       x1="218.9202"
+       y1="69.772787"
+       x2="270.1012"
+       y2="69.772787"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.80805366,0,0,0.87408168,42.559087,-0.53443501)" />
   </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#2f397f;fill-opacity:1;stroke:#151659;stroke-width:4.95952;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;stroke-linejoin:bevel"
+       style="fill:#2f397f;fill-opacity:1;stroke:#151659;stroke-width:4.96;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;stroke-linejoin:bevel"
        id="rect16714"
        width="149.69762"
        height="35.040482"
@@ -204,13 +232,6 @@
        inkscape:export-filename="..\..\Godot\Assets\Hud\DefenseLogo.png"
        inkscape:export-xdpi="60"
        inkscape:export-ydpi="60" />
-    <rect
-       style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:4.77121;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
-       id="rect30929"
-       width="40.228783"
-       height="40.228786"
-       x="134.25583"
-       y="154.85684" />
     <g
        id="g40592"
        transform="matrix(1.0063218,0,0,0.86011337,-0.48963799,12.642603)"
@@ -283,7 +304,8 @@
        id="g40655"
        inkscape:export-filename="..\..\Godot\Assets\Hud\AttackSpeedLogo.png"
        inkscape:export-xdpi="60"
-       inkscape:export-ydpi="60">
+       inkscape:export-ydpi="60"
+       transform="translate(101.3072,-76.76695)">
       <path
          style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
          d="m 72.891,168.21483 13.04038,8.43701 -13.04038,8.437 z"
@@ -319,6 +341,910 @@
            height="5.9790411"
            x="124.46419"
            y="117.57501" />
+      </g>
+    </g>
+    <path
+       style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       d="M 255.59992,13.237972 240.13683,42.842319 224.67374,13.237972 Z"
+       id="path5730"
+       sodipodi:nodetypes="cccc" />
+    <g
+       id="g16197"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\ActiveCards\ActiveCardPanel.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60">
+      <rect
+         style="fill:#151659;fill-opacity:1;stroke:#151659;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1374"
+         width="46.357243"
+         height="46.357243"
+         x="216.95821"
+         y="6.765605" />
+      <rect
+         style="fill:#151659;fill-opacity:1;stroke:#151659;stroke-width:4.9547;stroke-linecap:square;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1"
+         id="rect2151"
+         width="46.402298"
+         height="15.268253"
+         x="216.93568"
+         y="52.818554" />
+    </g>
+    <rect
+       style="fill:url(#linearGradient5719);fill-opacity:1;stroke:none;stroke-width:3.02664;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4091"
+       width="41.356998"
+       height="10"
+       x="219.45831"
+       y="55.452679"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\ActiveCards\ChargeBar.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <rect
+       style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:4.77121;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       id="rect30929"
+       width="40.228783"
+       height="40.228786"
+       x="131.47978"
+       y="153.59514" />
+    <rect
+       style="fill:#2f397f;fill-opacity:0.496454;stroke:#151659;stroke-width:4.98407;stroke-linecap:square;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       id="rect14843"
+       width="46.068928"
+       height="46.068928"
+       x="382.08575"
+       y="8.5822649"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\PassiveCardPanel.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <rect
+       style="fill:#2f397f;fill-opacity:0.496454;stroke:#151659;stroke-width:4.98407;stroke-linecap:square;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       id="rect15397"
+       width="46.068928"
+       height="46.068928"
+       x="382.08575"
+       y="70.224022" />
+    <path
+       style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       d="m 413.17554,84.791561 -8.05533,15.423009 -8.05533,-15.423009 z"
+       id="path15399"
+       sodipodi:nodetypes="cccc" />
+    <rect
+       style="fill:#2f397f;fill-opacity:0.496454;stroke:#151659;stroke-width:4.98407;stroke-linecap:square;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       id="rect15401"
+       width="46.068928"
+       height="46.068928"
+       x="382.08575"
+       y="131.70927" />
+    <path
+       style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       d="m 413.17554,146.2768 -8.05533,15.42302 -8.05533,-15.42302 z"
+       id="path15403"
+       sodipodi:nodetypes="cccc" />
+    <path
+       style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       d="m 636.24015,23.126306 -8.05533,15.423009 -8.05533,-15.423009 z"
+       id="path16385"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Arrows\Ace.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <path
+       id="path2268"
+       style="fill:#ced118;fill-opacity:1;stroke:#ab9411;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       d="m 700.9718,20.585268 -4.84984,6.651724 8.5272,9.511183 8.5272,-9.511183 -4.84974,-6.651724 c 0,0 -3.65836,4.23309 -3.67746,4.247555 -0.0192,-0.01449 -3.67736,-4.247555 -3.67736,-4.247555 z"
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Hearts\Ace.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <rect
+       style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.50001;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       id="rect349"
+       width="11.754437"
+       height="11.754435"
+       x="425.39984"
+       y="-394.75778"
+       transform="matrix(0.70829418,0.70591739,-0.70829418,0.70591739,0,0)"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Diamonds\Ace.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <path
+       sodipodi:type="star"
+       style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:10.1611;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       id="path6500"
+       inkscape:flatsided="true"
+       sodipodi:sides="5"
+       sodipodi:cx="103.50953"
+       sodipodi:cy="188.45657"
+       sodipodi:r1="37.58099"
+       sodipodi:r2="35.214733"
+       sodipodi:arg1="-2.8283488"
+       sodipodi:arg2="-2.2000302"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="m 67.757268,176.87613 35.717862,-26.00053 35.7654,25.9351 -13.61363,42.0293 -44.179081,0.0404 z"
+       inkscape:transform-center-x="0.16868031"
+       inkscape:transform-center-y="-0.87954078"
+       transform="matrix(0.23960073,0,0,0.25264425,445.86776,-22.835026)"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Pentagons\Ace.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <path
+       style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       d="M 528.46131,32.69328 520.07536,16.980325 511.68941,32.69328 Z"
+       id="path5730-8"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Triangles\Ace.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <path
+       id="path2268-2"
+       style="fill:#666a84;fill-opacity:1;stroke:#263168;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       d="m 761.89255,22.174246 -4.82783,6.652396 8.4885,9.512143 8.48851,-9.512143 -4.82772,-6.652396 c 0,0 -3.64178,4.233517 -3.66079,4.247984 -0.019,-0.01448 -3.66067,-4.247984 -3.66067,-4.247984 z"
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\BlackHearts\Ace.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60" />
+    <g
+       id="g19479"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Arrows\Deuce.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60"
+       transform="translate(122.07203,11.326271)">
+      <path
+         style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+         d="m 515.74121,50.812747 -8.05533,15.423009 -8.05533,-15.423009 z"
+         id="path19473"
+         sodipodi:nodetypes="cccc"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Arrows\Ace.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60" />
+      <path
+         style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+         d="m 528.56967,67.685821 -8.05533,-15.423009 -8.05533,15.423009 z"
+         id="path19475"
+         sodipodi:nodetypes="cccc"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Arrows\Ace.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60" />
+    </g>
+    <g
+       id="g19565"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Arrows\Three.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60"
+       transform="translate(122.07203,11.326271)">
+      <path
+         style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+         d="m 515.51874,83.070749 -8.05533,15.423009 -8.05533,-15.423009 z"
+         id="path19552"
+         sodipodi:nodetypes="cccc"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Arrows\Ace.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60" />
+      <path
+         style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+         d="m 528.3472,99.943823 -8.05533,-15.423009 -8.05533,15.423009 z"
+         id="path19554"
+         sodipodi:nodetypes="cccc"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Arrows\Ace.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60" />
+      <path
+         style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+         d="M 502.94706,99.943823 494.89173,84.520814 486.8364,99.943823 Z"
+         id="path19560"
+         sodipodi:nodetypes="cccc"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Arrows\Ace.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60" />
+    </g>
+    <g
+       id="g19660"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Arrows\Four.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60"
+       transform="translate(122.07203,11.326271)">
+      <g
+         id="g19646"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Arrows\Deuce.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60"
+         transform="translate(-4.0044416,61.623907)">
+        <path
+           style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+           d="m 515.74121,50.812747 -8.05533,15.423009 -8.05533,-15.423009 z"
+           id="path19642"
+           sodipodi:nodetypes="cccc"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Arrows\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+        <path
+           style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+           d="m 528.56967,67.685821 -8.05533,-15.423009 -8.05533,15.423009 z"
+           id="path19644"
+           sodipodi:nodetypes="cccc"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Arrows\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+      </g>
+      <g
+         id="g19652"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Arrows\Deuce.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60"
+         transform="translate(-4.0044416,83.319852)">
+        <path
+           style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+           d="m 515.74121,50.812747 -8.05533,15.423009 -8.05533,-15.423009 z"
+           id="path19648"
+           sodipodi:nodetypes="cccc"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Arrows\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+        <path
+           style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+           d="m 528.56967,67.685821 -8.05533,-15.423009 -8.05533,15.423009 z"
+           id="path19650"
+           sodipodi:nodetypes="cccc"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Arrows\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+      </g>
+    </g>
+    <g
+       id="g19750"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Triangles\Deuce.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60"
+       transform="translate(57.260594,5.6631357)">
+      <path
+         style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         d="m 469.94223,67.930569 -8.38595,-15.712955 -8.38595,15.712955 z"
+         id="path19744"
+         sodipodi:nodetypes="cccc"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Triangles\Ace.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60" />
+      <path
+         style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         d="m 483.17147,50.812771 -8.38595,15.712955 -8.38595,-15.712955 z"
+         id="path19746"
+         sodipodi:nodetypes="cccc"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Triangles\Ace.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60" />
+    </g>
+    <g
+       id="g19770"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Triangles\Three.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60"
+       transform="translate(57.260594,5.6631357)">
+      <g
+         id="g19756"
+         transform="translate(-0.4821623,28.315678)">
+        <path
+           style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 469.94223,67.930569 -8.38595,-15.712955 -8.38595,15.712955 z"
+           id="path19752"
+           sodipodi:nodetypes="cccc"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Triangles\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+        <path
+           style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 483.17147,50.812771 -8.38595,15.712955 -8.38595,-15.712955 z"
+           id="path19754"
+           sodipodi:nodetypes="cccc"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Triangles\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+      </g>
+      <g
+         id="g19762"
+         transform="matrix(1,0,0,-1,-13.711332,147.05902)">
+        <path
+           style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 469.94223,67.930569 -8.38595,-15.712955 -8.38595,15.712955 z"
+           id="path19758"
+           sodipodi:nodetypes="cccc"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Triangles\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+        <path
+           style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 483.17147,50.812771 -8.38595,15.712955 -8.38595,-15.712955 z"
+           id="path19760"
+           sodipodi:nodetypes="cccc"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Triangles\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+      </g>
+    </g>
+    <g
+       id="g19790"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Triangles\Four.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60"
+       transform="translate(57.260594,5.6631357)">
+      <g
+         id="g19776"
+         transform="translate(-6.2923729,59.777543)">
+        <path
+           style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 469.94223,67.930569 -8.38595,-15.712955 -8.38595,15.712955 z"
+           id="path19772"
+           sodipodi:nodetypes="cccc"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Triangles\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+        <path
+           style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 483.17147,50.812771 -8.38595,15.712955 -8.38595,-15.712955 z"
+           id="path19774"
+           sodipodi:nodetypes="cccc"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Triangles\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+      </g>
+      <g
+         id="g19782"
+         transform="translate(-6.2923729,82.002555)">
+        <path
+           style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 469.94223,67.930569 -8.38595,-15.712955 -8.38595,15.712955 z"
+           id="path19778"
+           sodipodi:nodetypes="cccc"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Triangles\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+        <path
+           style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 483.17147,50.812771 -8.38595,15.712955 -8.38595,-15.712955 z"
+           id="path19780"
+           sodipodi:nodetypes="cccc"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Triangles\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+      </g>
+    </g>
+    <g
+       id="g19798"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Pentagons\Deuce.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60">
+      <path
+         sodipodi:type="star"
+         style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:10.1611;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         id="path19792"
+         inkscape:flatsided="true"
+         sodipodi:sides="5"
+         sodipodi:cx="103.50953"
+         sodipodi:cy="188.45657"
+         sodipodi:r1="37.58099"
+         sodipodi:r2="35.214733"
+         sodipodi:arg1="-2.8283488"
+         sodipodi:arg2="-2.2000302"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 67.757268,176.87613 35.717862,-26.00053 35.7654,25.9351 -13.61363,42.0293 -44.179081,0.0404 z"
+         inkscape:transform-center-x="0.16868031"
+         inkscape:transform-center-y="-0.87954078"
+         transform="matrix(0.23960073,0,0,0.25264425,442.40695,15.23383)"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Pentagons\Ace.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60" />
+      <path
+         sodipodi:type="star"
+         style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:10.1611;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         id="path19794"
+         inkscape:flatsided="true"
+         sodipodi:sides="5"
+         sodipodi:cx="103.50953"
+         sodipodi:cy="188.45657"
+         sodipodi:r1="37.58099"
+         sodipodi:r2="35.214733"
+         sodipodi:arg1="-2.8283488"
+         sodipodi:arg2="-2.2000302"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 67.757268,176.87613 35.717862,-26.00053 35.7654,25.9351 -13.61363,42.0293 -44.179081,0.0404 z"
+         inkscape:transform-center-x="0.16868031"
+         inkscape:transform-center-y="0.87954165"
+         transform="matrix(0.23960073,0,0,-0.25264425,455.25538,96.014654)"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Pentagons\Ace.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60" />
+    </g>
+    <g
+       id="g19920"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Pentagons\Three.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60">
+      <g
+         id="g19906"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Pentagons\Deuce.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60"
+         transform="translate(-4.8943175,43.158982)">
+        <path
+           sodipodi:type="star"
+           style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:10.1611;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           id="path19902"
+           inkscape:flatsided="true"
+           sodipodi:sides="5"
+           sodipodi:cx="103.50953"
+           sodipodi:cy="188.45657"
+           sodipodi:r1="37.58099"
+           sodipodi:r2="35.214733"
+           sodipodi:arg1="-2.8283488"
+           sodipodi:arg2="-2.2000302"
+           inkscape:rounded="0"
+           inkscape:randomized="0"
+           d="m 67.757268,176.87613 35.717862,-26.00053 35.7654,25.9351 -13.61363,42.0293 -44.179081,0.0404 z"
+           inkscape:transform-center-x="0.16868031"
+           inkscape:transform-center-y="-0.87954078"
+           transform="matrix(0.23960073,0,0,0.25264425,442.40695,15.23383)"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Pentagons\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+        <path
+           sodipodi:type="star"
+           style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:10.1611;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           id="path19904"
+           inkscape:flatsided="true"
+           sodipodi:sides="5"
+           sodipodi:cx="103.50953"
+           sodipodi:cy="188.45657"
+           sodipodi:r1="37.58099"
+           sodipodi:r2="35.214733"
+           sodipodi:arg1="-2.8283488"
+           sodipodi:arg2="-2.2000302"
+           inkscape:rounded="0"
+           inkscape:randomized="0"
+           d="m 67.757268,176.87613 35.717862,-26.00053 35.7654,25.9351 -13.61363,42.0293 -44.179081,0.0404 z"
+           inkscape:transform-center-x="0.16868031"
+           inkscape:transform-center-y="0.87954165"
+           transform="matrix(0.23960073,0,0,-0.25264425,455.25538,96.014654)"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Pentagons\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+      </g>
+      <g
+         id="g19912"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Pentagons\Deuce.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60"
+         transform="matrix(-1,0,0,1,929.66391,43.158982)">
+        <path
+           sodipodi:type="star"
+           style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:10.1611;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           id="path19908"
+           inkscape:flatsided="true"
+           sodipodi:sides="5"
+           sodipodi:cx="103.50953"
+           sodipodi:cy="188.45657"
+           sodipodi:r1="37.58099"
+           sodipodi:r2="35.214733"
+           sodipodi:arg1="-2.8283488"
+           sodipodi:arg2="-2.2000302"
+           inkscape:rounded="0"
+           inkscape:randomized="0"
+           d="m 67.757268,176.87613 35.717862,-26.00053 35.7654,25.9351 -13.61363,42.0293 -44.179081,0.0404 z"
+           inkscape:transform-center-x="0.16868031"
+           inkscape:transform-center-y="-0.87954078"
+           transform="matrix(0.23960073,0,0,0.25264425,442.40695,15.23383)"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Pentagons\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+        <path
+           sodipodi:type="star"
+           style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:10.1611;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           id="path19910"
+           inkscape:flatsided="true"
+           sodipodi:sides="5"
+           sodipodi:cx="103.50953"
+           sodipodi:cy="188.45657"
+           sodipodi:r1="37.58099"
+           sodipodi:r2="35.214733"
+           sodipodi:arg1="-2.8283488"
+           sodipodi:arg2="-2.2000302"
+           inkscape:rounded="0"
+           inkscape:randomized="0"
+           d="m 67.757268,176.87613 35.717862,-26.00053 35.7654,25.9351 -13.61363,42.0293 -44.179081,0.0404 z"
+           inkscape:transform-center-x="0.16868031"
+           inkscape:transform-center-y="0.87954165"
+           transform="matrix(0.23960073,0,0,-0.25264425,455.25538,96.014654)"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Pentagons\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+      </g>
+    </g>
+    <g
+       id="g20057"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Pentagons\Four.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60">
+      <g
+         id="g20035"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Pentagons\Deuce.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60"
+         transform="translate(-8.1800848,88.722458)">
+        <path
+           sodipodi:type="star"
+           style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:10.1611;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           id="path20031"
+           inkscape:flatsided="true"
+           sodipodi:sides="5"
+           sodipodi:cx="103.50953"
+           sodipodi:cy="188.45657"
+           sodipodi:r1="37.58099"
+           sodipodi:r2="35.214733"
+           sodipodi:arg1="-2.8283488"
+           sodipodi:arg2="-2.2000302"
+           inkscape:rounded="0"
+           inkscape:randomized="0"
+           d="m 67.757268,176.87613 35.717862,-26.00053 35.7654,25.9351 -13.61363,42.0293 -44.179081,0.0404 z"
+           inkscape:transform-center-x="0.16868031"
+           inkscape:transform-center-y="-0.87954078"
+           transform="matrix(0.23960073,0,0,0.25264425,442.40695,15.23383)"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Pentagons\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+        <path
+           sodipodi:type="star"
+           style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:10.1611;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           id="path20033"
+           inkscape:flatsided="true"
+           sodipodi:sides="5"
+           sodipodi:cx="103.50953"
+           sodipodi:cy="188.45657"
+           sodipodi:r1="37.58099"
+           sodipodi:r2="35.214733"
+           sodipodi:arg1="-2.8283488"
+           sodipodi:arg2="-2.2000302"
+           inkscape:rounded="0"
+           inkscape:randomized="0"
+           d="m 67.757268,176.87613 35.717862,-26.00053 35.7654,25.9351 -13.61363,42.0293 -44.179081,0.0404 z"
+           inkscape:transform-center-x="0.16868031"
+           inkscape:transform-center-y="0.87954165"
+           transform="matrix(0.23960073,0,0,-0.25264425,455.25538,96.014654)"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Pentagons\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+      </g>
+      <g
+         id="g20041"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Pentagons\Deuce.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60"
+         transform="translate(-2.3592512,111.4767)">
+        <path
+           sodipodi:type="star"
+           style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:10.1611;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           id="path20037"
+           inkscape:flatsided="true"
+           sodipodi:sides="5"
+           sodipodi:cx="103.50953"
+           sodipodi:cy="188.45657"
+           sodipodi:r1="37.58099"
+           sodipodi:r2="35.214733"
+           sodipodi:arg1="-2.8283488"
+           sodipodi:arg2="-2.2000302"
+           inkscape:rounded="0"
+           inkscape:randomized="0"
+           d="m 67.757268,176.87613 35.717862,-26.00053 35.7654,25.9351 -13.61363,42.0293 -44.179081,0.0404 z"
+           inkscape:transform-center-x="0.16868031"
+           inkscape:transform-center-y="-0.87954078"
+           transform="matrix(0.23960073,0,0,0.25264425,442.40695,15.23383)"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Pentagons\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+        <path
+           sodipodi:type="star"
+           style="fill:#19c7bf;fill-opacity:1;stroke:#116590;stroke-width:10.1611;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           id="path20039"
+           inkscape:flatsided="true"
+           sodipodi:sides="5"
+           sodipodi:cx="103.50953"
+           sodipodi:cy="188.45657"
+           sodipodi:r1="37.58099"
+           sodipodi:r2="35.214733"
+           sodipodi:arg1="-2.8283488"
+           sodipodi:arg2="-2.2000302"
+           inkscape:rounded="0"
+           inkscape:randomized="0"
+           d="m 67.757268,176.87613 35.717862,-26.00053 35.7654,25.9351 -13.61363,42.0293 -44.179081,0.0404 z"
+           inkscape:transform-center-x="0.16868031"
+           inkscape:transform-center-y="0.87954165"
+           transform="matrix(0.23960073,0,0,-0.25264425,455.25538,96.014654)"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Pentagons\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+      </g>
+    </g>
+    <g
+       id="g20297"
+       transform="translate(50.968208,6.2923729)"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Hearts\Deuce.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60">
+      <path
+         id="path20291"
+         style="fill:#ced118;fill-opacity:1;stroke:#ab9411;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         d="m 642.88458,57.896815 -4.84984,6.651724 8.5272,9.511183 8.5272,-9.511183 -4.84974,-6.651724 c 0,0 -3.65836,4.23309 -3.67746,4.247555 -0.0192,-0.01449 -3.67736,-4.247555 -3.67736,-4.247555 z"
+         sodipodi:nodetypes="ccccccc"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Hearts\Ace.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60" />
+      <path
+         id="path20293"
+         style="fill:#ced118;fill-opacity:1;stroke:#ab9411;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         d="m 659.28882,62.811929 -4.84984,-6.651724 8.5272,-9.511183 8.5272,9.511183 -4.84974,6.651724 c 0,0 -3.65836,-4.23309 -3.67746,-4.247555 -0.0192,0.01449 -3.67736,4.247555 -3.67736,4.247555 z"
+         sodipodi:nodetypes="ccccccc"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Hearts\Ace.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60" />
+    </g>
+    <g
+       id="g20317"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Hearts\Three.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60"
+       transform="translate(50.968221,6.2923729)">
+      <g
+         id="g20303"
+         transform="translate(14.157826,39.64195)">
+        <path
+           id="path20299"
+           style="fill:#ced118;fill-opacity:1;stroke:#ab9411;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 642.88458,57.896815 -4.84984,6.651724 8.5272,9.511183 8.5272,-9.511183 -4.84974,-6.651724 c 0,0 -3.65836,4.23309 -3.67746,4.247555 -0.0192,-0.01449 -3.67736,-4.247555 -3.67736,-4.247555 z"
+           sodipodi:nodetypes="ccccccc"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Hearts\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+        <path
+           id="path20301"
+           style="fill:#ced118;fill-opacity:1;stroke:#ab9411;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 659.28882,62.811929 -4.84984,-6.651724 8.5272,-9.511183 8.5272,9.511183 -4.84974,6.651724 c 0,0 -3.65836,-4.23309 -3.67746,-4.247555 -0.0192,0.01449 -3.67736,4.247555 -3.67736,4.247555 z"
+           sodipodi:nodetypes="ccccccc"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Hearts\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+      </g>
+      <g
+         id="g20309"
+         transform="matrix(-1,0,0,1,1307.281,39.64195)">
+        <path
+           id="path20305"
+           style="fill:#ced118;fill-opacity:1;stroke:#ab9411;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 642.88458,57.896815 -4.84984,6.651724 8.5272,9.511183 8.5272,-9.511183 -4.84974,-6.651724 c 0,0 -3.65836,4.23309 -3.67746,4.247555 -0.0192,-0.01449 -3.67736,-4.247555 -3.67736,-4.247555 z"
+           sodipodi:nodetypes="ccccccc"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Hearts\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+        <path
+           id="path20307"
+           style="fill:#ced118;fill-opacity:1;stroke:#ab9411;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 659.28882,62.811929 -4.84984,-6.651724 8.5272,-9.511183 8.5272,9.511183 -4.84974,6.651724 c 0,0 -3.65836,-4.23309 -3.67746,-4.247555 -0.0192,0.01449 -3.67736,4.247555 -3.67736,4.247555 z"
+           sodipodi:nodetypes="ccccccc"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Hearts\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+      </g>
+    </g>
+    <g
+       id="g20337"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Hearts\Four.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60"
+       transform="translate(50.968221,6.2923729)">
+      <g
+         id="g20323"
+         transform="translate(2.2023173,77.710806)">
+        <path
+           id="path20319"
+           style="fill:#ced118;fill-opacity:1;stroke:#ab9411;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 642.88458,57.896815 -4.84984,6.651724 8.5272,9.511183 8.5272,-9.511183 -4.84974,-6.651724 c 0,0 -3.65836,4.23309 -3.67746,4.247555 -0.0192,-0.01449 -3.67736,-4.247555 -3.67736,-4.247555 z"
+           sodipodi:nodetypes="ccccccc"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Hearts\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+        <path
+           id="path20321"
+           style="fill:#ced118;fill-opacity:1;stroke:#ab9411;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 659.28882,62.811929 -4.84984,-6.651724 8.5272,-9.511183 8.5272,9.511183 -4.84974,6.651724 c 0,0 -3.65836,-4.23309 -3.67746,-4.247555 -0.0192,0.01449 -3.67736,4.247555 -3.67736,4.247555 z"
+           sodipodi:nodetypes="ccccccc"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Hearts\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+      </g>
+      <g
+         id="g20329"
+         transform="translate(2.2023173,95.702483)">
+        <path
+           id="path20325"
+           style="fill:#ced118;fill-opacity:1;stroke:#ab9411;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 642.88458,57.896815 -4.84984,6.651724 8.5272,9.511183 8.5272,-9.511183 -4.84974,-6.651724 c 0,0 -3.65836,4.23309 -3.67746,4.247555 -0.0192,-0.01449 -3.67736,-4.247555 -3.67736,-4.247555 z"
+           sodipodi:nodetypes="ccccccc"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Hearts\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+        <path
+           id="path20327"
+           style="fill:#ced118;fill-opacity:1;stroke:#ab9411;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           d="m 659.28882,62.811929 -4.84984,-6.651724 8.5272,-9.511183 8.5272,9.511183 -4.84974,6.651724 c 0,0 -3.65836,-4.23309 -3.67746,-4.247555 -0.0192,0.01449 -3.67736,4.247555 -3.67736,4.247555 z"
+           sodipodi:nodetypes="ccccccc"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Hearts\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+      </g>
+    </g>
+    <g
+       id="g20345"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\BlackHearts\Deuce.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60"
+       transform="translate(50.968221,6.2923729)">
+      <path
+         id="path20339"
+         style="fill:#666a84;fill-opacity:1;stroke:#263168;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         d="m 704.06053,53.885898 -4.82783,6.652396 8.4885,9.512143 8.48851,-9.512143 -4.82772,-6.652396 c 0,0 -3.64178,4.233517 -3.66079,4.247984 -0.019,-0.01448 -3.66067,-4.247984 -3.66067,-4.247984 z"
+         sodipodi:nodetypes="ccccccc"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\BlackHearts\Ace.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60" />
+      <path
+         id="path20341"
+         style="fill:#666a84;fill-opacity:1;stroke:#263168;stroke-width:2.5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         d="m 720.47567,58.429843 -4.82783,-6.652396 8.48851,-9.512143 8.48851,9.512143 -4.82772,6.652396 c 0,0 -3.64179,-4.233517 -3.66079,-4.247984 -0.019,0.01448 -3.66067,4.247984 -3.66068,4.247984 z"
+         sodipodi:nodetypes="ccccccc"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\BlackHearts\Ace.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60" />
+    </g>
+    <g
+       id="g20625"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Diamonds\Deuce.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60">
+      <rect
+         style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.50001;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         id="rect20619"
+         width="11.754437"
+         height="11.754435"
+         x="453.48114"
+         y="-364.89969"
+         transform="matrix(0.70829418,0.70591739,-0.70829418,0.70591739,0,0)"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Diamonds\Ace.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60" />
+      <rect
+         style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.50001;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+         id="rect20621"
+         width="11.754437"
+         height="11.754435"
+         x="455.38525"
+         y="-381.14691"
+         transform="matrix(0.70829418,0.70591739,-0.70829418,0.70591739,0,0)"
+         inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Diamonds\Ace.png"
+         inkscape:export-xdpi="60"
+         inkscape:export-ydpi="60" />
+    </g>
+    <g
+       id="g20645"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Diamonds\Three.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60">
+      <g
+         id="g20631"
+         transform="translate(-0.88987592,35.150099)">
+        <rect
+           style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.50001;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           id="rect20627"
+           width="11.754437"
+           height="11.754435"
+           x="453.48114"
+           y="-364.89969"
+           transform="matrix(0.70829418,0.70591739,-0.70829418,0.70591739,0,0)"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Diamonds\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+        <rect
+           style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.50001;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           id="rect20629"
+           width="11.754437"
+           height="11.754435"
+           x="455.38525"
+           y="-381.14691"
+           transform="matrix(0.70829418,0.70591739,-0.70829418,0.70591739,0,0)"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Diamonds\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+      </g>
+      <g
+         id="g20637"
+         transform="matrix(-1,0,0,1,1158.5747,35.150099)">
+        <rect
+           style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.50001;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           id="rect20633"
+           width="11.754437"
+           height="11.754435"
+           x="453.48114"
+           y="-364.89969"
+           transform="matrix(0.70829418,0.70591739,-0.70829418,0.70591739,0,0)"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Diamonds\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+        <rect
+           style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.50001;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           id="rect20635"
+           width="11.754437"
+           height="11.754435"
+           x="455.38525"
+           y="-381.14691"
+           transform="matrix(0.70829418,0.70591739,-0.70829418,0.70591739,0,0)"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Diamonds\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+      </g>
+    </g>
+    <g
+       id="g20665"
+       inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Diamonds\Four.png"
+       inkscape:export-xdpi="60"
+       inkscape:export-ydpi="60">
+      <g
+         id="g20651"
+         transform="translate(-7.5639453,72.524887)">
+        <rect
+           style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.50001;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           id="rect20647"
+           width="11.754437"
+           height="11.754435"
+           x="453.48114"
+           y="-364.89969"
+           transform="matrix(0.70829418,0.70591739,-0.70829418,0.70591739,0,0)"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Diamonds\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+        <rect
+           style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.50001;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           id="rect20649"
+           width="11.754437"
+           height="11.754435"
+           x="455.38525"
+           y="-381.14691"
+           transform="matrix(0.70829418,0.70591739,-0.70829418,0.70591739,0,0)"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Diamonds\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+      </g>
+      <g
+         id="g20657"
+         transform="translate(-7.0347788,95.279067)">
+        <rect
+           style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.50001;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           id="rect20653"
+           width="11.754437"
+           height="11.754435"
+           x="453.48114"
+           y="-364.89969"
+           transform="matrix(0.70829418,0.70591739,-0.70829418,0.70591739,0,0)"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Diamonds\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
+        <rect
+           style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.50001;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+           id="rect20655"
+           width="11.754437"
+           height="11.754435"
+           x="455.38525"
+           y="-381.14691"
+           transform="matrix(0.70829418,0.70591739,-0.70829418,0.70591739,0,0)"
+           inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Diamonds\Ace.png"
+           inkscape:export-xdpi="60"
+           inkscape:export-ydpi="60" />
       </g>
     </g>
   </g>

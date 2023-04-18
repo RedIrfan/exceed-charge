@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://drskm50kk42jw"]
+
+[ext_resource type="Texture2D" uid="uid://bepwtci27lvom" path="res://Assets/Hud/Cards/PassiveCards/PassiveCardPanel.png" id="1_smbjo"]
+[ext_resource type="Script" path="res://Scenes/Guis/Hud/PassiveCard/PassiveCard.gd" id="2_ac37g"]
+[ext_resource type="Texture2D" uid="uid://bg1cqq20m3ie8" path="res://Assets/Hud/Cards/PassiveCards/Arrows/Ace.png" id="2_l87qx"]
+
+[node name="PassiveCard" type="TextureRect"]
+texture = ExtResource("1_smbjo")
+script = ExtResource("2_ac37g")
+
+[node name="Pip" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -23.0
+offset_right = 24.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_l87qx")
+
+[node name="Amount" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -51.6667
+offset_top = -56.6667
+offset_right = -11.6667
+offset_bottom = -11.6667
+grow_horizontal = 0
+grow_vertical = 0
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1

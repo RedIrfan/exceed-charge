@@ -1,5 +1,7 @@
 extends Gui
 
+const PASSIVE_CARD : PackedScene = preload('res://Scenes/Guis/Hud/PassiveCard/PassiveCard.tscn')
+
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 
 @onready var level_panel : TextureRect = $Margin/HudBar/LevelPanel
@@ -11,10 +13,13 @@ extends Gui
 @onready var speed_percentage : Label = $Margin/HudBar/VBoxContainer/GridContainer/Speed
 @onready var attack_damage_percentage : Label = $Margin/HudBar/VBoxContainer/GridContainer/AttackDamage
 @onready var attack_speed_percentage: Label = $Margin/HudBar/VBoxContainer/GridContainer/AttackSpeed
+@onready var passive_card_parent = $Margin/PassiveCards
 
 @onready var interact_label : TextureRect = $InteractLabel
 
 var set_up : bool = false
+
+var passive_card_uis : Dictionary = {}
 
 
 func _ready():
@@ -41,6 +46,7 @@ func enter():
 		player.connect('health_changed', _on_health_changed)
 		player.connect("card_activated", _on_card_activated)
 		player.status.connect("element_changed", _on_element_changed)
+		player.status.connect("passive_cards_changed", _on_passive_cards_changed)
 
 
 func exit():
@@ -90,6 +96,39 @@ func _on_card_activated():
 	speed_percentage.set_text(_format_percentage(str(player.status.speed_multiplier)))
 	attack_damage_percentage.set_text(_format_percentage(str(player.status.attack_damage_multiplier)))
 	attack_speed_percentage.set_text(_format_percentage(str(player.status.attack_speed_multiplier)))
+
+
+func _on_passive_cards_changed():
+#	for suit in CardData.SUITS:
+#		for value in CardData.VALUES:
+#			var card_id = str(suit) + str(value)
+#			var card_amount = player.get_total_passive_card(suit, value)
+#			if passive_card_uis.has(card_id) == false:
+#				var ui = PASSIVE_CARD.instantiate()
+#				passive_card_parent.add_child(ui)
+#				ui.set_card_data(suit, value, 1)
+#
+#				passive_card_uis[card_id] = ui
+#			passive_card_uis[card_id].set_amount(card_amount)
+	var passive_cards = player.status.passive_cards
+	var looped_uis : Dictionary = {}
+	
+	for card in passive_cards:
+		var card_id = str(card[0]) + str(card[1])
+		if passive_card_uis.has(card_id) == false:
+			var ui = PASSIVE_CARD.instantiate()
+			passive_card_parent.add_child(ui)
+			ui.set_card_data(card[0], card[1], 1)
+			
+			passive_card_uis[card_id] = ui
+		passive_card_uis[card_id].set_amount(player.get_total_passive_card(card[0], card[1]))
+		
+		if looped_uis.has(card_id) == false:
+			looped_uis[card_id] = true
+	for ui in passive_card_uis:
+		if looped_uis.has(ui) == false:
+			passive_card_uis[ui].queue_free()
+			passive_card_uis.erase(ui)
 
 
 func _on_interact_list_changed():
