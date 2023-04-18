@@ -11,6 +11,7 @@ enum ELEMENTS{
 }
 
 signal passive_cards_changed
+signal active_cards_changed
 signal element_changed(to_element)
 
 @export_group("Multiplier")
@@ -58,6 +59,7 @@ func add_active_card(mode:int, card:CardData, charge:int):
 			secondary_active_card_charge = charge
 		elif secondary_active_card.suit == card.suit:
 			secondary_active_card_charge += charge
+	emit_signal("active_cards_changed")
 
 
 func remove_active_charge(mode:int, amount:int):
@@ -69,6 +71,7 @@ func remove_active_charge(mode:int, amount:int):
 		secondary_active_card_charge -= amount
 		if secondary_active_card_charge <= 0:
 			secondary_active_card = null
+	emit_signal("active_cards_changed")
 
 
 func set_element(new_element:ELEMENTS):
