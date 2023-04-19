@@ -8,11 +8,14 @@ const EXPLODE_PARTICLES : PackedScene = preload("res://Objects/Effects/ExplodePa
 @onready var hitbox : Hitbox = $Pivot/Hitbox
 
 @export var damage : int = 5
+@export var damage_type : Global.DAMAGES
+@export var force_damage : bool = false
 @export var speed : float = 10
 
 @export_group("Physics")
 @export var gravity : bool = false
 @export var max_distance: float = 15
+@export var destroyed_if_hit : bool = true
 
 @export_group("Effect")
 @export var explode_mesh : Mesh
@@ -68,7 +71,7 @@ func spawn(spawner, spawn_transform, exception_group="", parameters=[]):
 
 
 func set_damage(_spawner):
-	hitbox.set_damage(damage)
+	hitbox.set_damage(damage, damage_type, force_damage)
 
 
 func _on_spawn(_parameters=[]):
@@ -81,12 +84,12 @@ func _on_kill():
 
 
 func _on_hit():
-	if hitbox.body != self:
+	if hitbox.body != self and destroyed_if_hit:
 		_destroy()
 
 
 func _on_hit_body(body):
-	if body != Character and set_velocity:
+	if body != Character and set_velocity and destroyed_if_hit:
 		_destroy()
 
 
