@@ -25,7 +25,8 @@ func _ready():
 	player = Global.root_scene().player
 	
 	player.status.connect("passive_cards_changed", _on_passive_changed)
-	player.deck.connect("exceeded_charge", _on_player_exceeded_charge)
+	player.deck.connect("exceeded_charge", _on_exceeded_charge)
+	player.connect("exceed_charge_timeout", _on_exceed_charge_timeout)
 
 
 func _physics_process(delta):
@@ -71,14 +72,15 @@ func spawn_shields(amount:int, mesh:PackedScene, shield_collection:Dictionary, o
 	return shield_collection
 
 
-func _on_player_exceeded_charge():
+func _on_exceeded_charge():
 	var suit = player.get_exceed_charge_suit()
-	if suit == CardData.SUITS.PENTAGON or suit == CardData.SUITS.TRIANGLE:
+	if suit == CardData.SUITS.PENTAGON or suit == CardData.SUITS.TRIANGLE or suit == CardData.SUITS.DIAMOND:
 		if player.get_total_passive_card(suit, CardData.VALUES.THREE) < 5:
 			player.add_passive_cards(suit, CardData.VALUES.THREE, 5)
 		
-		shield_regeneration_duration = 1
-	if suit == CardData.SUITS.HEART or suit == CardData.SUITS.BLACKHEART:
+		if suit != CardData.SUITS.DIAMOND:
+			shield_regeneration_duration = 1
+	elif suit == CardData.SUITS.HEART or suit == CardData.SUITS.BLACKHEART:
 		shield_regeneration_duration = 1
 		if suit == CardData.SUITS.BLACKHEART:
 			player.maximum_health -= 5
@@ -86,7 +88,13 @@ func _on_player_exceeded_charge():
 			player.maximum_health += 2
 	
 	shield_regeneration_turn = 0
-	shield_regeneration_timer.start(shield_regeneration_duration)
+	if shield_regeneration_duration > 0:
+		shield_regeneration_timer.start(shield_regeneration_duration)
+
+
+func _on_exceed_charge_timeout():
+	if player.get_exceed_charge_suit() == CardData.SUITS.DIAMOND:
+		player.remove_passive_cards(CardData.SUITS.DIAMOND, CardData.VALUES.THREE, 5)
 
 
 func _on_shield_regeneration_timer_timeout():
