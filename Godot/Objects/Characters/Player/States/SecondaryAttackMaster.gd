@@ -5,6 +5,7 @@ func enter(msg=[]):
 	var slash : bool = true
 	if msg.size() > 0:
 		if body.get_total_passive_card(CardData.SUITS.DIAMOND, CardData.VALUES.FOUR) and msg[0] == "Forward":
+			body.remove_passive_cards(CardData.SUITS.DIAMOND, CardData.VALUES.FOUR, 1)
 			fsm.enter_state("GuardCrush")
 			slash = false
 	
