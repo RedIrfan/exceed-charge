@@ -137,4 +137,4 @@ func play_action():
 
 
 func set_damage(action):
-	action.hitbox.set_damage(action.damage, action.damage_type)
+	action.hitbox.set_damage(action.damage, action.damage_type, action.force_damage)

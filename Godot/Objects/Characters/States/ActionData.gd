@@ -13,6 +13,7 @@ signal action_played
 @export var hitbox : Hitbox
 @export var damage : float = 0
 @export var damage_type : Global.DAMAGES
+@export var force_damage : bool = false
 @export var can_combo : bool = false
 
 @export_subgroup("Projectile", "projectile_")

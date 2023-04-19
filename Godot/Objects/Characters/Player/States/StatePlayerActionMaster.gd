@@ -14,7 +14,7 @@ func set_damage(action):
 	var damage : float = 0.0
 	if action.damage > 0:
 		damage = body.get_attack_damage(action.damage)
-	action.hitbox.set_damage(damage, action.damage_type)
+	action.hitbox.set_damage(damage, action.damage_type, action.force_damage)
 
 
 func process(delta):
