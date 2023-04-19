@@ -30,7 +30,7 @@ func enter(msg=[]):
 		CardData.SUITS.TRIANGLE:
 			fsm.enter_state("SkillTeleport")
 		CardData.SUITS.DIAMOND:
-			pass
+			fsm.enter_state("SkillHeavySweep")
 		CardData.SUITS.ARROW:
 			fsm.enter_state("SkillInstantSlash")
 		CardData.SUITS.HEART:

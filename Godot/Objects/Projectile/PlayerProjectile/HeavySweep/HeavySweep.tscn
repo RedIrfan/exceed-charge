@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://bkg4yc4ptm36y"]
+
+[ext_resource type="PackedScene" uid="uid://bqvnjcfcrfv1x" path="res://Objects/Projectile/Projectile.tscn" id="1_2rint"]
+[ext_resource type="ArrayMesh" uid="uid://cu55q2ghga8vv" path="res://Assets/Projectiles/SlashProjectile.obj" id="2_i4tiv"]
+[ext_resource type="Shader" path="res://Objects/Shaders/Slash.gdshader" id="3_ynemn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fiwf2"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.905882, 0.764706, 0.188235, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_8kr7h"]
+material = SubResource("StandardMaterial3D_fiwf2")
+radius = 0.125
+height = 0.25
+radial_segments = 8
+rings = 4
+
+[sub_resource type="Gradient" id="Gradient_wbha5"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gaw22"]
+gradient = SubResource("Gradient_wbha5")
+fill_from = Vector2(1, 0.0997151)
+fill_to = Vector2(0, 0.7151)
+
+[sub_resource type="Gradient" id="Gradient_1ntbx"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0y0hl"]
+gradient = SubResource("Gradient_1ntbx")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6e2j4"]
+render_priority = 0
+shader = ExtResource("3_ynemn")
+shader_parameter/albedo = Color(0.905882, 0.764706, 0.188235, 1)
+shader_parameter/emission_color = Color(1, 1, 1, 1)
+shader_parameter/emission_amount = 0.0
+shader_parameter/burn_size = 0.5
+shader_parameter/dissolve_amount = 1.0
+shader_parameter/texture_albedo = SubResource("GradientTexture2D_0y0hl")
+shader_parameter/dissolve_texture = SubResource("GradientTexture2D_gaw22")
+
+[node name="HeavySweep" instance=ExtResource("1_2rint")]
+damage = 10
+damage_type = 1
+force_damage = true
+speed = 3.0
+max_distance = 2.0
+destroyed_if_hit = false
+explode_mesh = SubResource("SphereMesh_8kr7h")
+
+[node name="Pivot" parent="." index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" index="1"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = ExtResource("2_i4tiv")
+surface_material_override/0 = SubResource("ShaderMaterial_6e2j4")
