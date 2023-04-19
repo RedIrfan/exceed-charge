@@ -1,5 +1,6 @@
 extends Character
 
+signal exceed_charge_timeout
 signal player_attacked
 signal card_activated
 
@@ -123,6 +124,7 @@ func _on_exceeded_charge():
 
 
 func _on_exceed_charge_timeout():
+	emit_signal("exceed_charge_timeout")
 	deck.reset_charge(self)
 
 
