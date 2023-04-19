@@ -122,6 +122,8 @@ func play_action():
 						effect_parameters[parameter] = body
 					"spawn_position":
 						effect_parameters[parameter] = action.effect_spawn_position.position
+					"spawn_position_node":
+						effect_parameters[parameter] = action.effect_spawn_position
 			else:
 				effect_parameters[parameter] = action.effect_parameters[parameter]
 		
