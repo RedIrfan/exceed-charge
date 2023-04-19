@@ -20,7 +20,7 @@ func physics_process(_delta):
 			if check_primary_attack():
 				fsm.enter_state("PrimaryAttackMaster")
 			if check_secondary_attack():
-				fsm.enter_state("SecondaryAttackMaster")
+				fsm.enter_state("SecondaryAttackMaster", [get_relative_direction_name()])
 	if check_hurt():
 		if fsm.enter_state("Parry") == false:
 			fsm.enter_state("Hurt")

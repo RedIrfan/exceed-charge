@@ -1,0 +1,238 @@
+[gd_scene load_steps=15 format=3 uid="uid://d34vdm2wj7b2c"]
+
+[ext_resource type="PackedScene" uid="uid://b2obq0cwg452y" path="res://Objects/Effects/Effect.tscn" id="1_85n2r"]
+[ext_resource type="Script" path="res://Objects/Effects/EffectAnimation.gd" id="2_pk54v"]
+
+[sub_resource type="Curve" id="Curve_ijnc2"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.570552), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yie04"]
+curve = SubResource("Curve_ijnc2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gapd7"]
+emission_shape = 2
+emission_sphere_radius = 0.6
+particle_flag_align_y = true
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_yie04")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4oe2"]
+resource_name = "OrangeVisor"
+cull_mode = 2
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.905882, 0.764706, 0.188235, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_vwjhh"]
+material = SubResource("StandardMaterial3D_c4oe2")
+radius = 0.032
+height = 0.125
+radial_segments = 4
+rings = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3rpxy"]
+resource_name = "OrangeVisor"
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.909804, 0.843137, 0.584314, 0.262745)
+
+[sub_resource type="SphereMesh" id="SphereMesh_b6r6s"]
+material = SubResource("StandardMaterial3D_3rpxy")
+radius = 0.063
+height = 0.125
+radial_segments = 8
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vdykg"]
+resource_name = "OrangeVisor"
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.905882, 0.764706, 0.188235, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_1nkm3"]
+material = SubResource("StandardMaterial3D_vdykg")
+radius = 0.032
+height = 0.063
+radial_segments = 8
+rings = 4
+
+[sub_resource type="Animation" id="Animation_tg2wy"]
+resource_name = "Play"
+length = 0.5
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1665),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333, 0.3996),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(4, 4, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666, 0.0999, 0.1665, 0.1998, 0.2664, 0.2997),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1, 1, 1), Vector3(0.5, 0.5, 0.5), Vector3(2, 2, 2), Vector3(1.5, 1.5, 1.5), Vector3(3, 3, 3), Vector3(2.5, 2.5, 2.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D:mesh:material:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2997, 0.4995),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.909804, 0.843137, 0.584314, 0.262745), Color(0.909804, 0.843137, 0.584314, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MeshInstance3D2:mesh:material:albedo_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2997, 0.3996, 0.4995),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.905882, 0.764706, 0.188235, 1), Color(0.905882, 0.764706, 0.188235, 1), Color(0.905882, 0.764706, 0.188235, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sd4nk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeshInstance3D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MeshInstance3D:mesh:material:albedo_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.909804, 0.843137, 0.584314, 0.262745)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MeshInstance3D2:mesh:material:albedo_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.905882, 0.764706, 0.188235, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_exy3t"]
+_data = {
+"Play": SubResource("Animation_tg2wy"),
+"RESET": SubResource("Animation_sd4nk")
+}
+
+[node name="GatherEnergy" node_paths=PackedStringArray("animation_player") instance=ExtResource("1_85n2r")]
+script = ExtResource("2_pk54v")
+animation_name = "Play"
+animation_player = NodePath("AnimationPlayer")
+follow_position = true
+follow_rotation = false
+duration = 0.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="1"]
+transform = Transform3D(1, 8.9407e-08, -3.27826e-07, 1.49012e-08, 1, -1.19209e-07, 2.38419e-07, 1.49012e-08, 1, 0, 0, 0)
+amount = 16
+lifetime = 0.4
+explosiveness = 1.0
+visibility_aabb = AABB(-1.80576, -1.80588, -1.47647, 3.61152, 3.61177, 2.95295)
+process_material = SubResource("ParticleProcessMaterial_gapd7")
+draw_pass_1 = SubResource("CapsuleMesh_vwjhh")
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="GPUParticles3D" index="0"]
+strength = 7.0
+attenuation = 0.0625001
+radius = 0.7
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+mesh = SubResource("SphereMesh_b6r6s")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+mesh = SubResource("SphereMesh_1nkm3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+autoplay = "Play"
+libraries = {
+"": SubResource("AnimationLibrary_exy3t")
+}

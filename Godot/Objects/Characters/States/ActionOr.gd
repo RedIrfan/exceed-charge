@@ -2,6 +2,7 @@ class_name ActionOr
 extends ActionData
 
 @export var default_child_number : int = 1
+@export var conditions : Array[ActionOrConditionData]
 
 var possible_actions : Array[ActionData] = []
 
@@ -19,5 +20,9 @@ func get_action_data(body) -> ActionData:
 	return possible_actions[default_child_number - 1]
 
 
-func get_chosen(body) -> ActionData:
+func get_chosen(body : Character) -> ActionData:
+	for condition in conditions:
+		if condition.get_condition(body):
+			return possible_actions[condition.target - 1]
+	
 	return null

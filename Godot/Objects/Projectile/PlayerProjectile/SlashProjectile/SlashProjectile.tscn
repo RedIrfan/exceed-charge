@@ -19,14 +19,14 @@ rings = 4
 
 [sub_resource type="Gradient" id="Gradient_6lxur"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gaw22"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ia35n"]
 gradient = SubResource("Gradient_6lxur")
 fill_from = Vector2(1, 0.0997151)
 fill_to = Vector2(0, 0.7151)
 
 [sub_resource type="Gradient" id="Gradient_satpd"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_0y0hl"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e0uxa"]
 gradient = SubResource("Gradient_satpd")
 fill_from = Vector2(1, 0)
 fill_to = Vector2(0, 1)
@@ -39,8 +39,8 @@ shader_parameter/emission_color = Color(1, 1, 1, 1)
 shader_parameter/emission_amount = 0.0
 shader_parameter/burn_size = 0.5
 shader_parameter/dissolve_amount = 1.0
-shader_parameter/texture_albedo = SubResource("GradientTexture2D_0y0hl")
-shader_parameter/dissolve_texture = SubResource("GradientTexture2D_gaw22")
+shader_parameter/texture_albedo = SubResource("GradientTexture2D_e0uxa")
+shader_parameter/dissolve_texture = SubResource("GradientTexture2D_ia35n")
 
 [node name="SlashProjectile" instance=ExtResource("1_ikxm8")]
 script = ExtResource("2_7aygo")

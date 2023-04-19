@@ -1,8 +1,17 @@
 extends StatePlayer
 
 
-func enter(_msg=[]):
-	fsm.enter_state("SlashHeavy")
+func enter(msg=[]):
+	var slash : bool = true
+	if msg.size() > 0 and msg[0] == "Forward":
+		if body.get_total_passive_card(CardData.SUITS.DIAMOND, CardData.VALUES.FOUR) or body.get_exceed_charge_suit() == CardData.SUITS.DIAMOND:
+			if body.get_exceed_charge_suit() != CardData.SUITS.DIAMOND:
+				body.remove_passive_cards(CardData.SUITS.DIAMOND, CardData.VALUES.FOUR, 1)
+			fsm.enter_state("GuardCrush")
+			slash = false
+	
+	if slash:
+		fsm.enter_state("SlashHeavy")
 
 
 func exit():

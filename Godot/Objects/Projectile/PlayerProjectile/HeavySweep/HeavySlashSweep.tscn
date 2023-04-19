@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://2jh0h6s5n3er"]
+
+[ext_resource type="PackedScene" uid="uid://bkg4yc4ptm36y" path="res://Objects/Projectile/PlayerProjectile/HeavySweep/HeavySweep.tscn" id="1_yvjdx"]
+
+[node name="HeavySlashSweep" instance=ExtResource("1_yvjdx")]
+transform = Transform3D(0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0, 1, 0, 0, 0)
+damage = 7
+
+[node name="Pivot" parent="." index="0"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)

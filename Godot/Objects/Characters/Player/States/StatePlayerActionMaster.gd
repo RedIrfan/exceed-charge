@@ -2,6 +2,7 @@ extends StateActionMaster
 class_name StatePlayerActionMaster
 
 @export var lock_to_target :bool = true
+@export var affected_by_attack_speed : bool = true
 
 @export_category("Combo")
 @export var primary_attack : State
@@ -13,7 +14,7 @@ func set_damage(action):
 	var damage : float = 0.0
 	if action.damage > 0:
 		damage = body.get_attack_damage(action.damage)
-	action.hitbox.set_damage(damage, action.damage_type)
+	action.hitbox.set_damage(damage, action.damage_type, action.force_damage)
 
 
 func process(delta):
@@ -33,12 +34,26 @@ func process(delta):
 
 
 func enter(msg=[]):
-	super.enter(msg)
+	if affected_by_attack_speed:
+		var attack_speed_calculation = body.get_attack_speed_calculation()
+		var attack_speed = body.SPEED + attack_speed_calculation
+		
+		var new_whole_duration = (body.SPEED * whole_duration) / attack_speed
+		var real_duration :float= 0
+		for action in actions:
+			action.duration = new_whole_duration / action.divided_to_whole_duration
+			real_duration += action.duration
+		
+		var body_speed = body.SPEED + attack_speed_calculation
+		
+		animation_speed_scale = new_whole_duration / whole_duration
 	
-	var new_distance = distance / (body.SPEED + body.get_attack_speed_calculation())
-	var new_whole_duration = whole_duration + new_distance
-	for action in actions:
-		action.duration = new_whole_duration / action.divided_to_whole_duration
+	super.enter(msg)
+
+
+func exit():
+	super.exit()
+	var body_distance = body.global_position.distance_to(Vector3.ZERO)
 
 
 func look_at_mouse(rotation_speed:float=0) -> void:
