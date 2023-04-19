@@ -21,6 +21,7 @@ shape = SubResource("BoxShape3D_8qqt2")
 [node name="Pivot" type="Node3D" parent="."]
 
 [node name="AnimationTree" type="AnimationTree" parent="Pivot"]
+process_callback = 2
 
 [node name="AnimationTimer" type="Timer" parent="Pivot"]
 

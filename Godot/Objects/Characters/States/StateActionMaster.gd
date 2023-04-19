@@ -13,8 +13,8 @@ var action_index : int
 var repeat_index : int = 0
 
 var can_combo : bool = false
-var distance : float = 0
 var whole_duration : float = 0
+var animation_speed_scale : float = 1.0
 
 var process_direction : Vector2
 
@@ -30,9 +30,6 @@ func _ready():
 
 
 func enter(_msg=[]):
-	if distance == 0:
-		distance = whole_duration/body.SPEED
-	
 	body.connect_to_animation_timer(_on_animation_timeout)
 	repeat_index = 0
 	action_index = 0
@@ -83,7 +80,7 @@ func play_action():
 	var action : ActionData = actions[action_index].get_action_data(body)
 	
 	if action.animation_name != "":
-		body.play_animation(action.animation_name, 0, true)
+		body.play_animation(action.animation_name, 0, true, animation_speed_scale)
 	body.start_animation_timer(action.duration)
 	
 	if action.hitbox != null:

@@ -18,6 +18,8 @@ const HIT_PARTICLES : PackedScene = preload('res://Objects/Effects/HitParticles/
 @export_group("Effects")
 @export var hit_colour : Color = Color(1,0,0)
 
+var anim_speed_scale : float = 1.0
+
 var maximum_health : float = HEALTH
 var health : float = HEALTH : set = set_health
 var speed  : float = SPEED
@@ -33,6 +35,7 @@ func _ready():
 
 
 func _physics_process(delta):
+	animation_tree.advance(delta * anim_speed_scale)
 	_move(delta)
 
 
@@ -63,8 +66,9 @@ func process_dead():
 	pass
 
 
-func play_animation(animation_name:String, animation_duration:float=0, force_travel:bool=false):
+func play_animation(animation_name:String, animation_duration:float=0, force_travel:bool=false, speed_scale:float=1.0):
 	if animation_tree.tree_root.has_node(animation_name):
+		anim_speed_scale = speed_scale
 		if force_travel == false:
 			animation_tree.get('parameters/playback').travel(animation_name)
 		else:
