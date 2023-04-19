@@ -110,6 +110,8 @@ func process_card(body:Character) -> void:
 			
 			active_card_mode = 1
 		SUITS.DIAMOND:
+			if value == VALUES.THREE:
+				opposite_suit_power = -0.01
 			status_data.attack_damage_multiplier += adjacent_suit_power
 			status_data.attack_speed_multiplier += opposite_suit_power
 			
@@ -117,8 +119,8 @@ func process_card(body:Character) -> void:
 		SUITS.ARROW:
 			status_data.attack_speed_multiplier += adjacent_suit_power
 			status_data.attack_damage_multiplier += opposite_suit_power
+			
 			active_card_mode = 2
-			extra_attribute_name = ""
 		SUITS.HEART:
 			match value:
 				VALUES.ACE:

@@ -13,6 +13,7 @@ const CARD_PICKUPABLE = preload('res://Objects/Interactable/CardPickupable/CardP
 @onready var dust_particles_right : GPUParticles3D = $Pivot/Player/Armature/GeneralSkeleton/RightFoot/DustParticles
 @onready var locking_target_area : ScanArea = $Pivot/LockingTargetArea
 @onready var exceed_charge_timer : Timer = $ExceedChargeTimer
+@onready var sword_model : MeshInstance3D = $Pivot/Player/Armature/GeneralSkeleton/RightHand/AlphaHilt/AlphaSword
 
 @export var deck :DeckData
 @export var status : StatusData
@@ -29,6 +30,7 @@ func _ready():
 	super._ready()
 	
 	status.connect("element_changed", _on_element_changed)
+	status.connect("passive_cards_changed", _on_passive_cards_changed)
 	deck.connect("exceeded_charge", _on_exceeded_charge)
 
 
@@ -132,6 +134,12 @@ func _on_element_changed(to_element):
 			set_suit_material(FIRE_SUIT_MATERIAL)
 		StatusData.ELEMENTS.WATER:
 			set_suit_material(WATER_SUIT_MATERIAL)
+
+
+func _on_passive_cards_changed():
+	var sword_scale = 1 + (0.05 * get_total_passive_card(CardData.SUITS.DIAMOND, CardData.VALUES.THREE))
+	
+	sword_model.scale = Vector3(sword_scale, sword_scale, sword_scale)
 
 
 func _on_hitbox_hit():
