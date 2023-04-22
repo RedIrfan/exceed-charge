@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=3 uid="uid://cj2lcgjcvbo2r"]
+[gd_scene load_steps=123 format=3 uid="uid://cj2lcgjcvbo2r"]
 
 [ext_resource type="PackedScene" uid="uid://d2buh5kxpgp5r" path="res://Objects/Characters/Character.tscn" id="1_yygar"]
 [ext_resource type="Script" path="res://Objects/Characters/Player/Player.gd" id="2_flsv3"]
@@ -39,6 +39,7 @@
 [ext_resource type="AudioStream" uid="uid://vis0ma7imf7c" path="res://Assets/SFX/Game/Player/Teleport.wav" id="31_6uadc"]
 [ext_resource type="AudioStream" uid="uid://byefgrfmn78gx" path="res://Assets/SFX/Game/Player/GatherEnergy.wav" id="33_ij435"]
 [ext_resource type="AudioStream" uid="uid://dlh3awobcvj3a" path="res://Assets/SFX/Game/Player/HeavySweep.wav" id="34_rt41s"]
+[ext_resource type="AudioStream" uid="uid://13m4yokyb78t" path="res://Assets/SFX/Game/Player/InstantSlash.wav" id="37_t2tbm"]
 
 [sub_resource type="Resource" id="Resource_wwlf2"]
 script = ExtResource("3_b2i5c")
@@ -10364,6 +10365,7 @@ next_state = NodePath("../Idle")
 script = ExtResource("6_iar8x")
 duration = 0.067
 animation_name = "SkillInstantSlash"
+sound_files = Array[AudioStream]([ExtResource("37_t2tbm")])
 
 [node name="Active" type="Node" parent="StateMachine/SkillInstantSlash" index="1" node_paths=PackedStringArray("hitbox", "effect_spawn_position")]
 script = ExtResource("6_iar8x")
