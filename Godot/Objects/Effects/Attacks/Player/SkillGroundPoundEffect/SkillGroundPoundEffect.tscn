@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://bgrjg4w5mvkjc"]
+[gd_scene load_steps=21 format=3 uid="uid://bgrjg4w5mvkjc"]
 
 [ext_resource type="PackedScene" uid="uid://b2obq0cwg452y" path="res://Objects/Effects/Effect.tscn" id="1_dvl4o"]
 [ext_resource type="Script" path="res://Objects/Effects/Attacks/Player/EffectAttackPlayer.gd" id="2_xvbwc"]
 [ext_resource type="Script" path="res://Objects/Engine/CollisionBox/Hitbox.gd" id="3_whesp"]
+[ext_resource type="AudioStream" uid="uid://pdxrx2gfc5qj" path="res://Assets/SFX/Game/Shockwave.wav" id="4_nwv0o"]
 
 [sub_resource type="Curve" id="Curve_wd8iq"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.787162, 0), 0.0, 0.0, 0, 0]
@@ -135,6 +136,8 @@ damage = 3
 damage_type = 1
 force_damage = false
 damage_active_duration = 0.1
+var_extra_hitboxes = Array[NodePath]([])
+get_rotation_from_body = false
 duration = 1.0
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." index="1"]
@@ -163,3 +166,9 @@ autoplay = "Play"
 libraries = {
 "": SubResource("AnimationLibrary_c1q4v")
 }
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="5"]
+process_mode = 3
+stream = ExtResource("4_nwv0o")
+autoplay = true
+bus = &"Sfx"

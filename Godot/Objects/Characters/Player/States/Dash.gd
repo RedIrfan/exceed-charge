@@ -1,5 +1,8 @@
 extends StatePlayer
 
+const SOUND_DASH : AudioStreamWAV = preload('res://Assets/SFX/Game/Player/Dash.wav')
+const SOUND_TELEPORT : AudioStreamWAV = preload("res://Assets/SFX/Game/Player/Teleport.wav")
+
 @onready var dash_timer :Timer = $DashTimer
 
 @export var dash_speed : int = 12
@@ -33,6 +36,7 @@ func enter(_msg=[]):
 	var four_card_amount = body.get_total_passive_card(CardData.SUITS.TRIANGLE, CardData.VALUES.FOUR)
 	var distance = dash_distance
 	var speed = dash_speed
+	var sound = SOUND_DASH
 	
 	if body.get_exceed_charge_suit() == CardData.SUITS.TRIANGLE:
 		four_card_amount += 1
@@ -40,6 +44,7 @@ func enter(_msg=[]):
 		speed = exceed_dash_speed
 		body.set_collision_layer_value(2, false)
 		body.set_collision_mask_value(2, false)
+		sound = SOUND_TELEPORT
 	
 	chain_dash_max_amount = body.get_total_passive_card(CardData.SUITS.TRIANGLE, CardData.VALUES.THREE)
 	if four_card_amount > 0 or body.get_exceed_charge_suit() == CardData.SUITS.TRIANGLE:
@@ -49,6 +54,7 @@ func enter(_msg=[]):
 	
 	set_move_speed(speed)
 	dashing = true
+	Global.play_sound(sound, body.global_position)
 	
 	if body.speed != speed:
 		dash_duration = distance / body.speed

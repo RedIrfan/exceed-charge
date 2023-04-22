@@ -1,6 +1,9 @@
 extends Resource
 class_name CardData
 
+const SOUND_HEAL : AudioStreamWAV = preload('res://Assets/SFX/Game/Player/Heal.wav')
+const SOUND_BLACK_HEAL :AudioStreamWAV = preload('res://Assets/SFX/Game/Player/BlackHeal.wav')
+
 enum SUITS {
 	NONE,
 	PENTAGON, ## Heavy Defense (Health Amount)
@@ -122,22 +125,34 @@ func process_card(body:Character) -> void:
 			
 			active_card_mode = 2
 		SUITS.HEART:
+			var play_sound : bool = false
 			match value:
 				VALUES.ACE:
 					body.health += 5
+					play_sound = true
 				VALUES.DEUCE:
 					body.maximum_health += 1
 					body.health += 3
+					play_sound = true
 			active_card_mode = 1
+			
+			if play_sound:
+				Global.play_sound(SOUND_HEAL)
 		SUITS.BLACKHEART:
+			var play_sound : bool = false
 			match value:
 				VALUES.ACE:
 					body.maximum_health -= 1
 					body.health += 10
+					play_sound = true
 				VALUES.DEUCE:
 					body.maximum_health -= 2
 					body.health += 25
+					play_sound = true
 			active_card_mode = 1
+			
+			if play_sound:
+				Global.play_sound(SOUND_BLACK_HEAL)
 	
 	match value:
 		VALUES.JACK:
