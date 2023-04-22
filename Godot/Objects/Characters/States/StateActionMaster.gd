@@ -133,6 +133,10 @@ func play_action():
 		body.set_collision_mask_value(action.physics_collision_mask_value, action.physics_collision_mask_mode)
 		body.set_collision_layer_value(action.physics_collision_mask_value, action.physics_collision_mask_mode)
 	
+	if action.sound_files.size() > 0:
+		for sound_file in action.sound_files:
+			Global.play_sound(sound_file, body.global_position)
+	
 	action.emit_signal("action_played")
 
 
