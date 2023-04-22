@@ -1,6 +1,9 @@
 extends StateCharacter
 class_name StateCharacterHurt
 
+const SOUND_HIT : AudioStreamWAV = preload("res://Assets/SFX/Game/Hit.wav")
+const SOUND_DEFENDED : AudioStreamWAV = preload("res://Assets/SFX/Game/Defended.wav")
+
 @export_category("Knockback")
 
 @export_enum("None:-1", "Light:0", "Heavy:1", "Both:2") var unstaggerable : int = -1
@@ -39,6 +42,8 @@ func enter_condition(_body, _fsm, msg=[]) -> bool:
 		
 		
 		if msg.has("unstaggerable") or unstaggerable_true:
+			Global.play_sound(SOUND_DEFENDED, body.global_position)
+			
 			_process_damage()
 			if _check_dead():
 				return true
@@ -48,6 +53,8 @@ func enter_condition(_body, _fsm, msg=[]) -> bool:
 
 
 func enter(_msg=[]):
+	Global.play_sound(SOUND_HIT, body.global_position)
+	
 	body.connect_to_animation_timer(_on_animation_timeout)
 	
 	body.look_at(hurt_data.attack_position, Vector3.UP)

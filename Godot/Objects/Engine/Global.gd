@@ -23,6 +23,7 @@ var current_sfx_volume : float = 0 : set = _set_current_sfx_volume
 var current_music_volume : float = -2.1 : set = _set_current_music_volume
 var current_mouse_sensitivity : float = 0.05
 
+const SOUNDFX_3D : PackedScene = preload("res://Objects/Effects/SoundFX/SoundFX3D.tscn")
 const DEAFEN_AMOUNT : float = 1.5 #for pausing purposes
 const GRAVITY : float = 10.0
 enum DAMAGES{
@@ -106,3 +107,11 @@ func change_scene(scene_path:String, with_data:Dictionary={}):
 			_set_temporary_data(data, with_data[data]) #inserting the with data into the temporary data
 # warning-ignore:return_value_discarded
 	get_tree().change_scene(scene_path)
+
+
+func play_sound(sound_file:AudioStream, position:Vector3=Vector3.ZERO):
+	var soundfx = SoundFx.new()
+	if position != Vector3.ZERO:
+		soundfx = SOUNDFX_3D.instantiate()
+	
+	soundfx.spawn(position, {'audio' : sound_file})
