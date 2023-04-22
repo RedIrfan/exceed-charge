@@ -42,6 +42,9 @@ signal action_played
 @export var physics_collision_mask_value : int = 0
 @export var physics_collision_mask_mode : bool = false
 
+@export_group("Sound")
+@export var sound_files : Array[AudioStream]
+
 var divided_to_whole_duration : float = 0
 
 
