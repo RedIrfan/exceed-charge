@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=3 uid="uid://cj2lcgjcvbo2r"]
+[gd_scene load_steps=120 format=3 uid="uid://cj2lcgjcvbo2r"]
 
 [ext_resource type="PackedScene" uid="uid://d2buh5kxpgp5r" path="res://Objects/Characters/Character.tscn" id="1_yygar"]
 [ext_resource type="Script" path="res://Objects/Characters/Player/Player.gd" id="2_flsv3"]
@@ -36,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://db0hdhubh6jey" path="res://Objects/Effects/Attacks/Player/SkillInstantSlash/SkillInstantSlash.tscn" id="28_588ek"]
 [ext_resource type="PackedScene" uid="uid://d34vdm2wj7b2c" path="res://Objects/Effects/GatherEnergy/GatherEnergy.tscn" id="29_ackrf"]
 [ext_resource type="PackedScene" uid="uid://bkg4yc4ptm36y" path="res://Objects/Projectile/PlayerProjectile/HeavySweep/HeavySweep.tscn" id="30_uoh8c"]
+[ext_resource type="AudioStream" uid="uid://vis0ma7imf7c" path="res://Assets/SFX/Game/Player/Teleport.wav" id="31_6uadc"]
 
 [sub_resource type="Resource" id="Resource_wwlf2"]
 script = ExtResource("3_b2i5c")
@@ -10307,6 +10308,7 @@ animation_name = "DashForward"
 direction = Vector2(0, 1)
 speed = 35.0
 physics_collision_mask_value = 2
+sound_files = Array[AudioStream]([ExtResource("31_6uadc")])
 
 [node name="Stop" type="Node" parent="StateMachine/SkillTeleport" index="1"]
 script = ExtResource("6_iar8x")
