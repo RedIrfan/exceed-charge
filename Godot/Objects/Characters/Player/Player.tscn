@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://cj2lcgjcvbo2r"]
+[gd_scene load_steps=119 format=3 uid="uid://cj2lcgjcvbo2r"]
 
 [ext_resource type="PackedScene" uid="uid://d2buh5kxpgp5r" path="res://Objects/Characters/Character.tscn" id="1_yygar"]
 [ext_resource type="Script" path="res://Objects/Characters/Player/Player.gd" id="2_flsv3"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" path="res://Objects/Characters/Player/States/Parry.gd" id="17_8xptd"]
 [ext_resource type="Script" path="res://Objects/Characters/Player/States/SkillMaster.gd" id="22_v7uyk"]
 [ext_resource type="PackedScene" uid="uid://bgrjg4w5mvkjc" path="res://Objects/Effects/Attacks/Player/SkillGroundPoundEffect/SkillGroundPoundEffect.tscn" id="23_ax6ka"]
+[ext_resource type="AudioStream" uid="uid://ja6m5c3oc33h" path="res://Assets/SFX/Game/Slash.wav" id="23_gw2k1"]
 [ext_resource type="PackedScene" uid="uid://b1cqbxfwlyxqu" path="res://Objects/Projectile/PlayerProjectile/SlashProjectile/SlashProjectile.tscn" id="24_5pfmj"]
 [ext_resource type="Script" path="res://Objects/Characters/States/ActionOr.gd" id="24_aj01n"]
 [ext_resource type="Script" path="res://Objects/Characters/Player/States/Hurt.gd" id="24_u8lwl"]
@@ -10076,6 +10077,7 @@ hitbox = NodePath("../../../Pivot/Player/Armature/GeneralSkeleton/RightHand/Alph
 damage = 5.0
 direction = Vector2(0, 1)
 speed = 4.0
+sound_files = Array[AudioStream]([ExtResource("23_gw2k1")])
 
 [node name="Recovery" type="Node" parent="StateMachine/Stab" index="2" node_paths=PackedStringArray("hitbox")]
 script = ExtResource("6_iar8x")
@@ -10138,6 +10140,7 @@ duration = 0.125
 hitbox = NodePath("../../../../Pivot/Player/Armature/GeneralSkeleton/RightHand/AlphaHilt/AlphaSword/Hitbox")
 damage = 5.0
 direction = Vector2(0, 1)
+sound_files = Array[AudioStream]([ExtResource("23_gw2k1")])
 
 [node name="ActiveProjectile" type="Node" parent="StateMachine/Slash/ActionOr" index="1" node_paths=PackedStringArray("hitbox", "projectile_spawn_position")]
 script = ExtResource("6_iar8x")
@@ -10147,6 +10150,7 @@ damage = 5.0
 projectile_scene = ExtResource("24_5pfmj")
 projectile_spawn_position = NodePath("../../../../Pivot/Marker3D")
 direction = Vector2(0, 1)
+sound_files = Array[AudioStream]([ExtResource("23_gw2k1")])
 
 [node name="Recovery" type="Node" parent="StateMachine/Slash" index="3" node_paths=PackedStringArray("hitbox")]
 script = ExtResource("6_iar8x")
@@ -10182,6 +10186,7 @@ duration = 0.125
 hitbox = NodePath("../../../../Pivot/Player/Armature/GeneralSkeleton/RightHand/AlphaHilt/AlphaSword/Hitbox")
 damage = 5.0
 direction = Vector2(0, 1)
+sound_files = Array[AudioStream]([ExtResource("23_gw2k1")])
 
 [node name="ActiveProjectile" type="Node" parent="StateMachine/Slash2/ActionOr" index="1" node_paths=PackedStringArray("hitbox", "projectile_spawn_position")]
 script = ExtResource("6_iar8x")
@@ -10191,6 +10196,7 @@ damage = 5.0
 projectile_scene = ExtResource("24_5pfmj")
 projectile_spawn_position = NodePath("../../../../Pivot/Marker3D")
 direction = Vector2(0, 1)
+sound_files = Array[AudioStream]([ExtResource("23_gw2k1")])
 
 [node name="Recovery" type="Node" parent="StateMachine/Slash2" index="3" node_paths=PackedStringArray("hitbox")]
 script = ExtResource("6_iar8x")
@@ -10227,6 +10233,7 @@ damage = 7.0
 damage_type = 1
 direction = Vector2(0, 1)
 speed = 8.0
+sound_files = Array[AudioStream]([ExtResource("23_gw2k1")])
 
 [node name="ActiveInstantProjectile" type="Node" parent="StateMachine/SlashHeavy/ActionOr" index="1" node_paths=PackedStringArray("hitbox", "effect_spawn_position")]
 script = ExtResource("6_iar8x")
@@ -10241,6 +10248,7 @@ effect_spawn_position = NodePath("../../../..")
 effect_parameters = {
 "body": "body"
 }
+sound_files = Array[AudioStream]([ExtResource("23_gw2k1")])
 
 [node name="ActiveSweep" type="Node" parent="StateMachine/SlashHeavy/ActionOr" index="2" node_paths=PackedStringArray("hitbox", "projectile_spawn_position")]
 script = ExtResource("6_iar8x")
@@ -10252,6 +10260,7 @@ projectile_scene = ExtResource("27_oj4gb")
 projectile_spawn_position = NodePath("../../../../Pivot/Marker3D")
 direction = Vector2(0, 1)
 speed = 8.0
+sound_files = Array[AudioStream]([ExtResource("23_gw2k1")])
 
 [node name="Recovery" type="Node" parent="StateMachine/SlashHeavy" index="3" node_paths=PackedStringArray("hitbox")]
 script = ExtResource("6_iar8x")
