@@ -8,4 +8,5 @@ script = ExtResource("2_qfyor")
 duration = 0.0
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="1"]
+process_mode = 3
 bus = &"Sfx"
