@@ -1,5 +1,7 @@
 extends StatePlayer
 
+const SOUND_DASH : AudioStreamWAV = preload('res://Assets/SFX/Game/Player/Dash.wav')
+
 @onready var dash_timer :Timer = $DashTimer
 
 @export var dash_speed : int = 12
@@ -49,6 +51,7 @@ func enter(_msg=[]):
 	
 	set_move_speed(speed)
 	dashing = true
+	Global.play_sound(SOUND_DASH, body.global_position)
 	
 	if body.speed != speed:
 		dash_duration = distance / body.speed
