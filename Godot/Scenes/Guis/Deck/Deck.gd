@@ -1,8 +1,12 @@
 extends Gui
 
 const ACTIVATED_CARD = preload("res://Objects/Effects/ActivatedCard/ActivatedCard.tscn")
+const SOUND_OPEN_HAND = preload('res://Assets/SFX/Deck/OpenHand.wav')
+const SOUND_CLOSE_HAND = preload("res://Assets/SFX/Deck/CloseHand.wav")
+const SOUND_DROP_CARD = preload("res://Assets/SFX/Deck/DropCard.wav")
 const SOUND_SCAN_CARD = preload('res://Assets/SFX/Deck/ScanCard.wav')
-const SOUND_SCAN_CARD_FAILED = preload('res://Assets/SFX/Deck/ScanCard.wav')
+const SOUND_SCAN_CARD_FAILED = preload('res://Assets/SFX/Deck/ScanCardFailed.wav')
+
 
 @export var model : MeshInstance3D
 
@@ -55,6 +59,9 @@ func _ready():
 func enter():
 	super.enter()
 	
+	var soundfx = SoundFx.new()
+	soundfx.spawn(Vector3.ZERO, {"audio" : SOUND_OPEN_HAND})
+	
 	card_used = false
 	player.deck_on = true
 	release_card()
@@ -70,6 +77,9 @@ func enter():
 
 func exit():
 	player.deck_on = false
+	
+	var soundfx = SoundFx.new()
+	soundfx.spawn(Vector3.ZERO, {"audio" : SOUND_CLOSE_HAND})
 	
 	animation_player.play_backwards("Show")
 	for child in cards.get_children():
@@ -127,6 +137,9 @@ func use_card():
 
 
 func drop_card():
+	var soundfx = SoundFx.new()
+	soundfx.spawn(Vector3.ZERO, {"audio" : SOUND_DROP_CARD})
+	
 	player.remove_card(held_card)
 	gm.enter_gui("Hud")
 
