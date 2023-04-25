@@ -3,6 +3,7 @@ class_name Destroyable
 
 signal destroyed
 
+const SOUND_HIT : AudioStreamWAV = preload('res://Assets/SFX/Game/Hit.wav')
 const DAMAGE_LABEL = preload('res://Objects/Effects/DamageLabel/DamageLabel.tscn')
 const HIT_PARTICLES = preload('res://Objects/Effects/HitParticles/HitParticles.tscn')
 
@@ -17,6 +18,7 @@ const HIT_PARTICLES = preload('res://Objects/Effects/HitParticles/HitParticles.t
 @export_group("Effects")
 @export var hit_colour : Color = Color(1,1,1)
 @export var hit_particle : Mesh = null
+@export var destroyed_sound : AudioStreamWAV
 
 var health : float = HEALTH
 var shake_amount : float = 0.0
@@ -49,6 +51,10 @@ func set_hurtdata(hurtdata:Hurtdata):
 func process_damage():
 	health -= hurt_data.damage
 	shake_amount = 1
+	
+	Global.play_sound(SOUND_HIT, self.global_position)
+	if destroyed_sound and health <= 0:
+		Global.play_sound(destroyed_sound, self.global_position)
 	
 	Global.pause(true, Global.PAUSES.CUTSCENE)
 	await get_tree().create_timer(0.05).timeout
