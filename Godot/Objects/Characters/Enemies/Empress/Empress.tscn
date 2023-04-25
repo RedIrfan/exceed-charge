@@ -1,11 +1,15 @@
-[gd_scene load_steps=84 format=3 uid="uid://qrdlgqv3k4yy"]
+[gd_scene load_steps=88 format=3 uid="uid://qrdlgqv3k4yy"]
 
 [ext_resource type="PackedScene" uid="uid://80d5oe7mym0k" path="res://Objects/Characters/Enemies/Enemy.tscn" id="1_msx7r"]
 [ext_resource type="Script" path="res://Objects/Engine/CollisionBox/Hurtbox.gd" id="2_lu2l8"]
 [ext_resource type="Script" path="res://Objects/Characters/Enemies/States/StateEnemyActionMaster.gd" id="2_nefh8"]
 [ext_resource type="Script" path="res://Objects/Characters/Enemies/States/ActionDataEnemy.gd" id="3_c6dkm"]
 [ext_resource type="PackedScene" uid="uid://chm4uelq4mop0" path="res://Objects/Projectile/FireBall/FireBall.tscn" id="4_wkfq4"]
+[ext_resource type="AudioStream" uid="uid://cdfkbx30yeuqa" path="res://Assets/SFX/Game/Enemies/Empress/GatherEnergy.wav" id="5_kbkfx"]
 [ext_resource type="PackedScene" uid="uid://ni45oqquyses" path="res://Objects/Effects/Attacks/Enemies/Empress/BodyExplosion/BodyExplosion.tscn" id="6_pppff"]
+[ext_resource type="AudioStream" uid="uid://oer5balr7ddg" path="res://Assets/SFX/Game/Shoot.wav" id="7_k0368"]
+[ext_resource type="AudioStream" uid="uid://k68jl16u0hpc" path="res://Assets/SFX/Game/Enemies/Empress/Burning.wav" id="8_sm3rf"]
+[ext_resource type="AudioStream" uid="uid://bkir6fxmt4uxf" path="res://Assets/SFX/Game/Enemies/Empress/Explode.wav" id="9_6dgxi"]
 
 [sub_resource type="Gradient" id="Gradient_ani5l"]
 offsets = PackedFloat32Array(0, 0.809524, 1)
@@ -4131,7 +4135,7 @@ mesh = SubResource("ArrayMesh_1188o")
 skin = SubResource("Skin_teujy")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Pivot/Empress/Armature/GeneralSkeleton" index="2"]
-transform = Transform3D(1, 3.15255e-09, 7.41403e-10, -3.16754e-09, 0.999776, 0.0211663, -6.74509e-10, -0.0211663, 0.999776, -8.67795e-10, 0.362884, -0.0118901)
+transform = Transform3D(1, 3.15256e-09, 7.41403e-10, -3.16755e-09, 0.999776, 0.0211663, -6.74508e-10, -0.0211663, 0.999776, -8.67796e-10, 0.362884, -0.0118901)
 bone_name = "Spine"
 bone_idx = 1
 
@@ -4182,6 +4186,7 @@ look_at_target = true
 duration = 1.0
 animation_name = "ShootStart"
 effect_node = NodePath("../../../Pivot/Empress/Armature/GeneralSkeleton/Hips/Marker3D/GPUParticles3D")
+sound_files = Array[AudioStream]([ExtResource("5_kbkfx")])
 
 [node name="Impact" type="Node" parent="StateMachine/Shoot" index="1" node_paths=PackedStringArray("projectile_spawn_position")]
 script = ExtResource("3_c6dkm")
@@ -4191,6 +4196,7 @@ projectile_scene = ExtResource("4_wkfq4")
 projectile_spawn_position = NodePath("../../../Pivot/Empress/Armature/GeneralSkeleton/Hips/Marker3D")
 direction = Vector2(0, -1)
 speed = 4.0
+sound_files = Array[AudioStream]([ExtResource("7_k0368")])
 
 [node name="Recovery" type="Node" parent="StateMachine/Shoot" index="2"]
 script = ExtResource("3_c6dkm")
@@ -4207,6 +4213,7 @@ script = ExtResource("3_c6dkm")
 duration = 0.667
 animation_name = "HurtWakeup"
 effect_node = NodePath("../../../Pivot/Empress/Armature/GeneralSkeleton/BoneAttachment3D/GPUParticles3D")
+sound_files = Array[AudioStream]([ExtResource("8_sm3rf")])
 
 [node name="ToIdle" type="Node" parent="StateMachine/AfterDeath" index="1"]
 script = ExtResource("3_c6dkm")
@@ -4233,3 +4240,4 @@ effect_spawn_position = NodePath("../../../Pivot/Empress/Armature/GeneralSkeleto
 effect_parameters = {
 "body": "body"
 }
+sound_files = Array[AudioStream]([ExtResource("9_6dgxi")])
