@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://cj2lcgjcvbo2r"]
+[gd_scene load_steps=124 format=3 uid="uid://cj2lcgjcvbo2r"]
 
 [ext_resource type="PackedScene" uid="uid://d2buh5kxpgp5r" path="res://Objects/Characters/Character.tscn" id="1_yygar"]
 [ext_resource type="Script" path="res://Objects/Characters/Player/Player.gd" id="2_flsv3"]
@@ -24,7 +24,7 @@
 [ext_resource type="Script" path="res://Objects/Characters/Player/States/Parry.gd" id="17_8xptd"]
 [ext_resource type="Script" path="res://Objects/Characters/Player/States/SkillMaster.gd" id="22_v7uyk"]
 [ext_resource type="PackedScene" uid="uid://bgrjg4w5mvkjc" path="res://Objects/Effects/Attacks/Player/SkillGroundPoundEffect/SkillGroundPoundEffect.tscn" id="23_ax6ka"]
-[ext_resource type="AudioStream" uid="uid://ja6m5c3oc33h" path="res://Assets/SFX/Game/Slash.wav" id="23_gw2k1"]
+[ext_resource type="AudioStream" uid="uid://b5t12ygv34yjl" path="res://Assets/SFX/Game/Slash.wav" id="23_gw2k1"]
 [ext_resource type="PackedScene" uid="uid://b1cqbxfwlyxqu" path="res://Objects/Projectile/PlayerProjectile/SlashProjectile/SlashProjectile.tscn" id="24_5pfmj"]
 [ext_resource type="Script" path="res://Objects/Characters/States/ActionOr.gd" id="24_aj01n"]
 [ext_resource type="Script" path="res://Objects/Characters/Player/States/Hurt.gd" id="24_u8lwl"]
@@ -32,14 +32,15 @@
 [ext_resource type="Script" path="res://Objects/Characters/Player/States/PlayerActionOrConditionData.gd" id="25_csqg0"]
 [ext_resource type="PackedScene" uid="uid://dtkgllwntcpa1" path="res://Objects/Effects/Attacks/Player/SkillBlackHeart/SkillBlackHeart.tscn" id="25_v8kv5"]
 [ext_resource type="PackedScene" uid="uid://difrr07ah1jfm" path="res://Objects/Effects/Attacks/Player/SkillInstantSlash/SkillHeavyInstantSlash/SkillHeavyInstantSlash.tscn" id="26_nemkn"]
+[ext_resource type="AudioStream" uid="uid://bcja4mriabjrc" path="res://Assets/SFX/Game/HeavySlash.wav" id="27_mfb83"]
 [ext_resource type="PackedScene" uid="uid://2jh0h6s5n3er" path="res://Objects/Projectile/PlayerProjectile/HeavySweep/HeavySlashSweep.tscn" id="27_oj4gb"]
 [ext_resource type="PackedScene" uid="uid://db0hdhubh6jey" path="res://Objects/Effects/Attacks/Player/SkillInstantSlash/SkillInstantSlash.tscn" id="28_588ek"]
 [ext_resource type="PackedScene" uid="uid://d34vdm2wj7b2c" path="res://Objects/Effects/GatherEnergy/GatherEnergy.tscn" id="29_ackrf"]
 [ext_resource type="PackedScene" uid="uid://bkg4yc4ptm36y" path="res://Objects/Projectile/PlayerProjectile/HeavySweep/HeavySweep.tscn" id="30_uoh8c"]
-[ext_resource type="AudioStream" uid="uid://vis0ma7imf7c" path="res://Assets/SFX/Game/Player/Teleport.wav" id="31_6uadc"]
-[ext_resource type="AudioStream" uid="uid://byefgrfmn78gx" path="res://Assets/SFX/Game/Player/GatherEnergy.wav" id="33_ij435"]
-[ext_resource type="AudioStream" uid="uid://dlh3awobcvj3a" path="res://Assets/SFX/Game/Player/HeavySweep.wav" id="34_rt41s"]
-[ext_resource type="AudioStream" uid="uid://13m4yokyb78t" path="res://Assets/SFX/Game/Player/InstantSlash.wav" id="37_t2tbm"]
+[ext_resource type="AudioStream" uid="uid://bq84lgdm1amna" path="res://Assets/SFX/Game/Player/Teleport.wav" id="31_6uadc"]
+[ext_resource type="AudioStream" uid="uid://bg3peysgkgeb5" path="res://Assets/SFX/Game/Player/GatherEnergy.wav" id="33_ij435"]
+[ext_resource type="AudioStream" uid="uid://cqm7q57rsevxw" path="res://Assets/SFX/Game/Player/HeavySweep.wav" id="34_rt41s"]
+[ext_resource type="AudioStream" uid="uid://cjneovbwi02jk" path="res://Assets/SFX/Game/Player/InstantSlash.wav" id="37_t2tbm"]
 
 [sub_resource type="Resource" id="Resource_wwlf2"]
 script = ExtResource("3_b2i5c")
@@ -10237,7 +10238,7 @@ damage = 7.0
 damage_type = 1
 direction = Vector2(0, 1)
 speed = 8.0
-sound_files = Array[AudioStream]([ExtResource("23_gw2k1")])
+sound_files = Array[AudioStream]([ExtResource("27_mfb83")])
 
 [node name="ActiveInstantProjectile" type="Node" parent="StateMachine/SlashHeavy/ActionOr" index="1" node_paths=PackedStringArray("hitbox", "effect_spawn_position")]
 script = ExtResource("6_iar8x")
@@ -10252,7 +10253,7 @@ effect_spawn_position = NodePath("../../../..")
 effect_parameters = {
 "body": "body"
 }
-sound_files = Array[AudioStream]([ExtResource("23_gw2k1")])
+sound_files = Array[AudioStream]([ExtResource("27_mfb83")])
 
 [node name="ActiveSweep" type="Node" parent="StateMachine/SlashHeavy/ActionOr" index="2" node_paths=PackedStringArray("hitbox", "projectile_spawn_position")]
 script = ExtResource("6_iar8x")
@@ -10264,7 +10265,7 @@ projectile_scene = ExtResource("27_oj4gb")
 projectile_spawn_position = NodePath("../../../../Pivot/Marker3D")
 direction = Vector2(0, 1)
 speed = 8.0
-sound_files = Array[AudioStream]([ExtResource("23_gw2k1")])
+sound_files = Array[AudioStream]([ExtResource("27_mfb83")])
 
 [node name="Recovery" type="Node" parent="StateMachine/SlashHeavy" index="3" node_paths=PackedStringArray("hitbox")]
 script = ExtResource("6_iar8x")
@@ -10349,7 +10350,7 @@ damage = 7.0
 damage_type = 1
 projectile_scene = ExtResource("30_uoh8c")
 projectile_spawn_position = NodePath("../../../Pivot/Marker3D")
-sound_files = Array[AudioStream]([ExtResource("34_rt41s"), ExtResource("23_gw2k1")])
+sound_files = Array[AudioStream]([ExtResource("34_rt41s"), ExtResource("27_mfb83")])
 
 [node name="Recovery" type="Node" parent="StateMachine/SkillHeavySweep" index="3" node_paths=PackedStringArray("hitbox")]
 script = ExtResource("6_iar8x")
