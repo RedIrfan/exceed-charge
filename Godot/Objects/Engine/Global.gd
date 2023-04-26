@@ -39,6 +39,14 @@ func stage_master():
 	return get_tree().get_first_node_in_group("StageMaster")
 
 
+func pause_duration(duration:float, mode_pause:PAUSES=PAUSES.FULL):
+	pause(true, mode_pause)
+	
+	await get_tree().create_timer(duration).timeout
+	
+	pause(false, mode_pause)
+
+
 func pause(mode:bool, mode_pause:PAUSES=PAUSES.FULL):
 	if mode == true: 
 		current_pause = mode_pause
