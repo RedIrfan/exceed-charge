@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://b4niuemy3u5v6"]
+[gd_scene load_steps=92 format=3 uid="uid://b4niuemy3u5v6"]
 
 [ext_resource type="PackedScene" uid="uid://bexv64vi0g65v" path="res://Objects/Characters/Bosses/Boss.tscn" id="1_x5c7r"]
 [ext_resource type="Script" path="res://Objects/Engine/CollisionBox/Hitbox.gd" id="2_jfgvq"]
@@ -6,8 +6,11 @@
 [ext_resource type="Script" path="res://Objects/Characters/Enemies/States/ActionDataEnemy.gd" id="3_2fjbo"]
 [ext_resource type="Script" path="res://Objects/Engine/CollisionBox/Hurtbox.gd" id="3_gml0r"]
 [ext_resource type="Script" path="res://Objects/Characters/Bosses/Emperor/States/AttackMaster.gd" id="4_cb5e0"]
+[ext_resource type="AudioStream" uid="uid://bcja4mriabjrc" path="res://Assets/SFX/Game/HeavySlash.wav" id="6_ndtfb"]
 [ext_resource type="PackedScene" uid="uid://bxwxldxc1smp5" path="res://Objects/Effects/Attacks/Bosses/Emperor/SummonEnemies.tscn" id="6_ochy6"]
 [ext_resource type="Script" path="res://Objects/Characters/Bosses/Emperor/States/DashMaster.gd" id="6_uwi4a"]
+[ext_resource type="AudioStream" uid="uid://cvp3pdo7qeji" path="res://Assets/SFX/Game/Bosses/Emperor/Summon.wav" id="9_xgh85"]
+[ext_resource type="AudioStream" uid="uid://dv47n1ya3je35" path="res://Assets/SFX/Game/Player/Dash.wav" id="10_e6pjs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sp3ii"]
 resource_name = "Material.003"
@@ -6128,7 +6131,7 @@ bones/36/rotation = Quaternion(0.142175, -0.273299, -0.00564951, 0.951348)
 bones/36/scale = Vector3(1, 1, 1)
 
 [node name="Cube002" type="BoneAttachment3D" parent="Pivot/Emperor/Armature/Skeleton3D" index="0"]
-transform = Transform3D(0.850494, -0.525909, -0.00894222, -0.0884165, -0.126259, -0.988051, 0.518494, 0.841148, -0.153866, 0.340624, 0.71748, -0.376782)
+transform = Transform3D(0.850494, -0.525909, -0.00894237, -0.0884164, -0.126259, -0.988051, 0.518494, 0.841149, -0.153866, 0.340625, 0.71748, -0.376782)
 bone_name = "Weapon"
 bone_idx = 16
 
@@ -6148,7 +6151,7 @@ transform = Transform3D(0.999993, -0.00328159, 0.0018287, 0.00328163, 0.999994, 
 shape = SubResource("BoxShape3D_cg6gl")
 
 [node name="Cube001" type="BoneAttachment3D" parent="Pivot/Emperor/Armature/Skeleton3D" index="1"]
-transform = Transform3D(1.52816e-09, -1, 4.91773e-08, -0.970144, -2.07252e-09, -0.24253, 0.24253, -4.96716e-08, -0.970144, -0.271204, 0.512537, -0.0215644)
+transform = Transform3D(-5.80764e-08, -1, 5.29021e-08, -0.970144, -3.26666e-09, -0.24253, 0.24253, -5.70255e-08, -0.970144, -0.271204, 0.512537, -0.0215645)
 bone_name = "ShoulderPad.L"
 bone_idx = 19
 
@@ -6228,6 +6231,7 @@ damage = 15.0
 damage_type = 1
 direction = Vector2(0, 1)
 speed = 6.0
+sound_files = Array[AudioStream]([ExtResource("6_ndtfb")])
 
 [node name="Recovery" type="Node" parent="StateMachine/Slash1" index="3" node_paths=PackedStringArray("hitbox")]
 script = ExtResource("3_2fjbo")
@@ -6267,6 +6271,7 @@ damage = 15.0
 damage_type = 1
 direction = Vector2(0, 1)
 speed = 6.0
+sound_files = Array[AudioStream]([ExtResource("6_ndtfb")])
 
 [node name="Recovery" type="Node" parent="StateMachine/Slash2" index="3" node_paths=PackedStringArray("hitbox")]
 script = ExtResource("3_2fjbo")
@@ -6303,7 +6308,9 @@ duration = 0.133
 hitbox = NodePath("../../../Pivot/Emperor/Armature/Skeleton3D/Cube002/Cube002/Hitbox")
 damage = 20.0
 damage_type = 1
+force_damage = true
 direction = Vector2(0, 1)
+sound_files = Array[AudioStream]([ExtResource("6_ndtfb")])
 
 [node name="Recovery" type="Node" parent="StateMachine/Slam" index="3" node_paths=PackedStringArray("hitbox")]
 script = ExtResource("3_2fjbo")
@@ -6335,6 +6342,7 @@ effect_parameters = {
 external_signal_name = "effect_ended"
 connect_node = NodePath("../../Phase2Master")
 connect_method_name = "_on_grunts_dead"
+sound_files = Array[AudioStream]([ExtResource("9_xgh85")])
 
 [node name="DashMaster" type="Node" parent="StateMachine" index="10"]
 script = ExtResource("6_uwi4a")
@@ -6352,6 +6360,7 @@ animation_name = "DashLeft"
 direction = Vector2(-1, 0)
 speed = 10.0
 process_direction = true
+sound_files = Array[AudioStream]([ExtResource("10_e6pjs")])
 
 [node name="Stop" type="Node" parent="StateMachine/DashLeft" index="1"]
 script = ExtResource("3_2fjbo")
@@ -6371,6 +6380,7 @@ animation_name = "DashRight"
 direction = Vector2(1, 0)
 speed = 10.0
 process_direction = true
+sound_files = Array[AudioStream]([ExtResource("10_e6pjs")])
 
 [node name="Stop" type="Node" parent="StateMachine/DashRight" index="1"]
 script = ExtResource("3_2fjbo")

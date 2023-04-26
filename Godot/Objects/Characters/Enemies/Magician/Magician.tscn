@@ -1,11 +1,13 @@
-[gd_scene load_steps=72 format=3 uid="uid://c3qjrj6h5rj1h"]
+[gd_scene load_steps=74 format=3 uid="uid://c3qjrj6h5rj1h"]
 
 [ext_resource type="PackedScene" uid="uid://80d5oe7mym0k" path="res://Objects/Characters/Enemies/Enemy.tscn" id="1_p0j1h"]
 [ext_resource type="Script" path="res://Objects/Engine/CollisionBox/Hurtbox.gd" id="2_7yd58"]
 [ext_resource type="Script" path="res://Objects/Characters/Enemies/States/StateEnemyActionMaster.gd" id="2_287lq"]
 [ext_resource type="Script" path="res://Objects/Characters/States/ActionData.gd" id="3_gt0b6"]
 [ext_resource type="Script" path="res://Objects/Characters/Enemies/States/ActionDataEnemy.gd" id="4_q7xdp"]
+[ext_resource type="AudioStream" uid="uid://kj14gh5la1n2" path="res://Assets/SFX/Game/Enemies/Magician/GatherEnergy.wav" id="5_0j8uu"]
 [ext_resource type="PackedScene" uid="uid://dlx8cwdcil73b" path="res://Objects/Projectile/MagicBall/MagicBall.tscn" id="5_jthu4"]
+[ext_resource type="AudioStream" uid="uid://oer5balr7ddg" path="res://Assets/SFX/Game/Shoot.wav" id="8_xp801"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3wmc0"]
 resource_name = "Material.001"
@@ -4679,6 +4681,7 @@ look_at_target = true
 duration = 1.2
 animation_name = "ShootStart"
 effect_node = NodePath("../../../Pivot/ShootPosition/GPUParticles3D")
+sound_files = Array[AudioStream]([ExtResource("5_0j8uu")])
 
 [node name="Active" type="Node" parent="StateMachine/Shoot" index="1" node_paths=PackedStringArray("projectile_spawn_position")]
 script = ExtResource("3_gt0b6")
@@ -4688,6 +4691,7 @@ projectile_scene = ExtResource("5_jthu4")
 projectile_spawn_position = NodePath("../../../Pivot/ShootPosition")
 direction = Vector2(0, -1)
 speed = 4.0
+sound_files = Array[AudioStream]([ExtResource("8_xp801")])
 
 [node name="Recovery" type="Node" parent="StateMachine/Shoot" index="2"]
 script = ExtResource("3_gt0b6")

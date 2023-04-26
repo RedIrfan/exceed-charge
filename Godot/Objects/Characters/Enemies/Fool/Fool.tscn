@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cuyel7n667f2q"]
+[gd_scene load_steps=27 format=3 uid="uid://cuyel7n667f2q"]
 
 [ext_resource type="PackedScene" uid="uid://80d5oe7mym0k" path="res://Objects/Characters/Enemies/Enemy.tscn" id="1_v1xt4"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://b4e255hyccp0a" path="res://Assets/Characters/Enemies/Fool/AnimationStateMachine.tres" id="2_3xmgi"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Objects/Engine/CollisionBox/Hitbox.gd" id="3_ejbjq"]
 [ext_resource type="Script" path="res://Objects/Characters/Enemies/States/StateEnemyActionMaster.gd" id="4_0prxx"]
 [ext_resource type="Script" path="res://Objects/Characters/States/ActionData.gd" id="5_62a3b"]
+[ext_resource type="AudioStream" uid="uid://b5t12ygv34yjl" path="res://Assets/SFX/Game/Slash.wav" id="7_hfvjd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o565e"]
 resource_name = "Material.001"
@@ -3508,6 +3509,7 @@ hitbox = NodePath("../../../Pivot/Hitbox")
 damage = 5
 direction = Vector2(0, 1)
 speed = 6.0
+sound_files = Array[AudioStream]([ExtResource("7_hfvjd")])
 
 [node name="Recovery" type="Node" parent="StateMachine/Slash" index="3" node_paths=PackedStringArray("hitbox")]
 script = ExtResource("5_62a3b")
