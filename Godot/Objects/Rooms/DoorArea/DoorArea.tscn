@@ -1,6 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://he8bmx762fo1"]
+[gd_scene load_steps=12 format=3 uid="uid://he8bmx762fo1"]
 
 [ext_resource type="Script" path="res://Objects/Rooms/DoorArea/DoorArea.gd" id="1_1ch6q"]
+[ext_resource type="AudioStream" uid="uid://45o7adra58i7" path="res://Assets/SFX/Game/TalonWall/Open.wav" id="2_l50tl"]
+[ext_resource type="AudioStream" uid="uid://c3ncc4mh4furx" path="res://Assets/SFX/Game/TalonWall/Close.wav" id="3_w2j1a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v6k8t"]
 size = Vector3(2, 1, 2)
@@ -241,3 +243,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WallCrystal/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.251443, 0)
 shape = SubResource("BoxShape3D_8tm7a")
+
+[node name="OpenSfx" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_l50tl")
+bus = &"Sfx"
+
+[node name="CloseSfx" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_w2j1a")
+bus = &"Sfx"

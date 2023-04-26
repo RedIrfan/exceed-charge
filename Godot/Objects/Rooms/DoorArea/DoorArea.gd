@@ -1,6 +1,8 @@
 extends Area3D
 class_name DoorArea
 
+@onready var open_sfx : AudioStreamPlayer3D = $OpenSfx
+@onready var close_sfx : AudioStreamPlayer3D = $CloseSfx
 @onready var room : Room = get_parent()
 @onready var animation : AnimationPlayer = $WallCrystal/AnimationPlayer
 @onready var static_body : StaticBody3D = $WallCrystal/StaticBody3D
@@ -27,8 +29,10 @@ func set_active(new_active:bool):
 	
 	if old_active != new_active:
 		if active:	
+			open_sfx.play()
 			animation.play_backwards("Close")
 		else:
+			close_sfx.play()
 			animation.play("Close")
 	
 	static_body.set_collision_layer_value(1, ! active)
