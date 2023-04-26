@@ -64,9 +64,6 @@ func enter(_msg=[]):
 	var animation_name = ["Light", "Heavy"]
 	
 	_process_damage()
-	Global.pause(true, Global.PAUSES.CUTSCENE)
-	await get_tree().create_timer(0.05).timeout
-	Global.pause(false)
 	
 	if immovable == false:
 		body.direction = Vector2(body_back_scalar.x, body_back_scalar.z)
@@ -97,6 +94,7 @@ func process(_delta):
 
 func _process_damage():
 	body.process_damage(hurt_data.damage)
+	Global.pause_duration(0.05, Global.PAUSES.CUTSCENE)
 
 
 func _check_dead() -> bool:

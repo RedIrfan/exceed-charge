@@ -56,10 +56,6 @@ func process_damage():
 	if destroyed_sound and health <= 0:
 		Global.play_sound(destroyed_sound, self.global_position)
 	
-	Global.pause(true, Global.PAUSES.CUTSCENE)
-	await get_tree().create_timer(0.05).timeout
-	Global.pause(false)
-	
 	var particles = HIT_PARTICLES.instantiate()
 	var new_rot = hurt_data.attacker.global_rotation
 	var second_parameter = hit_colour
@@ -69,6 +65,8 @@ func process_damage():
 	
 	var label = DAMAGE_LABEL.instantiate()
 	label.spawn(self.global_position, [hurt_data.damage])
+	
+	Global.pause_duration(0.05, Global.PAUSES.CUTSCENE)
 	
 	if health <= 0:
 		process_dead()
