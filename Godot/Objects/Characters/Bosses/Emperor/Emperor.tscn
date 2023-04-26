@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://b4niuemy3u5v6"]
+[gd_scene load_steps=92 format=3 uid="uid://b4niuemy3u5v6"]
 
 [ext_resource type="PackedScene" uid="uid://bexv64vi0g65v" path="res://Objects/Characters/Bosses/Boss.tscn" id="1_x5c7r"]
 [ext_resource type="Script" path="res://Objects/Engine/CollisionBox/Hitbox.gd" id="2_jfgvq"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://bcja4mriabjrc" path="res://Assets/SFX/Game/HeavySlash.wav" id="6_ndtfb"]
 [ext_resource type="PackedScene" uid="uid://bxwxldxc1smp5" path="res://Objects/Effects/Attacks/Bosses/Emperor/SummonEnemies.tscn" id="6_ochy6"]
 [ext_resource type="Script" path="res://Objects/Characters/Bosses/Emperor/States/DashMaster.gd" id="6_uwi4a"]
+[ext_resource type="AudioStream" uid="uid://cvp3pdo7qeji" path="res://Assets/SFX/Game/Bosses/Emperor/Summon.wav" id="9_xgh85"]
 [ext_resource type="AudioStream" uid="uid://dv47n1ya3je35" path="res://Assets/SFX/Game/Player/Dash.wav" id="10_e6pjs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sp3ii"]
@@ -6341,6 +6342,7 @@ effect_parameters = {
 external_signal_name = "effect_ended"
 connect_node = NodePath("../../Phase2Master")
 connect_method_name = "_on_grunts_dead"
+sound_files = Array[AudioStream]([ExtResource("9_xgh85")])
 
 [node name="DashMaster" type="Node" parent="StateMachine" index="10"]
 script = ExtResource("6_uwi4a")
