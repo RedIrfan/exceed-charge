@@ -1,0 +1,37 @@
+[gd_resource type="VisualShader" load_steps=4 format=3 uid="uid://cnjjifctldu88"]
+
+[sub_resource type="Gradient" id="Gradient_mheig"]
+offsets = PackedFloat32Array(0, 0.584906, 0.990566)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.423077, 0.299547, 0.299547, 0.299547, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bua4b"]
+gradient = SubResource("Gradient_mheig")
+fill_from = Vector2(0.137255, 0)
+fill_to = Vector2(0.137255, 1)
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_a8l6a"]
+texture = SubResource("GradientTexture2D_bua4b")
+
+[resource]
+code = "shader_type canvas_item;
+uniform sampler2D tex_frg_3;
+
+
+
+void fragment() {
+// Texture2D:3
+	vec4 n_out3p0 = texture(tex_frg_3, UV);
+
+
+// Output:0
+	COLOR.a = n_out3p0.x;
+
+
+}
+"
+graph_offset = Vector2(106.456, 311.072)
+mode = 1
+flags/light_only = false
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_a8l6a")
+nodes/fragment/3/position = Vector2(120, 320)
+nodes/fragment/connections = PackedInt32Array(3, 0, 0, 1)
