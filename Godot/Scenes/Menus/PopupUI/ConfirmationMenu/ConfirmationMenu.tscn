@@ -1,0 +1,147 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmfmohxgh03pp"]
+
+[ext_resource type="PackedScene" uid="uid://hhfcafer6do7" path="res://Scenes/Menus/PopupUI/PopupUI.tscn" id="1_800dw"]
+[ext_resource type="Script" path="res://Scenes/Menus/PopupUI/ConfirmationMenu/ConfirmationMenu.gd" id="2_48i3u"]
+
+[sub_resource type="Animation" id="Animation_2ou00"]
+resource_name = "Open"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(800, 112), Vector2(800, 298)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(176, 268), Vector2(176, 175)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/Inside:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.19, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_550ii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(800, 112)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(176, 268)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/Inside:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8xd2d"]
+_data = {
+"Open": SubResource("Animation_2ou00"),
+"RESET": SubResource("Animation_550ii")
+}
+
+[node name="ConfirmationMenu" instance=ExtResource("1_800dw")]
+script = ExtResource("2_48i3u")
+
+[node name="Label" type="Label" parent="Panel/Inside" index="0"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 45
+text = "Are you Sure?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/Inside" index="1"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -69.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 250
+alignment = 1
+
+[node name="ConfirmButton" type="Button" parent="Panel/Inside/HBoxContainer" index="0"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+focus_neighbor_left = NodePath("../CancelButton")
+focus_neighbor_top = NodePath("../CancelButton")
+focus_neighbor_right = NodePath("../CancelButton")
+focus_neighbor_bottom = NodePath("../CancelButton")
+focus_next = NodePath("../CancelButton")
+focus_previous = NodePath("../CancelButton")
+text = "Confirm"
+
+[node name="CancelButton" type="Button" parent="Panel/Inside/HBoxContainer" index="1"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../ConfirmButton")
+focus_neighbor_top = NodePath("../ConfirmButton")
+focus_neighbor_right = NodePath("../ConfirmButton")
+focus_neighbor_bottom = NodePath("../ConfirmButton")
+focus_next = NodePath("../ConfirmButton")
+focus_previous = NodePath("../ConfirmButton")
+text = "Cancel"
+
+[node name="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_8xd2d")
+}
+
+[connection signal="pressed" from="Panel/Inside/HBoxContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="Panel/Inside/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
