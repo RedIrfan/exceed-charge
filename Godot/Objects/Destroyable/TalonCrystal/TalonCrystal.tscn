@@ -6,93 +6,93 @@
 [ext_resource type="Script" path="res://Objects/Drop/CardDropData.gd" id="3_q3j6o"]
 [ext_resource type="AudioStream" uid="uid://cjbrjkarqi6cf" path="res://Assets/SFX/Game/TalonCrystal/Explode.wav" id="5_7umkv"]
 
-[sub_resource type="Resource" id="Resource_pahh5"]
-script = ExtResource("3_cunnd")
-value = 1
-suit = 0
-card_name = ""
-card_drop_chance = 0
-
-[sub_resource type="Resource" id="Resource_otm36"]
+[sub_resource type="Resource" id="Resource_jqnio"]
 script = ExtResource("3_cunnd")
 value = 1
 suit = 1
 card_name = ""
 card_drop_chance = 0
 
-[sub_resource type="Resource" id="Resource_85ni6"]
+[sub_resource type="Resource" id="Resource_7m8w2"]
 script = ExtResource("3_cunnd")
 value = 1
 suit = 2
 card_name = ""
 card_drop_chance = 0
 
-[sub_resource type="Resource" id="Resource_7mhsy"]
+[sub_resource type="Resource" id="Resource_m62d3"]
 script = ExtResource("3_cunnd")
 value = 1
 suit = 3
 card_name = ""
 card_drop_chance = 0
 
-[sub_resource type="Resource" id="Resource_xncye"]
+[sub_resource type="Resource" id="Resource_5nqpu"]
 script = ExtResource("3_cunnd")
-value = 2
-suit = 0
+value = 1
+suit = 4
 card_name = ""
 card_drop_chance = 0
 
-[sub_resource type="Resource" id="Resource_do4xl"]
+[sub_resource type="Resource" id="Resource_laejv"]
+script = ExtResource("3_cunnd")
+value = 1
+suit = 5
+card_name = ""
+card_drop_chance = 0
+
+[sub_resource type="Resource" id="Resource_lcdqg"]
+script = ExtResource("3_cunnd")
+value = 1
+suit = 6
+card_name = ""
+card_drop_chance = 0
+
+[sub_resource type="Resource" id="Resource_mnnda"]
 script = ExtResource("3_cunnd")
 value = 2
 suit = 1
 card_name = ""
 card_drop_chance = 0
 
-[sub_resource type="Resource" id="Resource_b6eje"]
+[sub_resource type="Resource" id="Resource_kj6eh"]
 script = ExtResource("3_cunnd")
 value = 2
 suit = 2
 card_name = ""
 card_drop_chance = 0
 
-[sub_resource type="Resource" id="Resource_8u8p7"]
+[sub_resource type="Resource" id="Resource_5j3hb"]
 script = ExtResource("3_cunnd")
 value = 2
 suit = 3
 card_name = ""
 card_drop_chance = 0
 
-[sub_resource type="Resource" id="Resource_cg7jg"]
+[sub_resource type="Resource" id="Resource_2j2ey"]
 script = ExtResource("3_cunnd")
-value = 3
-suit = 0
+value = 2
+suit = 4
 card_name = ""
 card_drop_chance = 0
 
-[sub_resource type="Resource" id="Resource_lt5dt"]
+[sub_resource type="Resource" id="Resource_1fw0x"]
 script = ExtResource("3_cunnd")
-value = 3
-suit = 1
+value = 2
+suit = 5
 card_name = ""
 card_drop_chance = 0
 
-[sub_resource type="Resource" id="Resource_6aw2l"]
+[sub_resource type="Resource" id="Resource_53bv7"]
 script = ExtResource("3_cunnd")
-value = 3
-suit = 2
-card_name = ""
-card_drop_chance = 0
-
-[sub_resource type="Resource" id="Resource_b4oqy"]
-script = ExtResource("3_cunnd")
-value = 3
-suit = 3
+value = 2
+suit = 6
 card_name = ""
 card_drop_chance = 0
 
 [sub_resource type="Resource" id="Resource_gp7si"]
 script = ExtResource("3_q3j6o")
-drop_cards = Array[ExtResource("3_cunnd")]([SubResource("Resource_pahh5"), SubResource("Resource_otm36"), SubResource("Resource_85ni6"), SubResource("Resource_7mhsy"), SubResource("Resource_xncye"), SubResource("Resource_do4xl"), SubResource("Resource_b6eje"), SubResource("Resource_8u8p7"), SubResource("Resource_cg7jg"), SubResource("Resource_lt5dt"), SubResource("Resource_6aw2l"), SubResource("Resource_b4oqy")])
+drop_cards = Array[ExtResource("3_cunnd")]([SubResource("Resource_jqnio"), SubResource("Resource_7m8w2"), SubResource("Resource_m62d3"), SubResource("Resource_5nqpu"), SubResource("Resource_laejv"), SubResource("Resource_lcdqg"), SubResource("Resource_mnnda"), SubResource("Resource_kj6eh"), SubResource("Resource_5j3hb"), SubResource("Resource_2j2ey"), SubResource("Resource_1fw0x"), SubResource("Resource_53bv7")])
 drops_scene = {}
 drop_items = Array[Resource("res://Objects/Drop/ChanceData.gd")]([])
 
@@ -229,6 +229,8 @@ size = Vector3(0.5, 1, 0.5)
 
 [node name="TalonCrystal" instance=ExtResource("1_0ci5v")]
 script = ExtResource("2_xqv0n")
+drop_amount = 5
+drop_position_offset = Vector2(0, 1)
 drop_data = SubResource("Resource_gp7si")
 HEALTH = 17
 hit_particle = SubResource("PrismMesh_1xwn0")
