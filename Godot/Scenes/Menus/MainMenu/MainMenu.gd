@@ -40,6 +40,15 @@ func change_character(character:CHARACTERS):
 	star_decker_animation.play("DeckOutsideIdle", 0.3)
 
 
+func _on_start_button_pressed():
+	star_decker_animation.stop()
+	star_decker_animation.play("DeckOutsideScan")
+	
+	await star_decker_animation.animation_finished
+	
+	Global.change_scene("res://Scenes/Stages/StageMaster.tscn")
+
+
 func _on_option_button_pressed():
 	in_home = false
 	
@@ -62,4 +71,6 @@ func _on_exit_button_pressed():
 	
 	exit_button.grab_focus()
 	in_home = true
+
+
 
