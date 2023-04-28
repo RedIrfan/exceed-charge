@@ -46,6 +46,10 @@ text = "Sfx Volume"
 [node name="SfxVolumeSlider" type="HSlider" parent="Panel/Inside/VSplitContainer/TabContainer/Audio/VBoxContainer/GridContainer" index="1"]
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
+min_value = -60.0
+max_value = 0.0
+tick_count = 8
+ticks_on_borders = true
 
 [node name="MusicVolumeLabel" type="Label" parent="Panel/Inside/VSplitContainer/TabContainer/Audio/VBoxContainer/GridContainer" index="2"]
 layout_mode = 2
@@ -54,6 +58,10 @@ text = "Music Volume"
 
 [node name="MusicVolumeSlider" type="HSlider" parent="Panel/Inside/VSplitContainer/TabContainer/Audio/VBoxContainer/GridContainer" index="3"]
 layout_mode = 2
+min_value = -60.0
+max_value = 0.0
+tick_count = 8
+ticks_on_borders = true
 
 [node name="Video" type="Control" parent="Panel/Inside/VSplitContainer/TabContainer" index="2"]
 visible = false
@@ -69,23 +77,28 @@ layout_mode = 2
 theme_override_constants/separation = 100
 alignment = 2
 
-[node name="SaveButton" type="Button" parent="Panel/Inside/VSplitContainer/MarginContainer/Buttons" index="0"]
+[node name="ApplyButton" type="Button" parent="Panel/Inside/VSplitContainer/MarginContainer/Buttons" index="0"]
 layout_mode = 2
 focus_neighbor_left = NodePath("../ExitButton")
-focus_neighbor_right = NodePath("../ExitButton")
+focus_neighbor_right = NodePath("../DefaultButton")
 focus_neighbor_bottom = NodePath("../../../TabContainer")
-focus_next = NodePath("../ExitButton")
+focus_next = NodePath("../DefaultButton")
 focus_previous = NodePath("../ExitButton")
-text = "Save"
+text = "Apply"
 
-[node name="ExitButton" type="Button" parent="Panel/Inside/VSplitContainer/MarginContainer/Buttons" index="1"]
+[node name="DefaultButton" type="Button" parent="Panel/Inside/VSplitContainer/MarginContainer/Buttons" index="1"]
 layout_mode = 2
-focus_neighbor_left = NodePath("../SaveButton")
-focus_neighbor_right = NodePath("../SaveButton")
+text = "Reset"
+
+[node name="ExitButton" type="Button" parent="Panel/Inside/VSplitContainer/MarginContainer/Buttons" index="2"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../DefaultButton")
+focus_neighbor_right = NodePath("../ApplyButton")
 focus_neighbor_bottom = NodePath("../../../TabContainer")
-focus_next = NodePath("../SaveButton")
-focus_previous = NodePath("../SaveButton")
+focus_next = NodePath("../ApplyButton")
+focus_previous = NodePath("../DefaultButton")
 text = "Exit"
 
-[connection signal="pressed" from="Panel/Inside/VSplitContainer/MarginContainer/Buttons/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Panel/Inside/VSplitContainer/MarginContainer/Buttons/ApplyButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Panel/Inside/VSplitContainer/MarginContainer/Buttons/DefaultButton" to="." method="_on_default_button_pressed"]
 [connection signal="pressed" from="Panel/Inside/VSplitContainer/MarginContainer/Buttons/ExitButton" to="." method="_on_exit_button_pressed"]
