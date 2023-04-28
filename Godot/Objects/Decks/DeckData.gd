@@ -22,6 +22,14 @@ func _init(new_charge : int=3, new_deck_max_amount : int = 5, new_deck_list:Arra
 	deck_list = new_deck_list
 
 
+func restart():
+	deck_list.clear()
+	level = 1
+	charge.clear()
+	normal_status.clear()
+	exceed_charge_suit = CardData.SUITS.NONE
+
+
 func add_card(card:CardData) -> bool:
 	if deck_list.size() < DECK_MAX_AMOUNT:
 		deck_list.append(card)

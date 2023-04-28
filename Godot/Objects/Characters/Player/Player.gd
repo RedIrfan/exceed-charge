@@ -35,6 +35,14 @@ func _ready():
 	deck.connect("exceeded_charge", _on_exceeded_charge)
 
 
+func restart():
+	health = HEALTH
+	deck.restart()
+	status.restart()
+
+	$StateMachine.restart()
+
+
 func player_attack():
 	emit_signal("player_attacked")
 
