@@ -229,6 +229,8 @@ size = Vector3(0.5, 1, 0.5)
 
 [node name="TalonCrystal" instance=ExtResource("1_0ci5v")]
 script = ExtResource("2_xqv0n")
+drop_amount = 5
+drop_position_offset = Vector2(0, 1)
 drop_data = SubResource("Resource_gp7si")
 HEALTH = 17
 hit_particle = SubResource("PrismMesh_1xwn0")
