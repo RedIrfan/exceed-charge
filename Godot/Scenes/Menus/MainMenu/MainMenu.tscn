@@ -9875,14 +9875,14 @@ rotation_separation = 18.0
 layout_mode = 1
 offset_left = 491.6
 offset_top = -161.8
-offset_right = -491.598
+offset_right = -491.6
 offset_bottom = -572.2
 
 [node name="Defense" parent="Background/StatusCircle" instance=ExtResource("1_hk2jw")]
 layout_mode = 1
 offset_left = 491.6
 offset_top = -161.8
-offset_right = -491.598
+offset_right = -491.6
 offset_bottom = -572.2
 status = 1
 
@@ -9890,7 +9890,7 @@ status = 1
 layout_mode = 1
 offset_left = 491.6
 offset_top = -161.8
-offset_right = -491.61
+offset_right = -491.6
 offset_bottom = -572.2
 status = 2
 
@@ -9898,16 +9898,16 @@ status = 2
 layout_mode = 1
 offset_left = 491.6
 offset_top = -161.8
-offset_right = -491.586
-offset_bottom = -572.209
+offset_right = -491.6
+offset_bottom = -572.2
 status = 3
 
 [node name="AttackSpeed" parent="Background/StatusCircle" instance=ExtResource("1_hk2jw")]
 layout_mode = 1
 offset_left = 491.6
 offset_top = -161.8
-offset_right = -491.607
-offset_bottom = -572.202
+offset_right = -491.6
+offset_bottom = -572.2
 status = 4
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
@@ -10415,5 +10415,6 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+[connection signal="pressed" from="MarginContainer/VSplitContainer/MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VSplitContainer/MarginContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VSplitContainer/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
