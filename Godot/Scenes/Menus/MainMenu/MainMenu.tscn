@@ -9791,6 +9791,66 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(0, -2.26369, 0), Vector3(0, 0.0226893, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background/StatusCircle/Hearts:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168.8, 237.6)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Background/StatusCircle/Defense:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168.8, 237.6)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Background/StatusCircle/Agility:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168.8, 237.6)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Background/StatusCircle/AttackDamage:size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168.8, 237.6)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Background/StatusCircle/AttackSpeed:size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168.8, 237.6)]
+}
 
 [sub_resource type="Animation" id="Animation_nxked"]
 length = 0.001
@@ -9829,6 +9889,66 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, -3.3074, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background/StatusCircle/Hearts:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168.8, 237.6)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Background/StatusCircle/Defense:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168.8, 237.6)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Background/StatusCircle/Agility:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168.8, 237.6)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Background/StatusCircle/AttackDamage:size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168.8, 237.6)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Background/StatusCircle/AttackSpeed:size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(168.8, 237.6)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_46eo0"]
@@ -9875,39 +9995,39 @@ rotation_separation = 18.0
 layout_mode = 1
 offset_left = 491.6
 offset_top = -161.8
-offset_right = -491.6
-offset_bottom = -572.2
+offset_right = 660.4
+offset_bottom = 75.8
 
 [node name="Defense" parent="Background/StatusCircle" instance=ExtResource("1_hk2jw")]
 layout_mode = 1
 offset_left = 491.6
 offset_top = -161.8
-offset_right = -491.6
-offset_bottom = -572.2
+offset_right = 660.4
+offset_bottom = 75.8
 status = 1
 
 [node name="Agility" parent="Background/StatusCircle" instance=ExtResource("1_hk2jw")]
 layout_mode = 1
 offset_left = 491.6
 offset_top = -161.8
-offset_right = -491.6
-offset_bottom = -572.2
+offset_right = 660.4
+offset_bottom = 75.8
 status = 2
 
 [node name="AttackDamage" parent="Background/StatusCircle" instance=ExtResource("1_hk2jw")]
 layout_mode = 1
 offset_left = 491.6
 offset_top = -161.8
-offset_right = -491.6
-offset_bottom = -572.2
+offset_right = 660.4
+offset_bottom = 75.8
 status = 3
 
 [node name="AttackSpeed" parent="Background/StatusCircle" instance=ExtResource("1_hk2jw")]
 layout_mode = 1
 offset_left = 491.6
 offset_top = -161.8
-offset_right = -491.6
-offset_bottom = -572.2
+offset_right = 660.4
+offset_bottom = 75.8
 status = 4
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
