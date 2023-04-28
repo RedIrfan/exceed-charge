@@ -109,12 +109,17 @@ func get_music_volume():
 
 
 func change_scene(scene_path:String, with_data:Dictionary={}):
+	change_scene_packed(load(scene_path), with_data)
+	Global.pause(false)
+
+
+func change_scene_packed(scene_path:PackedScene, with_data:Dictionary={}):
 	_reset_temporary_data() #erasing the temporary data as to not interfere with the next temporary data
 	if with_data.size() > 0: #checking the with data for value
 		for data in with_data:
 			_set_temporary_data(data, with_data[data]) #inserting the with data into the temporary data
 # warning-ignore:return_value_discarded
-	get_tree().change_scene(scene_path)
+	get_tree().change_scene_to_packed(scene_path)
 
 
 func play_sound(sound_file:AudioStream, position:Vector3=Vector3.ZERO):
