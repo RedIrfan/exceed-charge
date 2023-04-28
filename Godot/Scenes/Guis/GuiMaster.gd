@@ -38,6 +38,9 @@ func enter_gui(gui_name:String):
 func _process(delta):
 	if current_gui:
 		current_gui.process(delta)
+	
+	if Input.is_action_just_pressed("ui_cancel"):
+		gui_list['pausemenu'].enter()
 
 
 func _physics_process(delta):
