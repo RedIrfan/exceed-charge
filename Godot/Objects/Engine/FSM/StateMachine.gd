@@ -19,6 +19,10 @@ func _ready():
 		if child is State:
 			states[child.name.to_lower()] = child
 	
+	restart()
+
+
+func restart():
 	enter_state(starting_state.name)
 
 

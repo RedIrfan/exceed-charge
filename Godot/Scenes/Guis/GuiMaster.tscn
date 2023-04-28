@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddavubmc2k7kp"]
+[gd_scene load_steps=5 format=3 uid="uid://ddavubmc2k7kp"]
 
 [ext_resource type="Script" path="res://Scenes/Guis/GuiMaster.gd" id="1_wwxu0"]
 [ext_resource type="PackedScene" uid="uid://yl0ax47os7of" path="res://Scenes/Guis/Hud/Hud.tscn" id="2_i3dxm"]
 [ext_resource type="PackedScene" uid="uid://brly1j0wxjkvn" path="res://Scenes/Guis/Deck/Deck.tscn" id="2_i8s50"]
+[ext_resource type="PackedScene" uid="uid://ckh1m5g4k173f" path="res://Scenes/Menus/PopupUI/PauseMenu/PauseMenu.tscn" id="4_lkuca"]
 
 [node name="GuiMaster" type="Control" node_paths=PackedStringArray("starting_gui")]
 layout_mode = 3
@@ -18,4 +19,8 @@ starting_gui = NodePath("Hud")
 layout_mode = 1
 
 [node name="Deck" parent="." instance=ExtResource("2_i8s50")]
+layout_mode = 1
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_lkuca")]
+visible = false
 layout_mode = 1

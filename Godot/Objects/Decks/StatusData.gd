@@ -15,17 +15,23 @@ signal active_cards_changed
 signal element_changed(to_element)
 
 @export_group("Multiplier")
-@export var defense_multiplier : float = 1.0
-@export var speed_multiplier : float = 1.0
-@export var attack_damage_multiplier : float = 1.0
-@export var attack_speed_multiplier : float = 1.0
-@export var luck_multiplier : float = 1.0
+@export var DEFENSE_MULTIPLIER : float = 1.0
+@export var SPEED_MULTIPLIER : float = 1.0
+@export var ATTACK_DAMAGE_MULTIPLIER : float = 1.0
+@export var ATTACK_SPEED_MULTIPLIER : float = 1.0
+@export var LUCK_MULTIPLIER : float = 1.0
 
 @export_group("Wild")
 @export var element : ELEMENTS = ELEMENTS.NONE : set = set_element
 @export var primary_active_card : CardData = null
 @export var secondary_active_card : CardData = null
-@export var var_passive_cards : Array[CardData] = []
+@export var _passive_cards : Array[CardData] = []
+
+var defense_multiplier : float = 1.0
+var speed_multiplier : float = 1.0
+var attack_damage_multiplier : float = 1.0
+var attack_speed_multiplier : float = 1.0
+var luck_multiplier : float = 1.0
 
 var primary_active_card_charge : int = 0
 var secondary_active_card_charge : int = 0
@@ -33,16 +39,32 @@ var passive_cards : Array[Array]
 
 
 func _init(new_defense:float=1.0,new_speed:float=1.0,new_damage:float=1.0,new_atk_speed:float=1.0,new_luck:float=1.0,new_element:ELEMENTS=ELEMENTS.NONE,new_primary_active:CardData=null, new_secondary_active:CardData=null, new_passive_cards:Array[CardData]=[]):
-	defense_multiplier = new_defense
-	speed_multiplier = new_speed
-	attack_damage_multiplier = new_damage
-	attack_speed_multiplier = new_atk_speed
-	luck_multiplier = new_luck
+	DEFENSE_MULTIPLIER = new_defense
+	SPEED_MULTIPLIER = new_speed
+	ATTACK_DAMAGE_MULTIPLIER = new_damage
+	ATTACK_SPEED_MULTIPLIER = new_atk_speed
+	LUCK_MULTIPLIER = new_luck
+	_passive_cards = new_passive_cards
+	
+	restart()
+	
 	element = new_element
 	primary_active_card = new_primary_active
 	secondary_active_card = new_secondary_active
+
+
+func restart():
+	defense_multiplier = DEFENSE_MULTIPLIER
+	speed_multiplier = SPEED_MULTIPLIER
+	attack_damage_multiplier = ATTACK_DAMAGE_MULTIPLIER
+	attack_speed_multiplier = ATTACK_SPEED_MULTIPLIER
+	luck_multiplier = LUCK_MULTIPLIER
 	
-	for card in new_passive_cards:
+	element = ELEMENTS.NONE
+	primary_active_card = null
+	secondary_active_card = null
+	
+	for card in _passive_cards:
 		add_passive_card(card.suit, card.value)
 
 

@@ -1,0 +1,104 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0ucl7u8x0nhb"]
+
+[ext_resource type="PackedScene" uid="uid://hhfcafer6do7" path="res://Scenes/Menus/PopupUI/PopupUI.tscn" id="1_ur37i"]
+[ext_resource type="Script" path="res://Scenes/Menus/PopupUI/OptionMenu/OptionMenu.gd" id="2_xavpp"]
+
+[node name="OptionMenu" instance=ExtResource("1_ur37i")]
+script = ExtResource("2_xavpp")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="Panel/Inside" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 330
+dragger_visibility = 1
+
+[node name="TabContainer" type="TabContainer" parent="Panel/Inside/VSplitContainer" index="0"]
+layout_mode = 2
+tab_alignment = 1
+clip_tabs = false
+
+[node name="Audio" type="MarginContainer" parent="Panel/Inside/VSplitContainer/TabContainer" index="1"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VSplitContainer" parent="Panel/Inside/VSplitContainer/TabContainer/Audio" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 0
+split_offset = 288
+dragger_visibility = 1
+
+[node name="GridContainer" type="GridContainer" parent="Panel/Inside/VSplitContainer/TabContainer/Audio/VBoxContainer" index="0"]
+layout_mode = 2
+theme_override_constants/h_separation = 336
+columns = 2
+
+[node name="SfxVolumeLabel" type="Label" parent="Panel/Inside/VSplitContainer/TabContainer/Audio/VBoxContainer/GridContainer" index="0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Sfx Volume"
+
+[node name="SfxVolumeSlider" type="HSlider" parent="Panel/Inside/VSplitContainer/TabContainer/Audio/VBoxContainer/GridContainer" index="1"]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+min_value = -60.0
+max_value = 0.0
+tick_count = 8
+ticks_on_borders = true
+
+[node name="MusicVolumeLabel" type="Label" parent="Panel/Inside/VSplitContainer/TabContainer/Audio/VBoxContainer/GridContainer" index="2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Music Volume"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Panel/Inside/VSplitContainer/TabContainer/Audio/VBoxContainer/GridContainer" index="3"]
+layout_mode = 2
+min_value = -60.0
+max_value = 0.0
+tick_count = 8
+ticks_on_borders = true
+
+[node name="Video" type="Control" parent="Panel/Inside/VSplitContainer/TabContainer" index="2"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/Inside/VSplitContainer" index="1"]
+layout_mode = 2
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 5
+
+[node name="Buttons" type="HBoxContainer" parent="Panel/Inside/VSplitContainer/MarginContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 2
+
+[node name="ApplyButton" type="Button" parent="Panel/Inside/VSplitContainer/MarginContainer/Buttons" index="0"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../ExitButton")
+focus_neighbor_right = NodePath("../DefaultButton")
+focus_neighbor_bottom = NodePath("../../../TabContainer")
+focus_next = NodePath("../DefaultButton")
+focus_previous = NodePath("../ExitButton")
+text = "Apply"
+
+[node name="DefaultButton" type="Button" parent="Panel/Inside/VSplitContainer/MarginContainer/Buttons" index="1"]
+layout_mode = 2
+text = "Reset"
+
+[node name="ExitButton" type="Button" parent="Panel/Inside/VSplitContainer/MarginContainer/Buttons" index="2"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../DefaultButton")
+focus_neighbor_right = NodePath("../ApplyButton")
+focus_neighbor_bottom = NodePath("../../../TabContainer")
+focus_next = NodePath("../ApplyButton")
+focus_previous = NodePath("../DefaultButton")
+text = "Exit"
+
+[connection signal="pressed" from="Panel/Inside/VSplitContainer/MarginContainer/Buttons/ApplyButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Panel/Inside/VSplitContainer/MarginContainer/Buttons/DefaultButton" to="." method="_on_default_button_pressed"]
+[connection signal="pressed" from="Panel/Inside/VSplitContainer/MarginContainer/Buttons/ExitButton" to="." method="_on_exit_button_pressed"]

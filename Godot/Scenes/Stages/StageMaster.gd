@@ -37,7 +37,10 @@ func get_player() -> Character:
 	return get_tree().get_first_node_in_group("Player")
 
 
-func restart():
+func restart(player_dead:bool=false):
+	if player_dead == true:
+		player.restart()
+	
 	Global.pause(true)
 	player.global_position = Vector3(0,0,0)
 	
@@ -57,6 +60,14 @@ func restart():
 func exit_stage():
 	current_floor += 1
 	restart()
+
+
+func exit_main_menu():
+	get_tree().call_group("Interactable", "queue_free")
+	get_tree().call_group("Enemy", "queue_free")
+	get_tree().call_group("Room", "queue_free")
+	
+	Global.change_scene("res://Scenes/Menus/MainMenu/MainMenu.tscn")
 
 
 func generate_stage():

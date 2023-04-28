@@ -4,14 +4,14 @@ signal paused(mode)
 signal sfx_volume_changed(new_volume)
 signal music_volume_changed(new_volume)
 
-var default_game_data = { #insert the save data here
-	"sfx_volume" : 0,
-	"music_volume" : 0,
+var default_game_data : Dictionary = { #insert the save data here
+	"sfx_volume" : -2,
+	"music_volume" : -5,
 }
 
-var game_data = default_game_data
+var game_data : Dictionary = {}
 
-var temporary_data = {}
+var temporary_data : Dictionary = {}
 
 enum PAUSES {
 	NONE,
@@ -24,18 +24,27 @@ var current_music_volume : float = -2.1 : set = _set_current_music_volume
 var current_mouse_sensitivity : float = 0.05
 
 const SOUNDFX_3D : PackedScene = preload("res://Objects/Effects/SoundFX/SoundFX3D.tscn")
-const DEAFEN_AMOUNT : float = 1.5 #for pausing purposes
+const DEAFEN_AMOUNT : float = 5 #for pausing purposes
 const GRAVITY : float = 10.0
 enum DAMAGES{
 	LIGHT,
 	HEAVY
 }
 
+
+func _ready():
+	for data in default_game_data:
+		var default_value = default_game_data[data]
+		game_data[data] = default_value
+		
+		call("set_" + data, default_value)
+
+
 func root_scene():
 	return get_tree().get_root().get_child(1)
 
 
-func stage_master():
+func stage_master() -> StageMaster:
 	return get_tree().get_first_node_in_group("StageMaster")
 
 
@@ -51,8 +60,8 @@ func pause(mode:bool, mode_pause:PAUSES=PAUSES.FULL):
 	if mode == true: 
 		current_pause = mode_pause
 		if mode_pause == PAUSES.FULL: #if the pause mode is full, then the volume will be deafened
-			current_music_volume -= DEAFEN_AMOUNT
-			current_sfx_volume -= DEAFEN_AMOUNT
+			current_music_volume = get_music_volume() - DEAFEN_AMOUNT
+			current_sfx_volume =get_sfx_volume() - DEAFEN_AMOUNT
 	else:
 		current_music_volume = get_music_volume()
 		current_sfx_volume = get_sfx_volume()
@@ -109,12 +118,17 @@ func get_music_volume():
 
 
 func change_scene(scene_path:String, with_data:Dictionary={}):
+	change_scene_packed(load(scene_path), with_data)
+	Global.pause(false)
+
+
+func change_scene_packed(scene_path:PackedScene, with_data:Dictionary={}):
 	_reset_temporary_data() #erasing the temporary data as to not interfere with the next temporary data
 	if with_data.size() > 0: #checking the with data for value
 		for data in with_data:
 			_set_temporary_data(data, with_data[data]) #inserting the with data into the temporary data
 # warning-ignore:return_value_discarded
-	get_tree().change_scene(scene_path)
+	get_tree().change_scene_to_packed(scene_path)
 
 
 func play_sound(sound_file:AudioStream, position:Vector3=Vector3.ZERO):

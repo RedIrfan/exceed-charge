@@ -25,9 +25,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.5946522"
-     inkscape:cx="2132.3389"
-     inkscape:cy="470.02265"
+     inkscape:zoom="0.41068322"
+     inkscape:cx="362.81005"
+     inkscape:cy="1257.6603"
      inkscape:window-width="1024"
      inkscape:window-height="705"
      inkscape:window-x="-8"
@@ -435,6 +435,14 @@
        inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Hearts\Ace.png"
        inkscape:export-xdpi="60"
        inkscape:export-ydpi="60" />
+    <path
+       id="path2268-9"
+       style="fill:#ffffff;fill-opacity:1;stroke:#5e5e5e;stroke-width:5;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
+       d="m -61.62033,319.69364 -9.557405,13.33686 16.804247,19.07015 16.804258,-19.07015 -9.557219,-13.33686 c 0,0 -7.2094,8.48744 -7.247039,8.51644 -0.03784,-0.029 -7.246842,-8.51644 -7.246842,-8.51644 z"
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-filename="..\..\Godot\Assets\Menus\MainMenu\Health.png"
+       inkscape:export-xdpi="40"
+       inkscape:export-ydpi="40" />
     <rect
        style="fill:#c61a55;fill-opacity:1;stroke:#7c0c4c;stroke-width:2.50001;stroke-linecap:square;stroke-dasharray:none;stroke-opacity:1"
        id="rect349"
@@ -1245,6 +1253,127 @@
            inkscape:export-filename="..\..\Godot\Assets\Hud\Cards\PassiveCards\Diamonds\Ace.png"
            inkscape:export-xdpi="60"
            inkscape:export-ydpi="60" />
+      </g>
+    </g>
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#5e5e5e;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+       d="M -7.6671756,313.23118 H 26.994778 v 17.3734 l -8.105107,17.93555 H 0.4378779 l -8.1050535,-17.93555 z"
+       id="path3393"
+       inkscape:export-filename="..\..\Godot\Assets\Menus\MainMenu\Defense.png"
+       inkscape:export-xdpi="40"
+       inkscape:export-ydpi="40" />
+    <g
+       id="g4127"
+       transform="matrix(1.0063218,0,0,0.86011337,-4.999399,234.90941)"
+       style="stroke-width:3.22459;stroke-dasharray:none;fill:#ffffff;fill-opacity:1;stroke:#5e5e5e;stroke-opacity:1"
+       inkscape:export-filename="..\..\Godot\Assets\Menus\MainMenu\Agility.png"
+       inkscape:export-xdpi="40"
+       inkscape:export-ydpi="40">
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:#5e5e5e;stroke-width:3.22459;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="M 60.926162,92.937884 72.968254,111.82299 60.926162,130.70811 Z"
+         id="path4121" />
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:#5e5e5e;stroke-width:3.22459;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="M 72.968254,92.937874 85.010346,111.82298 72.968254,130.7081 Z"
+         id="path4123" />
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:#5e5e5e;stroke-width:3.22459;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="M 85.010346,92.937874 97.052438,111.82298 85.010346,130.7081 Z"
+         id="path4125" />
+    </g>
+    <g
+       id="g4139"
+       inkscape:export-filename="..\..\Godot\Assets\Menus\MainMenu\AttackDamage.png"
+       inkscape:export-xdpi="40"
+       inkscape:export-ydpi="40"
+       transform="translate(-7.7310196,234.50759)"
+       style="fill:#ffffff;fill-opacity:1;stroke:#5e5e5e;stroke-opacity:1">
+      <path
+         sodipodi:type="star"
+         style="fill:#ffffff;fill-opacity:1;stroke:#5e5e5e;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         id="path4129"
+         inkscape:flatsided="false"
+         sodipodi:sides="5"
+         sodipodi:cx="142.36494"
+         sodipodi:cy="91.708588"
+         sodipodi:r1="12.920861"
+         sodipodi:r2="6.4604301"
+         sodipodi:arg1="1.5581584"
+         sodipodi:arg2="2.1864769"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 142.52823,104.62842 -3.89428,-7.645663 -8.50603,-1.126426 6.06805,-6.066318 -1.55721,-8.437808 7.64454,3.896468 7.54363,-4.088426 -1.34347,8.474469 6.21943,5.911022 -8.47485,1.341041 z"
+         inkscape:transform-center-x="-0.060209956"
+         inkscape:transform-center-y="1.4147869"
+         transform="matrix(1.1931612,0,0,1.1931612,-24.729412,-2.3097469)" />
+      <g
+         id="g4137"
+         transform="rotate(45,135.17465,111.88689)"
+         style="fill:#ffffff;fill-opacity:1;stroke:#5e5e5e;stroke-opacity:1">
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:#5e5e5e;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+           id="rect4131"
+           width="8.050849"
+           height="31.380505"
+           x="131.21648"
+           y="101.55461" />
+        <path
+           style="fill:#ffffff;fill-opacity:1;stroke:#5e5e5e;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+           d="m 129.02696,117.57501 3e-5,-18.266802 6.14765,-7.59962 6.27828,7.59962 -0.13059,18.266802 z"
+           id="path4133"
+           sodipodi:nodetypes="cccccc" />
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:#5e5e5e;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+           id="rect4135"
+           width="21.420918"
+           height="5.9790411"
+           x="124.46419"
+           y="117.57501" />
+      </g>
+    </g>
+    <g
+       id="g4155"
+       inkscape:export-filename="..\..\Godot\Assets\Menus\MainMenu\AttackSpeed.png"
+       inkscape:export-xdpi="40"
+       inkscape:export-ydpi="40"
+       transform="translate(102.35036,150.00962)"
+       style="fill:#ffffff;fill-opacity:1;stroke:#5e5e5e;stroke-opacity:1">
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:#5e5e5e;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m 72.891,168.21483 13.04038,8.43701 -13.04038,8.437 z"
+         id="path4141" />
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:#5e5e5e;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m 80.89,168.21483 13.04038,8.43701 -13.04038,8.437 z"
+         id="path4143" />
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:#5e5e5e;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+         d="m 88.890325,168.21483 13.040375,8.43701 -13.040375,8.437 z"
+         id="path4145" />
+      <g
+         id="g4153"
+         transform="rotate(45,18.077146,95.742375)"
+         style="fill:#ffffff;fill-opacity:1;stroke:#5e5e5e;stroke-opacity:1">
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:#5e5e5e;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+           id="rect4147"
+           width="8.050849"
+           height="31.380505"
+           x="131.21648"
+           y="101.55461" />
+        <path
+           style="fill:#ffffff;fill-opacity:1;stroke:#5e5e5e;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+           d="m 129.02696,117.57501 3e-5,-18.266802 6.14765,-7.59962 6.27828,7.59962 -0.13059,18.266802 z"
+           id="path4149"
+           sodipodi:nodetypes="cccccc" />
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:#5e5e5e;stroke-width:3;stroke-linecap:square;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+           id="rect4151"
+           width="21.420918"
+           height="5.9790411"
+           x="124.46419"
+           y="117.57501" />
       </g>
     </g>
   </g>
