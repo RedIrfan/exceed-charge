@@ -90,6 +90,7 @@ _data = {
 }
 
 [node name="ConfirmationMenu" instance=ExtResource("1_800dw")]
+process_mode = 3
 script = ExtResource("2_48i3u")
 
 [node name="Label" type="Label" parent="Panel/Inside" index="0"]
@@ -145,3 +146,4 @@ libraries = {
 
 [connection signal="pressed" from="Panel/Inside/HBoxContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]
 [connection signal="pressed" from="Panel/Inside/HBoxContainer/CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -38,10 +38,9 @@ func _on_option_button_pressed():
 
 
 func _on_main_menu_button_pressed():
-	confirmation_menu.set_question("Exit to Main Menu?")
-	await confirmation_menu.exited
+	await confirmation_menu.set_question("Exit to Main Menu?").answered
 	
 	if confirmation_menu.answer == ConfirmationMenu.ANSWERS.CONFIRMED:
-		Global.change_scene("res://Scenes/Menus/MainMenu/MainMenu.tscn")
+		Global.stage_master().exit_main_menu()
 	
 	main_menu_button.grab_focus()

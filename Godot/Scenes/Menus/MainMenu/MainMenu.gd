@@ -63,14 +63,10 @@ func _on_option_button_pressed():
 func _on_exit_button_pressed():
 	in_home = false
 	
-	confirmation_menu.set_question("Exit?")
-	await confirmation_menu.exited
+	await confirmation_menu.set_question("Exit?").answered
 	
 	if confirmation_menu.answer == ConfirmationMenu.ANSWERS.CONFIRMED:
 		get_tree().quit()
 	
 	exit_button.grab_focus()
 	in_home = true
-
-
-

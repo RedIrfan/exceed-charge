@@ -1,6 +1,8 @@
 class_name ConfirmationMenu
 extends PopupUI
 
+signal answered(final_answer)
+
 enum ANSWERS{
 	NONE,
 	CONFIRMED,
@@ -14,10 +16,15 @@ enum ANSWERS{
 
 var question : String
 var answer : ANSWERS = ANSWERS.NONE
-var listener : Callable
 var focus_on : ANSWERS
+var erase_after_answering : bool = false
 
-var listener_exists : bool = false
+
+func spawn(spawner:Node, _erase_after_answering:bool=true):
+	spawner.add_child(self)
+	erase_after_answering = _erase_after_answering
+	
+	return self
 
 
 func set_focus_on(focus:ANSWERS):
@@ -29,22 +36,24 @@ func set_focus_on(focus:ANSWERS):
 			cancel_button.grab_focus()
 
 
-func set_question(new_question:String, callable=null, new_focus_on:ANSWERS=ANSWERS.CANCELED):
+func set_question(new_question:String, new_focus_on:ANSWERS=ANSWERS.CANCELED, confirm_text:String="Confirm", cancel_text:String="Cancel"):
 	question = new_question
 	question_label.set_text(question)
 	
-	answer = ANSWERS.NONE
+	confirm_button.set_text(confirm_text)
+	cancel_button.set_text(cancel_text)
 	
-	if callable != null:
-		listener_exists = true
-		listener = callable
-		
-		self.exited.connect(callable)
+	answer = ANSWERS.NONE
 	
 	enter()
 	set_focus_on(new_focus_on)
-	await animation_player.animation_finished
-	set_focus_on(new_focus_on)
+	
+	return self
+
+
+func set_answer(new_answer:ANSWERS):
+	answer = new_answer
+	exit()
 
 
 func _on_confirm_button_pressed():
@@ -55,12 +64,11 @@ func _on_cancel_button_pressed():
 	set_answer(ANSWERS.CANCELED)
 
 
-func set_answer(new_answer:ANSWERS):
-	answer = new_answer
-	exit()
-	
-	await self.exited
-	
-	if listener_exists:
-		listener_exists = false
-		self.exited.disconnect(listener)
+func _on_animation_player_animation_finished(_anim_name):
+	if answer == ANSWERS.NONE:
+		set_focus_on(focus_on)
+	else:
+		emit_signal("answered", answer)
+		
+		if erase_after_answering:
+			queue_free()
