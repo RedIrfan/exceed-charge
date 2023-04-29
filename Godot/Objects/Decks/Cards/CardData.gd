@@ -21,7 +21,8 @@ enum VALUES {
 	DEUCE,
 	THREE,
 	FOUR,
-	JACK
+	JACK,
+	KING
 }
 
 ## Ace is Adding an amount, Two is Adding 4 amount and subtracting an amount Jack is Learning a Skill
@@ -71,11 +72,13 @@ func get_card_drop_chance(_receiver:Character) -> int:
 				card_drop_chance = 30
 			VALUES.JACK:
 				card_drop_chance = 20
+			VALUES.KING:
+				card_drop_chance = 0
 	return card_drop_chance
 
 
 static func value_to_string(val) -> String:
-	var string_conversions = ["none", "Ace", "Deuce", "Three", "Four", "Jack"]
+	var string_conversions = ["none", "Ace", "Deuce", "Three", "Four", "Jack", "King"]
 	
 	return string_conversions[val]
 
@@ -154,11 +157,12 @@ func process_card(body:Character) -> void:
 			if play_sound:
 				Global.play_sound(SOUND_BLACK_HEAL)
 	
-	match value:
-		VALUES.JACK:
-			status_data.add_active_card(active_card_mode, self, charge)
-		_:
-			status_data.add_passive_card(suit, value)
+	if value != VALUES.KING:
+		match value:
+			VALUES.JACK:
+				status_data.add_active_card(active_card_mode, self, charge)
+			_:
+				status_data.add_passive_card(suit, value)
 	
 	unique_process_card(body)
 
