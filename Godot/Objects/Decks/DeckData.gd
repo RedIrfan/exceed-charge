@@ -57,7 +57,12 @@ func use_card(card_index:int, body:Character, card_data:CardData=null) -> bool:
 			
 			card.process_card(body)
 			
-			for index in range(0, card.value):
+			var add_charge_amount = card.value
+			
+			if card.value == CardData.VALUES.KING:
+				add_charge_amount = get_maximum_charge()
+			
+			for index in range(0, add_charge_amount):
 				charge.append(card.suit)
 			
 			if charge.size() >= get_maximum_charge():
