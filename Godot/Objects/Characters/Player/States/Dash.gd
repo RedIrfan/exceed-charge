@@ -33,7 +33,7 @@ func _ready():
 func enter(_msg=[]):
 	body.connect_to_animation_timer(_on_animation_timeout)
 	
-	var four_card_amount = body.get_total_passive_card(CardData.SUITS.TRIANGLE, CardData.VALUES.FOUR)
+	var four_card_amount = body.get_total_passive_card(CardData.SUITS.TRIANGLE, CardData.VALUES.ACE)
 	var distance = dash_distance
 	var speed = dash_speed
 	var sound = SOUND_DASH
@@ -46,11 +46,11 @@ func enter(_msg=[]):
 		body.set_collision_mask_value(2, false)
 		sound = SOUND_TELEPORT
 	
-	chain_dash_max_amount = body.get_total_passive_card(CardData.SUITS.TRIANGLE, CardData.VALUES.THREE)
+	chain_dash_max_amount = body.get_total_passive_card(CardData.SUITS.TRIANGLE, CardData.VALUES.DEUCE)
 	if four_card_amount > 0 or body.get_exceed_charge_suit() == CardData.SUITS.TRIANGLE:
 		attack_hitbox.set_damage(body.get_attack_damage(attack_damage * four_card_amount))
 		if four_card_amount > 0:
-			body.remove_passive_cards(CardData.SUITS.TRIANGLE, CardData.VALUES.FOUR)
+			body.remove_passive_cards(CardData.SUITS.TRIANGLE, CardData.VALUES.ACE)
 	
 	set_move_speed(speed)
 	dashing = true
@@ -78,7 +78,7 @@ func exit():
 func physics_process(_delta):
 #	look_at_mouse()
 	if check_dash() and chain_dash_amount < chain_dash_max_amount:
-		body.remove_passive_cards(CardData.SUITS.TRIANGLE, CardData.VALUES.THREE)
+		body.remove_passive_cards(CardData.SUITS.TRIANGLE, CardData.VALUES.ACE)
 #		chain_dash_amount += 1
 		look_at_mouse(1)
 		enter()
@@ -91,7 +91,7 @@ func physics_process(_delta):
 		body.set_dust_particles(true)
 		
 		if check_primary_attack():
-			if body.get_total_passive_card(CardData.SUITS.ARROW, CardData.VALUES.THREE) or body.get_exceed_charge_suit() == CardData.SUITS.ARROW:
+			if body.get_total_passive_card(CardData.SUITS.ARROW, CardData.VALUES.ACE) or body.get_exceed_charge_suit() == CardData.SUITS.ARROW:
 				fsm.enter_state("PrimaryAttackMaster", [get_relative_direction_name(dash_direction)])
 		apply_direction(dash_direction)
 
