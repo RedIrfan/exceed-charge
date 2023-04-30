@@ -5,7 +5,7 @@ func enter(msg=[]):
 	var slash : bool = true
 	if fsm.previous_state:
 		if fsm.previous_state.name == "Dash" and msg.size() > 0:
-			body.remove_passive_cards(CardData.SUITS.ARROW, CardData.VALUES.THREE)
+			body.remove_passive_cards(CardData.SUITS.ARROW, CardData.VALUES.ACE)
 			match msg[0]:
 				"Forward":
 					fsm.enter_state("Stab")
