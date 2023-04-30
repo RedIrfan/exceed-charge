@@ -36,8 +36,8 @@ func _physics_process(delta):
 
 
 func _on_passive_changed():
-	var shield_amount = player.get_total_passive_card(CardData.SUITS.PENTAGON, CardData.VALUES.THREE)
-	var agility_shield_amount = player.get_total_passive_card(CardData.SUITS.TRIANGLE, CardData.VALUES.THREE)
+	var shield_amount = player.get_total_passive_card(CardData.SUITS.PENTAGON, CardData.VALUES.DEUCE)
+	var agility_shield_amount = player.get_total_passive_card(CardData.SUITS.TRIANGLE, CardData.VALUES.DEUCE)
 	
 	defense_shields = spawn_shields(shield_amount, SHIELD_MESH, defense_shields, "Defense", defense_shield_distance)
 	agility_shields = spawn_shields(agility_shield_amount, AGILITY_SHIELD_MESH, agility_shields, "Agility", agility_shield_distance)
@@ -75,8 +75,8 @@ func spawn_shields(amount:int, mesh:PackedScene, shield_collection:Dictionary, o
 func _on_exceeded_charge():
 	var suit = player.get_exceed_charge_suit()
 	if suit == CardData.SUITS.PENTAGON or suit == CardData.SUITS.TRIANGLE or suit == CardData.SUITS.DIAMOND:
-		if player.get_total_passive_card(suit, CardData.VALUES.THREE) < 5:
-			player.add_passive_cards(suit, CardData.VALUES.THREE, 5)
+		if player.get_total_passive_card(suit, CardData.VALUES.DEUCE) < 5:
+			player.add_passive_cards(suit, CardData.VALUES.DEUCE, 5)
 		
 		if suit != CardData.SUITS.DIAMOND:
 			shield_regeneration_duration = 1
@@ -94,7 +94,7 @@ func _on_exceeded_charge():
 
 func _on_exceed_charge_timeout():
 	if player.get_exceed_charge_suit() == CardData.SUITS.DIAMOND:
-		player.remove_passive_cards(CardData.SUITS.DIAMOND, CardData.VALUES.THREE, 5)
+		player.remove_passive_cards(CardData.SUITS.DIAMOND, CardData.VALUES.DEUCE, 5)
 
 
 func _on_shield_regeneration_timer_timeout():
@@ -103,8 +103,8 @@ func _on_shield_regeneration_timer_timeout():
 	var suit = player.get_exceed_charge_suit()
 	if suit != CardData.SUITS.NONE:
 		if suit == CardData.SUITS.PENTAGON or suit == CardData.SUITS.TRIANGLE:
-			if player.get_total_passive_card(suit, CardData.VALUES.THREE) < 5:
-				player.add_passive_cards(suit, CardData.VALUES.THREE, 1)
+			if player.get_total_passive_card(suit, CardData.VALUES.DEUCE) < 5:
+				player.add_passive_cards(suit, CardData.VALUES.DEUCE, 1)
 			
 			if suit == CardData.SUITS.PENTAGON and shield_regeneration_turn >= 2:
 				var shockwave = PENTAGON_SHOCKWAVE.instantiate()
