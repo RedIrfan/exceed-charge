@@ -6,7 +6,7 @@ var hurt_data : Hurtdata
 func enter_condition(_body, _fsm, _params=[]):
 	body = _body
 	hurt_data = body.hurt_data
-	if body.get_total_passive_card(CardData.SUITS.PENTAGON, CardData.VALUES.FOUR) or body.get_exceed_charge_suit() == CardData.SUITS.PENTAGON:
+	if body.get_total_passive_card(CardData.SUITS.PENTAGON, CardData.VALUES.ACE) or body.get_exceed_charge_suit() == CardData.SUITS.PENTAGON:
 		var attacker_direction = (hurt_data.attack_position - body.global_position).normalized()
 		var body_direction = body.direction * -1
 		
@@ -20,7 +20,7 @@ func enter(_msg=[]):
 	body.connect_to_animation_timer(_on_animation_timeout)
 	body.hurt_data = null
 	if body.get_exceed_charge_suit() != CardData.SUITS.PENTAGON:
-		body.remove_passive_cards(CardData.SUITS.PENTAGON, CardData.VALUES.FOUR)
+		body.remove_passive_cards(CardData.SUITS.PENTAGON, CardData.VALUES.ACE)
 	
 	body.play_animation("Parry", 0.625)
 	look_at(hurt_data.attack_position)
