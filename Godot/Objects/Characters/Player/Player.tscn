@@ -38,9 +38,9 @@
 [ext_resource type="PackedScene" uid="uid://d34vdm2wj7b2c" path="res://Objects/Effects/GatherEnergy/GatherEnergy.tscn" id="29_ackrf"]
 [ext_resource type="PackedScene" uid="uid://bkg4yc4ptm36y" path="res://Objects/Projectile/PlayerProjectile/HeavySweep/HeavySweep.tscn" id="30_uoh8c"]
 [ext_resource type="AudioStream" uid="uid://bq84lgdm1amna" path="res://Assets/SFX/Game/Player/Teleport.wav" id="31_6uadc"]
-[ext_resource type="AudioStream" uid="uid://bg3peysgkgeb5" path="res://Assets/SFX/Game/Player/GatherEnergy.wav" id="33_ij435"]
+[ext_resource type="AudioStream" uid="uid://bccackorgw51q" path="res://Assets/SFX/Game/Player/GatherEnergy.wav" id="33_ij435"]
 [ext_resource type="AudioStream" uid="uid://cqm7q57rsevxw" path="res://Assets/SFX/Game/Player/HeavySweep.wav" id="34_rt41s"]
-[ext_resource type="AudioStream" uid="uid://cjneovbwi02jk" path="res://Assets/SFX/Game/Player/InstantSlash.wav" id="37_t2tbm"]
+[ext_resource type="AudioStream" uid="uid://3kpjv5x44j1e" path="res://Assets/SFX/Game/Player/InstantSlash.wav" id="37_t2tbm"]
 
 [sub_resource type="Resource" id="Resource_wwlf2"]
 script = ExtResource("3_b2i5c")
@@ -51,13 +51,13 @@ metadata/_editor_prop_ptr_body = NodePath(".")
 
 [sub_resource type="Resource" id="Resource_x4o1w"]
 script = ExtResource("4_nwcw1")
-defense_multiplier = 1.0
-speed_multiplier = 1.0
-attack_damage_multiplier = 1.0
-attack_speed_multiplier = 1.0
-luck_multiplier = 1.0
+DEFENSE_MULTIPLIER = 1.0
+SPEED_MULTIPLIER = 1.0
+ATTACK_DAMAGE_MULTIPLIER = 1.0
+ATTACK_SPEED_MULTIPLIER = 1.0
+LUCK_MULTIPLIER = 1.0
 element = 0
-var_passive_cards = Array[Resource("res://Objects/Decks/Cards/CardData.gd")]([])
+_passive_cards = Array[Resource("res://Objects/Decks/Cards/CardData.gd")]([])
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5n2q4"]
 size = Vector3(0.5, 1, 0.5)
@@ -9565,7 +9565,7 @@ target = 2
 [sub_resource type="Resource" id="Resource_mtqkf"]
 script = ExtResource("25_csqg0")
 mode = 0
-value = 4
+value = 2
 suit = 4
 target = 2
 
@@ -9579,7 +9579,7 @@ target = 2
 [sub_resource type="Resource" id="Resource_qqmva"]
 script = ExtResource("25_csqg0")
 mode = 0
-value = 4
+value = 2
 suit = 4
 target = 2
 
